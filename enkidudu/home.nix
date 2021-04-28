@@ -92,6 +92,7 @@ in
     x11
     xorg.xkill
     xorg.xwininfo
+    xwayland
     yacreader
     youtube-dl
     zsh-powerlevel10k

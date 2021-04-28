@@ -1,15 +1,8 @@
 { pkgs, home-manager, ... }:
 
-let
-  nixek-overlay = builtins.fetchGit {
-    url = "https://github.com/euank/nixek-overlay";
-    rev = "40fcf31367221bd13f22f3e54583a35aa17438c5";
-  };
-in
 {
   # disabledModules = [ "virtualisation/libvirtd.nix" ];
   imports = [ ./hardware-configuration.nix ];
-  nixpkgs.overlays = [ (import "${nixek-overlay}") ];
   # (;_;)
   nixpkgs.config.allowUnfree = true;
 
@@ -118,10 +111,9 @@ in
     pkg-config
     openssl.dev
     openssl
-    # vivarium TODO
+    vivarium
   ];
   environment.pathsToLink = [ "/share/zsh" ];
-
   services.openssh.enable = true;
 
   sound.enable = true;
@@ -135,13 +127,15 @@ in
   # x11
   services.xserver.layout = "us";
   services.xserver.enable = true;
-  services.xserver.xrandrHeads = [
-    "DisplayPort-1"
-    "DisplayPort-0"
-  ];
+  # services.xserver.xrandrHeads = [
+  #   "DisplayPort-1"
+  #   "DisplayPort-0"
+  # ];
   # Unclear why I need this.
-  services.xserver.desktopManager.xterm.enable = true;
+  # services.xserver.desktopManager.xterm.enable = true;
   # xmonad -- managed by home-manager
+  services.xserver.displayManager.sessionPackages = [ pkgs.vivarium ];
+
 
   services.pcscd.enable = true;
 

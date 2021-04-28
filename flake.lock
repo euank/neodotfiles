@@ -18,6 +18,24 @@
         "type": "github"
       }
     },
+    "nixek": {
+      "inputs": {
+        "nixpkgs": "nixpkgs_2"
+      },
+      "locked": {
+        "lastModified": 1619596115,
+        "narHash": "sha256-k9ihe/dD7VeLrqH9MGuR7+ZP8MCRbd0c8WOPes6mocA=",
+        "owner": "euank",
+        "repo": "nixek-overlay",
+        "rev": "42d14bb405779cf62d7d567ab8765ab1963ff0a1",
+        "type": "github"
+      },
+      "original": {
+        "owner": "euank",
+        "repo": "nixek-overlay",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1612082222,
@@ -32,13 +50,43 @@
         "type": "indirect"
       }
     },
-    "nixpkgs_2": {
+    "nixpkgs-stable": {
       "locked": {
-        "lastModified": 1612079277,
-        "narHash": "sha256-3IVnFtVVnRen5gXYyyiFLEep/43dMUL2z1vgHweE+e8=",
+        "lastModified": 1619562671,
+        "narHash": "sha256-iDDaFkroxzRKuxvrpZJoTt+X9gGsDPCfYYl2DLRdVJA=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "dd04524e6e7956f4a010dc1147ec6fabcb216b73",
+        "rev": "17b101e29dfff7ae02cdd00e8cde243d2a56472d",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "release-20.09",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs_2": {
+      "locked": {
+        "lastModified": 1619593545,
+        "narHash": "sha256-+QhHNlHuItSV4EKQiZ5ONANgQOMXrWc8qYojIJORgxM=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "f3820d580ee15cd6a1aee4f7abece467075f13e7",
+        "type": "github"
+      },
+      "original": {
+        "id": "nixpkgs",
+        "type": "indirect"
+      }
+    },
+    "nixpkgs_3": {
+      "locked": {
+        "lastModified": 1619595013,
+        "narHash": "sha256-LfFtDkjpgnU5YRBgUryCZ/lVuTAhhVC+2EUqEsaypow=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "75e9b83b3822a320a1deca59d7f9a3e08dc59dec",
         "type": "github"
       },
       "original": {
@@ -49,7 +97,9 @@
     "root": {
       "inputs": {
         "home-manager": "home-manager",
-        "nixpkgs": "nixpkgs_2"
+        "nixek": "nixek",
+        "nixpkgs": "nixpkgs_3",
+        "nixpkgs-stable": "nixpkgs-stable"
       }
     }
   },

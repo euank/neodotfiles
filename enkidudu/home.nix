@@ -209,13 +209,6 @@ in
 
   services.picom.enable = true;
 
-  xsession.enable = true;
-  xsession.windowManager.xmonad = {
-    enable = true;
-    enableContribAndExtras = true;
-    config = ./xmonad/xmonad.hs;
-  };
-
   services.screen-locker = {
     enable = true;
     lockCmd = "${pkgs.i3lock}/bin/i3lock";

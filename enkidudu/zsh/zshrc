@@ -51,11 +51,11 @@ compinit
 
 
 #gpg
-if [[ "${SSH_AUTH_SOCK-}" == "" ]]; then
-  gpg-agent --quiet --daemon --enable-ssh-support &>/dev/null
-  export GPG_TTY=$(tty)
-  export SSH_AUTH_SOCK=/run/user/1000/gnupg/S.gpg-agent.ssh
-fi
+# if [[ "${SSH_AUTH_SOCK-}" == "" ]]; then
+#   gpg-agent --quiet --daemon --enable-ssh-support &>/dev/null
+#   export GPG_TTY=$(tty)
+#   export SSH_AUTH_SOCK=/run/user/1000/gnupg/S.gpg-agent.ssh
+# fi
 
 type vim &>/dev/null && export EDITOR=$(which vim)
 if type nvim &>/dev/null; then

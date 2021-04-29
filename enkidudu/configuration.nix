@@ -85,6 +85,8 @@
   programs.gnome-disks.enable = true;
   programs.adb.enable = true;
   boot.kernel.sysctl."net.ipv4.ip_forward" = 1;
+  programs.ssh.startAgent = false;
+  programs.gnupg.agent = { enable = true; enableSSHSupport = true; };
 
   networking.useDHCP = false;
   networking.interfaces.enp1s0.useDHCP = true;
@@ -105,6 +107,7 @@
     dmenu alacritty
     git htop
     gnupg zsh
+    pinentry-curses
     meslo-lg
     zsh
     zfs
@@ -136,8 +139,8 @@
   # xmonad -- managed by home-manager
   services.xserver.displayManager.sessionPackages = [ pkgs.vivarium ];
 
-
   services.pcscd.enable = true;
+  services.udev.packages = [ pkgs.yubikey-personalization ];
 
   virtualisation.docker.enable = true;
 

@@ -201,7 +201,7 @@ in
     enable = true;
     enableScDaemon = true;
     enableSshSupport = true;
-    pinentryFlavor = "gtk2";
+    pinentryFlavor = "curses";
   };
 
   services.blueman-applet.enable = true;

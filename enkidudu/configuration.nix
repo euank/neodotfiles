@@ -128,15 +128,16 @@
   hardware.opengl.enable = true;
 
   # x11
+  # Xmonad setup
   services.xserver.layout = "us";
   services.xserver.enable = true;
-  # services.xserver.xrandrHeads = [
-  #   "DisplayPort-1"
-  #   "DisplayPort-0"
-  # ];
+  services.xserver.xrandrHeads = [
+    "DisplayPort-1"
+    "DisplayPort-0"
+  ];
   # Unclear why I need this.
-  # services.xserver.desktopManager.xterm.enable = true;
-  # xmonad -- managed by home-manager
+  services.xserver.desktopManager.xterm.enable = true;
+  # Vivarium setup
   services.xserver.displayManager.sessionPackages = [ pkgs.vivarium ];
 
   services.pcscd.enable = true;

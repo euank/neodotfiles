@@ -13,15 +13,6 @@ let
     url = "https://github.com/NixOS/nixpkgs/archive/aed3de18b0dc3390bf1759afddce47c438e9877c.tar.gz";
     sha256 = "0yndxryw2yv3xrgjp6rjacwqc81scvsx3wb61k2wqgjpbcsazcp0";
   }) { system = "x86_64-linux"; };
-  discordNixpkgs = import (pkgs.fetchFromGitHub {
-    owner = "NixOS";
-    repo = "nixpkgs";
-    rev = "247e919436b2423012c7aade2189d8e5fc3c2a5e";
-    sha256 = "1j07jc8y1gfwdw1c084kks70ddgimczfjghc3w7zcw6wh73si5jx";
-  }) {
-    system = "x86_64-linux";
-    config = { allowUnfree = true; };
-  };
   # for lsp server support, remove once nvim is 0.5 in nixpkgs
   # and msgpack 1.0
   nightlyNvimNix = (import (builtins.fetchTarball {
@@ -49,7 +40,7 @@ in
     blueman
     chromium
     deluge
-    discordNixpkgs.discord
+    discord
     escrotum
     evince
     feh
@@ -209,6 +200,13 @@ in
   services.dropbox.enable = true;
 
   services.picom.enable = true;
+
+  xsession.enable = true;
+  xsession.windowManager.xmonad = {
+    enable = true;
+    enableContribAndExtras = true;
+    config = ./xmonad/xmonad.hs;
+  };
 
   services.screen-locker = {
     enable = true;

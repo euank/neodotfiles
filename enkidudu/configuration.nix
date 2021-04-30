@@ -107,6 +107,7 @@
     dmenu alacritty
     git htop
     gnupg zsh
+    pcsclite
     pinentry-curses
     meslo-lg
     zsh
@@ -142,16 +143,6 @@
 
   services.pcscd.enable = true;
   services.udev.packages = [ pkgs.yubikey-personalization ];
-
-  security.polkit.extraConfig = ''
-      polkit.addRule(function(action, subject) {
-        if (action.id == "org.debian.pcsc-lite.access_pcsc" &&
-          subject.isInGroup("wheel")) {
-          return polkit.Result.YES;
-        }
-      });
-  '';
-
 
   virtualisation.docker.enable = true;
 

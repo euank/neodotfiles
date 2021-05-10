@@ -178,6 +178,10 @@ in
     enable = true;
     userName = "Euan Kemp";
     userEmail = "euank@" + "euan" + "k.com";
+    aliases = {
+      co = "checkout";
+      s = "status";
+    };
   };
 
   programs.direnv.enable = true;

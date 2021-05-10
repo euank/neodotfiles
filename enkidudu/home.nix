@@ -112,6 +112,9 @@ in
     ruby
     rustup
     terraform
+    pulumi
+    pulumi-sdk
+    kube2pulumi
 
     # game related
     desmume

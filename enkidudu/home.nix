@@ -38,7 +38,7 @@ in
     bemenu
     binutils
     blueman
-    chromium
+    # chromium
     deluge
     discord
     escrotum

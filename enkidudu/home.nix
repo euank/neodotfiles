@@ -48,6 +48,7 @@ in
     file
     firefox
     fish
+    gimp
     gmrun
     gnome3.cheese
     htop

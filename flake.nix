@@ -7,12 +7,15 @@
     home-manager.url = "github:nix-community/home-manager";
     ekverlay.url = "github:euank/nixek-overlay";
     nixek.url = "github:nixek-systems/pkgs";
+    mvn2nix.url = "github:fzakaria/mvn2nix";
   };
 
   outputs =
     { self, nixpkgs, nixpkgs-stable, nixek, ekverlay, home-manager }:
     let
-      stable = import nixpkgs-stable { system = "x86_64-linux"; };
+      stable = import nixpkgs-stable {
+        system = "x86_64-linux";
+      };
       pkgs = import nixpkgs {
         system = "x86_64-linux";
         overlays = [

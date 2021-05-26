@@ -115,7 +115,7 @@
     pkg-config
     openssl.dev
     openssl
-    vivarium
+    # vivarium
   ];
   environment.pathsToLink = [ "/share/zsh" ];
   services.openssh.enable = true;
@@ -139,7 +139,7 @@
   # Unclear why I need this.
   services.xserver.desktopManager.xterm.enable = true;
   # Vivarium setup
-  services.xserver.displayManager.sessionPackages = [ pkgs.vivarium ];
+  # services.xserver.displayManager.sessionPackages = [ pkgs.vivarium ];
 
   services.pcscd.enable = true;
   services.udev.packages = [ pkgs.yubikey-personalization ];

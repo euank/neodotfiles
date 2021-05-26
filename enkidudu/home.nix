@@ -117,6 +117,7 @@ in
     pulumi-sdk
     kube2pulumi
     crd2pulumi
+    mvn2nix
 
     # game related
     desmume

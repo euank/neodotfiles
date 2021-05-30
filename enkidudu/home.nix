@@ -52,7 +52,6 @@ in
     gmrun
     gnome3.cheese
     htop
-    ibus-engines.mozc
     jq
     k3s
     keepassxc

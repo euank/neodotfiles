@@ -38,7 +38,8 @@ in
     bemenu
     binutils
     blueman
-    # chromium
+    borgbackup
+    chromium
     deluge
     discord
     escrotum

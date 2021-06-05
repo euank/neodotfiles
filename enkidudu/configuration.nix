@@ -7,7 +7,8 @@
   nixpkgs.config.allowUnfree = true;
 
   boot.kernel.sysctl."fs.inotify.max_user_instances" = 8192;
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  # Latest supported kernel with zfs support
+  boot.kernelPackages = pkgs.linuxPackages_5_10;
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.supportedFilesystems = [ "zfs" ];

@@ -118,6 +118,7 @@ in
     kube2pulumi
     crd2pulumi
     mvn2nix
+    gradle2nix
 
     # game related
     desmume

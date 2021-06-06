@@ -9,10 +9,11 @@
     nixek.url = "github:nixek-systems/pkgs";
     mvn2nix.url = "github:fzakaria/mvn2nix";
     gradle2nix.url = "github:tadfisher/gradle2nix";
+    dwarffs.url = "github:edolstra/dwarffs";
   };
 
   outputs =
-    { self, nixpkgs, nixpkgs-stable, mvn2nix, gradle2nix, nixek, nix, ekverlay, home-manager }:
+    { self, nixpkgs, nixpkgs-stable, mvn2nix, gradle2nix, nixek, nix, ekverlay, home-manager, dwarffs }:
     let
       stable = import nixpkgs-stable {
         system = "x86_64-linux";
@@ -25,6 +26,7 @@
           (final: prev: {
             mvn2nix = mvn2nix.defaultPackage.x86_64-linux;
             gradle2nix = gradle2nix.defaultPackage.x86_64-linux;
+            dwarffs = dwarffs.defaultPackage.x86_64-linux;
           })
         ];
         config = { allowUnfree = true; };
@@ -37,6 +39,7 @@
         modules = [
           ./enkidudu/configuration.nix
           home-manager.nixosModules.home-manager
+          dwarffs.nixosModules.dwarffs
         ];
       };
     };

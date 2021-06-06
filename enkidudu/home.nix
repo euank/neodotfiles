@@ -122,6 +122,7 @@ in
 
     # game related
     desmume
+    maptool
     melonDS
     minecraft
 

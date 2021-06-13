@@ -5,14 +5,6 @@
 }:
 
 let
-  jdkNixpkgs = import (builtins.fetchTarball {
-    url = "https://github.com/NixOS/nixpkgs/archive/e021b8eea9a3fc87baa3f150753c3226436b67b9.tar.gz";
-    sha256 = "1c1kqzjxanz47fp8pf4zsh8blfl1pdh9fy6ifcakvgy1zcm77jn4";
-  }) { system = "x86_64-linux"; };
-  torNixpkgs = import (builtins.fetchTarball {
-    url = "https://github.com/NixOS/nixpkgs/archive/aed3de18b0dc3390bf1759afddce47c438e9877c.tar.gz";
-    sha256 = "0yndxryw2yv3xrgjp6rjacwqc81scvsx3wb61k2wqgjpbcsazcp0";
-  }) { system = "x86_64-linux"; };
   # for lsp server support, remove once nvim is 0.5 in nixpkgs
   # and msgpack 1.0
   nightlyNvimNix = (import (builtins.fetchTarball {
@@ -79,7 +71,7 @@ in
     tig
     tint2
     tmux
-    torNixpkgs.tor-browser-bundle-bin
+    tor-browser-bundle-bin
     tree
     unzip
     x11
@@ -92,7 +84,7 @@ in
 
     # dev stuff
     (hiPrio clang)
-    (pkgs.lib.hiPrio jdkNixpkgs.openjdk14)
+    openjdk16
     awscli2
     bind
     binutils

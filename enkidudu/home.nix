@@ -171,8 +171,8 @@ in
     };
     initExtra = ''
       source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme
-      source "${./zsh/p10k.zsh}"
-      source "${./zsh/zshrc}"
+      source "${../shared/zsh/p10k.zsh}"
+      source "${../shared/zsh/zshrc}"
     '';
   };
   programs.git = {

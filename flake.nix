@@ -10,10 +10,14 @@
     mvn2nix.url = "github:fzakaria/mvn2nix";
     gradle2nix.url = "github:tadfisher/gradle2nix";
     dwarffs.url = "github:edolstra/dwarffs";
+
+    # Magic unimportable things
+    ngrok-dev.url = "path:../nix-ngrok-dev";
+    secrets.url = "path:../nix-secrets";
   };
 
   outputs =
-    { self, nixpkgs, nixpkgs-stable, mvn2nix, gradle2nix, nixek, nix, ekverlay, home-manager, dwarffs }@inputs:
+    { self, nixpkgs, nixpkgs-stable, mvn2nix, gradle2nix, nixek, nix, ekverlay, home-manager, dwarffs, ... }@inputs:
     let
       system = "x86_64-linux";
       stable = import nixpkgs-stable {
@@ -39,6 +43,13 @@
         specialArgs = { inherit inputs; };
         modules = [
           ./enkidudu/configuration.nix
+        ];
+      };
+      jane = nixpkgs.lib.nixosSystem rec {
+        inherit pkgs system;
+        specialArgs = { inherit inputs; };
+        modules = [
+          ./jane/configuration.nix
         ];
       };
     };

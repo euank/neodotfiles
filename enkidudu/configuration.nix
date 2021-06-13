@@ -1,8 +1,16 @@
-{ pkgs, home-manager, ... }:
+{ pkgs, inputs, ... }:
 
+let
+  inherit (inputs) home-manager dwarffs;
+in
 {
   # disabledModules = [ "virtualisation/libvirtd.nix" ];
-  imports = [ ./hardware-configuration.nix ];
+  imports = [
+    ./hardware-configuration.nix
+    home-manager.nixosModules.home-manager
+    dwarffs.nixosModules.dwarffs
+  ];
+
   # (;_;)
   nixpkgs.config.allowUnfree = true;
 

@@ -13,7 +13,7 @@
   };
 
   outputs =
-    { self, nixpkgs, nixpkgs-stable, mvn2nix, gradle2nix, nixek, nix, ekverlay, home-manager, dwarffs }:
+    { self, nixpkgs, nixpkgs-stable, mvn2nix, gradle2nix, nixek, nix, ekverlay, home-manager, dwarffs }@inputs:
     let
       stable = import nixpkgs-stable {
         system = "x86_64-linux";
@@ -36,10 +36,9 @@
       Enkidudu = nixpkgs.lib.nixosSystem rec {
         inherit pkgs;
         system = "x86_64-linux";
+        specialArgs = { inherit inputs; };
         modules = [
           ./enkidudu/configuration.nix
-          home-manager.nixosModules.home-manager
-          dwarffs.nixosModules.dwarffs
         ];
       };
     };

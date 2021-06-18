@@ -91,3 +91,46 @@ set foldenable
 set foldmethod=syntax
 set foldlevelstart=99
 let g:xml_syntax_folding=1
+
+nnoremap <left> :bprev<CR>
+nnoremap <right> :bnext<CR>
+nnoremap <up> :tabnext<CR>
+nnoremap <down> :tabprev<CR>
+
+inoremap <C-h> <left>
+inoremap <C-l> <right>
+inoremap <C-u> <C-g>u<C-u>
+
+inoremap <C-c> <Esc>
+vnoremap <C-c> <Esc>
+noremap <C-c> <Esc>
+nnoremap <C-c> <Esc>
+
+nnoremap / /\v
+vnoremap / /\v
+nnoremap ? ?\v
+vnoremap ? ?\v
+nnoremap :s/ :s/\v
+
+" screen line scroll
+nnoremap <silent> j gj
+nnoremap <silent> k gk
+
+nnoremap <silent> n nzz
+nnoremap <silent> N Nzz
+nnoremap <silent> * *zz
+nnoremap <silent> # #zz
+nnoremap <silent> g* g*zz
+nnoremap <silent> g# g#zz
+nnoremap <silent> <C-o> <C-o>zz
+nnoremap <silent> <C-i> <C-i>zz
+
+vnoremap < <gv
+vnoremap > >gv
+
+nnoremap Y y$
+
+nmap <leader>l :set list! list?<cr>
+nnoremap <BS> :set hlsearch! hlsearch?<cr>
+
+autocmd FileType vim setlocal fdm=indent keywordprg=:help

@@ -95,6 +95,7 @@ in
         plugin = deoplete-nvim;
         config = ''
           let g:deoplete#enable_at_startup = 1
+          autocmd Filetype go setlocal omnifunc=v:lua.vim.lsp.omnifunc
           set completeopt=noselect
         '';
       })
@@ -115,12 +116,59 @@ in
 
           configs.gopls.setup{
             cmd = {'gopls', '-remote=auto'},
-            init_options = { },
+            init_options = {
+              staticcheck = false,
+            },
           }
 
           configs.rust_analyzer.setup({})
           configs.tsserver.setup{}
           EOF
+        '';
+      })
+      ({
+        plugin = vim-fugitive;
+        config = ''
+          nnoremap <silent> <leader>gs :Gstatus<CR>
+          nnoremap <silent> <leader>gd :Gdiff<CR>
+          nnoremap <silent> <leader>gc :Gcommit<CR>
+          nnoremap <silent> <leader>gb :Gblame<CR>
+          nnoremap <silent> <leader>gl :Glog<CR>
+          nnoremap <silent> <leader>gp :Git push<CR>
+          nnoremap <silent> <leader>gw :Gwrite<CR>
+          nnoremap <silent> <leader>gr :Gremove<CR>
+          autocmd BufReadPost fugitive://* set bufhidden=delete
+        '';
+      })
+      vim-rhubarb
+      # vim-ripgrep
+      ({
+        plugin = vim-go;
+        config = ''
+          let g:go_fmt_command = "goimports"
+          let g:go_rename_command = "gopls"
+          let g:go_fmt_options = {
+          \ 'gofmt': '-s',
+          \ 'goimports': '-local go.ngrok.com',
+          \ }
+          let g:go_highlight_functions = 1
+          let g:go_highlight_methods = 1
+          let g:go_highlight_structs = 1
+          let g:go_highlight_operators = 1
+          let g:go_highlight_build_constraints = 1
+        '';
+      })
+      ({
+        plugin = ale;
+        config = ''
+          let g:ale_rust_cargo_check_all_targets = 1
+          let g:ale_fixers = ['rustfmt', 'eslint']
+          let g:ale_fix_on_save = 1
+          let g:ale_fixers = {
+          \   '*': ['remove_trailing_lines', 'trim_whitespace'],
+          \   'typescript': ['eslint'],
+          \}
+          let g:ale_linters = { 'haskell': ['stack-ghc', 'stack-build']}
         '';
       })
     ];

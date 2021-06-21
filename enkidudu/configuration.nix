@@ -172,6 +172,13 @@ in
     extraGroups = [ "wheel" "docker" "adbusers" "user-with-access-to-virtualbox" "libvirtd" "video" "dwarffs" ];
   };
 
+  security.pam.loginLimits = [{
+    domain = "*";
+    type = "soft";
+    item = "nofile";
+    value = "50000";
+  }];
+
   home-manager.useUserPackages = true;
   home-manager.useGlobalPkgs = true;
   home-manager.users.esk = import ./home.nix;

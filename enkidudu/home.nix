@@ -112,7 +112,6 @@ in
     crd2pulumi
     mvn2nix
     gradle2nix
-    flyctl
 
     # game related
     desmume

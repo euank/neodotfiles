@@ -112,6 +112,7 @@ in
     crd2pulumi
     mvn2nix
     gradle2nix
+    flyctl
 
     # game related
     desmume
@@ -275,16 +276,53 @@ in
     enable = true;
 
     userDirs = {
-      enable = true;
-      desktop = "$HOME/Desktop";
-      download = "$HOME/Downloads";
-      documents = "$HOME/Documents";
-      templates = "$HOME/Templates";
-      music = "$HOME/Music";
-      videos = "$HOME/Videos";
-      pictures = "$HOME/Pictures";
+      enable      = true;
+      desktop     = "$HOME/Desktop";
+      download    = "$HOME/Downloads";
+      documents   = "$HOME/Documents";
+      templates   = "$HOME/Templates";
+      music       = "$HOME/Music";
+      videos      = "$HOME/Videos";
+      pictures    = "$HOME/Pictures";
       publicShare = "$HOME/share/public";
     };
+
+    desktopEntries = {
+      firefox-def = {
+        name = "Firefox Default Profile";
+        genericName = "Web Browser";
+        exec = "firefox -P default %U";
+        terminal = false;
+        categories = [ "Application" "Network" "WebBrowser" ];
+        mimeType = [
+          "text/html"
+          "text/xml"
+          "application/xhtml+xml"
+          "application/vnd.mozilla.xul+xml"
+          "x-scheme-handler/http"
+          "x-scheme-handler/https"
+          "x-scheme-handler/ftp"
+        ];
+      };
+    };
+
+    mimeApps = {
+      enable = true;
+      associations.added = {
+        "image/png"       = "feh.desktop";
+        "image/jpeg"      = "feh.desktop";
+        "application/pdf" = "org.gnome.Evince.desktop";
+      };
+
+      defaultApplications = {
+        "text/html"                = [ "firefox-def.desktop" ];
+        "x-scheme-handler/http"    = [ "firefox-def.desktop" ];
+        "x-scheme-handler/https"   = [ "firefox-def.desktop" ];
+        "x-scheme-handler/about"   = [ "firefox-def.desktop" ];
+        "x-scheme-handler/unknown" = [ "firefox-def.desktop" ];
+      };
+    };
+
   };
 
   # This value determines the Home Manager release that your

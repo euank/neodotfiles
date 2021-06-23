@@ -14,6 +14,7 @@
 
     # Magic unimportable things
     ngrok-dev.url = "path:/home/esk/dev/ngrok/nix";
+    ngrok-dev2.url = "path:/home/esk/nix-ngrok-dev";
     secrets.url = "path:/home/esk/dev/nix-secrets";
   };
 
@@ -55,13 +56,21 @@
             ./jane/configuration.nix
           ];
         };
+
+        rolivaw = nixpkgs.lib.nixosSystem rec {
+          inherit pkgs system;
+          specialArgs = { inherit inputs; };
+          modules = [
+            ./rolivaw/configuration.nix
+          ];
+        };
       };
 
       # nix-flake-update is an update script for updating the subset of flake
       # inputs that are available publicly.
       # It filters out specific inputs that aren't always present
       nix-flake-update = with pkgs; let
-        pubInputs = lib.subtractLists [ "ngrok-dev" "secrets" ] (lib.attrNames inputs);
+        pubInputs = lib.subtractLists [ "ngrok-dev" "ngrok-dev2" "secrets" ] (lib.attrNames inputs);
         updateInputFlags = lib.strings.concatMapStringsSep " " (s: "--update-input ${s}") pubInputs;
       in
       pkgs.writeScriptBin "nix-flake-update" ''
@@ -70,6 +79,5 @@
         nix flake lock ${updateInputFlags}
         set +x
       '';
-
     };
 }

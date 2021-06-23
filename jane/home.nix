@@ -1,18 +1,6 @@
 { config, pkgs, ... }:
 
 let
-  # for lsp server support, remove once nvim is 0.5 in nixpkgs
-  # and msgpack 1.0
-  nightlyNvimNix = (import (builtins.fetchTarball {
-    url = "https://github.com/NixOS/nixpkgs/archive/48d6448ec2bcef0c29cdf91a4339dcb2fa0b0f02.tar.gz";
-    sha256 = "1gla32h0scxd0dixg44cbc90lcfdvk33154amw43b2mvi9nk9h3n";
-  }) {
-    system = "x86_64-linux";
-  });
-  nightlyNvim = nightlyNvimNix.neovim.override {
-    extraPython3Packages = (ps: [ ps.msgpack ]);
-    withNodeJs = true;
-  };
   sessionVariables = {
     EDITOR = "nvim";
     PKG_CONFIG_PATH = "${pkgs.openssl.dev}/lib/pkgconfig:";
@@ -44,7 +32,6 @@ in
     jq
     kubectl
     kubernetes-helm
-    nightlyNvim
     nixpkgs-fmt
     ngrok-2
     openssl
@@ -80,6 +67,63 @@ in
 
   programs.alacritty = {
     enable = true;
+  };
+
+  programs.neovim = {
+    enable = true;
+    withPython3 = true;
+    withNodeJs = true;
+    package = pkgs.neovim;
+    extraConfig = "source ${../shared/vim/vimrc}";
+    plugins = with pkgs.vimPlugins; [
+      ({
+        plugin = vim-airline;
+        config = ''
+          let g:airline#extensions#tabline#enabled = 1
+          let g:airline#extensions#tabline#left_sep = ' '
+          let g:airline#extensions#tabline#left_alt_sep = '¦'
+          let g:airline#extensions#tabline#buffer_idx_mode = 1
+        '';
+      })
+      vim-surround
+      vim-repeat
+      vim-dispatch
+      vim-eunuch
+      vim-sleuth
+      denite-nvim
+      ({
+        plugin = deoplete-nvim;
+        config = ''
+          let g:deoplete#enable_at_startup = 1
+          set completeopt=noselect
+        '';
+      })
+      deoplete-lsp
+      vim-nix
+      ({
+        plugin = vim-colorschemes;
+        config = ''
+          let g:inkpot_black_background = 1
+          colorscheme inkpot
+        '';
+      })
+      ({
+        plugin = nvim-lspconfig;
+        config = ''
+          lua << EOF
+          local configs = require'lspconfig'
+
+          configs.gopls.setup{
+            cmd = {'gopls', '-remote=auto'},
+            init_options = { },
+          }
+
+          configs.rust_analyzer.setup({})
+          configs.tsserver.setup{}
+          EOF
+        '';
+      })
+    ];
   };
 
   programs.home-manager.enable = true;

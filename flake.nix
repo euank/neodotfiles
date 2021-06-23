@@ -3,6 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    neovim.url = "github:neovim/neovim?dir=contrib";
     nixpkgs-stable.url = "github:NixOS/nixpkgs/release-20.09";
     home-manager.url = "github:nix-community/home-manager";
     ekverlay.url = "github:euank/nixek-overlay";
@@ -32,6 +33,7 @@
             mvn2nix = mvn2nix.defaultPackage.x86_64-linux;
             gradle2nix = gradle2nix.defaultPackage.x86_64-linux;
             dwarffs = dwarffs.defaultPackage.x86_64-linux;
+            neovim = inputs.neovim.defaultPackage.x86_64-linux;
           })
         ];
         config = { allowUnfree = true; };

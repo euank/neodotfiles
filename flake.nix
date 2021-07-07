@@ -38,22 +38,36 @@
         ];
         config = { allowUnfree = true; };
       };
-    in {
-    nixosConfigurations = rec {
-      Enkidudu = nixpkgs.lib.nixosSystem rec {
-        inherit pkgs system;
-        specialArgs = { inherit inputs; };
-        modules = [
-          ./enkidudu/configuration.nix
-        ];
+    in
+    {
+      nixosConfigurations = rec {
+        Enkidudu = nixpkgs.lib.nixosSystem rec {
+          inherit pkgs system;
+          specialArgs = { inherit inputs; };
+          modules = [
+            ./enkidudu/configuration.nix
+          ];
+        };
+        jane = nixpkgs.lib.nixosSystem rec {
+          inherit pkgs system;
+          specialArgs = { inherit inputs; };
+          modules = [
+            ./jane/configuration.nix
+          ];
+        };
       };
-      jane = nixpkgs.lib.nixosSystem rec {
-        inherit pkgs system;
-        specialArgs = { inherit inputs; };
-        modules = [
-          ./jane/configuration.nix
-        ];
-      };
+
+      # nix-flake-update is an update script for updating the subset of flake
+      # inputs that are available publicly.
+      # It filters out specific inputs that aren't always present
+      nix-flake-update = with pkgs; let
+        pubInputs = lib.subtractLists [ "ngrok-dev" "secrets" ] (lib.attrNames inputs);
+        updateInputFlags = lib.strings.concatMapStringsSep " " (s: "--update-input ${s}") pubInputs;
+      in
+      pkgs.writeScript "nix-flake-update" ''
+        export PATH=$PATH:${pkgs.nixFlakes}/bin
+        nix flake lock ${updateInputFlags}
+      '';
+
     };
-  };
 }

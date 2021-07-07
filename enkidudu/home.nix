@@ -95,7 +95,7 @@ in
     go
     gopls
     gradle
-    ipmiview
+    # ipmiview
     linuxPackages.perf
     nightlyNvim
     nodePackages.typescript-language-server

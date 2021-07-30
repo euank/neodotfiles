@@ -64,9 +64,11 @@
         pubInputs = lib.subtractLists [ "ngrok-dev" "secrets" ] (lib.attrNames inputs);
         updateInputFlags = lib.strings.concatMapStringsSep " " (s: "--update-input ${s}") pubInputs;
       in
-      pkgs.writeScript "nix-flake-update" ''
+      pkgs.writeScriptBin "nix-flake-update" ''
         export PATH=$PATH:${pkgs.nixFlakes}/bin
+        set -x
         nix flake lock ${updateInputFlags}
+        set +x
       '';
 
     };

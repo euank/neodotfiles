@@ -113,6 +113,7 @@ in
     mvn2nix
     gradle2nix
     idea.idea-community
+    coldsnap
 
     # game related
     desmume

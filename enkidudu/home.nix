@@ -112,6 +112,7 @@ in
     crd2pulumi
     mvn2nix
     gradle2nix
+    idea.idea-community
 
     # game related
     desmume

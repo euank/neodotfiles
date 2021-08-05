@@ -23,6 +23,7 @@ let
     XMODIFIERS = "@im=ibus";
     QT_IM_MODULE = "ibus";
     NIX_DEBUG_INFO_DIRS = "/run/dwarffs";
+    PROTOC = "${pkgs.protobuf}/bin/protoc";
   };
 in
 {

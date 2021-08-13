@@ -28,7 +28,7 @@ let
 in
 {
   home.packages = with pkgs; [
-    anki
+    anki-bin
     bemenu
     binutils
     blueman

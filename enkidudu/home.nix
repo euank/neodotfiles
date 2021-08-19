@@ -31,6 +31,7 @@ in
     anki-bin
     bemenu
     binutils
+    blender
     blueman
     borgbackup
     chromium
@@ -47,6 +48,7 @@ in
     gmrun
     gnome3.cheese
     htop
+    inkscape
     jq
     k3s
     keepassxc

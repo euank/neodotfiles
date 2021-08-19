@@ -98,8 +98,8 @@ in
   programs.gnupg.agent = { enable = true; enableSSHSupport = true; };
 
   networking.useDHCP = false;
-  networking.interfaces.enp1s0.useDHCP = true;
-  networking.interfaces.wlp3s0.useDHCP = false;
+  networking.interfaces.enp8s0.useDHCP = true;
+  networking.interfaces.wlp6s0.useDHCP = false;
   networking.firewall.enable = false;
 
   # Select internationalisation properties.

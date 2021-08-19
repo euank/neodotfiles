@@ -16,7 +16,7 @@ in
 
   boot.kernel.sysctl."fs.inotify.max_user_instances" = 8192;
   # Latest supported kernel with zfs support
-  boot.kernelPackages = pkgs.linuxPackages_5_10;
+  boot.kernelPackages = pkgs.linuxPackages_5_13;
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.supportedFilesystems = [ "zfs" ];
@@ -141,10 +141,11 @@ in
   # Xmonad setup
   services.xserver.layout = "us";
   services.xserver.enable = true;
-  services.xserver.xrandrHeads = [
-    "DisplayPort-1"
-    "DisplayPort-0"
-  ];
+  services.xserver.videoDrivers = [ "amdgpu" ];
+  # services.xserver.xrandrHeads = [
+  #   "DisplayPort-1"
+  #   "DisplayPort-0"
+  # ];
   # Unclear why I need this.
   services.xserver.desktopManager.xterm.enable = true;
   # Vivarium setup

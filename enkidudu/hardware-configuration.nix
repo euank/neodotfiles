@@ -6,7 +6,7 @@
 {
   hardware.enableRedistributableFirmware = true;
   boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "ahci" "usbhid" "sd_mod" ];
-  boot.initrd.kernelModules = [ ];
+  boot.initrd.kernelModules = [ "amdgpu" ];
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
 
@@ -21,10 +21,6 @@
     { device = "/dev/disk/by-uuid/17A3-5EBE";
       fsType = "vfat";
     };
-
-  swapDevices =
-    [ { device = "/dev/disk/by-uuid/3cdbb21d-b01d-4e86-98f1-9543d7178584"; }
-    ];
 
   nix.maxJobs = lib.mkDefault 16;
 }

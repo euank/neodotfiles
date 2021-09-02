@@ -187,7 +187,7 @@
         "nixpkgs": "nixpkgs_7"
       },
       "locked": {
-        "narHash": "sha256-aa6I450cGlF27UhAUVJlGZkg7DrPN26DusCDX0O5Ic8=",
+        "narHash": "sha256-I73ujBvEpSrM9/246u30hmcvzEBKZ0Cy6AEBwHTzlOo=",
         "path": "../nix-ngrok-dev",
         "type": "path"
       },
@@ -407,11 +407,11 @@
     },
     "nixpkgs_7": {
       "locked": {
-        "lastModified": 1624475765,
-        "narHash": "sha256-6tLkkzF++ppnZnc7ZWWDdX9KS+f45/wbLJ6YD+8PtaI=",
+        "lastModified": 1630609011,
+        "narHash": "sha256-iudLrOr3HIGYCn77j6BIZbWT8cynxdnoZPoLuUtdiWs=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "c11c97d90cd5c4c9db51323f3ef5c9785ade0a26",
+        "rev": "265795962ce0f15c8b758c51f7f2e8120768c117",
         "type": "github"
       },
       "original": {

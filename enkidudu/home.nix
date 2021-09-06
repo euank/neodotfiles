@@ -93,6 +93,7 @@ in
     binutils
     cmake
     gcc
+    nodejs
     gdb
     gnumake
     go

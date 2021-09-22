@@ -13,8 +13,8 @@
     dwarffs.url = "github:edolstra/dwarffs";
 
     # Magic unimportable things
-    ngrok-dev.url = "path:../nix-ngrok-dev";
-    secrets.url = "path:../nix-secrets";
+    ngrok-dev.url = "path:/home/esk/dev/ngrok/nix";
+    secrets.url = "path:/home/esk/dev/nix-secrets";
   };
 
   outputs =

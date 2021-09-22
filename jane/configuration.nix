@@ -13,11 +13,31 @@ in
     [
       ./hardware-configuration.nix
       inputs.home-manager.nixosModules.home-manager
-      "${inputs.ngrok-dev}/nixos/module.nix"
+      inputs.ngrok-dev.nixosModule
     ];
   nixpkgs.config.allowUnfree = true;
-  services.ngrok-devenv.enable = true;
-  services.ngrok-devenv.unifiedCgroups = true;
+  services.ngrok-devenv = {
+    enable = true;
+    interfaces = {
+      node = {
+	create= false;
+	name= "wg0";
+	ipv4= "10.104.20.3";
+      };
+      mux = {
+	create= false;
+	name = "wg0";
+	ipv4 = "10.104.20.4";
+	ipv6 = "fe80::10:104:1:2";
+      };
+      tunnel = {
+	create= false;
+	name= "wg0";
+	ipv4= "10.104.20.10";
+	ipv6= "fe80::10:104:2:2";
+      };
+    };
+  };
   services.redis.enable = true;
 
   services.bind = {
@@ -98,7 +118,6 @@ in
   services.keybase.enable = true;
   services.kbfs.enable = true;
 
-  systemd.services.docker.serviceConfig.LimitNOFILE = 99999;
   networking.firewall.enable = false;
   networking.firewall.allowedTCPPorts = [ 22 222 80 443 6443 ];
   networking.firewall.extraCommands = ''

@@ -3,7 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    neovim.url = "github:neovim/neovim?dir=contrib";
+    neovim.url = "github:neovim/neovim/release-0.5?dir=contrib";
     nixpkgs-stable.url = "github:NixOS/nixpkgs/release-20.09";
     home-manager.url = "github:nix-community/home-manager";
     ekverlay.url = "github:euank/nixek-overlay";

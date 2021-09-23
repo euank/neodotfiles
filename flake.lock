@@ -124,6 +124,24 @@
         "type": "github"
       }
     },
+    "home-manager_2": {
+      "inputs": {
+        "nixpkgs": "nixpkgs_7"
+      },
+      "locked": {
+        "lastModified": 1632256651,
+        "narHash": "sha256-+jbZKohfqTjp/5SwudwIhYzmFqmGDlIG99V5lOE4Yjg=",
+        "owner": "nix-community",
+        "repo": "home-manager",
+        "rev": "58aa667e28ca4a6a2159b1f3258ef5d494d5ecb6",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "home-manager",
+        "type": "github"
+      }
+    },
     "lowdown-src": {
       "flake": false,
       "locked": {
@@ -200,10 +218,11 @@
     "ngrok-dev": {
       "inputs": {
         "flake-utils": "flake-utils_3",
-        "nixpkgs": "nixpkgs_7"
+        "home-manager": "home-manager_2",
+        "nixpkgs": "nixpkgs_8"
       },
       "locked": {
-        "narHash": "sha256-AR2i+qAEBDOCtK+7yy5Cq5kJP5xKLdhaGZagtfVpZq0=",
+        "narHash": "sha256-pMl7/GlWbEz+dfgbliV3oJxU8QmZp+TTtsdOMrxnMJk=",
         "path": "/home/esk/dev/ngrok/nix",
         "type": "path"
       },
@@ -233,7 +252,7 @@
     "nix_2": {
       "inputs": {
         "lowdown-src": "lowdown-src_2",
-        "nixpkgs": "nixpkgs_8"
+        "nixpkgs": "nixpkgs_9"
       },
       "locked": {
         "lastModified": 1632145712,
@@ -250,7 +269,7 @@
     },
     "nixek": {
       "inputs": {
-        "nixpkgs": "nixpkgs_9"
+        "nixpkgs": "nixpkgs_10"
       },
       "locked": {
         "lastModified": 1621832073,
@@ -315,6 +334,20 @@
     },
     "nixpkgs_10": {
       "locked": {
+        "lastModified": 1619323048,
+        "narHash": "sha256-wiLspuRrtX4JPO2Xpd0ySsaN+g5i5BVfslCfcIcHSrU=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "1fe6ed37fd9beb92afe90671c0c2a662a03463dd",
+        "type": "github"
+      },
+      "original": {
+        "id": "nixpkgs",
+        "type": "indirect"
+      }
+    },
+    "nixpkgs_11": {
+      "locked": {
         "lastModified": 1631962327,
         "narHash": "sha256-h2fgtNHozEcB42BQ1QVWAJUpQ1FA3gpgq/RrOKAxbfE=",
         "owner": "NixOS",
@@ -329,7 +362,7 @@
         "type": "github"
       }
     },
-    "nixpkgs_11": {
+    "nixpkgs_12": {
       "locked": {
         "lastModified": 1632165287,
         "narHash": "sha256-QAhHr2YsbH697FgQAnIOvnKwioY8sLmBG8y2mDZUaD4=",
@@ -423,6 +456,20 @@
     },
     "nixpkgs_7": {
       "locked": {
+        "lastModified": 1632291577,
+        "narHash": "sha256-fl26L9QQGQmo9eqNZr6lpGJE/WFZpHsftEF3f4e8N7E=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "e2c809855ee5dfd336b955772bc1e624461f2009",
+        "type": "github"
+      },
+      "original": {
+        "id": "nixpkgs",
+        "type": "indirect"
+      }
+    },
+    "nixpkgs_8": {
+      "locked": {
         "lastModified": 1625657323,
         "narHash": "sha256-ri0WKZYdg5bEig4WpyMbj5DYGe6uCJhb6KrguLVLotE=",
         "owner": "nixos",
@@ -437,7 +484,7 @@
         "type": "github"
       }
     },
-    "nixpkgs_8": {
+    "nixpkgs_9": {
       "locked": {
         "lastModified": 1628689438,
         "narHash": "sha256-YMINW6YmubHZVdliGsAJpnnMYXRrvppv59LgwtnyYhs=",
@@ -452,20 +499,6 @@
         "type": "indirect"
       }
     },
-    "nixpkgs_9": {
-      "locked": {
-        "lastModified": 1619323048,
-        "narHash": "sha256-wiLspuRrtX4JPO2Xpd0ySsaN+g5i5BVfslCfcIcHSrU=",
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "1fe6ed37fd9beb92afe90671c0c2a662a03463dd",
-        "type": "github"
-      },
-      "original": {
-        "id": "nixpkgs",
-        "type": "indirect"
-      }
-    },
     "root": {
       "inputs": {
         "dwarffs": "dwarffs",
@@ -477,14 +510,14 @@
         "ngrok-dev": "ngrok-dev",
         "nix": "nix_2",
         "nixek": "nixek",
-        "nixpkgs": "nixpkgs_10",
+        "nixpkgs": "nixpkgs_11",
         "nixpkgs-stable": "nixpkgs-stable",
         "secrets": "secrets"
       }
     },
     "secrets": {
       "inputs": {
-        "nixpkgs": "nixpkgs_11"
+        "nixpkgs": "nixpkgs_12"
       },
       "locked": {
         "narHash": "sha256-sX04ODsgs9Xy2IAmlAXayUrXkOHOwkaLGwCbjrwVhZ8=",

@@ -85,6 +85,7 @@ in
     xwayland
     yacreader
     youtube-dl
+    yt-dlp
     zsh-powerlevel10k
 
     # dev stuff
@@ -97,6 +98,7 @@ in
     gcc
     nodejs
     gdb
+    gh
     gnumake
     go
     gopls

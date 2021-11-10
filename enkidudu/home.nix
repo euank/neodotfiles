@@ -90,7 +90,7 @@ in
 
     # dev stuff
     (hiPrio clang)
-    openjdk16
+    openjdk17
     awscli2
     bind
     binutils
@@ -104,6 +104,7 @@ in
     gopls
     gradle
     # ipmiview
+    kpt
     linuxPackages.perf
     nightlyNvim
     nodePackages.typescript-language-server

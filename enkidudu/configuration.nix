@@ -15,11 +15,10 @@ in
   nixpkgs.config.allowUnfree = true;
 
   boot.kernel.sysctl."fs.inotify.max_user_instances" = 8192;
-  # Latest supported kernel with zfs support
-  boot.kernelPackages = pkgs.linuxPackages_5_13;
+  boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.supportedFilesystems = [ "zfs" ];
+  boot.supportedFilesystems = [ ];
 
   hardware.opengl.driSupport32Bit = true;
   hardware.opengl.extraPackages32 = with pkgs.pkgsi686Linux; [ libva ];
@@ -120,7 +119,6 @@ in
     pinentry-curses
     meslo-lg
     zsh
-    zfs
     pkg-config
     openssl.dev
     openssl

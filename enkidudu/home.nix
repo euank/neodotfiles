@@ -5,15 +5,6 @@
 }:
 
 let
-  # for lsp server support, remove once nvim is 0.5 in nixpkgs
-  # and msgpack 1.0
-  nightlyNvimNix = (import (builtins.fetchTarball {
-    url = "https://github.com/NixOS/nixpkgs/archive/48d6448ec2bcef0c29cdf91a4339dcb2fa0b0f02.tar.gz";
-    sha256 = "1gla32h0scxd0dixg44cbc90lcfdvk33154amw43b2mvi9nk9h3n";
-  }) {
-    system = "x86_64-linux";
-  });
-  nightlyNvim = nightlyNvimNix.neovim.override { extraPython3Packages = (ps: [ ps.msgpack ]); };
   # nixatom = import (builtins.fetchTarball "https://github.com/NixOS/nixpkgs/archive/b8988e13be291029c72b76549d70c783856f2dc3.tar.gz") {};
   sessionVariables = {
     EDITOR = "nvim";
@@ -80,6 +71,7 @@ in
     tree
     unzip
     x11
+    neovim
     xorg.xkill
     xorg.xwininfo
     xwayland
@@ -87,6 +79,7 @@ in
     youtube-dl
     yt-dlp
     zsh-powerlevel10k
+    signal-desktop
 
     # dev stuff
     (hiPrio clang)
@@ -106,7 +99,6 @@ in
     # ipmiview
     kpt
     linuxPackages.perf
-    nightlyNvim
     nodePackages.typescript-language-server
     perf-tools
     pkg-config
@@ -126,7 +118,7 @@ in
 
     # game related
     desmume
-    maptool
+    # maptool
     melonDS
     minecraft
 

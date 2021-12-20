@@ -89,7 +89,6 @@ in
       vim-repeat
       vim-dispatch
       vim-eunuch
-      vim-sleuth
       denite-nvim
       ({
         plugin = deoplete-nvim;

@@ -69,6 +69,7 @@ in
     ripgrep
     ruby
     rustup
+    rust-analyzer
     sqlite
     sshfs
     tig
@@ -141,7 +142,6 @@ in
       vim-repeat
       vim-dispatch
       vim-eunuch
-      vim-sleuth
       denite-nvim
       ({
         plugin = deoplete-nvim;
@@ -151,7 +151,6 @@ in
           set completeopt=noselect
         '';
       })
-      deoplete-lsp
       vim-nix
       ({
         plugin = vim-colorschemes;
@@ -197,8 +196,10 @@ in
       ({
         plugin = vim-go;
         config = ''
+          filetype plugin indent on
           let g:go_fmt_command = "goimports"
           let g:go_rename_command = "gopls"
+          let g:go_def_mode = 'gopls'
           let g:go_fmt_options = {
           \ 'gofmt': '-s',
           \ 'goimports': '-local go.ngrok.com',

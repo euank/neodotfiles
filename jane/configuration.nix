@@ -14,23 +14,24 @@ in
   nixpkgs.config.allowUnfree = true;
   services.ngrok-devenv = {
     enable = true;
+    repoRoot = "/home/esk/dev/ngrok";
     interfaces = {
       node = {
-	create= false;
-	name= "wg0";
-	ipv4= "10.104.20.3";
+        create= false;
+        name= "wg0";
+        ipv4= "10.104.20.3";
       };
       mux = {
-	create= false;
-	name = "wg0";
-	ipv4 = "10.104.20.4";
-	ipv6 = "fe80::10:104:1:2";
+        create= false;
+        name = "wg0";
+        ipv4 = "10.104.20.4";
+        ipv6 = "fe80::10:104:1:2";
       };
       tunnel = {
-	create= false;
-	name= "wg0";
-	ipv4= "10.104.20.10";
-	ipv6= "fe80::10:104:2:2";
+        create= false;
+        name= "wg0";
+        ipv4= "10.104.20.10";
+        ipv6= "fe80::10:104:2:2";
       };
     };
   };

@@ -13,9 +13,9 @@ in
     k3s
     wireguard
     redis
-    perf-tools
 
     # dev stuff
+    linuxPackages.perf
     bind
     binutils
     exa

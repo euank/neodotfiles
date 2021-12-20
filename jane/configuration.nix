@@ -98,6 +98,7 @@ in
   boot.kernel.sysctl."fs.inotify.max_user_watches" = 99999;
   boot.kernel.sysctl."fs.inotify.max_user_instances" = 8192;
 
+  virtualisation.docker.enable = true;
   networking.hostName = "jane"; # ender's game jane, or asimov's 'feminine intuition' jane, you pick
 
   networking.useDHCP = false;

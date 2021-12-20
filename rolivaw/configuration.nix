@@ -15,7 +15,6 @@ in
   fileSystems."/".options = ["noatime" "nodiratime" "discard" ];
 
   hardware.enableRedistributableFirmware = true;
-  boot.kernel.sysctl."fs.inotify.max_user_instances" = 8192;
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   hardware.bluetooth.enable = true;

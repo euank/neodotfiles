@@ -23,6 +23,8 @@ in
   hardware.opengl.driSupport32Bit = true;
   hardware.opengl.extraPackages32 = with pkgs.pkgsi686Linux; [ libva ];
   hardware.pulseaudio.support32Bit = true;
+  hardware.bluetooth.enable = true;
+  services.dbus.packages = [ pkgs.blueman ];
 
 
   # services.spigot-mc = {
@@ -111,6 +113,7 @@ in
   time.timeZone = "America/Los_Angeles";
 
   environment.systemPackages = with pkgs; [
+    blueman
     curl wget vim neovim
     dmenu alacritty
     git htop

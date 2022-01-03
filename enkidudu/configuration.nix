@@ -26,22 +26,6 @@ in
   hardware.bluetooth.enable = true;
   services.dbus.packages = [ pkgs.blueman ];
 
-
-  # services.spigot-mc = {
-  #       enable = false;
-  #       # openFirewall = true;
-  #       eula = true;
-  #       # declarative = true;
-  #       package = nixek.spigot-mc;
-  #       plugins = [ nixek.bukkit-plugins.sudofeedme nixek.bukkit-plugins.discordsrv ];
-  #       dataDir = "/var/lib/minecraft";
-  #       jvmOpts = "-Xmx1096M -Xms1048M";
-  #       serverProperties = {
-  #         motd = "Testing server";
-  #         pvp = false;
-  #       };
-  # };
-
   services.unifi.enable = false;
 
   services.postgresql = {

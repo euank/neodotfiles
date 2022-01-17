@@ -59,6 +59,7 @@ in
     pass
     pavucontrol
     pwgen
+    rust-analyzer
     ripgrep
     scrot
     sqlite
@@ -71,7 +72,6 @@ in
     tree
     unzip
     x11
-    neovim
     xorg.xkill
     xorg.xwininfo
     xwayland
@@ -190,6 +190,161 @@ in
 
   programs.direnv.enable = true;
   programs.direnv.enableZshIntegration = true;
+
+  programs.neovim = {
+    enable = true;
+    withPython3 = true;
+    withNodeJs = true;
+    package = pkgs.neovim;
+    extraConfig = "source ${../shared/vim/vimrc}";
+    plugins = with pkgs.vimPlugins; [
+      ({
+        plugin = vim-airline;
+        config = ''
+          let g:airline#extensions#tabline#enabled = 1
+          let g:airline#extensions#tabline#left_sep = ' '
+          let g:airline#extensions#tabline#left_alt_sep = '¦'
+          let g:airline#extensions#tabline#buffer_idx_mode = 1
+        '';
+      })
+      vim-surround
+      vim-repeat
+      vim-dispatch
+      vim-eunuch
+      vim-sleuth
+      denops-vim
+      ({
+        plugin = nvim-cmp;
+        # Config largely based on
+        # https://github.com/hrsh7th/nvim-cmp#recommended-configuration
+        config = ''
+          set completeopt=menu,menuone,noselect
+          lua << EOF
+          local cmp = require'cmp'
+          cmp.setup({
+            snippet = {
+              expand = function(args)
+                vim.fn["vsnip#anonymous"](args.body)
+              end,
+            },
+            mapping = {
+              ['<C-p>'] = cmp.mapping.select_prev_item(),
+              ['<C-n>'] = cmp.mapping.select_next_item(),
+              ['<S-Tab>'] = cmp.mapping.select_prev_item(),
+              ['<Tab>'] = cmp.mapping.select_next_item(),
+              ['<C-Space>'] = cmp.mapping.complete(),
+              ['<C-e>'] = cmp.mapping.close(),
+              ['<CR>'] = cmp.mapping.confirm({
+                behavior = cmp.ConfirmBehavior.Insert,
+                select = true,
+              })
+            },
+            sources = cmp.config.sources({
+              { name = 'nvim_lsp' },
+              { name = 'vsnip' },
+            }, {
+              { name = 'buffer' },
+            })
+          })
+          EOF
+        '';
+      })
+      cmp-nvim-lsp
+      vim-nix
+      cmp-vsnip
+      ({
+        plugin = vim-colorschemes;
+        config = ''
+          let g:inkpot_black_background = 1
+          colorscheme inkpot
+        '';
+      })
+      # Used in nvim-lspconfig below
+      rust-tools-nvim
+      ({
+        plugin = nvim-lspconfig;
+        config = ''
+          lua << EOF
+          local configs = require'lspconfig'
+
+          configs.gopls.setup{
+            cmd = {'gopls', '-remote=auto'},
+            init_options = {
+              staticcheck = false,
+            },
+          }
+
+          configs.rust_analyzer.setup({})
+          configs.tsserver.setup{}
+
+
+          local opts = {
+            tools = {},
+            server = {
+              settings = {
+                ["rust-analyzer"] = {
+                    checkOnSave = {
+                        command = "clippy"
+                    },
+                }
+              }
+            },
+          }
+
+          require('rust-tools').setup(opts)
+
+          EOF
+        '';
+      })
+      ({
+        plugin = vim-fugitive;
+        config = ''
+          nnoremap <silent> <leader>gs :Gstatus<CR>
+          nnoremap <silent> <leader>gd :Gdiff<CR>
+          nnoremap <silent> <leader>gc :Gcommit<CR>
+          nnoremap <silent> <leader>gb :Gblame<CR>
+          nnoremap <silent> <leader>gl :Glog<CR>
+          nnoremap <silent> <leader>gp :Git push<CR>
+          nnoremap <silent> <leader>gw :Gwrite<CR>
+          nnoremap <silent> <leader>gr :Gremove<CR>
+          autocmd BufReadPost fugitive://* set bufhidden=delete
+        '';
+      })
+      vim-rhubarb
+      # vim-ripgrep
+      ({
+        plugin = vim-go;
+        config = ''
+          filetype plugin indent on
+          let g:go_fmt_command = "goimports"
+          let g:go_rename_command = "gopls"
+          let g:go_def_mode = 'gopls'
+          let g:go_fmt_options = {
+          \ 'gofmt': '-s',
+          \ 'goimports': '-local go.ngrok.com',
+          \ }
+          let g:go_highlight_functions = 1
+          let g:go_highlight_methods = 1
+          let g:go_highlight_structs = 1
+          let g:go_highlight_operators = 1
+          let g:go_highlight_build_constraints = 1
+        '';
+      })
+      ({
+        plugin = ale;
+        config = ''
+          let g:ale_rust_cargo_check_all_targets = 1
+          let g:ale_fixers = ['rustfmt', 'eslint']
+          let g:ale_fix_on_save = 1
+          let g:ale_fixers = {
+          \   '*': ['remove_trailing_lines', 'trim_whitespace'],
+          \   'typescript': ['eslint'],
+          \}
+          let g:ale_linters = { 'haskell': ['stack-ghc', 'stack-build']}
+        '';
+      })
+    ];
+  };
 
   programs.pazi = {
     enable = true;

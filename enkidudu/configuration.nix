@@ -98,7 +98,7 @@ in
 
   environment.systemPackages = with pkgs; [
     blueman
-    curl wget vim neovim
+    curl wget vim
     dmenu alacritty
     git htop
     gnupg zsh

@@ -88,6 +88,7 @@ in
     bind
     binutils
     cmake
+    deno
     gcc
     nodejs
     gdb
@@ -214,44 +215,49 @@ in
       vim-sleuth
       denops-vim
       ({
-        plugin = nvim-cmp;
-        # Config largely based on
-        # https://github.com/hrsh7th/nvim-cmp#recommended-configuration
+        plugin = skkeleton;
         config = ''
-          set completeopt=menu,menuone,noselect
-          lua << EOF
-          local cmp = require'cmp'
-          cmp.setup({
-            snippet = {
-              expand = function(args)
-                vim.fn["vsnip#anonymous"](args.body)
-              end,
-            },
-            mapping = {
-              ['<C-p>'] = cmp.mapping.select_prev_item(),
-              ['<C-n>'] = cmp.mapping.select_next_item(),
-              ['<S-Tab>'] = cmp.mapping.select_prev_item(),
-              ['<Tab>'] = cmp.mapping.select_next_item(),
-              ['<C-Space>'] = cmp.mapping.complete(),
-              ['<C-e>'] = cmp.mapping.close(),
-              ['<CR>'] = cmp.mapping.confirm({
-                behavior = cmp.ConfirmBehavior.Insert,
-                select = true,
-              })
-            },
-            sources = cmp.config.sources({
-              { name = 'nvim_lsp' },
-              { name = 'vsnip' },
-            }, {
-              { name = 'buffer' },
-            })
-          })
-          EOF
+          imap <C-j> <Plug>(skkeleton-toggle)
+          cmap <C-j> <Plug>(skkeleton-toggle)
         '';
       })
-      cmp-nvim-lsp
+      ({
+        plugin = pum-vim;
+        config = ''
+          inoremap <C-n>   <Cmd>call pum#map#insert_relative(+1)<CR>
+          inoremap <C-p>   <Cmd>call pum#map#insert_relative(-1)<CR>
+          inoremap <C-y>   <Cmd>call pum#map#confirm()<CR>
+          inoremap <C-e>   <Cmd>call pum#map#cancel()<CR>
+          inoremap <PageDown> <Cmd>call pum#map#insert_relative_page(+1)<CR>
+          inoremap <PageUp>   <Cmd>call pum#map#insert_relative_page(-1)<CR>
+        '';
+      })
+      ddc-sorter_rank
+      ddc-matcher_head
+      ddc-nvim-lsp
+      ({
+        plugin = ddc-vim;
+        # TODO
+        config = ''
+          set completeopt=menuone,noinsert,noselect
+          set shortmess+=c
+          call ddc#custom#patch_global('completionMenu', 'pum.vim')
+          call ddc#custom#patch_global('sources', ['nvim-lsp'])
+          call ddc#custom#patch_global('sourceOptions', {
+          \ '_': { 'matchers': ['matcher_head'], 'sorters': ['sorter_rank'] },
+          \ 'nvim-lsp': {
+          \   'mark': 'lsp',
+          \   'forceCompletionPattern': '\.\w*|:\w*|->\w*' },
+          \ })
+
+          call ddc#custom#patch_global('sourceParams', {
+          \ 'nvim-lsp': { 'kindLabels': { 'Class': 'c' } },
+          \ })
+
+          call ddc#enable()
+        '';
+      })
       vim-nix
-      cmp-vsnip
       ({
         plugin = vim-colorschemes;
         config = ''

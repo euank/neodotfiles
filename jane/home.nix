@@ -3,7 +3,7 @@
 let
   sessionVariables = {
     EDITOR = "nvim";
-    PKG_CONFIG_PATH = "${pkgs.openssl.dev}/lib/pkgconfig:";
+    PKG_CONFIG_PATH = "${pkgs.openssl.dev}/lib/pkgconfig:${pkgs.udev.dev}/lib/pkgconfig";
     LIBCLANG_PATH = "${pkgs.llvmPackages.libclang}/lib";
   };
 in

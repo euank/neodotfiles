@@ -25,12 +25,12 @@ set modeline
 set modelines=5
 set noshelltemp
 set backspace=indent,eol,start
+
 set autoindent
 set smarttab
-
-let &tabstop=2
-let &softtabstop=2
-let &shiftwidth=2
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
 
 set shiftround
 set linebreak

@@ -16,6 +16,8 @@ let
     QT_IM_MODULE = "ibus";
     NIX_DEBUG_INFO_DIRS = "/run/dwarffs";
     PROTOC = "${pkgs.protobuf}/bin/protoc";
+    # maptool
+    PROTOC_3_7 = "${pkgs.protobuf3_7}/bin/protoc";
   };
 in
 {
@@ -26,7 +28,7 @@ in
     blender
     blueman
     borgbackup
-    chromium
+    # chromium
     deluge
     discord
     escrotum
@@ -83,7 +85,8 @@ in
 
     # dev stuff
     (hiPrio clang)
-    openjdk17
+    # For maptool, we'll deal with packaging it again properly later
+    javaPackages.compiler.openjdk16
     awscli2
     bind
     binutils

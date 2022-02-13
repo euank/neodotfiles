@@ -1,4 +1,4 @@
-{ pkgs, inputs, ... }:
+{ pkgs, inputs, config, ... }:
 
 let
   inherit (inputs) home-manager dwarffs;
@@ -14,11 +14,11 @@ in
   # (;_;)
   nixpkgs.config.allowUnfree = true;
 
+  boot.kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
   boot.kernel.sysctl."fs.inotify.max_user_instances" = 8192;
-  boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.supportedFilesystems = [ ];
+  boot.supportedFilesystems = [ "zfs" ];
 
   hardware.opengl.driSupport32Bit = true;
   hardware.opengl.extraPackages32 = with pkgs.pkgsi686Linux; [ libva ];

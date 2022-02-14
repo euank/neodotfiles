@@ -103,6 +103,9 @@ in
     alacritty
   ];
 
+  # just to make sure we don't reboot into an unworking mess. As I've had happen before on an otherwise rote kernel update.
+  hardware.enableAllFirmware = true;
+
   # Enable the OpenSSH daemon.
   services.openssh.ports = [ 222 ];
   services.keybase.enable = true;

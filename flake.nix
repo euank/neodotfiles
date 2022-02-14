@@ -4,7 +4,6 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     neovim.url = "github:neovim/neovim/release-0.5?dir=contrib";
-    nixpkgs-stable.url = "github:NixOS/nixpkgs/release-20.09";
     home-manager.url = "github:nix-community/home-manager";
     ekverlay.url = "github:euank/nixek-overlay";
     nixek.url = "github:nixek-systems/pkgs";
@@ -19,12 +18,9 @@
   };
 
   outputs =
-    { self, nixpkgs, nixpkgs-stable, mvn2nix, gradle2nix, nixek, nix, ekverlay, home-manager, dwarffs, ... }@inputs:
+    { self, nixpkgs, mvn2nix, gradle2nix, nixek, nix, ekverlay, home-manager, dwarffs, ... }@inputs:
     let
       system = "x86_64-linux";
-      stable = import nixpkgs-stable {
-        inherit system;
-      };
       pkgs = import nixpkgs {
         inherit system;
         overlays = [

@@ -4,7 +4,6 @@
       "inputs": {
         "nix": "nix",
         "nixpkgs": [
-          "dwarffs",
           "nix",
           "nixpkgs"
         ]
@@ -204,7 +203,7 @@
         "nixpkgs-pinned": "nixpkgs-pinned"
       },
       "locked": {
-        "narHash": "sha256-7ainH5RC8ES36BLiKzuItL5pgtd2hjwYg49CgGQNXKk=",
+        "narHash": "sha256-tcZA3w3Vm9vwKcnu1Jb2Syw2g7oY86X7WUpJkTlDTRs=",
         "path": "/home/esk/dev/ngrok/nix",
         "type": "path"
       },
@@ -358,22 +357,6 @@
         "id": "nixpkgs",
         "rev": "215d4d0fd80ca5163643b03a33fde804a29cc1e2",
         "type": "indirect"
-      }
-    },
-    "nixpkgs-stable": {
-      "locked": {
-        "lastModified": 1636935165,
-        "narHash": "sha256-J4smKTYTp8wJ57znUerWlS/QRgp0jcm/StcfIhsa5eA=",
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "f7949198dcff52265b322ca8abf7450610e7e49e",
-        "type": "github"
-      },
-      "original": {
-        "owner": "NixOS",
-        "ref": "release-20.09",
-        "repo": "nixpkgs",
-        "type": "github"
       }
     },
     "nixpkgs_10": {
@@ -556,7 +539,6 @@
         "nix": "nix_2",
         "nixek": "nixek",
         "nixpkgs": "nixpkgs_11",
-        "nixpkgs-stable": "nixpkgs-stable",
         "secrets": "secrets"
       }
     },

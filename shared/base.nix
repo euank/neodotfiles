@@ -30,7 +30,9 @@
   };
 
   nix = {
-    trustedUsers = [ "root" "esk" ];
+    settings = {
+      trusted-users = [ "root" "esk" ];
+    };
     package = pkgs.nixFlakes;
     extraOptions = ''
       experimental-features = nix-command flakes

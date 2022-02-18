@@ -2,7 +2,8 @@
   description = "euank nix dotfile flakes";
 
   inputs = {
-    nixpkgs.url = "github:euank/nixpkgs/add-denops";
+    nixpkgs.url = "github:NixOS/nixpkgs/master";
+    denops-nixpkgs.url = "github:euank/nixpkgs/add-denops";
     neovim.url = "github:neovim/neovim/release-0.5?dir=contrib";
     home-manager.url = "github:nix-community/home-manager";
     ekverlay.url = "github:euank/nixek-overlay";
@@ -31,6 +32,7 @@
             gradle2nix = gradle2nix.defaultPackage.x86_64-linux;
             dwarffs = dwarffs.defaultPackage.x86_64-linux;
             neovim = inputs.neovim.defaultPackage.x86_64-linux;
+            vimPlugins = inputs.denops-nixpkgs.legacyPackages.x86_64-linux.vimPlugins;
           })
         ];
         config = { allowUnfree = true; };

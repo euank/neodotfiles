@@ -29,6 +29,13 @@
     extraGroups = ["wheel" "docker" "user-with-access-to-virtualbox" "libvirtd" "video" ];
   };
 
+  security.pam.loginLimits = [{
+    domain = "*";
+    type = "soft";
+    item = "nofile";
+    value = "50000";
+  }];
+
   nix = {
     settings = {
       trusted-users = [ "root" "esk" ];

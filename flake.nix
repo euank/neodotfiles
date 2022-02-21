@@ -4,7 +4,10 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/master";
     denops-nixpkgs.url = "github:euank/nixpkgs/add-denops";
-    neovim.url = "github:neovim/neovim/release-0.5?dir=contrib";
+    neovim = {
+      url = "github:neovim/neovim/release-0.6?dir=contrib";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     home-manager.url = "github:nix-community/home-manager";
     ekverlay.url = "github:euank/nixek-overlay";
     nixek.url = "github:nixek-systems/pkgs";

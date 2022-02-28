@@ -71,7 +71,7 @@
       # inputs that are available publicly.
       # It filters out specific inputs that aren't always present
       nix-flake-update = with pkgs; let
-        pubInputs = lib.subtractLists [ "ngrok-dev" "ngrok-dev2" "secrets" ] (lib.attrNames inputs);
+        pubInputs = lib.subtractLists [ "self" "ngrok-dev" "ngrok-dev2" "secrets" ] (lib.attrNames inputs);
         updateInputFlags = lib.strings.concatMapStringsSep " " (s: "--update-input ${s}") pubInputs;
       in
       pkgs.writeScriptBin "nix-flake-update" ''

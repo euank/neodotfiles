@@ -73,7 +73,6 @@ in
     tor-browser-bundle-bin
     tree
     unzip
-    x11
     xorg.xkill
     xorg.xwininfo
     xwayland
@@ -117,7 +116,7 @@ in
     crd2pulumi
     mvn2nix
     gradle2nix
-    idea.idea-community
+    jetbrains.idea-community
     coldsnap
 
     # game related
@@ -454,22 +453,22 @@ in
     };
 
     desktopEntries = {
-      firefox-def = {
-        name = "Firefox Default Profile";
-        genericName = "Web Browser";
-        exec = "firefox -P default %U";
-        terminal = false;
-        categories = [ "Application" "Network" "WebBrowser" ];
-        mimeType = [
-          "text/html"
-          "text/xml"
-          "application/xhtml+xml"
-          "application/vnd.mozilla.xul+xml"
-          "x-scheme-handler/http"
-          "x-scheme-handler/https"
-          "x-scheme-handler/ftp"
-        ];
-      };
+      # firefox-def = {
+      #   name = "Firefox Default Profile";
+      #   genericName = "Web Browser";
+      #   # exec = "firefox -P default %U";
+      #   # terminal = false;
+      #   # categories = [ "Application" "Network" "WebBrowser" ];
+      #   # mimeType = [
+      #   #   "text/html"
+      #   #   "text/xml"
+      #   #   "application/xhtml+xml"
+      #   #   "application/vnd.mozilla.xul+xml"
+      #   #   "x-scheme-handler/http"
+      #   #   "x-scheme-handler/https"
+      #   #   "x-scheme-handler/ftp"
+      #   # ];
+      # };
     };
 
     mimeApps = {

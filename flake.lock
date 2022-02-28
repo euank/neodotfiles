@@ -20,7 +20,6 @@
       "inputs": {
         "nix": "nix",
         "nixpkgs": [
-          "dwarffs",
           "nix",
           "nixpkgs"
         ]

@@ -21,7 +21,7 @@ in
   hardware.opengl.extraPackages32 = with pkgs.pkgsi686Linux; [ libva ];
   hardware.pulseaudio.support32Bit = true;
   hardware.bluetooth.enable = true;
-  services.dbus.packages = [ pkgs.blueman ];
+  services.blueman.enable = true;
 
   services.unifi.enable = false;
 

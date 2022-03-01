@@ -19,6 +19,7 @@ let
     # maptool
     PROTOC_3_7 = "${pkgs.protobuf3_7}/bin/protoc";
   };
+  ibus = pkgs.ibus-with-plugins.override { plugins = with pkgs.ibus-engines; [ mozc uniemoji ]; };
 in
 {
   home.packages = with pkgs; [
@@ -43,6 +44,7 @@ in
     gnome3.cheese
     htop
     inkscape
+    ibus
     jmtpfs
     jq
     k3s
@@ -423,6 +425,11 @@ in
     Install = { WantedBy = [ "graphical-session.target" ]; };
   };
 
+  # i18n.inputMethod = {
+  #   enabled = "fcitx5";
+  #   fcitx5.addons = with pkgs; [ fcitx5-mozc ];
+  # };
+
   systemd.user.services.ibus = {
     Unit = {
       Description = "ibus";
@@ -432,7 +439,7 @@ in
 
     Service = {
       Type = "simple";
-      ExecStart = "${pkgs.ibus}/bin/ibus-daemon --xim";
+      ExecStart = "${ibus}/bin/ibus-daemon --xim";
     };
     Install = { WantedBy = [ "graphical-session.target" ]; };
   };

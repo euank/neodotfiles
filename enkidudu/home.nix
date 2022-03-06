@@ -9,7 +9,7 @@ let
   sessionVariables = {
     EDITOR = "nvim";
     PKG_CONFIG_PATH =
-      "${pkgs.openssl.dev}/lib/pkgconfig:${pkgs.opencv4}/lib/pkgconfig:${pkgs.xorg.libX11.dev}/lib/pkgconfig:${pkgs.xorg.libXrandr.dev}/lib/pkgconfig:${pkgs.xorg.libxcb.dev}/lib/pkgconfig:${pkgs.libopus.dev}/lib/pkgconfig";
+      "${pkgs.openssl.dev}/lib/pkgconfig:${pkgs.opencv4}/lib/pkgconfig:${pkgs.xorg.libX11.dev}/lib/pkgconfig:${pkgs.xorg.libXrandr.dev}/lib/pkgconfig:${pkgs.xorg.libxcb.dev}/lib/pkgconfig:${pkgs.libopus.dev}/lib/pkgconfig:${pkgs.sqlite.dev}/lib/pkgconfig";
     LIBCLANG_PATH = "${pkgs.llvmPackages.libclang}/lib";
     GTK_IM_MODULE = "ibus";
     XMODIFIERS = "@im=ibus";
@@ -29,7 +29,7 @@ in
     blender
     blueman
     borgbackup
-    # chromium
+    chromium
     deluge
     discord
     escrotum
@@ -67,6 +67,7 @@ in
     ripgrep
     scrot
     sqlite
+    sqlite.dev
     sshfs
     syncplay
     tig

@@ -11,7 +11,7 @@ in
   home.packages = with pkgs; [
     pwgen
     k3s
-    wireguard
+    wireguard-tools
     redis
 
     # dev stuff
@@ -28,7 +28,6 @@ in
     htop
     (hiPrio clang)
     gcc
-    x11
     jq
     kubectl
     kubernetes-helm

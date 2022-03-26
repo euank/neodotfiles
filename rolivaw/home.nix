@@ -34,49 +34,59 @@ in
     shotcut
     (aspellWithDicts (ps : with ps; [ en ]))
     dia
+    trayer
+    dmenu
     drawio
+    networkmanagerapplet
+    gnome3.gnome-session
+    xsel
+    gptfdisk
 
     # dev stuff
+    (hiPrio clang)
+    arduino
     bind
     binutils
+    cmake
+    docker
+    docker_compose
     exa
     file
-    steam-run
-    arduino
     fish
+    gcc
+    git
     gnumake
+    gnupg
     go
-    lorri
+    gopls
     gradle
     htop
-    (hiPrio clang)
-    gcc
-    x11
+    iptables
     jq
     kubectl
     kubernetes-helm
-    nixpkgs-fmt
-    ngrok-2
-    openssl
-    nodejs
-    pkg-config
-    cmake
-    iptables
-    tmate
+    lorri
     lsof
-    tcpdump
+    ngrok-2
+    nixpkgs-fmt
+    nodejs
+    openssl
+    pkg-config
     python3
     ripgrep
     ruby
-    rustup
     rust-analyzer
+    rustup
     sqlite
     sshfs
+    steam-run
+    tcpdump
     tig
+    tmate
     tmux
     tree
-    gopls
     unzip
+    x11
     zsh-powerlevel10k
     nodePackages.typescript-language-server
     # boot

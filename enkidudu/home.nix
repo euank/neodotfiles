@@ -39,6 +39,7 @@ in
     file
     firefox
     fish
+    flyctl
     gimp
     gmrun
     gnome3.cheese

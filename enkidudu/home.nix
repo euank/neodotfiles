@@ -30,6 +30,7 @@ in
     blueman
     borgbackup
     chromium
+    cntr
     deluge
     discord
     escrotum
@@ -84,6 +85,7 @@ in
     youtube-dl
     yt-dlp
     zsh-powerlevel10k
+    wireguard
     signal-desktop
 
     # dev stuff

@@ -33,6 +33,7 @@ in
     cntr
     deluge
     discord
+    diskonaut
     escrotum
     evince
     feh

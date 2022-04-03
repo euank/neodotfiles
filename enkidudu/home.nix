@@ -29,6 +29,7 @@ in
     blender
     blueman
     borgbackup
+    cfssl
     chromium
     cntr
     deluge

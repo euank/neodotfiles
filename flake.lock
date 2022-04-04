@@ -20,7 +20,6 @@
       "inputs": {
         "nix": "nix",
         "nixpkgs": [
-          "dwarffs",
           "nix",
           "nixpkgs"
         ]
@@ -255,7 +254,7 @@
         "nixpkgs": "nixpkgs_8"
       },
       "locked": {
-        "narHash": "sha256-Ue231DP0JtXevGnRgk910cd7UyzfLhFLoUYh8wEoOAY=",
+        "narHash": "sha256-NrPLjxcXth3zidfpN9LMSRrnoBiulQUa/BkiQbWUgBI=",
         "path": "/home/esk/nix-ngrok-dev",
         "type": "path"
       },
@@ -535,11 +534,11 @@
     },
     "nixpkgs_8": {
       "locked": {
-        "lastModified": 1639985577,
-        "narHash": "sha256-QqnQ7rFBxnD/rR9RNTUq88H4JaI70L5Iog4CK+ZhbOk=",
+        "lastModified": 1648219316,
+        "narHash": "sha256-Ctij+dOi0ZZIfX5eMhgwugfvB+WZSrvVNAyAuANOsnQ=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "8021ed2090498ff171ad339c2b2eac73d4755a13",
+        "rev": "30d3d79b7d3607d56546dd2a6b49e156ba0ec634",
         "type": "github"
       },
       "original": {

@@ -13,6 +13,7 @@ in
 {
   home.packages = with pkgs; [
     # desktop stuff
+    anki-bin
     chromium
     evince
     feh
@@ -49,7 +50,7 @@ in
     binutils
     cmake
     docker
-    docker_compose
+    docker-compose
     exa
     file
     fish
@@ -86,7 +87,7 @@ in
     tmux
     tree
     unzip
-    x11
+    xlibsWrapper
     zsh-powerlevel10k
     nodePackages.typescript-language-server
     # boot

@@ -317,7 +317,6 @@ in
           configs.rust_analyzer.setup({})
           configs.tsserver.setup{}
 
-
           local opts = {
             tools = {},
             server = {

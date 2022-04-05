@@ -18,11 +18,13 @@ in
     linuxPackages.perf
     bind
     binutils
+    deno
     exa
     file
     fish
     gnumake
-    go_1_16
+    go_1_18
+    golangci-lint
     lorri
     gradle
     htop
@@ -88,13 +90,49 @@ in
       vim-repeat
       vim-dispatch
       vim-eunuch
-      denite-nvim
+      vim-sleuth
+      denops-vim
       ({
-        plugin = deoplete-nvim;
+        plugin = skkeleton;
         config = ''
-          let g:deoplete#enable_at_startup = 1
-          autocmd Filetype go setlocal omnifunc=v:lua.vim.lsp.omnifunc
-          set completeopt=noselect
+          imap <C-j> <Plug>(skkeleton-toggle)
+          cmap <C-j> <Plug>(skkeleton-toggle)
+        '';
+      })
+      ({
+        plugin = pum-vim;
+        config = ''
+          inoremap <C-n>   <Cmd>call pum#map#insert_relative(+1)<CR>
+          inoremap <C-p>   <Cmd>call pum#map#insert_relative(-1)<CR>
+          inoremap <C-y>   <Cmd>call pum#map#confirm()<CR>
+          inoremap <C-e>   <Cmd>call pum#map#cancel()<CR>
+          inoremap <PageDown> <Cmd>call pum#map#insert_relative_page(+1)<CR>
+          inoremap <PageUp>   <Cmd>call pum#map#insert_relative_page(-1)<CR>
+        '';
+      })
+      ddc-sorter_rank
+      ddc-matcher_head
+      ddc-nvim-lsp
+      ({
+        plugin = ddc-vim;
+        # TODO
+        config = ''
+          set completeopt=menuone,noinsert,noselect
+          set shortmess+=c
+          call ddc#custom#patch_global('completionMenu', 'pum.vim')
+          call ddc#custom#patch_global('sources', ['nvim-lsp'])
+          call ddc#custom#patch_global('sourceOptions', {
+          \ '_': { 'matchers': ['matcher_head'], 'sorters': ['sorter_rank'] },
+          \ 'nvim-lsp': {
+          \   'mark': 'lsp',
+          \   'forceCompletionPattern': '\.\w*|:\w*|->\w*' },
+          \ })
+
+          call ddc#custom#patch_global('sourceParams', {
+          \ 'nvim-lsp': { 'kindLabels': { 'Class': 'c' } },
+          \ })
+
+          call ddc#enable()
         '';
       })
       vim-nix
@@ -105,6 +143,9 @@ in
           colorscheme inkpot
         '';
       })
+      # Used in nvim-lspconfig below
+      rust-tools-nvim
+      vim-nix
       ({
         plugin = nvim-lspconfig;
         config = ''
@@ -120,6 +161,21 @@ in
 
           configs.rust_analyzer.setup({})
           configs.tsserver.setup{}
+
+          local opts = {
+            tools = {},
+            server = {
+              settings = {
+                ["rust-analyzer"] = {
+                    checkOnSave = {
+                        command = "clippy"
+                    },
+                }
+              }
+            },
+          }
+
+          require('rust-tools').setup(opts)
           EOF
         '';
       })

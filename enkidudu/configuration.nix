@@ -50,6 +50,29 @@ in
     127.0.0.1 dev.lan
   '';
 
+  # Ceph
+  services.ceph = {
+    enable = true;
+    global = {
+      fsid = "97b365e0-2373-4505-8428-7f8a6d2ba76f";
+      clusterName = "ptank";
+      monHost = "127.0.0.1";
+      monInitialMembers = "enkidudu";
+    };
+    mon = {
+      enable = true;
+      daemons = [ "enkidudu" ];
+    };
+    mgr = {
+      enable = true;
+      daemons = [ "enkidudu" ];
+    };
+    osd = {
+      enable = true;
+      daemons = [ "osdb3f" "osd36a" "osd9f4" ];
+    };
+  };
+
 
   # As in the the ttgl mecha
   networking.hostName = "Enkidudu";

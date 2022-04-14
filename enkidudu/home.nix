@@ -29,6 +29,7 @@ in
     blender
     blueman
     borgbackup
+    ceph
     cfssl
     chromium
     cntr

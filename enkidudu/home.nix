@@ -9,7 +9,7 @@ let
   sessionVariables = {
     EDITOR = "nvim";
     PKG_CONFIG_PATH =
-      "${pkgs.openssl.dev}/lib/pkgconfig:${pkgs.opencv4}/lib/pkgconfig:${pkgs.xorg.libX11.dev}/lib/pkgconfig:${pkgs.xorg.libXrandr.dev}/lib/pkgconfig:${pkgs.xorg.libxcb.dev}/lib/pkgconfig:${pkgs.libopus.dev}/lib/pkgconfig:${pkgs.sqlite.dev}/lib/pkgconfig:${pkgs.udev.dev}/lib/pkgconfig:${pkgs.pam}/lib/pkgconfig";
+      "${pkgs.openssl.dev}/lib/pkgconfig:${pkgs.opencv4}/lib/pkgconfig:${pkgs.xorg.libX11.dev}/lib/pkgconfig:${pkgs.xorg.libXrandr.dev}/lib/pkgconfig:${pkgs.xorg.libxcb.dev}/lib/pkgconfig:${pkgs.libopus.dev}/lib/pkgconfig:${pkgs.sqlite.dev}/lib/pkgconfig:${pkgs.udev.dev}/lib/pkgconfig:${pkgs.pam}/lib/pkgconfig:${pkgs.elfutils.dev}/lib/pkgconfig:${pkgs.ncurses.dev}/lib/pkgconfig";
     LIBCLANG_PATH = "${pkgs.llvmPackages.libclang}/lib";
     GTK_IM_MODULE = "ibus";
     XMODIFIERS = "@im=ibus";
@@ -57,6 +57,7 @@ in
     kubectl
     kubernetes-helm
     mpv
+    neomutt
     ngrok
     nitrogen
     nix-index
@@ -68,9 +69,10 @@ in
     pass
     pavucontrol
     pwgen
-    rust-analyzer
     ripgrep
+    rust-analyzer
     scrot
+    signal-desktop
     sqlite
     sqlite.dev
     sshfs
@@ -81,6 +83,8 @@ in
     tor-browser-bundle-bin
     tree
     unzip
+    wasm-pack
+    wireguard-tools
     xorg.xkill
     xorg.xwininfo
     xwayland
@@ -88,20 +92,20 @@ in
     youtube-dl
     yt-dlp
     zsh-powerlevel10k
-    wireguard-tools
-    signal-desktop
 
     # dev stuff
     (hiPrio clang)
     # For maptool, we'll deal with packaging it again properly later
-    javaPackages.compiler.openjdk16
     awscli2
+    bc
     bind
     binutils
+    bison
     cmake
     deno
+    elfutils
+    flex
     gcc
-    nodejs
     gdb
     gh
     gnumake
@@ -109,24 +113,28 @@ in
     gopls
     gradle
     # ipmiview
+    javaPackages.compiler.openjdk16
+    nodejs
+    coldsnap
+    crd2pulumi
+    gradle2nix
+    jetbrains.idea-community
     kpt
+    kube2pulumi
     linuxPackages.perf
+    mvn2nix
+    ncurses
     nodePackages.typescript-language-server
     perf-tools
     pkg-config
+    pulumi
+    pulumi-sdk
     python3
     qt5Full
     ruby
     rustup
     terraform
-    pulumi
-    pulumi-sdk
-    kube2pulumi
-    crd2pulumi
-    mvn2nix
-    gradle2nix
-    jetbrains.idea-community
-    coldsnap
+    trace-cmd
 
     # game related
     desmume

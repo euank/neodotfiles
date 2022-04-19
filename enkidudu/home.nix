@@ -20,6 +20,14 @@ let
     PROTOC_3_7 = "${pkgs.protobuf3_7}/bin/protoc";
   };
   ibus = pkgs.ibus-with-plugins.override { plugins = with pkgs.ibus-engines; [ mozc uniemoji ]; };
+
+  muttoauth2 = pkgs.writeShellApplication {
+    name = "muttoauth2";
+    runtimeInputs = with pkgs; [ python3 mutt ];
+    text = ''
+      python3 ${pkgs.mutt}/share/doc/mutt/samples/mutt_oauth2.py "$@"
+    '';
+  };
 in
 {
   home.packages = with pkgs; [
@@ -57,6 +65,7 @@ in
     kubectl
     kubernetes-helm
     mpv
+    muttoauth2
     neomutt
     ngrok
     nitrogen

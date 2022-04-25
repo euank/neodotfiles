@@ -7,6 +7,7 @@ in
   imports = [
     ./hardware-configuration.nix
     home-manager.nixosModules.home-manager
+    inputs.nixos-hardware.nixosModules.lenovo-thinkpad-x1-6th-gen
     ../shared/base.nix
     ../shared/desktop.nix
     "${inputs.ngrok-dev2}/nixos/client-module.nix"
@@ -44,6 +45,9 @@ in
   virtualisation.virtualbox.host.enable = false;
   virtualisation.virtualbox.host.enableExtensionPack  = true;
 
+  services.bind.extraOptions = ''
+    dnssec-validation no;
+  '';
   services.fwupd.enable = true;
   services.printing.enable = true;
   services.keybase.enable = true;

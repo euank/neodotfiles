@@ -3,6 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     denops-nixpkgs.url = "github:euank/nixpkgs/add-denops";
     anki-nixpkgs.url = "github:euank/nixpkgs/anki-2.1.50";
     neovim = {

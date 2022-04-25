@@ -14,7 +14,7 @@ in
   home.packages = with pkgs; [
     # desktop stuff
     anki-bin
-    chromium
+    #chromium
     evince
     feh
     firefox

@@ -215,6 +215,10 @@ in
       co = "checkout";
       s = "status";
     };
+    extraConfig = {
+      merge.tool = "vimdiff";
+      "mergetool \"vimdiff\"".cmd = "nvim -d $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'";
+    };
   };
 
   programs.direnv.enable = true;

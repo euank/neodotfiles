@@ -48,7 +48,7 @@ in
     escrotum
     evince
     feh
-    ffmpeg-full
+    # ffmpeg-full
     file
     firefox
     fish
@@ -73,7 +73,7 @@ in
     nix-index
     nixpkgs-fmt
     nmap
-    obs-studio
+    # obs-studio
     openssl
     p7zip
     pass

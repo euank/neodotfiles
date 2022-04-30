@@ -31,6 +31,7 @@ let
 in
 {
   home.packages = with pkgs; [
+    alejandra
     anki-bin
     bemenu
     binutils
@@ -39,7 +40,7 @@ in
     borgbackup
     ceph
     cfssl
-    chromium
+    # chromium
     cntr
     deluge
     discord

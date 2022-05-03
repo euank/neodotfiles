@@ -9,6 +9,7 @@ let
     XMODIFIERS = "@im=ibus";
     QT_IM_MODULE = "ibus";
   };
+  ibus = pkgs.ibus-with-plugins.override { plugins = with pkgs.ibus-engines; [ mozc uniemoji ]; };
 in
 {
   home.packages = with pkgs; [
@@ -340,7 +341,7 @@ in
 
     Service = {
       Type = "simple";
-      ExecStart = "${pkgs.ibus}/bin/ibus-daemon --xim";
+      ExecStart = "${ibus}/bin/ibus-daemon --xim";
     };
     Install = { WantedBy = [ "graphical-session.target" ]; };
   };

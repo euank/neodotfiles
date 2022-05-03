@@ -4,6 +4,7 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     denops-nixpkgs.url = "github:euank/nixpkgs/add-denops";
+    anki-nixpkgs.url = "github:euank/nixpkgs/anki-2.1.50";
     neovim = {
       url = "github:neovim/neovim/release-0.6?dir=contrib";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -36,6 +37,7 @@
             dwarffs = dwarffs.defaultPackage.x86_64-linux;
             neovim = inputs.neovim.defaultPackage.x86_64-linux;
             vimPlugins = inputs.denops-nixpkgs.legacyPackages.x86_64-linux.vimPlugins;
+            anki-bin = inputs.anki-nixpkgs.legacyPackages.x86_64-linux.anki-bin;
           })
         ];
         config = { allowUnfree = true; };

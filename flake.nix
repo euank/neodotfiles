@@ -42,6 +42,8 @@
       };
     in
     {
+      inherit pkgs;
+
       nixosConfigurations = rec {
         Enkidudu = nixpkgs.lib.nixosSystem rec {
           inherit pkgs system;

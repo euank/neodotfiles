@@ -52,6 +52,7 @@ in
   services.printing.enable = true;
   services.keybase.enable = true;
   services.kbfs.enable = true;
+  services.upower.enable = true;
 
   networking.firewall.enable = false;
   networking.extraHosts = ''

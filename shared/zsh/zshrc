@@ -98,10 +98,6 @@ if type kubectl &>/dev/null; then
   alias k=kubectl
 fi
 
-type rustc &>/dev/null && {
-  export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src"
-}
-
 # type kubectl &>/dev/null && source <(kubectl completion zsh)
 
 type guix &>/dev/null && export GUIX_LOCPATH=$HOME/.guix-profile/lib/locale

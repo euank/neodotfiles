@@ -58,6 +58,7 @@ in
     gnome3.cheese
     htop
     inkscape
+    shotcut
     ibus
     jmtpfs
     jq

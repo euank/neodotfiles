@@ -39,8 +39,9 @@
       dejavu_fonts
       meslolgs-nf
       meslo-lg
-      migu
       hanazono
+      kanji-stroke-order-font
+      migu
       comic-neue
       corefonts
     ];

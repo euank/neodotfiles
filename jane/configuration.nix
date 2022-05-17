@@ -40,6 +40,17 @@ in
     forwarders = [ "8.8.8.8" "8.8.4.4" ];
   };
 
+  services.postgresql = {
+    enable = true;
+    package = pkgs.postgresql;
+    extraPlugins = with pkgs.postgresqlPackages; [ wal2json ];
+    settings = {
+      wal_level = "logical";
+      max_replication_slots = 10;
+      max_wal_senders = 10;
+    };
+  };
+
   networking.wireguard = {
     enable = true;
     interfaces = {

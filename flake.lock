@@ -1,5 +1,21 @@
 {
   "nodes": {
+    "anki-nixpkgs": {
+      "locked": {
+        "lastModified": 1651420446,
+        "narHash": "sha256-sERjWKR9YvKQ67yZXmtLDLJJcStAWJgARopj86iDz6A=",
+        "owner": "euank",
+        "repo": "nixpkgs",
+        "rev": "c9f742f7bc09672c661a0597f048fa3d5d9f399f",
+        "type": "github"
+      },
+      "original": {
+        "owner": "euank",
+        "ref": "anki-2.1.50",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "denops-nixpkgs": {
       "locked": {
         "lastModified": 1649190943,
@@ -219,11 +235,11 @@
       "inputs": {
         "flake-utils": "flake-utils_3",
         "nixpkgs": "nixpkgs_6",
-        "nixpkgs-go": "nixpkgs-go",
-        "nixpkgs-pinned": "nixpkgs-pinned"
+        "nixpkgs-pinned": "nixpkgs-pinned",
+        "nixpkgs-unstable": "nixpkgs-unstable"
       },
       "locked": {
-        "narHash": "sha256-2OvrYDmX8oD/ElBV7h+K04TQ+xhwh/bPDK/x1kO9/DQ=",
+        "narHash": "sha256-KiUJpT0yn3NHieoEAsBucPkgm0FT7yQ1Lf5i7qaFPCM=",
         "path": "/home/esk/dev/ngrok/nix",
         "type": "path"
       },
@@ -302,6 +318,22 @@
         "type": "github"
       }
     },
+    "nixos-hardware": {
+      "locked": {
+        "lastModified": 1650522846,
+        "narHash": "sha256-SxWHXRI3qJwswyXAtzsi6PKVY3KLNNnb072KaJthII8=",
+        "owner": "NixOS",
+        "repo": "nixos-hardware",
+        "rev": "6b4ebea9093c997c5f275c820e679108de4871ab",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "master",
+        "repo": "nixos-hardware",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1632864508,
@@ -330,22 +362,6 @@
         "owner": "NixOs",
         "repo": "nixpkgs",
         "rev": "5622b6b6feb669edc227aaf000413d5b593d4051",
-        "type": "github"
-      }
-    },
-    "nixpkgs-go": {
-      "locked": {
-        "lastModified": 1647405976,
-        "narHash": "sha256-6vM/6pIu2ZEnjLb68QZn9m5tDReOv0Sd4mGSmd3PNCM=",
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "1e49b301b97153c32d041675537cd03f0ee90510",
-        "type": "github"
-      },
-      "original": {
-        "owner": "NixOS",
-        "ref": "master",
-        "repo": "nixpkgs",
         "type": "github"
       }
     },
@@ -393,6 +409,22 @@
         "id": "nixpkgs",
         "rev": "215d4d0fd80ca5163643b03a33fde804a29cc1e2",
         "type": "indirect"
+      }
+    },
+    "nixpkgs-unstable": {
+      "locked": {
+        "lastModified": 1651690927,
+        "narHash": "sha256-ejcIWou5r+0d84IYWgiPJrNPEGaszP9ZNu2/+JdXPx4=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "b4cc9cd38f05f1a764e21bfb1b14e89be76068b0",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixpkgs-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
       }
     },
     "nixpkgs_10": {
@@ -546,8 +578,25 @@
         "type": "indirect"
       }
     },
+    "postgres-nixpkgs": {
+      "locked": {
+        "lastModified": 1652829110,
+        "narHash": "sha256-dd1Db+fw5ObWj3ieXcH3x9hkihko1pYXkthDt15wjsc=",
+        "owner": "euank",
+        "repo": "nixpkgs",
+        "rev": "cb2eb58fe5237a50e4745ff1f033c98225df47b9",
+        "type": "github"
+      },
+      "original": {
+        "owner": "euank",
+        "ref": "euan/wal2json-test",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
+        "anki-nixpkgs": "anki-nixpkgs",
         "denops-nixpkgs": "denops-nixpkgs",
         "dwarffs": "dwarffs",
         "ekverlay": "ekverlay",
@@ -559,7 +608,9 @@
         "ngrok-dev2": "ngrok-dev2",
         "nix": "nix_2",
         "nixek": "nixek",
+        "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs_10",
+        "postgres-nixpkgs": "postgres-nixpkgs",
         "secrets": "secrets"
       }
     },

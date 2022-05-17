@@ -10,6 +10,7 @@
       url = "github:neovim/neovim/release-0.6?dir=contrib";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    postgres-nixpkgs.url = "github:euank/nixpkgs/euan/wal2json-test";
     home-manager.url = "github:nix-community/home-manager";
     ekverlay.url = "github:euank/nixek-overlay";
     nixek.url = "github:nixek-systems/pkgs";
@@ -39,6 +40,8 @@
             neovim = inputs.neovim.defaultPackage.x86_64-linux;
             vimPlugins = inputs.denops-nixpkgs.legacyPackages.x86_64-linux.vimPlugins;
             anki-bin = inputs.anki-nixpkgs.legacyPackages.x86_64-linux.anki-bin;
+            postgresqlPackages = inputs.postgres-nixpkgs.legacyPackages.x86_64-linux.postgresqlPackages;
+            postgresql = inputs.postgres-nixpkgs.legacyPackages.x86_64-linux.postgresql;
           })
         ];
         config = { allowUnfree = true; };

@@ -120,7 +120,7 @@ in
     gdb
     gh
     gnumake
-    go
+    go_1_18
     gopls
     gradle
     # ipmiview

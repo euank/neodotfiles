@@ -124,7 +124,8 @@ in
     gopls
     gradle
     # ipmiview
-    javaPackages.compiler.openjdk16
+    openjdk
+    # javaPackages.compiler.openjdk16
     nodejs
     coldsnap
     crd2pulumi

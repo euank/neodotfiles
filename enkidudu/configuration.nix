@@ -54,8 +54,7 @@ in
   services.ceph = {
     enable = true;
     global = {
-      fsid = "97b365e0-2373-4505-8428-7f8a6d2ba76f";
-      clusterName = "ptank";
+      fsid = "fc99899d-6144-4288-be8f-d8dd4adbae00";
       monHost = "127.0.0.1";
       monInitialMembers = "enkidudu";
     };

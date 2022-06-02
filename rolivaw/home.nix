@@ -29,6 +29,8 @@ in
     pavucontrol
     pwgen
     tint2
+    coldsnap
+    jetbrains.idea-community
     ibus-engines.mozc
     k3s
     zoom-us

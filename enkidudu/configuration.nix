@@ -92,6 +92,7 @@ in
   #   "DisplayPort-1"
   #   "DisplayPort-0"
   # ];
+  fonts.fontDir.enable = true;
 
   virtualisation.docker.enable = true;
 

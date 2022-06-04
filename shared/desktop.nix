@@ -44,6 +44,7 @@
       migu
       comic-neue
       corefonts
+      ubuntu_font_family
     ];
   };
 

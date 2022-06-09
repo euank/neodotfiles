@@ -4,13 +4,11 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
-    anki-nixpkgs.url = "github:euank/nixpkgs/anki-2.1.50";
     denops-nixpkgs.url = "github:euank/nixpkgs/add-denops-2022-04-05";
     neovim = {
       url = "github:neovim/neovim/release-0.6?dir=contrib";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    postgres-nixpkgs.url = "github:euank/nixpkgs/euan/wal2json-test";
     home-manager.url = "github:nix-community/home-manager";
     ekverlay.url = "github:euank/nixek-overlay";
     nixek.url = "github:nixek-systems/pkgs";
@@ -39,9 +37,6 @@
             dwarffs = dwarffs.defaultPackage.x86_64-linux;
             neovim = inputs.neovim.defaultPackage.x86_64-linux;
             vimPlugins = inputs.denops-nixpkgs.legacyPackages.x86_64-linux.vimPlugins;
-            anki-bin = inputs.anki-nixpkgs.legacyPackages.x86_64-linux.anki-bin;
-            postgresqlPackages = inputs.postgres-nixpkgs.legacyPackages.x86_64-linux.postgresqlPackages;
-            postgresql = inputs.postgres-nixpkgs.legacyPackages.x86_64-linux.postgresql;
           })
         ];
         config = { allowUnfree = true; };

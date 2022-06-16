@@ -58,6 +58,8 @@ in
     gnome3.cheese
     htop
     inkscape
+    logseq
+    bazel_5
     shotcut
     ibus
     jmtpfs

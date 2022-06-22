@@ -155,6 +155,7 @@ in
     # maptool
     melonDS
     minecraft
+    polymc
 
     # misc
     efitools

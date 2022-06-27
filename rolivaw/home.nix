@@ -61,7 +61,7 @@ in
     git
     gnumake
     gnupg
-    go
+    go_1_18
     gopls
     gradle
     htop

@@ -149,6 +149,8 @@ in
     rustup
     terraform
     trace-cmd
+    wine-staging
+    winetricks
 
     # game related
     desmume

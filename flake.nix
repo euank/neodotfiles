@@ -2,7 +2,7 @@
   description = "euank nix dotfile flakes";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     denops-nixpkgs.url = "github:euank/nixpkgs/add-denops-2022-04-05";
     neovim = {

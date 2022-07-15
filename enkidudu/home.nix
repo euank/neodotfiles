@@ -151,6 +151,7 @@ in
     trace-cmd
     wine-staging
     winetricks
+    calibre
 
     # game related
     desmume

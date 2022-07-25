@@ -52,7 +52,7 @@ in
 
   # Ceph
   services.ceph = {
-    enable = true;
+    enable = false;
     global = {
       fsid = "fc99899d-6144-4288-be8f-d8dd4adbae00";
       monHost = "127.0.0.1";

@@ -32,6 +32,7 @@ in
     # coldsnap # temporarily disabled, broken build
     jetbrains.idea-community
     ibus-engines.mozc
+    libreoffice
     k3s
     zoom-us
     obs-studio
@@ -45,6 +46,13 @@ in
     gnome.gnome-session
     xsel
     gptfdisk
+    logseq
+    calibre
+    escrotum
+    brightnessctl
+    remmina
+    slack
+    google-chrome
 
     # dev stuff
     (hiPrio clang)
@@ -62,7 +70,7 @@ in
     git
     gnumake
     gnupg
-    go_1_18
+    go_1_19
     gopls
     gradle
     htop
@@ -84,7 +92,6 @@ in
     rustup
     sqlite
     sshfs
-    steam-run
     tcpdump
     tig
     tmate

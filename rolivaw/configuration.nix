@@ -57,6 +57,7 @@ in
   networking.firewall.enable = false;
   networking.extraHosts = ''
     10.104.20.4 test-cert.euank.com.lan
+    3.17.7.232 euankfoobar.ngrok.io
   '';
 
   home-manager.users.esk = import ./home.nix;

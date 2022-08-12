@@ -29,7 +29,7 @@
       pkgs = import nixpkgs {
         inherit system;
         overlays = [
-          ekverlay.overlay
+          ekverlay.overlays.default
           nixek.overlay
           (final: prev: {
             mvn2nix = mvn2nix.defaultPackage.x86_64-linux;

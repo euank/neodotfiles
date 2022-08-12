@@ -153,7 +153,6 @@ in
     winetricks
     calibre
     okular
-    fbreader
     google-chrome
 
     # game related

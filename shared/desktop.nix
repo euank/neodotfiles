@@ -39,6 +39,7 @@
       dejavu_fonts
       meslolgs-nf
       meslo-lg
+      libre-franklin
       hanazono
       kanji-stroke-order-font
       migu

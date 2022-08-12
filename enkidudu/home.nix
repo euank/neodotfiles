@@ -152,6 +152,9 @@ in
     wine-staging
     winetricks
     calibre
+    okular
+    fbreader
+    google-chrome
 
     # game related
     desmume

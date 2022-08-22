@@ -48,6 +48,7 @@ in
 
     # dev stuff
     (hiPrio clang)
+    awscli2
     arduino
     bind
     binutils
@@ -71,7 +72,7 @@ in
     kubernetes-helm
     lorri
     lsof
-    ngrok-2
+    ngrok
     nixpkgs-fmt
     nodejs
     openssl

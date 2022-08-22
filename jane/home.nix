@@ -34,7 +34,8 @@ in
     kubectl
     kubernetes-helm
     nixpkgs-fmt
-    ngrok-2
+    ngrok
+    awscli2
     openssl
     nodejs
     pkg-config

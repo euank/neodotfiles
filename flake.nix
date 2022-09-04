@@ -4,9 +4,9 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
-    denops-nixpkgs.url = "github:euank/nixpkgs/add-denops-2022-04-05";
+    denops-nixpkgs.url = "github:euank/nixpkgs/add-denops-2022-09-04";
     neovim = {
-      url = "github:neovim/neovim/release-0.6?dir=contrib";
+      url = "github:neovim/neovim/release-0.7?dir=contrib";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     home-manager.url = "github:nix-community/home-manager";

@@ -123,7 +123,7 @@ in
   services.kbfs.enable = true;
 
   networking.firewall.enable = false;
-  networking.firewall.allowedTCPPorts = [ 22 222 80 443 6443 ];
+  networking.firewall.allowedTCPPorts = [ 22 222 80 443 6443 8080 ];
   networking.firewall.extraCommands = ''
     iptables -A INPUT -i wg0 -j ACCEPT
   '';

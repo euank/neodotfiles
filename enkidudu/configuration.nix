@@ -72,6 +72,21 @@ in
     };
   };
 
+  networking.wireguard.interfaces = {
+    wgfly0 = {
+      ips = [ "fdaa:0:2e37:a7b:907b:0:a:2/120" ];
+      privateKeyFile = "/etc/wg/fly-wg";
+      peers = [
+        {
+          publicKey = "GM0QhyCeUTh/BeFQtxcDDAqSycM31hie6ucXX/EhbC4=";
+          allowedIPs = [ "fdaa:0:2e37::/48" ];
+          endpoint = "sea2.gateway.6pn.dev:51820";
+          persistentKeepalive = 15;
+        }
+      ];
+    };
+  };
+
 
   # As in the the ttgl mecha
   networking.hostName = "Enkidudu";

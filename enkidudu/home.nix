@@ -18,6 +18,9 @@ let
     PROTOC = "${pkgs.protobuf}/bin/protoc";
     # maptool
     PROTOC_3_7 = "${pkgs.protobuf3_7}/bin/protoc";
+
+    GLFW_SO_PATH = "${pkgs.glfw3}/lib/libglfw.so";
+    OPENAL_SO_PATH = "${pkgs.openal}/lib/libopenal.so";
   };
   ibus = pkgs.ibus-with-plugins.override { plugins = with pkgs.ibus-engines; [ mozc uniemoji ]; };
 
@@ -105,6 +108,7 @@ in
     youtube-dl
     yt-dlp
     zsh-powerlevel10k
+    wireshark
 
     # dev stuff
     (hiPrio clang)

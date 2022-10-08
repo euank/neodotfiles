@@ -58,7 +58,7 @@ in
     flyctl
     gimp
     gmrun
-    gnome3.cheese
+    gnome.cheese
     htop
     inkscape
     logseq
@@ -133,7 +133,7 @@ in
     openjdk
     # javaPackages.compiler.openjdk16
     nodejs
-    coldsnap
+    # coldsnap # temporarily disabled, broken build
     crd2pulumi
     gradle2nix
     jetbrains.idea-community

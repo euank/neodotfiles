@@ -19,7 +19,7 @@ in
     evince
     feh
     firefox
-    gnome3.cheese
+    gnome.cheese
     keepassxc
     mpv
     vlc
@@ -29,7 +29,7 @@ in
     pavucontrol
     pwgen
     tint2
-    coldsnap
+    # coldsnap # temporarily disabled, broken build
     jetbrains.idea-community
     ibus-engines.mozc
     k3s
@@ -42,7 +42,7 @@ in
     dmenu
     drawio
     networkmanagerapplet
-    gnome3.gnome-session
+    gnome.gnome-session
     xsel
     gptfdisk
 

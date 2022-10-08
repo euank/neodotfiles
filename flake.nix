@@ -6,7 +6,7 @@
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     denops-nixpkgs.url = "github:euank/nixpkgs/add-denops-2022-09-04";
     neovim = {
-      url = "github:neovim/neovim/release-0.7?dir=contrib";
+      url = "github:neovim/neovim/release-0.8?dir=contrib";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     home-manager.url = "github:nix-community/home-manager";
@@ -78,7 +78,7 @@
         updateInputFlags = lib.strings.concatMapStringsSep " " (s: "--update-input ${s}") pubInputs;
       in
       pkgs.writeScriptBin "nix-flake-update" ''
-        export PATH=$PATH:${pkgs.nixFlakes}/bin
+        export PATH=$PATH:${pkgs.nix}/bin
         set -x
         nix flake lock ${updateInputFlags}
         set +x

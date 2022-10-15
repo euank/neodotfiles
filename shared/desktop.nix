@@ -24,14 +24,30 @@
     extraPackages32 = with pkgs.pkgsi686Linux; [ libva ];
   };
 
-  sound.enable = true;
-  hardware.pulseaudio.support32Bit = true;
+  sound.enable = false;
+  # hardware.pulseaudio = {
+  #   support32Bit = true;
+  #   enable = true;
+  #   package = pkgs.pulseaudioFull;
+  # };
+  services.pipewire = {
+    enable = true;
+    alsa.enable = true;
+    alsa.support32Bit = true;
+    pulse.enable = true;
+  };
+  environment.etc = {
+    "wireplumber/bluetooth.lua.d/51-bluez-config.lua".text = ''
+      bluez_monitor.properties = {
+      ["bluez5.enable-sbc-xq"] = true,
+      ["bluez5.enable-msbc"] = true,
+      ["bluez5.enable-hw-volume"] = true,
+      ["bluez5.headset-roles"] = "[ hsp_hs hsp_ag hfp_hf hfp_ag ]"
+      }
+    '';
+  };
   hardware.bluetooth.enable = true;
   services.blueman.enable = true;
-  hardware.pulseaudio = {
-    enable = true;
-    package = pkgs.pulseaudioFull;
-  };
 
   fonts = {
     enableDefaultFonts = true;

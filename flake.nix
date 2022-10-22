@@ -60,6 +60,13 @@
             ./jane/configuration.nix
           ];
         };
+        pascal = nixpkgs.lib.nixosSystem rec {
+          inherit pkgs system;
+          specialArgs = { inherit inputs; };
+          modules = [
+            ./pascal/configuration.nix
+          ];
+        };
 
         rolivaw = nixpkgs.lib.nixosSystem rec {
           inherit pkgs system;

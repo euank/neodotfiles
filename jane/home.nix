@@ -21,13 +21,13 @@ in
     # dev stuff
     linuxPackages.perf
     bind
-    binutils
     deno
     exa
     file
     fish
     gnumake
     go_1_18
+    (lowPrio gotools)
     golangci-lint
     lorri
     gradle

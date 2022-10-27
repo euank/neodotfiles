@@ -60,6 +60,7 @@ in
     # dev stuff
     (hiPrio clang)
     awscli2
+    goimports
     arduino
     bind
     binutils

@@ -16,8 +16,6 @@ let
     QT_IM_MODULE = "ibus";
     NIX_DEBUG_INFO_DIRS = "/run/dwarffs";
     PROTOC = "${pkgs.protobuf}/bin/protoc";
-    # maptool
-    PROTOC_3_7 = "${pkgs.protobuf3_7}/bin/protoc";
 
     GLFW_SO_PATH = "${pkgs.glfw3}/lib/libglfw.so";
     OPENAL_SO_PATH = "${pkgs.openal}/lib/libopenal.so";
@@ -164,7 +162,7 @@ in
     # maptool
     melonDS
     minecraft
-    polymc
+    prismlauncher
 
     # misc
     efitools

@@ -111,8 +111,8 @@ in
 
   virtualisation.docker.enable = true;
 
-  virtualisation.virtualbox.host.enable = true;
-  virtualisation.virtualbox.host.enableExtensionPack = true;
+  #virtualisation.virtualbox.host.enable = true;
+  #virtualisation.virtualbox.host.enableExtensionPack = true;
   virtualisation.libvirtd.enable = false;
 
   home-manager.users.esk = import ./home.nix;

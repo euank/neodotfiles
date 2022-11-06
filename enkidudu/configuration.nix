@@ -87,7 +87,6 @@ in
     };
   };
 
-
   # As in the the ttgl mecha
   networking.hostName = "Enkidudu";
   networking.hostId = "373650f1";

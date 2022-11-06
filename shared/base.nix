@@ -53,6 +53,7 @@
       "video"
       "wheel"
       "wireshark"
+      "adbusers"
     ];
   };
 

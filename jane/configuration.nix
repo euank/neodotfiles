@@ -21,17 +21,35 @@ in
         name= "wg0";
         ipv4= "10.104.20.3";
       };
-      mux = {
-        create= false;
-        name = "wg0";
-        ipv4 = "10.104.20.4";
-        ipv6 = "fe80::10:104:1:2";
-      };
-      tunnel = {
-        create= false;
-        name= "wg0";
-        ipv4= "10.104.20.10";
-        ipv6= "fe80::10:104:2:2";
+      dataplanes = {
+        us = {
+          mux = {
+            create= false;
+            name = "wg0";
+            ipv4 = "10.104.20.4";
+            ipv6 = "fe80::10:104:1:2";
+          };
+          tunnel = {
+            create= false;
+            name= "wg0";
+            ipv4= "10.104.20.10";
+            ipv6= "fe80::10:104:2:2";
+          };
+        };
+        l2 = {
+          mux = {
+            create= false;
+            name = "wg0";
+            ipv4 = "10.104.20.5";
+            ipv6 = "fe80::10:104:1:3";
+          };
+          tunnel = {
+            create= false;
+            name= "wg0";
+            ipv4= "10.104.20.11";
+            ipv6= "fe80::10:104:2:3";
+          };
+        };
       };
     };
   };
@@ -103,6 +121,7 @@ in
   fileSystems."/".options = [ "noatime" "nodiratime" "discard" ];
 
   virtualisation.docker.enable = true;
+  virtualisation.docker.extraOptions = "--log-level=debug";
   networking.hostName = "jane"; # ender's game jane, or asimov's 'feminine intuition' jane, you pick
 
   networking.useDHCP = false;

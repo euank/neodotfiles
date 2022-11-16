@@ -8,6 +8,7 @@ let
     GTK_IM_MODULE = "ibus";
     XMODIFIERS = "@im=ibus";
     QT_IM_MODULE = "ibus";
+    COWPATH = "${pkgs.cowsay}/share/cows:${pkgs.tewisay}/share/tewisay/cows";
   };
   ibus = pkgs.ibus-with-plugins.override { plugins = with pkgs.ibus-engines; [ mozc uniemoji ]; };
 in
@@ -53,6 +54,8 @@ in
     remmina
     slack
     google-chrome
+    tewisay
+    cowsay
 
     # dev stuff
     (hiPrio clang)

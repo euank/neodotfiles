@@ -111,6 +111,7 @@ in
     wireshark
     cowsay
     tewisay
+    thedesk
 
     # dev stuff
     (hiPrio clang)

@@ -151,7 +151,6 @@ in
     pulumi
     pulumi-sdk
     python3
-    qt5Full
     ruby
     rustup
     terraform

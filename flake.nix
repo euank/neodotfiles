@@ -15,6 +15,7 @@
     mvn2nix.url = "github:fzakaria/mvn2nix";
     gradle2nix.url = "github:tadfisher/gradle2nix";
     dwarffs.url = "github:edolstra/dwarffs";
+    nickel.url = "github:tweag/nickel";
 
     # Magic unimportable things
     ngrok-dev.url = "path:/home/esk/dev/ngrok/nix";
@@ -37,6 +38,7 @@
             dwarffs = dwarffs.defaultPackage.x86_64-linux;
             neovim = inputs.neovim.defaultPackage.x86_64-linux;
             vimPlugins = inputs.denops-nixpkgs.legacyPackages.x86_64-linux.vimPlugins;
+            nickel = inputs.nickel.packages.x86_64-linux.default;
           })
         ];
         config = { allowUnfree = true; };

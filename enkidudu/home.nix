@@ -114,6 +114,7 @@ in
     thedesk
 
     # dev stuff
+    nickel
     (hiPrio clang)
     # For maptool, we'll deal with packaging it again properly later
     awscli2
@@ -331,6 +332,7 @@ in
 
           configs.rust_analyzer.setup({})
           configs.tsserver.setup{}
+          configs.nickel_ls.setup{}
 
           local opts = {
             tools = {},

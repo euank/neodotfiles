@@ -115,6 +115,7 @@ in
           inoremap <PageUp>   <Cmd>call pum#map#insert_relative_page(-1)<CR>
         '';
       })
+      ddc-ui-native
       ddc-sorter_rank
       ddc-matcher_head
       ddc-source-nvim-lsp
@@ -124,8 +125,9 @@ in
         config = ''
           set completeopt=menuone,noinsert,noselect
           set shortmess+=c
-          call ddc#custom#patch_global('completionMenu', 'pum.vim')
+          call ddc#custom#patch_global('ui', 'native')
           call ddc#custom#patch_global('sources', ['nvim-lsp'])
+          call ddc#custom#patch_global('completionMenu', 'pum.vim')
           call ddc#custom#patch_global('sourceOptions', {
           \ '_': { 'matchers': ['matcher_head'], 'sorters': ['sorter_rank'] },
           \ 'nvim-lsp': {
@@ -137,9 +139,19 @@ in
           \ 'nvim-lsp': { 'kindLabels': { 'Class': 'c' } },
           \ })
 
+          " <TAB>: completion.
+          inoremap <silent><expr> <TAB>
+          \ pumvisible() ? '<C-n>' :
+          \ (col('.') <= 1 <Bar><Bar> getline('.')[col('.') - 2] =~# '\s') ?
+          \ '<TAB>' : ddc#map#manual_complete()
+
+          " <S-TAB>: completion back.
+          inoremap <expr><S-TAB>  pumvisible() ? '<C-p>' : '<C-h>'
+
           call ddc#enable()
         '';
       })
+      vim-nickel
       vim-nix
       ({
         plugin = vim-colorschemes;
@@ -150,7 +162,6 @@ in
       })
       # Used in nvim-lspconfig below
       rust-tools-nvim
-      vim-nix
       ({
         plugin = nvim-lspconfig;
         config = ''
@@ -166,6 +177,7 @@ in
 
           configs.rust_analyzer.setup({})
           configs.tsserver.setup{}
+          configs.nickel_ls.setup{}
 
           local opts = {
             tools = {},

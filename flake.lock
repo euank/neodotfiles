@@ -2,16 +2,16 @@
   "nodes": {
     "denops-nixpkgs": {
       "locked": {
-        "lastModified": 1662316981,
-        "narHash": "sha256-J4Ass7W6u0xTS+ag9hid+nDniBZUVPge/bUD8F4OYtk=",
+        "lastModified": 1669966050,
+        "narHash": "sha256-4HwYL2YQHWecdM457OHwMwGry70R2PmkS3Pw70clm8s=",
         "owner": "euank",
         "repo": "nixpkgs",
-        "rev": "349743e318aba2c9dcd98cf97a9f959c05316315",
+        "rev": "c557b67c3400abdba1500c6e2f9acb9f17a299ba",
         "type": "github"
       },
       "original": {
         "owner": "euank",
-        "ref": "add-denops-2022-09-04",
+        "ref": "add-denops-2022-12-01",
         "repo": "nixpkgs",
         "type": "github"
       }

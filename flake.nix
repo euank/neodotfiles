@@ -4,7 +4,7 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
-    denops-nixpkgs.url = "github:euank/nixpkgs/add-denops-2022-09-04";
+    denops-nixpkgs.url = "github:euank/nixpkgs/add-denops-2022-12-01";
     neovim = {
       url = "github:neovim/neovim/release-0.8?dir=contrib";
       inputs.nixpkgs.follows = "nixpkgs";

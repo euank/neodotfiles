@@ -284,7 +284,7 @@ in
       })
       ddc-sorter_rank
       ddc-matcher_head
-      ddc-nvim-lsp
+      ddc-source-nvim-lsp
       ({
         plugin = ddc-vim;
         # TODO

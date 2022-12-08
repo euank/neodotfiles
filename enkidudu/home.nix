@@ -112,6 +112,7 @@ in
     cowsay
     tewisay
     thedesk
+    dua
 
     # dev stuff
     nickel

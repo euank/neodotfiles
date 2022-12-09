@@ -168,15 +168,69 @@ in
       vim-repeat
       vim-dispatch
       vim-eunuch
-      denite-nvim
+      vim-sleuth
       ({
-        plugin = deoplete-nvim;
+        plugin = denops-vim;
+        # Default + no-lock https://github.com/vim-denops/denops.vim/blob/448f84ce91a573a6ce0b74044df986f6ab6dd906/doc/denops.txt#L120
         config = ''
-          let g:deoplete#enable_at_startup = 1
-          autocmd Filetype go setlocal omnifunc=v:lua.vim.lsp.omnifunc
-          set completeopt=noselect
+          let g:denops#server#deno_args = ['--no-lock', '-q', '--no-check', '--unstable', '-A']
         '';
       })
+      ({
+        plugin = skkeleton;
+        config = ''
+          imap <C-j> <Plug>(skkeleton-toggle)
+          cmap <C-j> <Plug>(skkeleton-toggle)
+        '';
+      })
+      ({
+        plugin = pum-vim;
+        config = ''
+          inoremap <C-n>   <Cmd>call pum#map#insert_relative(+1)<CR>
+          inoremap <C-p>   <Cmd>call pum#map#insert_relative(-1)<CR>
+          inoremap <C-y>   <Cmd>call pum#map#confirm()<CR>
+          inoremap <C-e>   <Cmd>call pum#map#cancel()<CR>
+          inoremap <PageDown> <Cmd>call pum#map#insert_relative_page(+1)<CR>
+          inoremap <PageUp>   <Cmd>call pum#map#insert_relative_page(-1)<CR>
+        '';
+      })
+      ddc-ui-native
+      ddc-sorter_rank
+      ddc-matcher_head
+      ddc-source-nvim-lsp
+      ({
+        plugin = ddc-vim;
+        # TODO
+        config = ''
+          set completeopt=menuone,noinsert,noselect
+          set shortmess+=c
+          call ddc#custom#patch_global('ui', 'native')
+          call ddc#custom#patch_global('sources', ['nvim-lsp'])
+          call ddc#custom#patch_global('completionMenu', 'pum.vim')
+          call ddc#custom#patch_global('sourceOptions', {
+          \ '_': { 'matchers': ['matcher_head'], 'sorters': ['sorter_rank'] },
+          \ 'nvim-lsp': {
+          \   'mark': 'lsp',
+          \   'forceCompletionPattern': '\.\w*|:\w*|->\w*' },
+          \ })
+
+          call ddc#custom#patch_global('sourceParams', {
+          \ 'nvim-lsp': { 'kindLabels': { 'Class': 'c' } },
+          \ })
+
+          " <TAB>: completion.
+          inoremap <silent><expr> <TAB>
+          \ pumvisible() ? '<C-n>' :
+          \ (col('.') <= 1 <Bar><Bar> getline('.')[col('.') - 2] =~# '\s') ?
+          \ '<TAB>' : ddc#map#manual_complete()
+
+          " <S-TAB>: completion back.
+          inoremap <expr><S-TAB>  pumvisible() ? '<C-p>' : '<C-h>'
+
+          call ddc#enable()
+        '';
+      })
+      vim-nickel
       vim-nix
       ({
         plugin = vim-colorschemes;
@@ -185,6 +239,8 @@ in
           colorscheme inkpot
         '';
       })
+      # Used in nvim-lspconfig below
+      rust-tools-nvim
       ({
         plugin = nvim-lspconfig;
         config = ''
@@ -200,6 +256,22 @@ in
 
           configs.rust_analyzer.setup({})
           configs.tsserver.setup{}
+          configs.nickel_ls.setup{}
+
+          local opts = {
+            tools = {},
+            server = {
+              settings = {
+                ["rust-analyzer"] = {
+                    checkOnSave = {
+                        command = "clippy"
+                    },
+                }
+              }
+            },
+          }
+
+          require('rust-tools').setup(opts)
           EOF
         '';
       })

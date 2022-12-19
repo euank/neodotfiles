@@ -3,9 +3,7 @@
 {
   imports = [
     ./hardware-configuration.nix
-    ../shared/base.nix
     ../shared/desktop.nix
-    inputs.home-manager.nixosModules.home-manager
   ];
   nixpkgs.config.allowUnfree = true;
 

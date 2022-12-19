@@ -7,9 +7,7 @@ in
   # disabledModules = [ "virtualisation/libvirtd.nix" ];
   imports = [
     ./hardware-configuration.nix
-    ../shared/base.nix
     ../shared/desktop.nix
-    home-manager.nixosModules.home-manager
   ];
 
   boot.kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;

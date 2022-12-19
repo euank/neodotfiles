@@ -10,65 +10,12 @@ let
   };
 in
 {
+
+  imports = [
+    ../shared/home.nix
+  ];
+
   home.packages = with pkgs; [
-    pwgen
-    k3s
-    wireguard-tools
-    redis
-    tewisay
-    cowsay
-    figlet
-    toilet
-
-    # dev stuff
-    linuxPackages.perf
-    bind
-    deno
-    exa
-    file
-    fish
-    gnumake
-    go_1_18
-    (lowPrio gotools)
-    golangci-lint
-    lorri
-    gradle
-    htop
-    (hiPrio clang)
-    gcc
-    jq
-    kubectl
-    kubernetes-helm
-    nixpkgs-fmt
-    ngrok
-    awscli2
-    openssl
-    nodejs
-    pkg-config
-    cmake
-    vagrant
-    iptables
-    tmate
-    lsof
-    tcpdump
-    rust-analyzer
-    python3
-    ripgrep
-    ruby
-    rustup
-    sqlite
-    sshfs
-    tig
-    tmux
-    tree
-    gopls
-    unzip
-    zsh-powerlevel10k
-    nodePackages.typescript-language-server
-
-    # boot
-    sbsigntool
-    efitools
   ];
 
   home.sessionVariables = sessionVariables;
@@ -266,11 +213,6 @@ in
 
       source "/home/esk/dev/ngrok/.cache/ngrok-host-shellhook"
     '';
-  };
-  programs.git = {
-    enable = true;
-    userName = "Euan Kemp";
-    userEmail = "euan@ngrok.com";
   };
 
   programs.direnv = {

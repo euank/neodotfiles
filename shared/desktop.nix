@@ -5,6 +5,9 @@
 # managed by home-manager.
 
 {
+  imports = [
+    ./base.nix
+  ];
   services.xserver = {
     enable = true;
     layout = "us";

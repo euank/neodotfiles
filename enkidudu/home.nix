@@ -1,8 +1,4 @@
-{
-  config,
-  pkgs,
-  ...
-}:
+{ config, pkgs, ... }:
 
 let
   # nixatom = import (builtins.fetchTarball "https://github.com/NixOS/nixpkgs/archive/b8988e13be291029c72b76549d70c783856f2dc3.tar.gz") {};
@@ -33,216 +29,22 @@ let
   };
 in
 {
-  home.packages = with pkgs; [
-    alejandra
-    anki-bin
-    bemenu
-    binutils
-    blender
-    blueman
-    borgbackup
-    ceph
-    cfssl
-    # chromium
-    cntr
-    deluge
-    discord
-    diskonaut
-    escrotum
-    evince
-    feh
-    # ffmpeg-full
-    file
-    firefox
-    fish
-    flyctl
-    gimp
-    gmrun
-    gnome.cheese
-    htop
-    inkscape
-    logseq
-    bazel_5
-    shotcut
-    ibus
-    jmtpfs
-    jq
-    k3s
-    keepassxc
-    kubectl
-    kubernetes-helm
-    mpv
-    muttoauth2
-    neomutt
-    ngrok
-    nitrogen
-    nix-index
-    nixpkgs-fmt
-    nmap
-    # obs-studio
-    openssl
-    p7zip
-    pass
-    pavucontrol
-    pwgen
-    ripgrep
-    rust-analyzer
-    scrot
-    signal-desktop
-    sqlite
-    sqlite.dev
-    sshfs
-    syncplay
-    tig
-    tint2
-    tmux
-    tor-browser-bundle-bin
-    tree
-    unzip
-    wasm-pack
-    wireguard-tools
-    xorg.xkill
-    xorg.xwininfo
-    xwayland
-    yacreader
-    youtube-dl
-    yt-dlp
-    zsh-powerlevel10k
-    wireshark
-    cowsay
-    tewisay
-    thedesk
-    dua
-    heaptrack
-
-    # dev stuff
-    nickel
-    (hiPrio clang)
-    # For maptool, we'll deal with packaging it again properly later
-    awscli2
-    bc
-    bind
-    binutils
-    bison
-    cmake
-    deno
-    elfutils
-    flex
-    gcc
-    gdb
-    gh
-    gnumake
-    go_1_18
-    gopls
-    gradle
-    # ipmiview
-    openjdk
-    # javaPackages.compiler.openjdk16
-    nodejs
-    # coldsnap # temporarily disabled, broken build
-    crd2pulumi
-    gradle2nix
-    jetbrains.idea-community
-    kpt
-    kube2pulumi
-    linuxPackages.perf
-    mvn2nix
-    ncurses
-    nodePackages.typescript-language-server
-    perf-tools
-    pkg-config
-    pulumi
-    pulumi-sdk
-    python3
-    ruby
-    rustup
-    terraform
-    trace-cmd
-    wine-staging
-    winetricks
-    calibre
-    okular
-    google-chrome
-
-    # game related
-    desmume
-    # maptool
-    melonDS
-    minecraft
-    prismlauncher
-
-    # misc
-    efitools
-    sbsigntool
+  imports = [
+    ../shared/desktop-home.nix
   ];
 
-  home.sessionVariables = sessionVariables;
-
-  programs.alacritty = {
-    enable = true;
-    settings = {
-      env = {
-        # TERM = "xterm-256color";
-      };
-      font = {
-        normal = {
-          family = "MesloLGS NF";
-        };
-      };
-      colors = {
-        primary = {
-          background= "#000000";
-          foreground= "#eaeaea";
-          dim_foreground= "#9a9a9a";
-          bright_foreground= "#ffffff";
-        };
-        normal = {
-          black=   "#000000";
-          red=     "#d54e53";
-          green=   "#b9ca4a";
-          yellow=  "#e6c547";
-          blue=    "#7aa6da";
-          magenta= "#c397d8";
-          cyan=    "#70c0ba";
-          white=   "#eaeaea";
-        };
-      };
-    };
-  };
-
-  programs.home-manager.enable = true;
-  programs.zsh = {
-    enable = true;
-    history = {
-      save = 1000000;
-    };
-    sessionVariables = sessionVariables;
-    shellAliases = {
-      ls = "ls --color=auto";
-      k = "kubectl";
-    };
-    initExtra = ''
-      source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme
-      source "${../shared/zsh/p10k.zsh}"
-      source "${../shared/zsh/zshrc}"
-    '';
-  };
-  programs.git = {
-    enable = true;
-    userName = "Euan Kemp";
-    userEmail = "euank@" + "euan" + "k.com";
-    aliases = {
-      co = "checkout";
-      s = "status";
-    };
-    extraConfig = {
-      merge.tool = "vimdiff";
-      "mergetool \"vimdiff\"".cmd = "nvim -d $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'";
-    };
-  };
-
-  programs.direnv.enable = true;
-  programs.direnv.enableZshIntegration = true;
+  home.packages = with pkgs; [
+    desmume
+    jetbrains.idea-community
+    melonDS
+    minecraft
+    muttoauth2
+    neomutt
+    prismlauncher
+    thedesk
+    tor-browser-bundle-bin
+    yacreader
+  ];
 
   programs.neovim = {
     enable = true;
@@ -421,11 +223,6 @@ in
     ];
   };
 
-  programs.pazi = {
-    enable = true;
-    enableZshIntegration = true;
-  };
-
   services.gpg-agent = {
     enable = true;
     enableScDaemon = true;
@@ -434,10 +231,7 @@ in
   };
 
   services.blueman-applet.enable = true;
-
   services.dropbox.enable = true;
-
-  services.picom.enable = true;
 
   xsession.enable = true;
   xsession.windowManager.xmonad = {
@@ -486,25 +280,6 @@ in
     Service = {
       Type = "oneshot";
       ExecStart = "${pkgs.nitrogen}/bin/nitrogen --random --head=-1 --set-tiled /home/esk/Images/wallpaper";
-    };
-    Install = { WantedBy = [ "graphical-session.target" ]; };
-  };
-
-  # i18n.inputMethod = {
-  #   enabled = "fcitx5";
-  #   fcitx5.addons = with pkgs; [ fcitx5-mozc ];
-  # };
-
-  systemd.user.services.ibus = {
-    Unit = {
-      Description = "ibus";
-      After = [ "graphical-session-pre.target" ];
-      PartOf = [ "graphical-session.target" ];
-    };
-
-    Service = {
-      Type = "simple";
-      ExecStart = "${ibus}/bin/ibus-daemon --xim";
     };
     Install = { WantedBy = [ "graphical-session.target" ]; };
   };
@@ -561,14 +336,4 @@ in
     };
 
   };
-
-  # This value determines the Home Manager release that your
-  # configuration is compatible with. This helps avoid breakage
-  # when a new Home Manager release introduces backwards
-  # incompatible changes.
-  #
-  # You can update Home Manager without changing this value. See
-  # the Home Manager release notes for a list of state version
-  # changes in each release.
-  home.stateVersion = "20.03";
 }

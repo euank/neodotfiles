@@ -4,6 +4,7 @@
 {
   imports = [
     inputs.dwarffs.nixosModules.dwarffs
+    inputs.home-manager.nixosModules.home-manager
   ];
   # (;_;)
   nixpkgs.config.allowUnfree = true;

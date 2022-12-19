@@ -4,13 +4,11 @@ let
   secrets = inputs.secrets.jane;
 in
 {
-  imports =
-    [
-      ./hardware-configuration.nix
-      ../shared/base.nix
-      inputs.home-manager.nixosModules.home-manager
-      inputs.ngrok-dev.nixosModule
-    ];
+  imports = [
+    ./hardware-configuration.nix
+    ../shared/base.nix
+    inputs.ngrok-dev.nixosModule
+  ];
   nixpkgs.config.allowUnfree = true;
   services.ngrok-devenv = {
     enable = true;

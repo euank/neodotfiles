@@ -17,6 +17,8 @@ in
     redis
     tewisay
     cowsay
+    figlet
+    toilet
 
     # dev stuff
     linuxPackages.perf

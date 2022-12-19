@@ -113,6 +113,7 @@ in
     tewisay
     thedesk
     dua
+    heaptrack
 
     # dev stuff
     nickel

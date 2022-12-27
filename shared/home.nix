@@ -83,6 +83,7 @@ in
     go_1_19
     gopls
     gradle
+    hyperfine
     # ipmiview
     openjdk
     nodejs

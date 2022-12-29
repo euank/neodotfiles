@@ -26,17 +26,20 @@ in
     diskonaut
     dua
     escrotum
+    exa
     figlet
     file
     fish
     flyctl
     heaptrack
     htop
+    iptables
     jmtpfs
     jq
     k3s
     kubectl
     kubernetes-helm
+    lsof
     ngrok
     nickel
     nitrogen
@@ -54,8 +57,10 @@ in
     sqlite
     sqlite.dev
     sshfs
+    tcpdump
     tewisay
     tig
+    tmate
     tmux
     toilet
     tree

@@ -37,6 +37,7 @@ in
     gmrun
     gnome.cheese
     google-chrome
+    gptfdisk
     ibus
     inkscape
     keepassxc
@@ -49,6 +50,7 @@ in
     signal-desktop
     syncplay
     tint2
+    xsel
     xorg.xkill
     xorg.xwininfo
   ];

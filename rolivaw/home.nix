@@ -27,6 +27,7 @@ in
     brightnessctl
     remmina
     slack
+    yacreader
 
     # dev stuff
     (hiPrio clang)

@@ -152,5 +152,35 @@ in
     enableZshIntegration = true;
   };
 
+  xdg = {
+    enable = true;
+
+    userDirs = {
+      enable      = true;
+      desktop     = "$HOME/Desktop";
+      download    = "$HOME/Downloads";
+      documents   = "$HOME/Documents";
+      templates   = "$HOME/Templates";
+      music       = "$HOME/Music";
+      videos      = "$HOME/Videos";
+      pictures    = "$HOME/Pictures";
+      publicShare = "$HOME/share/public";
+    };
+
+    mimeApps = {
+      enable = true;
+      associations.added = {
+        "image/png"       = "feh.desktop";
+        "image/jpeg"      = "feh.desktop";
+        "application/pdf" = "org.gnome.Evince.desktop";
+      };
+
+      defaultApplications = {
+        "application/pdf" = ["org.gnome.Evince.desktop"];
+      };
+    };
+  };
+
+
   home.stateVersion = "20.03";
 }

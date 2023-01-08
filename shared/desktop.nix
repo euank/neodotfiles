@@ -74,7 +74,7 @@
     ibus.engines = with pkgs.ibus-engines; [ mozc uniemoji ];
   };
 
-  time.timeZone = "America/Los_Angeles";
+  time.timeZone = "Asia/Tokyo";
 
   services.pcscd.enable = true;
   services.udev.packages = [ pkgs.yubikey-personalization ];

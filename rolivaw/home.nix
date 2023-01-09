@@ -221,6 +221,10 @@ in
     ];
   };
 
+  programs.zsh.initExtra = ''
+    source "/home/esk/dev/ngrok/.cache/ngrok-host-shellhook"
+  '';
+
   services.gpg-agent = {
     enable = true;
     enableScDaemon = true;

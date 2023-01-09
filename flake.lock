@@ -332,8 +332,8 @@
         "nixpkgs-unstable": "nixpkgs-unstable"
       },
       "locked": {
-        "lastModified": 1671134562,
-        "narHash": "sha256-7xpc1SR3T+slKuCWqnGcLO8CzxVW45jPwIsGD9O69T4=",
+        "lastModified": 1673928372,
+        "narHash": "sha256-tYcBn+WMvouT3uiHjmHEB0KwgFvLLOURt/R0C0bB/W8=",
         "path": "/home/esk/dev/ngrok/nix",
         "type": "path"
       },

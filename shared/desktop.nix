@@ -90,5 +90,6 @@
     gnupg
     meslo-lg
     pcsclite
+    gparted
   ];
 }

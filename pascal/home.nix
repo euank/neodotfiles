@@ -56,7 +56,6 @@ in
     tmux
     tree
     unzip
-    xlibsWrapper
     zsh-powerlevel10k
     # boot
     sbsigntool

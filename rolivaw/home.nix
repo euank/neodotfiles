@@ -92,15 +92,15 @@ in
       ddc-sorter_rank
       ddc-matcher_head
       ddc-source-nvim-lsp
+      ddc-ui-pum
       ({
         plugin = ddc-vim;
         # TODO
         config = ''
           set completeopt=menuone,noinsert,noselect
           set shortmess+=c
-          call ddc#custom#patch_global('ui', 'native')
+          call ddc#custom#patch_global('ui', 'pum')
           call ddc#custom#patch_global('sources', ['nvim-lsp'])
-          call ddc#custom#patch_global('completionMenu', 'pum.vim')
           call ddc#custom#patch_global('sourceOptions', {
           \ '_': { 'matchers': ['matcher_head'], 'sorters': ['sorter_rank'] },
           \ 'nvim-lsp': {

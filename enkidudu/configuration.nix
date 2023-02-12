@@ -48,6 +48,8 @@ in
     127.0.0.1 dev.lan
   '';
 
+  networking.networkmanager.enable = true;
+
   # Ceph
   services.ceph = {
     enable = false;
@@ -88,7 +90,6 @@ in
   # As in the the ttgl mecha
   networking.hostName = "Enkidudu";
   networking.hostId = "373650f1";
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   programs.adb.enable = true;
   boot.kernel.sysctl."net.ipv4.ip_forward" = 1;

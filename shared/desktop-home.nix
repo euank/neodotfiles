@@ -24,7 +24,6 @@ in
 
     anki-bin
     bemenu
-    blender
     blueman
     calibre
     deluge

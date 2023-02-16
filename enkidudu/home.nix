@@ -43,6 +43,7 @@ in
     thedesk
     tor-browser-bundle-bin
     yacreader
+    zoom-us
   ];
 
   programs.neovim = {

@@ -3,8 +3,6 @@
 let
   sessionVariables = {
     EDITOR = "nvim";
-    LIBCLANG_PATH = "${pkgs.llvmPackages.libclang}/lib";
-
     COWPATH = "${pkgs.cowsay}/share/cows:${pkgs.tewisay}/share/tewisay/cows";
   };
 in

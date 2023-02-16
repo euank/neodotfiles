@@ -3,7 +3,6 @@
 let
   sessionVariables = {
     EDITOR = "nvim";
-    LIBCLANG_PATH = "${pkgs.llvmPackages.libclang}/lib";
     GTK_IM_MODULE = "ibus";
     XMODIFIERS = "@im=ibus";
     QT_IM_MODULE = "ibus";

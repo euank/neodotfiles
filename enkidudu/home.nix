@@ -6,7 +6,6 @@ let
     EDITOR = "nvim";
     PKG_CONFIG_PATH =
       "${pkgs.openssl.dev}/lib/pkgconfig:${pkgs.opencv4}/lib/pkgconfig:${pkgs.xorg.libX11.dev}/lib/pkgconfig:${pkgs.xorg.libXrandr.dev}/lib/pkgconfig:${pkgs.xorg.libxcb.dev}/lib/pkgconfig:${pkgs.libopus.dev}/lib/pkgconfig:${pkgs.sqlite.dev}/lib/pkgconfig:${pkgs.udev.dev}/lib/pkgconfig:${pkgs.pam}/lib/pkgconfig:${pkgs.elfutils.dev}/lib/pkgconfig:${pkgs.ncurses.dev}/lib/pkgconfig";
-    LIBCLANG_PATH = "${pkgs.llvmPackages.libclang}/lib";
     GTK_IM_MODULE = "ibus";
     XMODIFIERS = "@im=ibus";
     QT_IM_MODULE = "ibus";

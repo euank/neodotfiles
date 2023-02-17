@@ -10,6 +10,10 @@ in
     ../shared/desktop.nix
   ];
 
+  programs.steam = {
+    enable = true;
+  };
+
   boot.kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;

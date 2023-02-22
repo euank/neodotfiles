@@ -24,6 +24,7 @@ in
     gnome.gnome-session
     brightnessctl
     remmina
+    (hiPrio bundler)
     slack
     yacreader
 

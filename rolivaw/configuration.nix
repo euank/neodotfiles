@@ -31,6 +31,8 @@ in
   networking.hostName = "rolivaw"; # R. Olivaw
   networking.hostId = "473650f1";
   networking.networkmanager.enable = true;
+  networking.networkmanager.unmanaged = [ "wg0" "docker0" "br*" ];
+  systemd.services.NetworkManager-wait-online.enable = false;
 
   boot.kernel.sysctl."net.ipv4.ip_forward" = 1;
 

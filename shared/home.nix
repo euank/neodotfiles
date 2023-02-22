@@ -17,6 +17,7 @@ let
 in
 {
   home.packages = with pkgs; [
+    amazon-ecr-credential-helper
     bazel_5
     binutils
     borgbackup

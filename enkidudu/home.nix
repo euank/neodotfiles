@@ -33,6 +33,7 @@ in
   ];
 
   home.packages = with pkgs; [
+    aegisub
     desmume
     jetbrains.idea-community
     melonDS

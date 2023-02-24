@@ -73,6 +73,7 @@ in
     wireguard-tools
     wireshark
     yt-dlp
+    xsv
     zsh-powerlevel10k
 
     (hiPrio clang)

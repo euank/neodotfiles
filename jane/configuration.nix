@@ -68,6 +68,9 @@ in
   };
 
   networking.networkmanager.enable = true;
+  networking.networkmanager.dhcp = "dhcpcd";
+  networking.dhcpcd.enable = false;
+
   networking.wireguard = {
     enable = true;
     interfaces = {

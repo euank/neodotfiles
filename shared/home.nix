@@ -28,6 +28,7 @@ in
     dua
     escrotum
     exa
+    ffmpeg
     figlet
     file
     fish

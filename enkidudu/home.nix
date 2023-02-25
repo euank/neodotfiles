@@ -38,6 +38,7 @@ in
     jetbrains.idea-community
     melonDS
     minecraft
+    mkvtoolnix
     muttoauth2
     neomutt
     prismlauncher

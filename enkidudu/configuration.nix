@@ -53,11 +53,7 @@ in
   '';
 
   networking.networkmanager.enable = true;
-  # for some reason, the internal dhcp client of NetworkManager seems to screw
-  # up and give me a moment of packet loss every 340s.
-  # For now, just use dhcpcd, but I should really get together a bug report for
-  # upstream if I were a good citizen
-  networking.networkmanager.dhcp = "dhcpcd";
+  # networking.networkmanager.dhcp = "dhcpcd";
   networking.nameservers = [ "8.8.8.8" "2001:4860:4860::8888" ];
   # networkmanager already handles this
   networking.dhcpcd.enable = false;

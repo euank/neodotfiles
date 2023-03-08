@@ -69,8 +69,5 @@
     settings = {
       trusted-users = [ "root" "esk" ];
     };
-    extraOptions = ''
-      experimental-features = nix-command flakes
-    '';
    };
 }

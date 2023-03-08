@@ -375,12 +375,13 @@
       "inputs": {
         "flake-utils": "flake-utils_3",
         "nixpkgs": "nixpkgs_6",
+        "nixpkgs-k3s": "nixpkgs-k3s",
         "nixpkgs-pinned": "nixpkgs-pinned",
         "nixpkgs-unstable": "nixpkgs-unstable"
       },
       "locked": {
-        "lastModified": 1677204284,
-        "narHash": "sha256-L2i0vGi3Ohh+NRlqZiOYzIzzY62HqrXCZg/J8tr7dYg=",
+        "lastModified": 1678177741,
+        "narHash": "sha256-KFWWiVVbKbuB580xh306NTPS0l/FLmefkSKW3NazJng=",
         "path": "/home/esk/dev/ngrok/nix",
         "type": "path"
       },
@@ -551,18 +552,34 @@
         "type": "github"
       }
     },
-    "nixpkgs-pinned": {
+    "nixpkgs-k3s": {
       "locked": {
-        "lastModified": 1659914493,
-        "narHash": "sha256-lkA5X3VNMKirvA+SUzvEhfA7XquWLci+CGi505YFAIs=",
+        "lastModified": 1644033087,
+        "narHash": "sha256-beskas17YPhrcnanzywake9/z+k+xOWmavW24YUN8ng=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "022caabb5f2265ad4006c1fa5b1ebe69fb0c3faf",
+        "rev": "9f697d60e4d9f08eacf549502528bfaed859d33b",
         "type": "github"
       },
       "original": {
         "owner": "nixos",
-        "ref": "release-21.05",
+        "ref": "9f697d60e4d",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs-pinned": {
+      "locked": {
+        "lastModified": 1672580127,
+        "narHash": "sha256-3lW3xZslREhJogoOkjeZtlBtvFMyxHku7I/9IVehhT8=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "0874168639713f547c05947c76124f78441ea46c",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "release-22.05",
         "repo": "nixpkgs",
         "type": "github"
       }

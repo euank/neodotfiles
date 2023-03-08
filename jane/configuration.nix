@@ -12,6 +12,7 @@ in
   nixpkgs.config.allowUnfree = true;
   services.ngrok-devenv = {
     enable = true;
+    useNixBinaryCache = true;
     repoRoot = "/home/esk/dev/ngrok";
     interfaces = {
       node = {

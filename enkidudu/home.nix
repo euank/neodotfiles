@@ -43,6 +43,7 @@ in
     neomutt
     prismlauncher
     thedesk
+    ninja
     tor-browser-bundle-bin
     yacreader
     zoom-us

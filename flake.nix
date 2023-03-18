@@ -5,6 +5,7 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     denops-nixpkgs.url = "github:euank/nixpkgs/add-denops-2023-02-06";
+    anki-nixpkgs.url = "github:euank/nixpkgs/anki-2023-03-16";
     neovim = {
       url = "github:neovim/neovim/release-0.8?dir=contrib";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -33,6 +34,7 @@
           ekverlay.overlays.default
           nixek.overlay
           (final: prev: {
+            inherit (inputs.anki-nixpkgs.legacyPackages.x86_64-linux) anki;
             mvn2nix = mvn2nix.defaultPackage.x86_64-linux;
             gradle2nix = gradle2nix.defaultPackage.x86_64-linux;
             dwarffs = dwarffs.defaultPackage.x86_64-linux;

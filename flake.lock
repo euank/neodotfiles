@@ -1,5 +1,21 @@
 {
   "nodes": {
+    "anki-nixpkgs": {
+      "locked": {
+        "lastModified": 1678963337,
+        "narHash": "sha256-tUqnYiQf14ubKM/8ORk2JYfCpeI/tiWf3WfgxALjwS0=",
+        "owner": "euank",
+        "repo": "nixpkgs",
+        "rev": "1e9673813e2b3b363c22c2bdb55779e60de9227b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "euank",
+        "ref": "anki-2023-03-16",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "crane": {
       "inputs": {
         "flake-compat": "flake-compat",
@@ -762,6 +778,7 @@
     },
     "root": {
       "inputs": {
+        "anki-nixpkgs": "anki-nixpkgs",
         "denops-nixpkgs": "denops-nixpkgs",
         "dwarffs": "dwarffs",
         "ekverlay": "ekverlay",

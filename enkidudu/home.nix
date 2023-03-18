@@ -33,7 +33,11 @@ in
   ];
 
   home.packages = with pkgs; [
+    stdenv.cc.cc.lib
+    clang lld
     aegisub
+    bcompare
+    yarn
     desmume
     jetbrains.idea-community
     melonDS

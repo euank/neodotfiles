@@ -9,6 +9,7 @@ let
     QT_IM_MODULE = "ibus";
     GLFW_SO_PATH = "${pkgs.glfw3}/lib/libglfw.so";
     OPENAL_SO_PATH = "${pkgs.openal}/lib/libopenal.so";
+    QT_QPA_PLATFORM_PLUGIN_PATH="${pkgs.qt5.qtbase.bin}/lib/qt-${pkgs.qt5.qtbase.version}/plugins";
   };
   ibus = pkgs.ibus-with-plugins.override { plugins = with pkgs.ibus-engines; [ mozc uniemoji ]; };
 in

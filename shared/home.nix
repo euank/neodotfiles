@@ -48,6 +48,7 @@ in
     nix-index
     nixpkgs-fmt
     nmap
+    onetun
     openssl
     p7zip
     pass

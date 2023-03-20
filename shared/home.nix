@@ -42,6 +42,7 @@ in
     kubectl
     kubernetes-helm
     lsof
+    nil
     ngrok
     nickel
     nitrogen

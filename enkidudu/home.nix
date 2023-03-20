@@ -176,6 +176,8 @@ in
             },
           }
 
+          require'lspconfig'.nil_ls.setup{}
+
           require('rust-tools').setup(opts)
           EOF
         '';

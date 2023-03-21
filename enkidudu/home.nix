@@ -100,8 +100,8 @@ in
         '';
       })
       ddc-ui-native
-      ddc-sorter_rank
-      ddc-matcher_head
+      ddc-filter-sorter_rank
+      ddc-filter-matcher_head
       ddc-source-nvim-lsp
       ddc-ui-pum
       ({

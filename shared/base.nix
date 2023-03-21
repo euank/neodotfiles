@@ -68,6 +68,7 @@
   nix = {
     settings = {
       trusted-users = [ "root" "esk" ];
+      experimental-features = "nix-command flakes";
     };
    };
 }

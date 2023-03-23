@@ -82,6 +82,14 @@
             ./rolivaw/configuration.nix
           ];
         };
+
+        damerzel = nixpkgs.lib.nixosSystem rec {
+          inherit pkgs system;
+          specialArgs = { inherit inputs; };
+          modules = [
+            ./damerzel/configuration.nix
+          ];
+        };
       };
 
       # nix-flake-update is an update script for updating the subset of flake

@@ -26,6 +26,9 @@
     driSupport32Bit = true;
     extraPackages32 = with pkgs.pkgsi686Linux; [ libva ];
   };
+  programs.zsh.enable = true;
+  qt.enable = true;
+  qt.platformTheme = "lxqt";
 
   sound.enable = false;
   # hardware.pulseaudio = {

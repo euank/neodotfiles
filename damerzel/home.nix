@@ -18,6 +18,7 @@ in
     zoom-us
     obs-studio
     shotcut
+    yubikey-personalization-gui
     dia
     dmenu
     networkmanagerapplet
@@ -26,6 +27,7 @@ in
     remmina
     (hiPrio bundler)
     slack
+    pulseaudio
     yacreader
 
     # dev stuff

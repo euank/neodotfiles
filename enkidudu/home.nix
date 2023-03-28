@@ -32,6 +32,7 @@ in
     tor-browser-bundle-bin
     yacreader
     zoom-us
+    pulseaudioFull
   ];
 
   programs.neovim = {

@@ -12,6 +12,7 @@ in
     ../shared/desktop.nix
   ];
 
+  boot.kernelPackages = pkgs.linuxPackages_latest;
   fileSystems."/".options = ["noatime" "nodiratime" "discard" ];
 
   hardware.enableRedistributableFirmware = true;

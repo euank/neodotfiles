@@ -91,7 +91,7 @@ in
     gdb
     gh
     gnumake
-    go_1_19
+    go_1_20
     gopls
     gradle
     hyperfine
@@ -110,6 +110,8 @@ in
     ruby
     rustup
     terraform
+    boringtun
+    onetun
 
     # misc
     efitools

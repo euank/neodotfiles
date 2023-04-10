@@ -97,6 +97,7 @@ in
     hyperfine
     # ipmiview
     openjdk
+    nixpkgs-review
     nodejs
     gradle2nix
     kpt

@@ -1,4 +1,4 @@
-{ pkgs, inputs, home-manager, ... }:
+{ pkgs, inputs, ... }:
 
 # Bits of configuration I want as the default on all my machines
 {
@@ -32,6 +32,8 @@
     settings.PasswordAuthentication = false;
     extraConfig = "AllowUsers esk";
   };
+
+  programs.zsh.enable = true;
 
   home-manager.useUserPackages = true;
   home-manager.useGlobalPkgs = true;

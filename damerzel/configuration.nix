@@ -10,6 +10,7 @@ in
     inputs.nixos-hardware.nixosModules.lenovo-thinkpad-x1-10th-gen
     ../shared/base.nix
     ../shared/desktop.nix
+    "${inputs.ngrok-dev2}/nixos/client-module.nix"
   ];
 
   boot.kernelPackages = pkgs.linuxPackages_latest;

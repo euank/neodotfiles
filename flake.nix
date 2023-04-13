@@ -5,7 +5,6 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     denops-nixpkgs.url = "github:euank/nixpkgs/add-denops-2023-03-21";
-    anki-nixpkgs.url = "github:euank/nixpkgs/anki-2023-03-16";
     nix_ls.url = "github:oxalica/nil";
     neovim = {
       url = "github:neovim/neovim/release-0.8?dir=contrib";
@@ -26,7 +25,7 @@
   };
 
   outputs =
-    { self, nixpkgs, mvn2nix, gradle2nix, nixek, nix, ekverlay, home-manager, dwarffs, ... }@inputs:
+    { nixpkgs, mvn2nix, gradle2nix, nixek, ekverlay, dwarffs, ... }@inputs:
     let
       system = "x86_64-linux";
       pkgs = import nixpkgs {
@@ -35,7 +34,6 @@
           ekverlay.overlays.default
           nixek.overlay
           (final: prev: {
-            inherit (inputs.anki-nixpkgs.legacyPackages.x86_64-linux) anki;
             inherit (inputs.nix_ls.packages.x86_64-linux) nil;
             mvn2nix = mvn2nix.defaultPackage.x86_64-linux;
             gradle2nix = gradle2nix.defaultPackage.x86_64-linux;
@@ -52,22 +50,22 @@
     {
       inherit pkgs;
 
-      nixosConfigurations = rec {
-        Enkidudu = nixpkgs.lib.nixosSystem rec {
+      nixosConfigurations = {
+        Enkidudu = nixpkgs.lib.nixosSystem {
           inherit pkgs system;
           specialArgs = { inherit inputs; };
           modules = [
             ./enkidudu/configuration.nix
           ];
         };
-        jane = nixpkgs.lib.nixosSystem rec {
+        jane = nixpkgs.lib.nixosSystem {
           inherit pkgs system;
           specialArgs = { inherit inputs; };
           modules = [
             ./jane/configuration.nix
           ];
         };
-        pascal = nixpkgs.lib.nixosSystem rec {
+        pascal = nixpkgs.lib.nixosSystem {
           inherit pkgs system;
           specialArgs = { inherit inputs; };
           modules = [
@@ -75,7 +73,7 @@
           ];
         };
 
-        rolivaw = nixpkgs.lib.nixosSystem rec {
+        rolivaw = nixpkgs.lib.nixosSystem {
           inherit pkgs system;
           specialArgs = { inherit inputs; };
           modules = [
@@ -83,7 +81,7 @@
           ];
         };
 
-        damerzel = nixpkgs.lib.nixosSystem rec {
+        damerzel = nixpkgs.lib.nixosSystem {
           inherit pkgs system;
           specialArgs = { inherit inputs; };
           modules = [

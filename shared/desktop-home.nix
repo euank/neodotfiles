@@ -23,7 +23,7 @@ in
     # ffmpeg-full
     # obs-studio
 
-    # anki
+    anki
     bemenu
     blueman
     calibre

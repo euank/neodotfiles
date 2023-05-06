@@ -232,7 +232,8 @@ myTabConfig = def {   activeBorderColor = "#cd8b00"
                              , activeColor = "#000000"
                              , inactiveBorderColor = "#7C7C7C"
                              , inactiveTextColor = "#EEEEEE"
-                             , inactiveColor = "#000000" }
+                             , inactiveColor = "#000000"
+                             , fontName = "xft:DejaVu Sans,Migu 1M" }
 myLayout = mkToggle(single MIRROR) $
            mkToggle(single REFLECTX) $
            mkToggle(single REFLECTY) $

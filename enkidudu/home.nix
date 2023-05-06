@@ -1,24 +1,6 @@
 { config, pkgs, ... }:
 
 let
-  # nixatom = import (builtins.fetchTarball "https://github.com/NixOS/nixpkgs/archive/b8988e13be291029c72b76549d70c783856f2dc3.tar.gz") {};
-  sessionVariables = {
-    EDITOR = "nvim";
-    PKG_CONFIG_PATH =
-      "${pkgs.openssl.dev}/lib/pkgconfig:${pkgs.opencv4}/lib/pkgconfig:${pkgs.xorg.libX11.dev}/lib/pkgconfig:${pkgs.xorg.libXrandr.dev}/lib/pkgconfig:${pkgs.xorg.libxcb.dev}/lib/pkgconfig:${pkgs.libopus.dev}/lib/pkgconfig:${pkgs.sqlite.dev}/lib/pkgconfig:${pkgs.udev.dev}/lib/pkgconfig:${pkgs.pam}/lib/pkgconfig:${pkgs.elfutils.dev}/lib/pkgconfig:${pkgs.ncurses.dev}/lib/pkgconfig";
-    GTK_IM_MODULE = "ibus";
-    XMODIFIERS = "@im=ibus";
-    QT_IM_MODULE = "ibus";
-    NIX_DEBUG_INFO_DIRS = "/run/dwarffs";
-    PROTOC = "${pkgs.protobuf}/bin/protoc";
-
-    COWPATH = "${pkgs.cowsay}/share/cows:${pkgs.tewisay}/share/tewisay/cows";
-
-    GLFW_SO_PATH = "${pkgs.glfw3}/lib/libglfw.so";
-    OPENAL_SO_PATH = "${pkgs.openal}/lib/libopenal.so";
-  };
-  ibus = pkgs.ibus-with-plugins.override { plugins = with pkgs.ibus-engines; [ mozc uniemoji ]; };
-
   muttoauth2 = pkgs.writeShellApplication {
     name = "muttoauth2";
     runtimeInputs = with pkgs; [ python3 mutt ];

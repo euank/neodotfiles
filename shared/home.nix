@@ -32,6 +32,7 @@ in
     figlet
     file
     fish
+    font-manager
     flyctl
     heaptrack
     htop

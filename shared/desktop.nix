@@ -55,15 +55,18 @@
   fonts = {
     enableDefaultFonts = true;
     fonts = with pkgs; [
-      dejavu_fonts
-      meslolgs-nf
-      meslo-lg
-      libre-franklin
-      hanazono
-      kanji-stroke-order-font
-      migu
       comic-neue
       corefonts
+      dejavu_fonts
+      hanazono
+      kanji-stroke-order-font
+      libre-franklin
+      meslo-lg
+      meslolgs-nf
+      migu
+      noto-fonts
+      noto-fonts-cjk
+      noto-fonts-emoji
       ubuntu_font_family
     ];
   };

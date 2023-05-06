@@ -36,6 +36,7 @@ in
     heaptrack
     htop
     iptables
+    obsidian
     jmtpfs
     jq
     k3s

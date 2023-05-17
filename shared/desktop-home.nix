@@ -24,6 +24,7 @@ in
     # obs-studio
 
     anki
+    arandr
     bemenu
     blueman
     calibre

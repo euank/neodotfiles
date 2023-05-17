@@ -59,7 +59,6 @@ in
     pwgen
     redis
     ripgrep
-    rust-analyzer
     semgrep
     sqlite
     sqlite.dev

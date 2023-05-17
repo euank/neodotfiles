@@ -46,7 +46,7 @@ in
     enable = true;
     withPython3 = true;
     withNodeJs = true;
-    package = pkgs.neovim;
+    package = pkgs.neovim-unwrapped;
     extraConfig = "source ${../shared/vim/vimrc}";
     plugins = with pkgs.vimPlugins; [
       ({

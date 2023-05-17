@@ -6,10 +6,6 @@
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     denops-nixpkgs.url = "github:euank/nixpkgs/add-denops-2023-03-21";
     nix_ls.url = "github:oxalica/nil";
-    neovim = {
-      url = "github:neovim/neovim/release-0.8?dir=contrib";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     home-manager.url = "github:nix-community/home-manager";
     ekverlay.url = "github:euank/nixek-overlay";
     nixek.url = "github:nixek-systems/pkgs";
@@ -38,7 +34,6 @@
             mvn2nix = mvn2nix.defaultPackage.x86_64-linux;
             gradle2nix = gradle2nix.defaultPackage.x86_64-linux;
             dwarffs = dwarffs.defaultPackage.x86_64-linux;
-            neovim = inputs.neovim.defaultPackage.x86_64-linux;
             vimPlugins = inputs.denops-nixpkgs.legacyPackages.x86_64-linux.vimPlugins;
             nickel = inputs.nickel.packages.x86_64-linux.default;
 

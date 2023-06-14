@@ -37,6 +37,7 @@ in
     heaptrack
     htop
     iptables
+    postgresql
     obsidian
     jmtpfs
     jq

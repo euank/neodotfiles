@@ -27,6 +27,7 @@ in
     diskonaut
     dua
     escrotum
+    multitail
     exa
     ffmpeg
     figlet

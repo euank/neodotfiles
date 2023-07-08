@@ -29,6 +29,7 @@ in
     prismlauncher
     thedesk
     ninja
+    restic
     tor-browser-bundle-bin
     yacreader
     zoom-us

@@ -14,7 +14,6 @@ in
   ];
   home.packages = with pkgs; [
     # jetbrains.idea-community
-    libreoffice
     zoom-us
     obs-studio
     shotcut

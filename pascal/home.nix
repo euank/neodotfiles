@@ -22,7 +22,6 @@ in
     pwgen
     tint2
     ibus-engines.mozc
-    libreoffice
     obs-studio
     shotcut
     (aspellWithDicts (ps : with ps; [ en ]))

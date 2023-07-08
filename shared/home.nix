@@ -44,6 +44,7 @@ in
     k3s
     kubectl
     kubernetes-helm
+    libreoffice
     lsof
     nil
     ngrok
@@ -76,6 +77,7 @@ in
     wireguard-tools
     wireshark
     yt-dlp
+    wezterm
     xsv
     zsh-powerlevel10k
 

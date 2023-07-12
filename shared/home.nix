@@ -53,6 +53,7 @@ in
     nix-index
     nixpkgs-fmt
     nmap
+    moreutils
     onetun
     openssl
     p7zip

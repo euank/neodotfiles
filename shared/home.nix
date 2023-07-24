@@ -42,7 +42,7 @@ in
     jmtpfs
     jq
     k3s
-    kubectl
+    (hiPrio kubectl)
     kubernetes-helm
     libreoffice
     lsof

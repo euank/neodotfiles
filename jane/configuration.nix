@@ -83,7 +83,7 @@ in
 	    allowedIPs = [ "10.104.0.0/16" ];
 	    # Security by obscurity I guess, avoid publishing the endpoint too.
 	    endpoint = secrets.wireguard.endpoint;
-	    publicKey = "JjRwbg8GY8gQp0hWsNub6KsA7ptwjg/puZB1CVDiZjY=";
+	    publicKey = "+pLrsgXAn4rH4e+gQWR03n02o2vDNiL1sDOXEYSrmGg=";
 	    persistentKeepalive = 25;
 	  }
 	];

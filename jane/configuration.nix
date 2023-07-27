@@ -76,6 +76,8 @@ in
     enable = true;
     interfaces = {
       wg0 = {
+        # ipip tunnel + wg
+        mtu = 1380;
         ips = [ "10.104.20.0/25" ];
 	privateKey = secrets.wireguard.privateKey;
 	peers = [

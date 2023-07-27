@@ -73,6 +73,7 @@ in
   services.upower.enable = true;
 
   networking.firewall.enable = false;
+  networking.firewall.trustedInterfaces = [ "wg0" ];
   networking.extraHosts = ''
     10.104.20.4 test-cert.euank.com.lan
     3.17.7.232 euankfoobar.ngrok.io

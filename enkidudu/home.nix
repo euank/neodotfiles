@@ -17,6 +17,7 @@ in
   home.packages = with pkgs; [
     stdenv.cc.cc.lib
     clang lld
+    ipmitool
     aegisub
     yarn
     desmume

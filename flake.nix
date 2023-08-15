@@ -6,7 +6,7 @@
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     denops-nixpkgs.url = "github:euank/nixpkgs/add-denops-2023-03-21";
     nix_ls.url = "github:oxalica/nil";
-    home-manager.url = "github:nix-community/home-manager";
+    home-manager.url = "github:euank/home-manager/dropbox";
     ekverlay.url = "github:euank/nixek-overlay";
     nixek.url = "github:nixek-systems/pkgs";
     mvn2nix.url = "github:fzakaria/mvn2nix";

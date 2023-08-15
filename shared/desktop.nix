@@ -56,8 +56,10 @@
   services.blueman.enable = true;
 
   fonts = {
-    enableDefaultFonts = true;
-    fonts = with pkgs; [
+    enableDefaultPackages = false;
+    packages = with pkgs; [
+      freefont_ttf
+      unifont
       comic-neue
       corefonts
       dejavu_fonts

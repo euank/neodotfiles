@@ -45,7 +45,8 @@ in
     k3s
     (hiPrio kubectl)
     kubernetes-helm
-    libreoffice
+    # temperary disabled until https://github.com/NixOS/nixpkgs/issues/249239 makes its way through hydra
+    # libreoffice
     lsof
     nil
     ngrok

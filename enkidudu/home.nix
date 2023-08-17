@@ -15,6 +15,7 @@ in
   ];
 
   home.packages = with pkgs; [
+    wal-g
     stdenv.cc.cc.lib
     clang lld
     ipmitool

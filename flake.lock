@@ -441,8 +441,8 @@
         "nixpkgs-unstable": "nixpkgs-unstable"
       },
       "locked": {
-        "lastModified": 1690438671,
-        "narHash": "sha256-rzSHtEuFoAaDldDorIhWqbqMlnKPOtI2jcQlQ/Lmb8g=",
+        "lastModified": 1692712819,
+        "narHash": "sha256-SmHIZvghz/ZDRLvZTcCEU8If8eZQxtKzO8tjTeuRZJ0=",
         "path": "/home/esk/dev/ngrok/nix",
         "type": "path"
       },
@@ -768,11 +768,11 @@
     },
     "nixpkgs_13": {
       "locked": {
-        "lastModified": 1690327932,
-        "narHash": "sha256-Fv7PYZxN4eo0K6zXhHG/vOc+e2iuqQ5ywDrh0yeRjP0=",
+        "lastModified": 1692557222,
+        "narHash": "sha256-TCOtZaioLf/jTEgfa+nyg0Nwq5Uc610Z+OFV75yUgGw=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "a9b47d85504bdd199e90846622c76aa0bfeabfac",
+        "rev": "0b07d4957ee1bd7fd3bdfd12db5f361bd70175a6",
         "type": "github"
       },
       "original": {

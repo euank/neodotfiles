@@ -15,6 +15,7 @@ in
   ];
 
   home.packages = with pkgs; [
+    youki
     wal-g
     stdenv.cc.cc.lib
     clang lld

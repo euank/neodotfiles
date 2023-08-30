@@ -2,11 +2,11 @@
   description = "euank nix dotfile flakes";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     denops-nixpkgs.url = "github:euank/nixpkgs/add-denops-2023-03-21";
     nix_ls.url = "github:oxalica/nil";
-    home-manager.url = "github:euank/home-manager/dropbox";
+    home-manager.url = "github:nix-community/home-manager";
     ekverlay.url = "github:euank/nixek-overlay";
     nixek.url = "github:nixek-systems/pkgs";
     mvn2nix.url = "github:fzakaria/mvn2nix";

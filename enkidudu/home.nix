@@ -15,6 +15,7 @@ in
   ];
 
   home.packages = with pkgs; [
+    maestral
     youki
     wal-g
     stdenv.cc.cc.lib
@@ -226,7 +227,6 @@ in
   };
 
   services.blueman-applet.enable = true;
-  services.dropbox.enable = true;
 
   xsession.enable = true;
   xsession.windowManager.xmonad = {

@@ -76,11 +76,11 @@
           ];
         };
 
-        damerzel = nixpkgs.lib.nixosSystem {
+        demerzel = nixpkgs.lib.nixosSystem {
           inherit pkgs system;
           specialArgs = { inherit inputs; };
           modules = [
-            ./damerzel/configuration.nix
+            ./demerzel/configuration.nix
           ];
         };
       };

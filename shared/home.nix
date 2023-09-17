@@ -22,6 +22,7 @@ in
     binutils
     borgbackup
     cfssl
+    colmena
     cntr
     cowsay
     diskonaut

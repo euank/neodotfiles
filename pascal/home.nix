@@ -33,7 +33,7 @@ in
     gptfdisk
     escrotum
     brightnessctl
-    exa
+    eza
     file
     git
     gnumake

@@ -29,7 +29,7 @@ in
     dua
     escrotum
     multitail
-    exa
+    eza
     ffmpeg
     figlet
     file

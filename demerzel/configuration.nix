@@ -50,6 +50,11 @@ in
   networking.nameservers = [ "8.8.8.8" "2001:4860:4860::8888" ];
   networking.dhcpcd.enable = false;
 
+  #services.unifi = {
+  #  enable = true;
+  #  unifiPackage = pkgs.unifi7;
+  #};
+
   boot.kernel.sysctl."net.ipv4.ip_forward" = 1;
 
   environment.systemPackages = with pkgs; [

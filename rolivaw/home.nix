@@ -28,7 +28,6 @@ in
     yacreader
 
     # dev stuff
-    (hiPrio clang)
     docker
     docker-compose
     gnupg

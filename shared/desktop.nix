@@ -96,6 +96,7 @@
     blueman
     dmenu
     gnupg
+    helvum
     meslo-lg
     pcsclite
     gparted

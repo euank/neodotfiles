@@ -15,11 +15,9 @@ in
   ];
 
   home.packages = with pkgs; [
-    maestral
     youki
     wal-g
     stdenv.cc.cc.lib
-    clang
     lld
     ipmitool
     aegisub

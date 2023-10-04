@@ -47,6 +47,7 @@ in
     okular
     pavucontrol
     shotcut
+    openshot-qt
     signal-desktop
     syncplay
     tint2

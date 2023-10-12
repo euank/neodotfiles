@@ -106,7 +106,6 @@ in
     openjdk
     nixpkgs-review
     nodejs
-    gradle2nix
     kpt
     linuxPackages.perf
     mvn2nix

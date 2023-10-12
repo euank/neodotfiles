@@ -6,8 +6,6 @@
     inputs.dwarffs.nixosModules.dwarffs
     inputs.home-manager.nixosModules.home-manager
   ];
-  # (;_;)
-  nixpkgs.config.allowUnfree = true;
 
   boot.kernel.sysctl."fs.inotify.max_user_watches" = 99999;
   boot.kernel.sysctl."fs.inotify.max_user_instances" = 8192;

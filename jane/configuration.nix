@@ -9,7 +9,6 @@ in
     ../shared/base.nix
     inputs.ngrok-dev.nixosModule
   ];
-  nixpkgs.config.allowUnfree = true;
   services.ngrok-devenv = {
     enable = true;
     useNixBinaryCache = true;

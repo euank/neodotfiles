@@ -19,7 +19,8 @@ in
     youki
     wal-g
     stdenv.cc.cc.lib
-    clang lld
+    clang
+    lld
     ipmitool
     aegisub
     yarn
@@ -248,7 +249,7 @@ in
         width = "100%";
         height = "3%";
         # radius = 0;
-        tray-position  = "right";
+        tray-position = "right";
         modules-center = "date";
       };
       "module/date" = {
@@ -279,6 +280,21 @@ in
     Install = { WantedBy = [ "graphical-session.target" ]; };
   };
 
+  systemd.user.services.maestral = {
+    Unit = {
+      Description = "Maestral daemon";
+      After = [ "graphical-session-pre.target" ];
+      PartOf = [ "graphical-session.target" ];
+    };
+    Install.WantedBy = [ "default.target" ];
+    Service = {
+      ExecStart = "${pkgs.maestral}/bin/maestral start -f";
+      ExecStop = "${pkgs.maestral}/bin/maestral stop";
+      Restart = "on-failure";
+      Nice = 10;
+    };
+  };
+
   xdg = {
     desktopEntries = {
       # firefox-def = {
@@ -301,10 +317,10 @@ in
 
     mimeApps = {
       defaultApplications = {
-        "text/html"                = [ "firefox-def.desktop" ];
-        "x-scheme-handler/http"    = [ "firefox-def.desktop" ];
-        "x-scheme-handler/https"   = [ "firefox-def.desktop" ];
-        "x-scheme-handler/about"   = [ "firefox-def.desktop" ];
+        "text/html" = [ "firefox-def.desktop" ];
+        "x-scheme-handler/http" = [ "firefox-def.desktop" ];
+        "x-scheme-handler/https" = [ "firefox-def.desktop" ];
+        "x-scheme-handler/about" = [ "firefox-def.desktop" ];
         "x-scheme-handler/unknown" = [ "firefox-def.desktop" ];
       };
     };

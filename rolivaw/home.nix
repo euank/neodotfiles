@@ -39,8 +39,6 @@ in
 
   home.sessionVariables = sessionVariables;
 
-  services.dropbox.enable = true;
-
   programs.neovim = {
     enable = true;
     withPython3 = true;

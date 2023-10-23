@@ -4,7 +4,7 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
-    denops-nixpkgs.url = "github:euank/nixpkgs/add-denops-2023-03-21";
+    denops-nixpkgs.url = "github:euank/nixpkgs/add-denops-2023-10-23";
     home-manager.url = "github:nix-community/home-manager";
     ekverlay.url = "github:euank/nixek-overlay";
     nixek.url = "github:nixek-systems/pkgs";

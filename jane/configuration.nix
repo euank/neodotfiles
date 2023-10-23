@@ -7,7 +7,7 @@ in
   imports = [
     ./hardware-configuration.nix
     ../shared/base.nix
-    inputs.ngrok-dev.nixosModule
+    inputs.ngrok-dev.nixosModules.default
   ];
   services.ngrok-devenv = {
     enable = true;

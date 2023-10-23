@@ -14,7 +14,7 @@
     # nickel.url = "github:tweag/nickel";
 
     # Magic unimportable things
-    ngrok-dev.url = "path:/home/esk/dev/ngrok/nix";
+    ngrok-dev.url = "git+file:/home/esk/dev/ngrok?dir=nix";
     ngrok-dev2.url = "path:/home/esk/nix-ngrok-dev";
     secrets.url = "path:/home/esk/dev/nix-secrets";
   };

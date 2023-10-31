@@ -27,7 +27,7 @@ in
     desmume
     jetbrains.idea-community
     melonDS
-    minecraft
+    # minecraft
     mkvtoolnix
     muttoauth2
     neomutt

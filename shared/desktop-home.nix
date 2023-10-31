@@ -41,7 +41,7 @@ in
     ibus
     inkscape
     keepassxc
-    logseq
+    # logseq # temp
     mpv
     nitrogen
     okular

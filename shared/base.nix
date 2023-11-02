@@ -3,7 +3,7 @@
 # Bits of configuration I want as the default on all my machines
 {
   imports = [
-    inputs.dwarffs.nixosModules.dwarffs
+    # inputs.dwarffs.nixosModules.dwarffs
     inputs.home-manager.nixosModules.home-manager
   ];
 

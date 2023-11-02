@@ -10,7 +10,7 @@
     nixek.url = "github:nixek-systems/pkgs";
     mvn2nix.url = "github:fzakaria/mvn2nix";
     # gradle2nix.url = "github:tadfisher/gradle2nix";
-    dwarffs.url = "github:edolstra/dwarffs";
+    # dwarffs.url = "github:edolstra/dwarffs";
     # nickel.url = "github:tweag/nickel";
 
     # Magic unimportable things
@@ -20,7 +20,7 @@
   };
 
   outputs =
-    { nixpkgs, mvn2nix, nixek, ekverlay, dwarffs, ... }@inputs:
+    { nixpkgs, mvn2nix, nixek, ekverlay, ... }@inputs:
     let
       system = "x86_64-linux";
       pkgs = import nixpkgs {
@@ -31,7 +31,6 @@
           (final: prev: {
             mvn2nix = mvn2nix.defaultPackage.x86_64-linux;
             # gradle2nix = gradle2nix.defaultPackage.x86_64-linux;
-            dwarffs = dwarffs.defaultPackage.x86_64-linux;
             vimPlugins = inputs.denops-nixpkgs.legacyPackages.x86_64-linux.vimPlugins;
             # nickel = inputs.nickel.packages.x86_64-linux.default;
 

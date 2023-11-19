@@ -286,7 +286,7 @@ in
       After = [ "graphical-session-pre.target" ];
       PartOf = [ "graphical-session.target" ];
     };
-    Install.WantedBy = [ "default.target" ];
+    Install = { WantedBy = [ "graphical-session.target" ]; };
     Service = {
       ExecStart = "${pkgs.maestral}/bin/maestral start -f";
       ExecStop = "${pkgs.maestral}/bin/maestral stop";

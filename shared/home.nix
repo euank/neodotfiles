@@ -85,7 +85,7 @@ in
     zsh-powerlevel10k
 
     (hiPrio clang)
-    awscli2
+    # awscli2
     bc
     bind
     binutils

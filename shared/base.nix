@@ -68,7 +68,7 @@
   nix = {
     settings = {
       trusted-users = [ "root" "esk" ];
-      experimental-features = "nix-command flakes";
+      experimental-features = "nix-command flakes recursive-nix dynamic-derivations ca-derivations";
     };
    };
 }

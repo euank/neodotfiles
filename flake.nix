@@ -37,7 +37,13 @@
 
           })
         ];
-        config = { allowUnfree = true; };
+        config = {
+          allowUnfree = true;
+          permittedInsecurePackages = [
+            # Just used for obsidian right now, I trust it well enough.
+            "electron-25.9.0"
+          ];
+        };
       };
     in
     {

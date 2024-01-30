@@ -142,10 +142,11 @@
       },
       "locked": {
         "dir": "nix",
-        "dirtyRev": "2e630ec5a8560220f0bf59296baefb9ed4ab0c4a-dirty",
-        "dirtyShortRev": "2e630ec5a8-dirty",
-        "lastModified": 1705019804,
-        "narHash": "sha256-9jp+ArL3JO3ep6n6ZVtSaf8f5ZnJuQnKQAaOLkbkMVI=",
+        "lastModified": 1706571016,
+        "narHash": "sha256-Orha84Sct7bmGgsWIdKP+N5Ejs6eyJj83iFKq5dBioY=",
+        "ref": "refs/heads/bob/muleg-epr",
+        "rev": "1aee84600b88f67a7dd75f8a787efa22c5f4f392",
+        "revCount": 55657,
         "type": "git",
         "url": "file:/home/esk/dev/ngrok?dir=nix"
       },

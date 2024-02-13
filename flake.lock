@@ -114,22 +114,6 @@
         "type": "github"
       }
     },
-    "mozc": {
-      "locked": {
-        "lastModified": 1706473889,
-        "narHash": "sha256-TdVQnGCXGqVpRRlBophmXiVFLY2+UY9ixk4NoS1RexM=",
-        "owner": "euank",
-        "repo": "nixpkgs",
-        "rev": "06ea5c8e3f1fe8fcc8b0922bb4d8cf4c798cc18c",
-        "type": "github"
-      },
-      "original": {
-        "owner": "euank",
-        "ref": "mozc-2024-01-30",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
     "mvn2nix": {
       "inputs": {
         "nixpkgs": "nixpkgs_3",
@@ -466,7 +450,6 @@
         "denops-nixpkgs": "denops-nixpkgs",
         "ekverlay": "ekverlay",
         "home-manager": "home-manager",
-        "mozc": "mozc",
         "mvn2nix": "mvn2nix",
         "ngrok-dev": "ngrok-dev",
         "ngrok-dev2": "ngrok-dev2",

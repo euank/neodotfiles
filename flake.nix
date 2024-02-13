@@ -5,7 +5,6 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     denops-nixpkgs.url = "github:euank/nixpkgs/add-denops-2023-10-23";
-    mozc.url = "github:euank/nixpkgs/mozc-2024-01-30";
     home-manager.url = "github:nix-community/home-manager";
     ekverlay.url = "github:euank/nixek-overlay";
     nixek.url = "github:nixek-systems/pkgs";
@@ -35,7 +34,6 @@
             # gradle2nix = gradle2nix.defaultPackage.x86_64-linux;
             vimPlugins = inputs.denops-nixpkgs.legacyPackages.x86_64-linux.vimPlugins;
             # nickel = inputs.nickel.packages.x86_64-linux.default;
-            inherit (inputs.mozc.legacyPackages.${system}) ibus-engines;
           })
         ];
         config = {

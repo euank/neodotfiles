@@ -1,7 +1,12 @@
 # home-manager module to configure neovim
 { pkgs, ... }:
 
-
+let
+  skkDict = pkgs.fetchurl {
+    url = "https://github.com/skk-dev/dict/raw/b798a46b886f71c0c25ad2a9e78b1c3e8933970c/SKK-JISYO.L";
+    sha256 = "sha256-6Jb8ReQYWgvGIWz05L5BXLwBKBcdPsQryWxvWPehDyQ=";
+  };
+in
 {
   programs.neovim = {
     enable = true;
@@ -35,7 +40,7 @@
           function! s:skkeleton_init() abort
           call skkeleton#config({
             \ 'eggLikeNewline': v:true,
-            \ 'globalDictionaries': ["/home/esk/SKK-JISYO.L"],
+            \ 'globalDictionaries': ["'' + "${skkDict}" + ''"],
             \ })
           endfunction
           augroup skkeleton-initialize-pre

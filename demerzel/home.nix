@@ -61,13 +61,7 @@ in
       vim-dispatch
       vim-eunuch
       vim-sleuth
-      ({
-        plugin = denops-vim;
-        # Default + no-lock https://github.com/vim-denops/denops.vim/blob/448f84ce91a573a6ce0b74044df986f6ab6dd906/doc/denops.txt#L120
-        config = ''
-          let g:denops#server#deno_args = ['--no-lock', '-q', '--no-check', '--unstable', '-A']
-        '';
-      })
+      denops-vim
       ({
         plugin = skkeleton;
         config = ''
@@ -89,7 +83,7 @@ in
       ddc-ui-native
       ddc-filter-sorter_rank
       ddc-filter-matcher_head
-      ddc-source-nvim-lsp
+      ddc-source-lsp
       ddc-ui-pum
       ({
         plugin = ddc-vim;
@@ -98,16 +92,16 @@ in
           set completeopt=menuone,noinsert,noselect
           set shortmess+=c
           call ddc#custom#patch_global('ui', 'pum')
-          call ddc#custom#patch_global('sources', ['nvim-lsp'])
+          call ddc#custom#patch_global('sources', ['lsp'])
           call ddc#custom#patch_global('sourceOptions', {
           \ '_': { 'matchers': ['matcher_head'], 'sorters': ['sorter_rank'] },
-          \ 'nvim-lsp': {
+          \ 'lsp': {
           \   'mark': 'lsp',
           \   'forceCompletionPattern': '\.\w*|:\w*|->\w*' },
           \ })
 
           call ddc#custom#patch_global('sourceParams', {
-          \ 'nvim-lsp': { 'kindLabels': { 'Class': 'c' } },
+          \ 'lsp': { 'kindLabels': { 'Class': 'c' } },
           \ })
 
           " <TAB>: completion.

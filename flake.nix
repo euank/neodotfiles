@@ -4,7 +4,9 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
-    denops-nixpkgs.url = "github:euank/nixpkgs/add-denops-2023-10-23";
+    vim-skkeleton.url = "github:euank/nixpkgs/vim-plugin-skkeleton-2024-02-22";
+    vim-pum.url = "github:euank/nixpkgs/vim-plugin-pum-2024-02-22";
+    vim-ddc.url = "github:euank/nixpkgs/vim-plugins-ddc-2024-02-22";
     home-manager.url = "github:nix-community/home-manager";
     ekverlay.url = "github:euank/nixek-overlay";
     nixek.url = "github:nixek-systems/pkgs";
@@ -32,8 +34,13 @@
           (final: prev: {
             mvn2nix = mvn2nix.defaultPackage.x86_64-linux;
             # gradle2nix = gradle2nix.defaultPackage.x86_64-linux;
-            vimPlugins = inputs.denops-nixpkgs.legacyPackages.x86_64-linux.vimPlugins;
             # nickel = inputs.nickel.packages.x86_64-linux.default;
+            vimPlugins = prev.vimPlugins.extend (final: prev: {
+              inherit (inputs.vim-skkeleton.legacyPackages.x86_64-linux.vimPlugins) skkeleton;
+              inherit (inputs.vim-pum.legacyPackages.x86_64-linux.vimPlugins) pum-vim;
+              inherit (inputs.vim-ddc.legacyPackages.x86_64-linux.vimPlugins)
+                ddc-vim ddc-source-lsp ddc-filter-matcher_head ddc-filter-sorter_rank ddc-ui-native ddc-ui-pum;
+            });
           })
         ];
         config = {

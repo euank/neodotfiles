@@ -1,32 +1,14 @@
-{ config, pkgs, ... }:
+# home-manager module to configure neovim
+{ pkgs, ... }:
 
-let
-  sessionVariables = {
-    EDITOR = "nvim";
-    COWPATH = "${pkgs.cowsay}/share/cows:${pkgs.tewisay}/share/tewisay/cows";
-  };
-in
+
 {
-
-  imports = [
-    ../shared/home.nix
-  ];
-
-  home.packages = with pkgs; [
-  ];
-
-  home.sessionVariables = sessionVariables;
-
-  programs.alacritty = {
-    enable = true;
-  };
-
   programs.neovim = {
     enable = true;
     withPython3 = true;
     withNodeJs = true;
     package = pkgs.neovim-unwrapped;
-    extraConfig = "source ${../shared/vim/vimrc}";
+    extraConfig = "source ${./vimrc}";
     plugins = with pkgs.vimPlugins; [
       ({
         plugin = vim-airline;
@@ -48,6 +30,18 @@ in
         config = ''
           imap <C-j> <Plug>(skkeleton-toggle)
           cmap <C-j> <Plug>(skkeleton-toggle)
+          tmap <C-j> <Plug>(skkeleton-toggle)
+
+          function! s:skkeleton_init() abort
+          call skkeleton#config({
+            \ 'eggLikeNewline': v:true,
+            \ 'globalDictionaries': ["/home/esk/SKK-JISYO.L"],
+            \ })
+          endfunction
+          augroup skkeleton-initialize-pre
+            autocmd!
+            autocmd User skkeleton-initialize-pre call s:skkeleton_init()
+          augroup END
         '';
       })
       ({
@@ -73,17 +67,33 @@ in
           set completeopt=menuone,noinsert,noselect
           set shortmess+=c
           call ddc#custom#patch_global('ui', 'pum')
-          call ddc#custom#patch_global('sources', ['nvim-lsp'])
-          call ddc#custom#patch_global('sourceOptions', {
-          \ '_': { 'matchers': ['matcher_head'], 'sorters': ['sorter_rank'] },
-          \ 'nvim-lsp': {
-          \   'mark': 'lsp',
-          \   'forceCompletionPattern': '\.\w*|:\w*|->\w*' },
-          \ })
+          call ddc#custom#patch_global('sources', ['lsp', 'skkeleton'])
+          call ddc#custom#patch_global('sourceOptions', #{
+            \   _: #{
+            \     matchers: ['matcher_head'],
+            \   },
+            \   lsp: #{
+            \     mark: 'lsp',
+            \     forceCompletionPattern: '\.\w*|:\w*|->\w*',
+            \   },
+            \   skkeleton: #{
+            \     mark: 'skk',
+            \     matchers: [],
+            \     sorters: [],
+            \     isVolatile: v:true,
+            \     minAutoCompleteLength: 1,
+            \   },
+            \ })
 
-          call ddc#custom#patch_global('sourceParams', {
-          \ 'nvim-lsp': { 'kindLabels': { 'Class': 'c' } },
-          \ })
+          call ddc#custom#patch_global('sourceParams', #{
+            \   lsp: #{
+            \     snippetEngine: denops#callback#register({
+            \           body -> vsnip#anonymous(body)
+            \     }),
+            \     enableResolveItem: v:true,
+            \     enableAdditionalTextEdit: v:true,
+            \   }
+            \ })
 
           " <TAB>: completion.
           inoremap <silent><expr> <TAB>
@@ -113,6 +123,11 @@ in
         config = ''
           lua << EOF
           local configs = require'lspconfig'
+
+          local capabilities = require("ddc_source_lsp").make_client_capabilities()
+          configs.denols.setup({
+            capabilities = capabilities,
+          })
 
           configs.gopls.setup{
             cmd = {'gopls', '-remote=auto'},
@@ -191,57 +206,4 @@ in
       })
     ];
   };
-
-  programs.home-manager.enable = true;
-  programs.zsh = {
-    enable = true;
-    history = {
-      save = 1000000;
-    };
-    sessionVariables = sessionVariables;
-    shellAliases = {
-      ls = "ls --color=auto";
-      k = "kubectl";
-    };
-    initExtra = ''
-      source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme
-      source "${../shared/zsh/p10k.zsh}"
-      source "${../shared/zsh/zshrc}"
-
-      source "/home/esk/dev/ngrok/.cache/ngrok-host-shellhook"
-    '';
-  };
-
-  programs.direnv = {
-    enable = true;
-    enableZshIntegration = true;
-    nix-direnv = {
-      enable = true;
-      # enableFlakes = true;
-    };
-  };
-
-  programs.pazi = {
-    enable = true;
-    enableZshIntegration = true;
-  };
-
-  services.gpg-agent = {
-    enable = false;
-    enableScDaemon = true;
-    enableSshSupport = true;
-    pinentryFlavor = "gtk2";
-  };
-
-  services.picom.enable = true;
-
-  # This value determines the Home Manager release that your
-  # configuration is compatible with. This helps avoid breakage
-  # when a new Home Manager release introduces backwards
-  # incompatible changes.
-  #
-  # You can update Home Manager without changing this value. See
-  # the Home Manager release notes for a list of state version
-  # changes in each release.
-  home.stateVersion = "20.03";
 }

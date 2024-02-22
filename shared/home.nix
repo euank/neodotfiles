@@ -100,6 +100,7 @@ in
     gnumake
     go_1_21
     gopls
+    gofumpt
     gradle
     hyperfine
     # ipmiview

@@ -192,8 +192,25 @@ in
           let g:go_highlight_structs = 1
           let g:go_highlight_operators = 1
           let g:go_highlight_build_constraints = 1
+          let g:go_imports_mode = 'gopls'
           let g:go_metalinter_autosave_enabled = []
           let g:go_metalinter_enabled = []
+
+          " Borrowed from vim-go #3023
+          let g:go_gopls_local = {}
+          function! s:setlocal()
+            try
+              let l:olddir = chdir(expand('%:p:h'))
+              let l:dir = trim(system('go list -m -f {{.Dir}}'))
+              if !has_key(g:go_gopls_local, l:dir)
+                let g:go_gopls_local[l:dir] = trim(system('go list -m'))
+              endif
+            catch
+            finally
+              call chdir(l:olddir)
+            endtry
+          endfunction
+          autocmd FileType go call s:setlocal()
         '';
       })
       ({

@@ -508,16 +508,16 @@
     },
     "vim-ddc": {
       "locked": {
-        "lastModified": 1708602213,
-        "narHash": "sha256-HPASR4pUEDuLb3IqfVRqcl0/cRmdYwHOcUbcog+OHdI=",
+        "lastModified": 1709566333,
+        "narHash": "sha256-blARpUsKcOAnZ5SqFo8D++Nwt+zAZUyPgawZfIF3umU=",
         "owner": "euank",
         "repo": "nixpkgs",
-        "rev": "59a777f0d9b484a8f6ae623bc66fdcf4874c081e",
+        "rev": "36b4739805a9783f05c819e6942722710c65c6f9",
         "type": "github"
       },
       "original": {
         "owner": "euank",
-        "ref": "vim-plugins-ddc-2024-02-22",
+        "ref": "vim-plugins-ddc-2024-03-05",
         "repo": "nixpkgs",
         "type": "github"
       }

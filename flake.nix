@@ -6,7 +6,7 @@
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     vim-skkeleton.url = "github:euank/nixpkgs/vim-plugin-skkeleton-2024-02-22";
     vim-pum.url = "github:euank/nixpkgs/vim-plugin-pum-2024-02-22";
-    vim-ddc.url = "github:euank/nixpkgs/vim-plugins-ddc-2024-02-22";
+    vim-ddc.url = "github:euank/nixpkgs/vim-plugins-ddc-2024-03-05";
     home-manager.url = "github:nix-community/home-manager";
     ekverlay.url = "github:euank/nixek-overlay";
     nixek.url = "github:nixek-systems/pkgs";

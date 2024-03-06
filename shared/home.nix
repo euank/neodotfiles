@@ -34,8 +34,9 @@ in
     figlet
     file
     fish
-    font-manager
     flyctl
+    font-manager
+    fx_cast_bridge
     heaptrack
     htop
     iptables

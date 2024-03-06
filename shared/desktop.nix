@@ -16,6 +16,11 @@
     # manager setup. We don't actually use the xterm environment.
     desktopManager.xterm.enable = true;
   };
+  services.avahi = {
+    enable = true;
+    nssmdns4 = true;
+  };
+
   # Vivarium setup, if I ever want to switch back to it..
   # services.xserver.displayManager.sessionPackages = [ pkgs.vivarium ];
   # environment.systemPackages = with pkgs; [ vivarium ];

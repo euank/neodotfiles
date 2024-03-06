@@ -68,6 +68,7 @@ in
   };
 
   networking.networkmanager.enable = true;
+  systemd.services.NetworkManager-wait-online.enable = false;
   networking.networkmanager.dhcp = "dhcpcd";
   networking.dhcpcd.enable = false;
 

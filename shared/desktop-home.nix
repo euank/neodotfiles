@@ -4,6 +4,7 @@
 
 let
   sessionVariables = {
+    EDITOR = "nvim";
     GTK_IM_MODULE = "ibus";
     XMODIFIERS = "@im=ibus";
     QT_IM_MODULE = "ibus";
@@ -22,6 +23,8 @@ in
     # ffmpeg-full
     # obs-studio
 
+    (aspellWithDicts (ps : with ps; [ en ]))
+    networkmanagerapplet
     anki
     arandr
     bemenu
@@ -51,6 +54,10 @@ in
     signal-desktop
     syncplay
     tint2
+    tree
+    tig
+    unzip
+    tmux
     xsel
     xorg.xkill
     xorg.xwininfo

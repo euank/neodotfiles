@@ -19,7 +19,6 @@ in
     shotcut
     dia
     dmenu
-    networkmanagerapplet
     gnome.gnome-session
     brightnessctl
     remmina

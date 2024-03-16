@@ -60,7 +60,6 @@ in
     enable = false;
     enableScDaemon = true;
     enableSshSupport = true;
-    pinentryFlavor = "gtk2";
   };
 
   services.picom.enable = true;

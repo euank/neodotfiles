@@ -44,7 +44,6 @@ in
     enable = true;
     enableScDaemon = true;
     enableSshSupport = true;
-    pinentryFlavor = "curses";
   };
 
   services.blueman-applet.enable = true;

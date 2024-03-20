@@ -130,7 +130,6 @@ vnoremap > >gv
 
 nnoremap Y y$
 
-nmap <leader>l :set list! list?<cr>
-nnoremap <BS> :set hlsearch! hlsearch?<cr>
+nnoremap <BS>:set hlsearch! hlsearch?<cr>
 
 autocmd FileType vim setlocal fdm=indent keywordprg=:help

@@ -13,11 +13,13 @@ in
     withPython3 = true;
     withNodeJs = true;
     package = pkgs.neovim-unwrapped;
-    extraConfig = "source ${./vimrc}";
     plugins = with pkgs.vimPlugins; [
       ({
         plugin = vim-airline;
+        # Put extra config here so it's earlier than other plugin config
         config = ''
+          source ${./vimrc}
+
           let g:airline#extensions#tabline#enabled = 1
           let g:airline#extensions#tabline#left_sep = ' '
           let g:airline#extensions#tabline#left_alt_sep = '¦'
@@ -102,12 +104,20 @@ in
 
           " <TAB>: completion.
           inoremap <silent><expr> <TAB>
-          \ pumvisible() ? '<C-n>' :
-          \ (col('.') <= 1 <Bar><Bar> getline('.')[col('.') - 2] =~# '\s') ?
-          \ '<TAB>' : ddc#map#manual_complete()
+            \ pumvisible() ? '<C-n>' :
+            \ (col('.') <= 1 <Bar><Bar> getline('.')[col('.') - 2] =~# '\s') ?
+            \ '<TAB>' : ddc#map#manual_complete()
 
           " <S-TAB>: completion back.
-          inoremap <expr><S-TAB>  pumvisible() ? '<C-p>' : '<C-h>'
+          inoremap <S-Tab> <Cmd>call pum#map#insert_relative(-1)<CR>
+          inoremap <C-n>   <Cmd>call pum#map#select_relative(+1)<CR>
+          inoremap <C-p>   <Cmd>call pum#map#select_relative(-1)<CR>
+
+          " Diagnostics helpers
+          nnoremap <silent> [d :lua vim.diagnostic.goto_prev()<CR>
+          nnoremap <silent> ]d :lua vim.diagnostic.goto_next()<CR>
+          nnoremap <silent> <Leader>ld :lua vim.diagnostic.open_float()<CR>
+          nnoremap <silent> <Leader>lld :lua vim.diagnostic.setloclist()<CR>
 
           call ddc#enable()
         '';

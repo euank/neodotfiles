@@ -44,6 +44,7 @@ in
     obsidian
     jmtpfs
     jq
+    jujutsu
     k3s
     (hiPrio kubectl)
     kubernetes-helm

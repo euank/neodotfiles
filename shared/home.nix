@@ -108,7 +108,6 @@ in
     openjdk
     nixpkgs-review
     nodejs
-    kpt
     linuxPackages.perf
     mvn2nix
     ncurses

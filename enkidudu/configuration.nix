@@ -13,6 +13,26 @@ in
   programs.steam = {
     enable = true;
   };
+  programs.hyprland.enable = true;
+
+  services.greetd = {
+    enable = true;
+    settings = {
+      default_session = {
+        command = ''
+          ${pkgs.greetd.tuigreet}/bin/tuigreet \
+            --time \
+            --asterisks \
+            --user-menu \
+            --cmd Hyprland
+        '';
+      };
+    };
+  };
+  environment.etc."greetd/environments".text = ''
+    Hyprland
+    zsh
+  '';
 
   # boot.kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
   boot.kernelPackages = pkgs.linuxPackages_latest;

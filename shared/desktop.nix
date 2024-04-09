@@ -8,14 +8,14 @@
   imports = [
     ./base.nix
   ];
-  services.xserver = {
-    enable = true;
-    xkb.layout = "us";
-    # Not totally sure why I need this.
-    # Effectively, we're handing things off to a home-manager managed window
-    # manager setup. We don't actually use the xterm environment.
-    desktopManager.xterm.enable = true;
-  };
+  # services.xserver = {
+  #   enable = true;
+  #   xkb.layout = "us";
+  #   # Not totally sure why I need this.
+  #   # Effectively, we're handing things off to a home-manager managed window
+  #   # manager setup. We don't actually use the xterm environment.
+  #   desktopManager.xterm.enable = true;
+  # };
   services.avahi = {
     enable = true;
     nssmdns4 = true;

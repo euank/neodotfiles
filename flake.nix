@@ -3,6 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+    nixpkgs-stable.url = "github:NixOs/nixpkgs/nixos-23.11";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     vim-skkeleton.url = "github:euank/nixpkgs/vim-plugin-skkeleton-2024-02-22";
     vim-pum.url = "github:euank/nixpkgs/vim-plugin-pum-2024-02-22";
@@ -26,6 +27,16 @@
     { nixpkgs, mvn2nix, nixek, ekverlay, ... }@inputs:
     let
       system = "x86_64-linux";
+      pkgsStable = import inputs.nixpkgs-stable {
+        inherit system;
+        config = {
+          allowUnfree = true;
+          permittedInsecurePackages = [
+            # obsidian
+            "electron-25.9.0"
+          ];
+        };
+      };
       pkgs = import nixpkgs {
         inherit system;
         overlays = [
@@ -42,13 +53,13 @@
                 ddc-vim ddc-source-lsp ddc-filter-matcher_head ddc-filter-sorter_rank ddc-ui-native ddc-ui-pum;
             });
           })
+          (final: prev: {
+            # broken on unstable at the time of writing
+            inherit (pkgsStable) obsidian;
+          })
         ];
         config = {
           allowUnfree = true;
-          permittedInsecurePackages = [
-            # Just used for obsidian right now, I trust it well enough.
-            "electron-25.9.0"
-          ];
         };
       };
     in

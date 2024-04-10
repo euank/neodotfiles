@@ -12,6 +12,7 @@ in
   services.ngrok-devenv = {
     enable = true;
     useNixBinaryCache = true;
+    userHome = "/home/esk";
     repoRoot = "/home/esk/dev/ngrok";
     interfaces = {
       node = {

@@ -8,22 +8,32 @@
   imports = [
     ./base.nix
   ];
-  # services.xserver = {
-  #   enable = true;
-  #   xkb.layout = "us";
-  #   # Not totally sure why I need this.
-  #   # Effectively, we're handing things off to a home-manager managed window
-  #   # manager setup. We don't actually use the xterm environment.
-  #   desktopManager.xterm.enable = true;
-  # };
+
+  programs.hyprland.enable = true;
+
+  services.greetd = {
+    enable = true;
+    settings = {
+      default_session = {
+        command = ''
+          ${pkgs.greetd.tuigreet}/bin/tuigreet \
+            --time \
+            --asterisks \
+            --user-menu \
+            --cmd Hyprland
+        '';
+      };
+    };
+  };
+  environment.etc."greetd/environments".text = ''
+    Hyprland
+    zsh
+  '';
+
   services.avahi = {
     enable = true;
     nssmdns4 = true;
   };
-
-  # Vivarium setup, if I ever want to switch back to it..
-  # services.xserver.displayManager.sessionPackages = [ pkgs.vivarium ];
-  # environment.systemPackages = with pkgs; [ vivarium ];
 
   hardware.opengl = {
     enable = true;
@@ -36,11 +46,6 @@
   qt.platformTheme = "lxqt";
 
   sound.enable = false;
-  # hardware.pulseaudio = {
-  #   support32Bit = true;
-  #   enable = true;
-  #   package = pkgs.pulseaudioFull;
-  # };
   services.pipewire = {
     enable = true;
     alsa.enable = true;

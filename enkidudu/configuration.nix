@@ -13,26 +13,6 @@ in
   programs.steam = {
     enable = true;
   };
-  programs.hyprland.enable = true;
-
-  services.greetd = {
-    enable = true;
-    settings = {
-      default_session = {
-        command = ''
-          ${pkgs.greetd.tuigreet}/bin/tuigreet \
-            --time \
-            --asterisks \
-            --user-menu \
-            --cmd Hyprland
-        '';
-      };
-    };
-  };
-  environment.etc."greetd/environments".text = ''
-    Hyprland
-    zsh
-  '';
 
   # boot.kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
   boot.kernelPackages = pkgs.linuxPackages_latest;
@@ -127,12 +107,7 @@ in
   networking.interfaces.wlp6s0.useDHCP = false;
   networking.firewall.enable = false;
 
-  # x11
   services.xserver.videoDrivers = [ "amdgpu" ];
-  # services.xserver.xrandrHeads = [
-  #   "DisplayPort-1"
-  #   "DisplayPort-0"
-  # ];
   fonts.fontDir.enable = true;
 
   virtualisation.docker.enable = true;

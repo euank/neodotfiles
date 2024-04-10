@@ -37,10 +37,6 @@ in
     tor-browser-bundle-bin
     yacreader
     zoom-us
-    pulseaudioFull
-
-    anyrun
-    swaylock
   ];
 
   services.gpg-agent = {
@@ -104,65 +100,6 @@ in
           ]
         ) 10)
       );
-    };
-  };
-  xdg.configFile."hypr/hyprpaper.conf".text = ''
-    splash = false
-  '';
-  xdg.configFile."anyrun/config.ron".text = ''
-    Config(
-      show_results_immediately: true,
-    )
-  '';
-  services.mako = {
-    enable = true;
-  };
-  systemd.user.services.mako = {
-    Unit = {
-      Description = "mako notifications";
-      After = [ "graphical-session-pre.target" ];
-      PartOf = [ "graphical-session.target" ];
-    };
-    Install = { WantedBy = [ "graphical-session.target" ]; };
-    Service = {
-      ExecStart = "${pkgs.mako}/bin/mako";
-      Restart = "on-failure";
-      Nice = 10;
-    };
-  };
-  programs.waybar = {
-    enable = true;
-  };
-  systemd.user.services.waybar = {
-    Unit = {
-      Description = "waybar";
-      After = [ "graphical-session-pre.target" ];
-      PartOf = [ "graphical-session.target" ];
-    };
-    Install = { WantedBy = [ "graphical-session.target" ]; };
-    Service = {
-      ExecStart = "${pkgs.waybar}/bin/waybar";
-      Restart = "on-failure";
-      Nice = 10;
-    };
-  };
-
-  services.pasystray = {
-    enable = true;
-  };
-
-  systemd.user.services.maestral = {
-    Unit = {
-      Description = "Maestral daemon";
-      After = [ "graphical-session-pre.target" ];
-      PartOf = [ "graphical-session.target" ];
-    };
-    Install = { WantedBy = [ "graphical-session.target" ]; };
-    Service = {
-      ExecStart = "${pkgs.maestral}/bin/maestral start -f";
-      ExecStop = "${pkgs.maestral}/bin/maestral stop";
-      Restart = "on-failure";
-      Nice = 10;
     };
   };
 

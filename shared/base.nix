@@ -64,7 +64,6 @@
     item = "nofile";
     value = "50000";
   }];
-  security.pam.services.swaylock = {};
 
   nix = {
     settings = {

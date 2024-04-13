@@ -30,7 +30,7 @@ in
     maestral
     multitail
     eza
-    ffmpeg-full
+    ffmpeg
     figlet
     file
     fish

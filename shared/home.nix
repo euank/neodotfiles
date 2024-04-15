@@ -125,6 +125,7 @@ in
     # misc
     efitools
     sbsigntool
+    i3lock
   ];
 
   home.sessionVariables = sessionVariables;

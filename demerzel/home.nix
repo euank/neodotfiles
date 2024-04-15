@@ -49,6 +49,7 @@ in
     enable = true;
     enableScDaemon = true;
     enableSshSupport = true;
+    pinentryPackage = pkgs.pinentry-gtk2;
   };
 
   services.picom.enable = true;

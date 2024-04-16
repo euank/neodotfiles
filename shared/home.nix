@@ -17,6 +17,7 @@ in
 {
   home.packages = with pkgs; [
     amazon-ecr-credential-helper
+    ast-grep
     bazel_5
     binutils
     borgbackup

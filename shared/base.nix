@@ -31,6 +31,7 @@
     extraConfig = "AllowUsers esk";
   };
 
+  programs.nix-ld.enable = true;
   programs.zsh.enable = true;
 
   home-manager.useUserPackages = true;

@@ -126,6 +126,7 @@ in
     efitools
     sbsigntool
     i3lock
+    inotify-tools
   ];
 
   home.sessionVariables = sessionVariables;

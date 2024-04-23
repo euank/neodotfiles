@@ -19,6 +19,28 @@ in
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  boot.initrd = {
+    kernelModules = [ "igb" ];
+    network = {
+      enable = true;
+      udhcpc.enable = false;
+      postCommands = ''
+        ip a
+        ip address add 192.168.2.2/24 brd + dev enp8s0
+        ip route add 192.168.2.1 dev enp8s0
+        ip route add default via 192.168.6.1 dev enp8s0
+
+        echo 'cryptsetup-askpass' >> /root/.profile
+      '';
+      ssh = {
+        enable = true;
+        authorizedKeys = config.users.users.esk.openssh.authorizedKeys.keys;
+        port = 222;
+        hostKeys = [ "/etc/ssh/ssh_host_ed25519_key" ];
+      };
+    };
+  };
+
   services.unifi.enable = false;
 
   services.postgresql = {

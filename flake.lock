@@ -128,17 +128,16 @@
         "nixpkgs-cr-bootstrap": "nixpkgs-cr-bootstrap",
         "nixpkgs-kubectl-pinned": "nixpkgs-kubectl-pinned",
         "nixpkgs-osslsigncode": "nixpkgs-osslsigncode",
-        "nixpkgs-pinned": "nixpkgs-pinned",
         "nixpkgs-terraform": "nixpkgs-terraform",
         "nixpkgs-unstable": "nixpkgs-unstable"
       },
       "locked": {
         "dir": "nix",
-        "lastModified": 1713247676,
-        "narHash": "sha256-zckEzH5clR6ulcZHpJFl+0iBlDGsFyWjzWoHOI5dirk=",
-        "ref": "refs/heads/main",
-        "rev": "be017f673e208b99a1c9a5edaa8ff8c48c4d128c",
-        "revCount": 60535,
+        "lastModified": 1713861413,
+        "narHash": "sha256-oa9e5Hme2CFLcj6NennAqAVtxIS5rp2PzclDToWD4Qc=",
+        "ref": "refs/heads/euan/node-label2",
+        "rev": "abd61ed8b4cf1e4cce87b2c30a0ff9184b6458a1",
+        "revCount": 61097,
         "type": "git",
         "url": "file:/home/esk/dev/ngrok?dir=nix"
       },
@@ -289,22 +288,6 @@
         "owner": "nixos",
         "repo": "nixpkgs",
         "rev": "78f3a4ae19f0e99d5323dd2e3853916b8ee4afee",
-        "type": "github"
-      }
-    },
-    "nixpkgs-pinned": {
-      "locked": {
-        "lastModified": 1685573264,
-        "narHash": "sha256-Zffu01pONhs/pqH07cjlF10NnMDLok8ix5Uk4rhOnZQ=",
-        "owner": "nixos",
-        "repo": "nixpkgs",
-        "rev": "380be19fbd2d9079f677978361792cb25e8a3635",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nixos",
-        "ref": "release-22.05",
-        "repo": "nixpkgs",
         "type": "github"
       }
     },

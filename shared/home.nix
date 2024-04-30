@@ -101,7 +101,7 @@ in
     gdb
     gh
     gnumake
-    go_1_21
+    go_1_22
     gopls
     gofumpt
     gradle

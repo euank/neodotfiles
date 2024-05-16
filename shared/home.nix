@@ -85,6 +85,7 @@ in
     yt-dlp
     wezterm
     xsv
+    zip
     zsh-powerlevel10k
 
     (hiPrio clang_16)

@@ -114,10 +114,8 @@ in
           inoremap <C-p>   <Cmd>call pum#map#select_relative(-1)<CR>
 
           " Diagnostics helpers
-          nnoremap <silent> [d :lua vim.diagnostic.goto_prev()<CR>
-          nnoremap <silent> ]d :lua vim.diagnostic.goto_next()<CR>
-          nnoremap <silent> <Leader>ld :lua vim.diagnostic.open_float()<CR>
-          nnoremap <silent> <Leader>lld :lua vim.diagnostic.setloclist()<CR>
+          nnoremap <silent> <Leader>d :lua vim.diagnostic.open_float()<CR>
+          nnoremap <silent> <Leader>ld :lua vim.diagnostic.setloclist()<CR>
 
           call ddc#enable()
         '';

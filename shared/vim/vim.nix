@@ -135,6 +135,8 @@ in
         plugin = nvim-lspconfig;
         config = ''
           lua << EOF
+          vim.lsp.inlay_hint.enable()
+
           local configs = require'lspconfig'
 
           local capabilities = require("ddc_source_lsp").make_client_capabilities()

@@ -108,7 +108,7 @@ in
     gradle
     hyperfine
     # ipmiview
-    openjdk
+    openjdk22
     nixpkgs-review
     nodejs
     linuxPackages.perf

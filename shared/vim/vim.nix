@@ -125,8 +125,9 @@ in
       ({
         plugin = vim-colorschemes;
         config = ''
-          let g:inkpot_black_background = 1
           colorscheme inkpot
+          " fixes my colors for some reason, ideally we shouldn't need this
+          set notermguicolors
         '';
       })
       # Used in nvim-lspconfig below

@@ -97,6 +97,8 @@ in
     };
   };
 
+  services.dunst.enable = true;
+
   systemd.user.services.ibus = {
     Unit = {
       Description = "ibus";

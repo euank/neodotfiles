@@ -123,7 +123,7 @@ in
       echo 'cryptsetup-askpass' >> /root/.profile
     '';
   };
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelPackages = pkgs.linuxPackages;
   fileSystems."/".options = [ "noatime" "nodiratime" "discard" ];
 
   virtualisation.docker.enable = true;

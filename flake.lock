@@ -129,11 +129,11 @@
       },
       "locked": {
         "dir": "nix",
-        "lastModified": 1716870875,
-        "narHash": "sha256-BFJtHKABiPCuwIOtemH28uoLSc4aJJRLJN0uobBlkBM=",
+        "lastModified": 1717022280,
+        "narHash": "sha256-xiuyWDuGXNil+T24CtdRxGmpyqLVNvfU9G2ODuV3RUA=",
         "ref": "refs/heads/main",
-        "rev": "50cb302c55c3a341f9bd16333daca81476bbfb16",
-        "revCount": 63177,
+        "rev": "0750e1335d4bbb47647c44552cc498eefb4cef67",
+        "revCount": 63341,
         "type": "git",
         "url": "file:/home/esk/dev/ngrok?dir=nix"
       },

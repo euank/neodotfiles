@@ -31,10 +31,6 @@
         inherit system;
         config = {
           allowUnfree = true;
-          permittedInsecurePackages = [
-            # obsidian
-            "electron-25.9.0"
-          ];
         };
       };
       pkgs = import nixpkgs {
@@ -52,10 +48,6 @@
               inherit (inputs.vim-ddc.legacyPackages.x86_64-linux.vimPlugins)
                 ddc-vim ddc-source-lsp ddc-filter-matcher_head ddc-filter-sorter_rank ddc-ui-native ddc-ui-pum;
             });
-          })
-          (final: prev: {
-            # broken on unstable at the time of writing
-            inherit (pkgsStable) obsidian;
           })
         ];
         config = {

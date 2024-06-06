@@ -271,22 +271,6 @@
         "type": "github"
       }
     },
-    "nixpkgs-stable": {
-      "locked": {
-        "lastModified": 1717159533,
-        "narHash": "sha256-oamiKNfr2MS6yH64rUn99mIZjc45nGJlj9eGth/3Xuw=",
-        "owner": "NixOs",
-        "repo": "nixpkgs",
-        "rev": "a62e6edd6d5e1fa0329b8653c801147986f8d446",
-        "type": "github"
-      },
-      "original": {
-        "owner": "NixOs",
-        "ref": "nixos-23.11",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
     "nixpkgs-terraform": {
       "locked": {
         "lastModified": 1701269638,
@@ -449,7 +433,6 @@
         "nixek": "nixek",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs_8",
-        "nixpkgs-stable": "nixpkgs-stable",
         "secrets": "secrets",
         "vim-ddc": "vim-ddc",
         "vim-pum": "vim-pum",

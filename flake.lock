@@ -255,6 +255,22 @@
         "type": "github"
       }
     },
+    "nixpkgs-obsidian": {
+      "locked": {
+        "lastModified": 1718074801,
+        "narHash": "sha256-Krrc578L22kHSMpzX01eQpZtSlihe+hOyPkbzSSF1hA=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "ffe87a747bc69650ba90d46d01f4068020b389bf",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "master",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "nixpkgs-osslsigncode": {
       "locked": {
         "lastModified": 1699110214,
@@ -433,6 +449,7 @@
         "nixek": "nixek",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs_8",
+        "nixpkgs-obsidian": "nixpkgs-obsidian",
         "secrets": "secrets",
         "vim-ddc": "vim-ddc",
         "vim-pum": "vim-pum",

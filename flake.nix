@@ -3,6 +3,8 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+    # Temporary until #318699 hits unstable
+    nixpkgs-obsidian.url = "github:NixOS/nixpkgs/master";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     vim-skkeleton.url = "github:euank/nixpkgs/vim-plugin-skkeleton-2024-02-22";
     vim-pum.url = "github:euank/nixpkgs/vim-plugin-pum-2024-02-22";
@@ -26,12 +28,20 @@
     { nixpkgs, mvn2nix, nixek, ekverlay, ... }@inputs:
     let
       system = "x86_64-linux";
+      obsidianPkgs = import inputs.nixpkgs-obsidian {
+        inherit system;
+        config = {
+          allowUnfree = true;
+        };
+      };
       pkgs = import nixpkgs {
         inherit system;
         overlays = [
           ekverlay.overlays.default
           nixek.overlay
           (final: prev: {
+            inherit (obsidianPkgs) obsidian;
+
             mvn2nix = mvn2nix.defaultPackage.x86_64-linux;
             # gradle2nix = gradle2nix.defaultPackage.x86_64-linux;
             # nickel = inputs.nickel.packages.x86_64-linux.default;

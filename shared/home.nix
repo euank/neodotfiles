@@ -17,7 +17,7 @@ in
 {
   home.packages = with pkgs; [
     amazon-ecr-credential-helper
-    ast-grep
+    # ast-grep
     bazel_5
     binutils
     borgbackup
@@ -120,7 +120,7 @@ in
     python3
     ruby
     rustup
-    terraform
+    # terraform
     boringtun
     onetun
 

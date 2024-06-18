@@ -15,6 +15,7 @@
     git
     gnupg
     htop
+    iptables
     linuxPackages.perf
     neovim
     openssl

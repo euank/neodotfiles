@@ -38,6 +38,7 @@ in
       source "${../shared/zsh/p10k.zsh}"
       source "${../shared/zsh/zshrc}"
 
+      export NGROK_HOME=/home/esk/dev/ngrok
       source "/home/esk/dev/ngrok/.cache/ngrok-host-shellhook"
     '';
   };

@@ -85,6 +85,7 @@ in
     yt-dlp
     wezterm
     xsv
+    zed-editor
     zip
     zsh-powerlevel10k
 

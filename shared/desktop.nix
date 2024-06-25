@@ -5,9 +5,7 @@
 # managed by home-manager.
 
 {
-  imports = [
-    ./base.nix
-  ];
+  imports = [ ./base.nix ];
   services.xserver = {
     enable = true;
     xkb.layout = "us";
@@ -85,7 +83,10 @@
   i18n.defaultLocale = "en_US.UTF-8";
   i18n.inputMethod = {
     enabled = "ibus";
-    ibus.engines = with pkgs.ibus-engines; [ mozc uniemoji ];
+    ibus.engines = with pkgs.ibus-engines; [
+      mozc
+      uniemoji
+    ];
   };
 
   time.timeZone = "Asia/Tokyo";
@@ -94,7 +95,10 @@
   services.udev.packages = [ pkgs.yubikey-personalization ];
 
   programs.ssh.startAgent = false;
-  programs.gnupg.agent = { enable = true; enableSSHSupport = true; };
+  programs.gnupg.agent = {
+    enable = true;
+    enableSSHSupport = true;
+  };
   programs.gnome-disks.enable = true;
 
   environment.systemPackages = with pkgs; [

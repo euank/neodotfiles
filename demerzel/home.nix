@@ -1,4 +1,4 @@
-{ config, pkgs, ...  }:
+{ config, pkgs, ... }:
 
 let
   sessionVariables = {
@@ -42,8 +42,7 @@ in
 
   home.sessionVariables = sessionVariables;
 
-  programs.zsh.initExtra = ''
-  '';
+  programs.zsh.initExtra = '''';
 
   services.gpg-agent = {
     enable = true;
@@ -74,7 +73,7 @@ in
         width = "100%";
         height = "3%";
         # radius = 0;
-        tray-position  = "right";
+        tray-position = "right";
         modules-center = "date";
       };
       "module/date" = {
@@ -103,7 +102,9 @@ in
       Type = "oneshot";
       ExecStart = "${pkgs.nitrogen}/bin/nitrogen --random --head=-1 --set-tiled /home/esk/Images/wallpaper";
     };
-    Install = { WantedBy = [ "graphical-session.target" ]; };
+    Install = {
+      WantedBy = [ "graphical-session.target" ];
+    };
   };
 
   systemd.user.services.maestral = {
@@ -112,7 +113,9 @@ in
       After = [ "graphical-session-pre.target" ];
       PartOf = [ "graphical-session.target" ];
     };
-    Install = { WantedBy = [ "graphical-session.target" ]; };
+    Install = {
+      WantedBy = [ "graphical-session.target" ];
+    };
     Service = {
       ExecStart = "${pkgs.maestral}/bin/maestral start -f";
       ExecStop = "${pkgs.maestral}/bin/maestral stop";

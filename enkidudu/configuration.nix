@@ -1,4 +1,9 @@
-{ pkgs, inputs, config, ... }:
+{
+  pkgs,
+  inputs,
+  config,
+  ...
+}:
 
 let
   inherit (inputs) home-manager;
@@ -62,7 +67,7 @@ in
         application/wasm wasm;
       }
     '';
-    virtualHosts."dev.lan" =  {
+    virtualHosts."dev.lan" = {
       enableACME = false;
       forceSSL = false;
       locations."/" = {
@@ -76,7 +81,10 @@ in
 
   networking.networkmanager.enable = true;
   # networking.networkmanager.dhcp = "dhcpcd";
-  networking.nameservers = [ "8.8.8.8" "2001:4860:4860::8888" ];
+  networking.nameservers = [
+    "8.8.8.8"
+    "2001:4860:4860::8888"
+  ];
   # networkmanager already handles this
   networking.dhcpcd.enable = false;
 
@@ -98,7 +106,11 @@ in
     };
     osd = {
       enable = true;
-      daemons = [ "osdb3f" "osd36a" "osd9f4" ];
+      daemons = [
+        "osdb3f"
+        "osd36a"
+        "osd9f4"
+      ];
     };
   };
 

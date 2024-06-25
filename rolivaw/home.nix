@@ -1,4 +1,4 @@
-{ config, pkgs, ...  }:
+{ config, pkgs, ... }:
 
 let
   sessionVariables = {
@@ -9,9 +9,7 @@ let
   };
 in
 {
-  imports = [
-    ../shared/desktop-home.nix
-  ];
+  imports = [ ../shared/desktop-home.nix ];
   home.packages = with pkgs; [
     # jetbrains.idea-community
     zoom-us
@@ -240,7 +238,7 @@ in
         width = "100%";
         height = "3%";
         # radius = 0;
-        tray-position  = "right";
+        tray-position = "right";
         modules-center = "date";
       };
       "module/date" = {
@@ -269,6 +267,8 @@ in
       Type = "oneshot";
       ExecStart = "${pkgs.nitrogen}/bin/nitrogen --random --head=-1 --set-tiled /home/esk/Images/wallpaper";
     };
-    Install = { WantedBy = [ "graphical-session.target" ]; };
+    Install = {
+      WantedBy = [ "graphical-session.target" ];
+    };
   };
 }

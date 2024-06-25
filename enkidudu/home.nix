@@ -3,7 +3,10 @@
 let
   muttoauth2 = pkgs.writeShellApplication {
     name = "muttoauth2";
-    runtimeInputs = with pkgs; [ python3 mutt ];
+    runtimeInputs = with pkgs; [
+      python3
+      mutt
+    ];
     text = ''
       python3 ${pkgs.mutt}/share/doc/mutt/samples/mutt_oauth2.py "$@"
     '';
@@ -96,7 +99,9 @@ in
       Type = "oneshot";
       ExecStart = "${pkgs.nitrogen}/bin/nitrogen --random --head=-1 --set-tiled /home/esk/Images/wallpaper";
     };
-    Install = { WantedBy = [ "graphical-session.target" ]; };
+    Install = {
+      WantedBy = [ "graphical-session.target" ];
+    };
   };
 
   systemd.user.services.maestral = {
@@ -105,7 +110,9 @@ in
       After = [ "graphical-session-pre.target" ];
       PartOf = [ "graphical-session.target" ];
     };
-    Install = { WantedBy = [ "graphical-session.target" ]; };
+    Install = {
+      WantedBy = [ "graphical-session.target" ];
+    };
     Service = {
       ExecStart = "${pkgs.maestral}/bin/maestral start -f";
       ExecStop = "${pkgs.maestral}/bin/maestral stop";

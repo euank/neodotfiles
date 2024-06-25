@@ -1,11 +1,9 @@
-{ config, pkgs, ...  }:
+{ config, pkgs, ... }:
 
 {
-  imports = [
-    ../shared/desktop-home.nix
-  ];
+  imports = [ ../shared/desktop-home.nix ];
   home.packages = with pkgs; [
-    (aspellWithDicts (ps : with ps; [ en ]))
+    (aspellWithDicts (ps: with ps; [ en ]))
     gnome.gnome-session
     xsel
     gptfdisk
@@ -47,25 +45,24 @@
       };
       colors = {
         primary = {
-          background= "#000000";
-          foreground= "#eaeaea";
-          dim_foreground= "#9a9a9a";
-          bright_foreground= "#ffffff";
+          background = "#000000";
+          foreground = "#eaeaea";
+          dim_foreground = "#9a9a9a";
+          bright_foreground = "#ffffff";
         };
         normal = {
-          black=   "#000000";
-          red=     "#d54e53";
-          green=   "#b9ca4a";
-          yellow=  "#e6c547";
-          blue=    "#7aa6da";
-          magenta= "#c397d8";
-          cyan=    "#70c0ba";
-          white=   "#eaeaea";
+          black = "#000000";
+          red = "#d54e53";
+          green = "#b9ca4a";
+          yellow = "#e6c547";
+          blue = "#7aa6da";
+          magenta = "#c397d8";
+          cyan = "#70c0ba";
+          white = "#eaeaea";
         };
       };
     };
   };
-
 
   programs.home-manager.enable = true;
   programs.git = {
@@ -102,7 +99,7 @@
         width = "100%";
         height = "3%";
         # radius = 0;
-        tray-position  = "right";
+        tray-position = "right";
         modules-center = "date";
       };
       "module/date" = {

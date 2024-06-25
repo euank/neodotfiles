@@ -13,8 +13,7 @@ in
     ../shared/vim/vim.nix
   ];
 
-  home.packages = with pkgs; [
-  ];
+  home.packages = with pkgs; [ ];
 
   home.sessionVariables = sessionVariables;
 

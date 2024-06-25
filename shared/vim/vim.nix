@@ -34,22 +34,26 @@ in
       denops-vim
       ({
         plugin = skkeleton;
-        config = ''
-          imap <C-j> <Plug>(skkeleton-toggle)
-          cmap <C-j> <Plug>(skkeleton-toggle)
-          tmap <C-j> <Plug>(skkeleton-toggle)
+        config =
+          ''
+            imap <C-j> <Plug>(skkeleton-toggle)
+            cmap <C-j> <Plug>(skkeleton-toggle)
+            tmap <C-j> <Plug>(skkeleton-toggle)
 
-          function! s:skkeleton_init() abort
-          call skkeleton#config({
-            \ 'eggLikeNewline': v:true,
-            \ 'globalDictionaries': ["'' + "${skkDict}" + ''"],
-            \ })
-          endfunction
-          augroup skkeleton-initialize-pre
-            autocmd!
-            autocmd User skkeleton-initialize-pre call s:skkeleton_init()
-          augroup END
-        '';
+            function! s:skkeleton_init() abort
+            call skkeleton#config({
+              \ 'eggLikeNewline': v:true,
+              \ 'globalDictionaries': ["''
+          + "${skkDict}"
+          + ''
+            "],
+                        \ })
+                      endfunction
+                      augroup skkeleton-initialize-pre
+                        autocmd!
+                        autocmd User skkeleton-initialize-pre call s:skkeleton_init()
+                      augroup END
+          '';
       })
       ({
         plugin = pum-vim;

@@ -1,4 +1,9 @@
-{ pkgs, inputs, config, ... }:
+{
+  pkgs,
+  inputs,
+  config,
+  ...
+}:
 
 {
   imports = [
@@ -21,14 +26,18 @@
       enable = true;
       authorizedKeys = config.users.users.esk.openssh.authorizedKeys.keys;
       port = 222;
-      hostKeys = [ /etc/ssh/ssh_host_ed25519_key];
+      hostKeys = [ /etc/ssh/ssh_host_ed25519_key ];
     };
     postCommands = ''
       echo 'cryptsetup-askpass' >> /root/.profile
     '';
   };
   boot.kernelPackages = pkgs.linuxPackages_latest;
-  fileSystems."/".options = [ "noatime" "nodiratime" "discard" ];
+  fileSystems."/".options = [
+    "noatime"
+    "nodiratime"
+    "discard"
+  ];
   networking.hostName = "pascal";
 
   networking.useDHCP = false;

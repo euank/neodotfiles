@@ -1,4 +1,9 @@
-{ pkgs, inputs, config, ... }:
+{
+  pkgs,
+  inputs,
+  config,
+  ...
+}:
 
 let
   secrets = inputs.secrets.jane;
@@ -16,37 +21,37 @@ in
     repoRoot = "/home/esk/dev/ngrok";
     interfaces = {
       node = {
-        create= false;
-        name= "wg0";
-        ipv4= "10.104.20.3";
+        create = false;
+        name = "wg0";
+        ipv4 = "10.104.20.3";
       };
       dataplanes = {
         us = {
           mux = {
-            create= false;
+            create = false;
             name = "wg0";
             ipv4 = "10.104.20.4";
             ipv6 = "fe80::10:104:1:2";
           };
           tunnel = {
-            create= false;
-            name= "wg0";
-            ipv4= "10.104.20.10";
-            ipv6= "fe80::10:104:2:2";
+            create = false;
+            name = "wg0";
+            ipv4 = "10.104.20.10";
+            ipv6 = "fe80::10:104:2:2";
           };
         };
         l2 = {
           mux = {
-            create= false;
+            create = false;
             name = "wg0";
             ipv4 = "10.104.20.5";
             ipv6 = "fe80::10:104:1:3";
           };
           tunnel = {
-            create= false;
-            name= "wg0";
-            ipv4= "10.104.20.11";
-            ipv6= "fe80::10:104:2:3";
+            create = false;
+            name = "wg0";
+            ipv4 = "10.104.20.11";
+            ipv6 = "fe80::10:104:2:3";
           };
         };
       };
@@ -54,7 +59,10 @@ in
   };
 
   services.bind = {
-    forwarders = [ "8.8.8.8" "8.8.4.4" ];
+    forwarders = [
+      "8.8.8.8"
+      "8.8.4.4"
+    ];
   };
 
   services.postgresql = {
@@ -80,16 +88,16 @@ in
         # ipip tunnel + wg
         mtu = 1380;
         ips = [ "10.104.20.0/25" ];
-	privateKey = secrets.wireguard.privateKey;
-	peers = [
-	  {
-	    allowedIPs = [ "10.104.0.0/16" ];
-	    # Security by obscurity I guess, avoid publishing the endpoint too.
-	    endpoint = secrets.wireguard.endpoint;
-	    publicKey = "+pLrsgXAn4rH4e+gQWR03n02o2vDNiL1sDOXEYSrmGg=";
-	    persistentKeepalive = 25;
-	  }
-	];
+        privateKey = secrets.wireguard.privateKey;
+        peers = [
+          {
+            allowedIPs = [ "10.104.0.0/16" ];
+            # Security by obscurity I guess, avoid publishing the endpoint too.
+            endpoint = secrets.wireguard.endpoint;
+            publicKey = "+pLrsgXAn4rH4e+gQWR03n02o2vDNiL1sDOXEYSrmGg=";
+            persistentKeepalive = 25;
+          }
+        ];
       };
     };
   };
@@ -117,14 +125,18 @@ in
       enable = true;
       authorizedKeys = config.users.users.esk.openssh.authorizedKeys.keys;
       port = 222;
-      hostKeys = [ /etc/ssh/ssh_host_ed25519_key];
+      hostKeys = [ /etc/ssh/ssh_host_ed25519_key ];
     };
     postCommands = ''
       echo 'cryptsetup-askpass' >> /root/.profile
     '';
   };
   boot.kernelPackages = pkgs.linuxPackages;
-  fileSystems."/".options = [ "noatime" "nodiratime" "discard" ];
+  fileSystems."/".options = [
+    "noatime"
+    "nodiratime"
+    "discard"
+  ];
 
   virtualisation.docker.enable = true;
   virtualisation.docker.extraOptions = "--log-level=debug";
@@ -148,7 +160,15 @@ in
   services.kbfs.enable = true;
 
   networking.firewall.enable = false;
-  networking.firewall.allowedTCPPorts = [ 22 222 80 443 6443 8080 9090 ];
+  networking.firewall.allowedTCPPorts = [
+    22
+    222
+    80
+    443
+    6443
+    8080
+    9090
+  ];
   networking.firewall.extraCommands = ''
     iptables -A INPUT -i wg0 -j ACCEPT
   '';

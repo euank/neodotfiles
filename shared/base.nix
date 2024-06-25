@@ -60,17 +60,22 @@
     ];
   };
 
-  security.pam.loginLimits = [{
-    domain = "*";
-    type = "soft";
-    item = "nofile";
-    value = "50000";
-  }];
+  security.pam.loginLimits = [
+    {
+      domain = "*";
+      type = "soft";
+      item = "nofile";
+      value = "50000";
+    }
+  ];
 
   nix = {
     settings = {
-      trusted-users = [ "root" "esk" ];
+      trusted-users = [
+        "root"
+        "esk"
+      ];
       experimental-features = "nix-command flakes recursive-nix dynamic-derivations ca-derivations";
     };
-   };
+  };
 }

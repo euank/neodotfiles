@@ -1,6 +1,6 @@
 # home-manager configuration for a machine with a desktop (i.e. a display attached)
 
-{config, pkgs, ...}:
+{ config, pkgs, ... }:
 
 let
   sessionVariables = {
@@ -11,19 +11,22 @@ let
     GLFW_SO_PATH = "${pkgs.glfw3}/lib/libglfw.so";
     OPENAL_SO_PATH = "${pkgs.openal}/lib/libopenal.so";
   };
-  ibus = pkgs.ibus-with-plugins.override { plugins = with pkgs.ibus-engines; [ mozc uniemoji ]; };
+  ibus = pkgs.ibus-with-plugins.override {
+    plugins = with pkgs.ibus-engines; [
+      mozc
+      uniemoji
+    ];
+  };
 in
 {
-  imports = [
-    ./home.nix
-  ];
+  imports = [ ./home.nix ];
 
   home.packages = with pkgs; [
     # chromium
     # ffmpeg-full
     # obs-studio
 
-    (aspellWithDicts (ps : with ps; [ en ]))
+    (aspellWithDicts (ps: with ps; [ en ]))
     networkmanagerapplet
     anki
     arandr
@@ -78,20 +81,20 @@ in
       };
       colors = {
         primary = {
-          background= "#000000";
-          foreground= "#eaeaea";
-          dim_foreground= "#9a9a9a";
-          bright_foreground= "#ffffff";
+          background = "#000000";
+          foreground = "#eaeaea";
+          dim_foreground = "#9a9a9a";
+          bright_foreground = "#ffffff";
         };
         normal = {
-          black=   "#000000";
-          red=     "#d54e53";
-          green=   "#b9ca4a";
-          yellow=  "#e6c547";
-          blue=    "#7aa6da";
-          magenta= "#c397d8";
-          cyan=    "#70c0ba";
-          white=   "#eaeaea";
+          black = "#000000";
+          red = "#d54e53";
+          green = "#b9ca4a";
+          yellow = "#e6c547";
+          blue = "#7aa6da";
+          magenta = "#c397d8";
+          cyan = "#70c0ba";
+          white = "#eaeaea";
         };
       };
     };
@@ -110,7 +113,9 @@ in
       Type = "simple";
       ExecStart = "${ibus}/bin/ibus-daemon --xim";
     };
-    Install = { WantedBy = [ "graphical-session.target" ]; };
+    Install = {
+      WantedBy = [ "graphical-session.target" ];
+    };
   };
 
   home.stateVersion = "20.03";

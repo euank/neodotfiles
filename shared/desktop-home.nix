@@ -41,7 +41,7 @@ in
     firefox
     gimp
     gmrun
-    gnome.cheese
+    cheese
     google-chrome
     gptfdisk
     ibus

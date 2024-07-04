@@ -23,9 +23,9 @@
   # services.xserver.displayManager.sessionPackages = [ pkgs.vivarium ];
   # environment.systemPackages = with pkgs; [ vivarium ];
 
-  hardware.opengl = {
+  hardware.graphics = {
     enable = true;
-    driSupport32Bit = true;
+    enable32Bit = true;
     extraPackages32 = with pkgs.pkgsi686Linux; [ libva ];
   };
   programs.zsh.enable = true;

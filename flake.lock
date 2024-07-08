@@ -149,8 +149,8 @@
         "nixpkgs": "nixpkgs_6"
       },
       "locked": {
-        "lastModified": 1714712742,
-        "narHash": "sha256-iwZCSw3jhhh/k/Vm7T+78SVAu7oSqUA9V8C4SFQ6c6k=",
+        "lastModified": 1720446273,
+        "narHash": "sha256-kDJVVk+9COyNOdtXMJsC5AJpuRDTWj6OShunDIQ8Q34=",
         "path": "/home/esk/nix-ngrok-dev",
         "type": "path"
       },
@@ -387,8 +387,8 @@
     "nixpkgs_6": {
       "locked": {
         "lastModified": 0,
-        "narHash": "sha256-7lR9tpVXviSccl07GXI0+ve/natd24HAkuy1sQp0OlI=",
-        "path": "/nix/store/dc477ngpdyz4wqn5yswppahrvr0vcghy-source",
+        "narHash": "sha256-xs7PlULe8O1SAcs/9e/HOjeUjBrU5FNtkAF/bSEcFto=",
+        "path": "/nix/store/4d5ga6slxvbq50biqsbzzqgm402hbcbc-source",
         "type": "path"
       },
       "original": {

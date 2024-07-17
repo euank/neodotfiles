@@ -124,10 +124,14 @@
           ] (lib.attrNames inputs);
           updateInputFlags = lib.strings.concatMapStringsSep " " (s: "--update-input ${s}") pubInputs;
         in
-        pkgs.writeScriptBin "nix-flake-update" ''
+        pkgs.writeShellScriptBin "nix-flake-update" ''
           export PATH=$PATH:${pkgs.nix}/bin
           set -x
-          nix flake lock ${updateInputFlags}
+          if [[ "$(nix --version)" = *Lix* ]]; then
+            nix flake update ${lib.strings.concatStringsSep " " pubInputs}
+          else
+            nix flake lock ${updateInputFlags}
+          fi
           set +x
         '';
     };

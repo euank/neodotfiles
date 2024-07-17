@@ -32,7 +32,6 @@
   qt.enable = true;
   qt.platformTheme = "lxqt";
 
-  sound.enable = false;
   # hardware.pulseaudio = {
   #   support32Bit = true;
   #   enable = true;

@@ -55,6 +55,7 @@ in
     nickel
     nitrogen
     nix-index
+    nix-tree
     nixpkgs-fmt
     nmap
     moreutils

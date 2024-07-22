@@ -14,7 +14,6 @@ in
     "${inputs.ngrok-dev2}/nixos/client-module.nix"
   ];
 
-  time.timeZone = pkgs.lib.mkForce "America/New_York";
   boot.kernelPackages = pkgs.linuxPackages_latest;
   fileSystems."/".options = [
     "noatime"

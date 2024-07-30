@@ -127,6 +127,7 @@ in
     # terraform
     boringtun
     onetun
+    railway
 
     # misc
     efitools

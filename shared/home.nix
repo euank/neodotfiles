@@ -16,6 +16,7 @@ in
 {
   home.packages = with pkgs; [
     amazon-ecr-credential-helper
+    atuin
     # ast-grep
     bazel_5
     binutils
@@ -134,6 +135,7 @@ in
 
   home.sessionVariables = sessionVariables;
 
+  programs.atuin.enable = true;
   programs.home-manager.enable = true;
   programs.zsh = {
     enable = true;

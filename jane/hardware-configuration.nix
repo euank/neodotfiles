@@ -5,12 +5,14 @@
   config,
   lib,
   pkgs,
+  modulesPath,
   ...
 }:
 
 {
   imports = [ ];
 
+  hardware.enableRedistributableFirmware = true;
   boot.initrd.availableKernelModules = [
     "xhci_pci"
     "ahci"
@@ -21,21 +23,24 @@
     "sdhci_pci"
   ];
   boot.initrd.kernelModules = [ "dm-snapshot" ];
-  boot.kernelModules = [ "kvm-intel" ];
+  boot.kernelModules = [ "kvm-intel" "kvm-amd" ];
   boot.extraModulePackages = [ ];
 
   fileSystems."/" = {
-    device = "/dev/disk/by-uuid/2b825d71-2e15-45f0-9286-4e8c53bfa655";
+    device = "/dev/disk/by-uuid/c14c13ae-438e-449b-8d4b-a4aa8be6658e";
     fsType = "ext4";
   };
 
   fileSystems."/boot" = {
-    device = "/dev/disk/by-uuid/1B6A-AE14";
+    device = "/dev/disk/by-uuid/468E-41A5";
     fsType = "vfat";
+    options = [
+      "fmask=0022"
+      "dmask=0022"
+    ];
   };
 
-  swapDevices = [ { device = "/dev/disk/by-uuid/38e6fedc-f493-4523-8e39-f7658af250f3"; } ];
+  swapDevices = [ { device = "/dev/disk/by-uuid/9e09c99f-f0ca-4230-a802-5c1e63fc98e0"; } ];
 
   nix.settings.max-jobs = lib.mkDefault 12;
-  powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
 }

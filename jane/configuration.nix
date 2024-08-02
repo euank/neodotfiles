@@ -113,9 +113,9 @@ in
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.initrd.kernelModules = [ "e1000e" ];
+  boot.initrd.kernelModules = [ "e1000e" "igb" "iwlwifi" ];
   boot.initrd.luks.devices.root = {
-    device = "/dev/disk/by-uuid/57065e03-da75-4174-a23b-a9af6e9ac59b";
+    device = "/dev/disk/by-uuid/f7d876d1-549f-4b6a-ac1e-094c5eb8ec87";
     preLVM = true;
     allowDiscards = true;
   };
@@ -142,9 +142,8 @@ in
   virtualisation.docker.extraOptions = "--log-level=debug";
   networking.hostName = "jane"; # ender's game jane, or asimov's 'feminine intuition' jane, you pick
 
-  networking.useDHCP = false;
   networking.interfaces.eno1.useDHCP = true;
-  networking.interfaces.wlp0s20f3.useDHCP = false;
+  # networking.interfaces.wlp0s20f3.useDHCP = false;
 
   environment.systemPackages = with pkgs; [
     keybase

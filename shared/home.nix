@@ -35,6 +35,7 @@ in
     figlet
     file
     fish
+    flamegraph
     flyctl
     font-manager
     fx_cast_bridge

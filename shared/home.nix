@@ -58,6 +58,7 @@ in
     nitrogen
     nix-index
     nix-tree
+    nixos-install-tools
     nixpkgs-fmt
     nmap
     moreutils
@@ -130,6 +131,7 @@ in
     railway
 
     # misc
+    efibootmgr
     efitools
     sbsigntool
     i3lock

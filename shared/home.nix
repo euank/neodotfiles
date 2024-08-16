@@ -85,7 +85,8 @@ in
     wireguard-tools
     wireshark
     yt-dlp
-    wezterm
+    # temporarily disabled
+    # wezterm
     xsv
     zed-editor
     zip

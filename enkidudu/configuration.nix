@@ -46,6 +46,7 @@ in
     };
   };
 
+  services.fstrim.enable = true;
   services.unifi.enable = false;
 
   services.postgresql = {
@@ -80,6 +81,7 @@ in
   '';
 
   networking.networkmanager.enable = true;
+  networking.networkmanager.wifi.backend = "iwd";
   # networking.networkmanager.dhcp = "dhcpcd";
   networking.nameservers = [
     "8.8.8.8"

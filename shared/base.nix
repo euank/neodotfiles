@@ -70,6 +70,11 @@
   ];
   security.pam.services.swaylock = { };
 
+  system.switch = {
+    enable = false;
+    enableNg = true;
+  };
+
   nix = {
     package = pkgs.lix;
     settings = {

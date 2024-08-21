@@ -18,6 +18,7 @@ in
     "nodiratime"
     "discard"
   ];
+  services.fstrim.enable = true;
 
   hardware.enableRedistributableFirmware = true;
   boot.loader.systemd-boot.enable = true;
@@ -35,6 +36,7 @@ in
   networking.hostName = "rolivaw"; # R. Olivaw
   networking.hostId = "473650f1";
   networking.networkmanager.enable = true;
+  networking.networkmanager.wifi.backend = "iwd";
   networking.networkmanager.unmanaged = [
     "wg0"
     "docker0"

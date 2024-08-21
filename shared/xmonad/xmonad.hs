@@ -87,6 +87,7 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
     -- suspend computer
     , ((modMask .|. controlMask, xK_s     ), spawn "systemctl suspend")
 
+    wlprop
     -- launch dmenu
     , ((modMask,               xK_p     ), spawn "exe=`dmenu_path | dmenu` && eval \"exec $exe\"")
 

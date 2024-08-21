@@ -31,7 +31,7 @@ in
     maestral
     multitail
     eza
-    ffmpeg
+    ffmpeg-full
     figlet
     file
     fish

@@ -141,12 +141,7 @@ in
   networking.interfaces.wlp6s0.useDHCP = false;
   networking.firewall.enable = false;
 
-  # x11
   services.xserver.videoDrivers = [ "amdgpu" ];
-  # services.xserver.xrandrHeads = [
-  #   "DisplayPort-1"
-  #   "DisplayPort-0"
-  # ];
   fonts.fontDir.enable = true;
 
   virtualisation.docker.enable = true;

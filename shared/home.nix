@@ -184,6 +184,16 @@ in
   xdg = {
     enable = true;
 
+
+    portal = {
+      enable = true;
+      xdgOpenUsePortal = true;
+      extraPortals = [
+        pkgs.xdg-desktop-portal-gtk
+      ];
+      config.common.default = [ "gtk" ];
+    };
+
     userDirs = {
       enable = true;
       desktop = "$HOME/Desktop";

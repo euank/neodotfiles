@@ -71,6 +71,7 @@
   security.pam.services.swaylock = { };
 
   nix = {
+    package = pkgs.lix;
     settings = {
       trusted-users = [
         "root"

@@ -27,7 +27,7 @@ in
     aegisub
     yarn
     desmume
-    jetbrains.idea-community
+    # jetbrains.idea-community
     melonDS
     # minecraft
     mkvtoolnix

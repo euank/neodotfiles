@@ -1,14 +1,13 @@
 { pkgs, inputs, ... }:
 
 let
-  inherit (inputs) home-manager lix-module nixos-hardware;
+  inherit (inputs) home-manager nixos-hardware;
 in
 {
   imports = [
     ./hardware-configuration.nix
     home-manager.nixosModules.home-manager
     nixos-hardware.nixosModules.lenovo-thinkpad-x1-10th-gen
-    lix-module.nixosModules.default
     ../shared/base.nix
     ../shared/desktop.nix
     "${inputs.ngrok-dev2}/nixos/client-module.nix"

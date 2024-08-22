@@ -3,15 +3,10 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    nixpkgs-main.url = "github:NixOS/nixpkgs/master";
-    lix-module = {
-      url = "https://git.lix.systems/lix-project/nixos-module/archive/2.90.0.tar.gz";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     vim-skkeleton.url = "github:euank/nixpkgs/vim-plugin-skkeleton-2024-02-22";
-    vim-pum.url = "github:euank/nixpkgs/vim-plugin-pum-2024-02-22";
-    vim-ddc.url = "github:euank/nixpkgs/vim-plugins-ddc-2024-03-05";
+    vim-pum.url = "github:euank/nixpkgs/vim-plugin-pum-2024-08-23";
+    vim-ddc.url = "github:euank/nixpkgs/vim-plugins-ddc-2024-08-23";
     home-manager.url = "github:nix-community/home-manager";
     ekverlay.url = "github:euank/nixek-overlay";
     nixek.url = "github:nixek-systems/pkgs";
@@ -43,7 +38,6 @@
           nixek.overlay
           (final: prev: {
             # temporarily for https://github.com/NixOS/nixpkgs/pull/334858
-            awscli2 = inputs.nixpkgs-main.legacyPackages.${system}.awscli2;
             mvn2nix = mvn2nix.defaultPackage.x86_64-linux;
             # gradle2nix = gradle2nix.defaultPackage.x86_64-linux;
             # nickel = inputs.nickel.packages.x86_64-linux.default;

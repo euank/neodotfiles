@@ -11,6 +11,7 @@ let
     PROTOC = "${pkgs.protobuf}/bin/protoc";
 
     COWPATH = "${pkgs.cowsay}/share/cows:${pkgs.tewisay}/share/tewisay/cows";
+    NIXOS_OZONE_WL = "1";
   };
 in
 {
@@ -52,15 +53,16 @@ in
     kubernetes-helm
     libreoffice
     lsof
-    nil
     ngrok
     nickel
+    nil
     nitrogen
     nix-index
     nix-tree
     nixos-install-tools
     nixpkgs-fmt
     nmap
+    nwg-look
     moreutils
     onetun
     openssl
@@ -184,13 +186,10 @@ in
   xdg = {
     enable = true;
 
-
     portal = {
       enable = true;
       xdgOpenUsePortal = true;
-      extraPortals = [
-        pkgs.xdg-desktop-portal-gtk
-      ];
+      extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
       config.common.default = [ "gtk" ];
     };
 

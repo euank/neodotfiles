@@ -113,7 +113,11 @@ in
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.initrd.kernelModules = [ "e1000e" "igb" "iwlwifi" ];
+  boot.initrd.kernelModules = [
+    "e1000e"
+    "igb"
+    "iwlwifi"
+  ];
   boot.initrd.luks.devices.root = {
     device = "/dev/disk/by-uuid/f7d876d1-549f-4b6a-ac1e-094c5eb8ec87";
     preLVM = true;

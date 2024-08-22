@@ -23,7 +23,10 @@
     "sdhci_pci"
   ];
   boot.initrd.kernelModules = [ "dm-snapshot" ];
-  boot.kernelModules = [ "kvm-intel" "kvm-amd" ];
+  boot.kernelModules = [
+    "kvm-intel"
+    "kvm-amd"
+  ];
   boot.extraModulePackages = [ ];
 
   fileSystems."/" = {

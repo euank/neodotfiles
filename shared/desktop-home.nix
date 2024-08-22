@@ -5,17 +5,8 @@
 let
   sessionVariables = {
     EDITOR = "nvim";
-    GTK_IM_MODULE = "ibus";
-    XMODIFIERS = "@im=ibus";
-    QT_IM_MODULE = "ibus";
     GLFW_SO_PATH = "${pkgs.glfw3}/lib/libglfw.so";
     OPENAL_SO_PATH = "${pkgs.openal}/lib/libopenal.so";
-  };
-  ibus = pkgs.ibus-with-plugins.override {
-    plugins = with pkgs.ibus-engines; [
-      mozc
-      uniemoji
-    ];
   };
 in
 {
@@ -45,7 +36,6 @@ in
     cheese
     google-chrome
     gptfdisk
-    ibus
     inkscape
     keepassxc
     # logseq # temp
@@ -104,23 +94,8 @@ in
 
   services.dunst.enable = true;
 
-  systemd.user.services.ibus = {
-    Unit = {
-      Description = "ibus";
-      After = [ "graphical-session-pre.target" ];
-      PartOf = [ "graphical-session.target" ];
-    };
-
-    Service = {
-      Type = "simple";
-      ExecStart = "${ibus}/bin/ibus-daemon --xim";
-    };
-    Install = {
-      WantedBy = [ "graphical-session.target" ];
-    };
-  };
-
   xdg.configFile."hypr/hyprpaper.conf".text = ''
+    exec-once=hyprctl setcursor graphite-light 12
     splash = false
   '';
   xdg.configFile."anyrun/config.ron".text = ''
@@ -137,7 +112,9 @@ in
       After = [ "graphical-session-pre.target" ];
       PartOf = [ "graphical-session.target" ];
     };
-    Install = { WantedBy = [ "graphical-session.target" ]; };
+    Install = {
+      WantedBy = [ "graphical-session.target" ];
+    };
     Service = {
       ExecStart = "${pkgs.mako}/bin/mako";
       Restart = "on-failure";
@@ -146,6 +123,8 @@ in
   };
   programs.waybar = {
     enable = true;
+    settings.mainBar = builtins.fromJSON (builtins.readFile ./waybar/config);
+    style = ./waybar/style.css;
   };
   systemd.user.services.waybar = {
     Unit = {
@@ -153,16 +132,14 @@ in
       After = [ "graphical-session-pre.target" ];
       PartOf = [ "graphical-session.target" ];
     };
-    Install = { WantedBy = [ "graphical-session.target" ]; };
+    Install = {
+      WantedBy = [ "graphical-session.target" ];
+    };
     Service = {
       ExecStart = "${pkgs.waybar}/bin/waybar";
       Restart = "on-failure";
       Nice = 10;
     };
-  };
-
-  services.pasystray = {
-    enable = true;
   };
 
   systemd.user.services.maestral = {
@@ -171,7 +148,9 @@ in
       After = [ "graphical-session-pre.target" ];
       PartOf = [ "graphical-session.target" ];
     };
-    Install = { WantedBy = [ "graphical-session.target" ]; };
+    Install = {
+      WantedBy = [ "graphical-session.target" ];
+    };
     Service = {
       ExecStart = "${pkgs.maestral}/bin/maestral start -f";
       ExecStop = "${pkgs.maestral}/bin/maestral stop";
@@ -180,7 +159,31 @@ in
     };
   };
 
+  gtk = {
+    enable = true;
+    theme = {
+      package = pkgs.graphite-gtk-theme;
+      name = "Graphite-Light";
+    };
+  };
 
+  home.pointerCursor = {
+    gtk.enable = true;
+    package = pkgs.graphite-cursors;
+    name = "graphite-light";
+    size = 12;
+  };
+
+  i18n.inputMethod = {
+    enabled = "fcitx5";
+    fcitx5 = {
+      addons = with pkgs; [
+        fcitx5-gtk
+        fcitx5-mozc
+        fcitx5-tokyonight
+      ];
+    };
+  };
 
   home.stateVersion = "20.03";
 }

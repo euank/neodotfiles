@@ -218,57 +218,62 @@ in
 
   services.picom.enable = true;
 
-  xsession.enable = true;
-  xsession.windowManager.xmonad = {
+  wayland.windowManager.hyprland = {
     enable = true;
-    enableContribAndExtras = true;
-    config = ../shared/xmonad/xmonad.hs;
-  };
-
-  services.screen-locker = {
-    enable = true;
-    lockCmd = "${pkgs.i3lock}/bin/i3lock";
-  };
-
-  services.polybar = {
-    enable = true;
-    script = "polybar top &";
-    config = {
-      "bar/top" = {
-        width = "100%";
-        height = "3%";
-        # radius = 0;
-        tray-position = "right";
-        modules-center = "date";
+    settings = {
+      misc = {
+        disable_hyprland_logo = true;
+        new_window_takes_over_fullscreen = 1;
       };
-      "module/date" = {
-        type = "internal/date";
-        internal = 5;
-        date = "%d.%m.%y";
-        time = "%H:%M";
-        label = "%time%  %date%";
+      animations = {
+        animation = "global,0";
       };
-    };
-  };
-
-  services.pasystray = {
-    enable = true;
-  };
-
-  # nitrogen
-  systemd.user.services.nitrogen = {
-    Unit = {
-      Description = "Nitrogen";
-      After = [ "graphical-session-pre.target" ];
-      PartOf = [ "graphical-session.target" ];
-    };
-
-    Service = {
-      Type = "oneshot";
-      ExecStart = "${pkgs.nitrogen}/bin/nitrogen --random --head=-1 --set-tiled /home/esk/Images/wallpaper";
-    };
-    Install = {
-      WantedBy = [ "graphical-session.target" ];
+      master = {
+        new_status = "master";
+      };
+      general = {
+        gaps_in = "0";
+        gaps_out = "0";
+      };
+      monitor = [ ",preferred,auto,1" ];
+      "$mod" = "SUPER";
+      "$terminal" = "alacritty";
+      bind =
+        [
+          "$mod, return, exec, $terminal"
+          "$mod_CTRL, l, exec, swaylock"
+          "$mod, p, exec, anyrun"
+          "$mod_SHIFT, c, killactive"
+          "$mod, j, cyclenext,prev"
+          "$mod, k, cyclenext"
+          "$mod, w, focusmonitor,0"
+          "$mod, e, focusmonitor,1"
+          "$mod_SHIFT, w, movewindow,mon:0"
+          "$mod_SHIFT, e, movewindow,mon:1"
+          "$mod, f, fullscreen,1"
+          "$mod_SHIFT, f, fullscreen"
+          ", Print, exec, grimblast copy area"
+        ]
+        ++ (
+          # workspaces
+          # binds $mod + [shift +] {1..10} to [move to] workspace {1..10}
+          builtins.concatLists (
+            builtins.genList (
+              x:
+              let
+                ws =
+                  let
+                    c = (x + 1) / 10;
+                  in
+                  builtins.toString (x + 1 - (c * 10));
+              in
+              [
+                "$mod, ${ws}, focusworkspaceoncurrentmonitor, ${toString (x + 1)}"
+                "$mod SHIFT, ${ws}, movetoworkspace, ${toString (x + 1)}"
+              ]
+            ) 10
+          )
+        );
     };
   };
 }

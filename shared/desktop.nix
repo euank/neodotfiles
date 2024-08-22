@@ -5,9 +5,7 @@
 # managed by home-manager.
 
 {
-  imports = [
-    ./base.nix
-  ];
+  imports = [ ./base.nix ];
 
   programs.hyprland.enable = true;
 
@@ -87,11 +85,16 @@
 
   i18n.defaultLocale = "en_US.UTF-8";
   i18n.inputMethod = {
-    enabled = "ibus";
-    ibus.engines = with pkgs.ibus-engines; [
-      mozc
-      uniemoji
-    ];
+    enable = true;
+    type = "fcitx5";
+    fcitx5 = {
+      waylandFrontend = true;
+      addons = with pkgs; [
+        fcitx5-gtk
+        fcitx5-mozc
+        fcitx5-tokyonight
+      ];
+    };
   };
 
   time.timeZone = "Asia/Tokyo";
@@ -115,5 +118,6 @@
     meslo-lg
     pcsclite
     gparted
+    wofi
   ];
 }

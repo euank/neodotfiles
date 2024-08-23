@@ -66,6 +66,7 @@ in
       general = {
         gaps_in = "0";
         gaps_out = "0";
+        layout = "master";
       };
       monitor = [
         "DP-3,2560x1440,1440x560,1"
@@ -80,8 +81,12 @@ in
           "$mod_CTRL, l, exec, swaylock"
           "$mod, p, exec, anyrun"
           "$mod_SHIFT, c, killactive"
-          "$mod, j, cyclenext,prev"
-          "$mod, k, cyclenext"
+          "$mod, j, layoutmsg, cycleprev"
+          "$mod, k, layoutmsg, cyclenext"
+          "$mod, m, layoutmsg, orientationcycle"
+          "$mod_SHIFT, j, layoutmsg, swapprev"
+          "$mod_SHIFT, k, layoutmsg, swapnext"
+          "$mod_SHIFT, return, layoutmsg, swapwithmaster master"
           "$mod, w, focusmonitor,0"
           "$mod, e, focusmonitor,1"
           "$mod_SHIFT, w, movewindow,mon:0"

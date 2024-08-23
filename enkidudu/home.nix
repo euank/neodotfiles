@@ -83,6 +83,8 @@ in
           "$mod_SHIFT, c, killactive"
           "$mod, j, layoutmsg, cycleprev"
           "$mod, k, layoutmsg, cyclenext"
+          "$mod, l, layoutmsg, mfact +0.05"
+          "$mod, h, layoutmsg, mfact -0.05"
           "$mod, m, layoutmsg, orientationcycle"
           "$mod_SHIFT, j, layoutmsg, swapprev"
           "$mod_SHIFT, k, layoutmsg, swapnext"

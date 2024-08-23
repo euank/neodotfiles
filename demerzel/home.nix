@@ -3,6 +3,7 @@
 let
   sessionVariables = {
     EDITOR = "nvim";
+    NGROK_HOME = "/home/esk/dev/ngrok";
   };
 in
 {

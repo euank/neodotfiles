@@ -3,9 +3,6 @@
 let
   sessionVariables = {
     EDITOR = "nvim";
-    GTK_IM_MODULE = "ibus";
-    XMODIFIERS = "@im=ibus";
-    QT_IM_MODULE = "ibus";
   };
 in
 {

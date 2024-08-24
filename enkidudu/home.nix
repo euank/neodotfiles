@@ -19,6 +19,7 @@ in
   ];
 
   home.packages = with pkgs; [
+    freecad
     youki
     wal-g
     stdenv.cc.cc.lib
@@ -75,6 +76,10 @@ in
       ];
       "$mod" = "SUPER";
       "$terminal" = "alacritty";
+      bindm = [
+          "$mod, mouse:272, movewindow"
+          "$mod, mouse:273, resizewindow"
+      ];
       bind =
         [
           "$mod, return, exec, $terminal"
@@ -94,6 +99,7 @@ in
           "$mod_SHIFT, w, movewindow,mon:0"
           "$mod_SHIFT, e, movewindow,mon:1"
           "$mod, f, fullscreen,1"
+          "$mod, t, togglefloating"
           "$mod_SHIFT, f, fullscreen"
           ", Print, exec, grimblast copy area"
         ]

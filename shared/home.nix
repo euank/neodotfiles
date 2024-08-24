@@ -87,6 +87,7 @@ in
     wasm-pack
     wireguard-tools
     wireshark
+    wl-clipboard
     yt-dlp
     # temporarily disabled
     # wezterm

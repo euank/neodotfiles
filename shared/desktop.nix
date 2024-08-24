@@ -94,6 +94,42 @@
         fcitx5-mozc
         fcitx5-tokyonight
       ];
+      ignoreUserConfig = true;
+      settings.globalOptions = {
+        Hotkey = {
+          EnumerateWithTriggerKeys = "True";
+          EnumerateSkipFirst = "False";
+        };
+        "Hotkey/TriggerKeys" = { "0" = "Control+grave"; };
+        "Hotkey/PrevPage" = { "0" = "Up"; };
+        "Hotkey/NextPage" = { "0" = "Down"; };
+        "Hotkey/PrevCandidate" = { "0" = "Shift+Tab"; };
+        "Hotkey/NextCandidate" = { "0" = "Tab"; };
+        Behavior = {
+          PreeditEnabledByDefault = "True";
+          ShowInputMethodInformation = "True";
+          CompactInputMethodInformation = "True";
+          ShowFirstInputMethodInformation = "True";
+          DefaultPageSize = "8";
+          PreloadInputMethod = "True";
+        };
+      };
+      settings.inputMethod = {
+        "Groups/0" = {
+        "Name" = "Default";
+        "Default Layout" = "us";
+        "DefaultIM" = "mozc";
+        };
+        "Groups/0/Items/0" = {
+          "Name" = "keyboard-us";
+          "Layout" = null;
+        };
+        "Groups/0/Items/1" = {
+          "Name" = "mozc";
+          "Layout" = null;
+        };
+        "GroupOrder" = { "0" = "Default"; };
+      };
     };
   };
 

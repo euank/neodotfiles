@@ -146,7 +146,10 @@ in
   services.xserver.videoDrivers = [ "amdgpu" ];
   fonts.fontDir.enable = true;
 
-  virtualisation.docker.enable = true;
+  virtualisation.docker = {
+    enable = true;
+    enableOnBoot = false;
+  };
 
   virtualisation.virtualbox.host.enable = true;
   virtualisation.virtualbox.host.enableExtensionPack = true;

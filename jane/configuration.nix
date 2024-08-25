@@ -142,8 +142,10 @@ in
     "discard"
   ];
 
-  virtualisation.docker.enable = true;
-  virtualisation.docker.extraOptions = "--log-level=debug";
+  virtualisation.docker = {
+    enable = true;
+    enableOnBoot = false;
+  };
   networking.hostName = "jane"; # ender's game jane, or asimov's 'feminine intuition' jane, you pick
 
   networking.interfaces.eno1.useDHCP = true;

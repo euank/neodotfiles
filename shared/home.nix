@@ -110,7 +110,7 @@ in
     gdb
     gh
     gnumake
-    go_1_22
+    go_1_23
     gopls
     gofumpt
     gradle

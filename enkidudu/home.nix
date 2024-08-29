@@ -57,6 +57,7 @@ in
       misc = {
         disable_hyprland_logo = true;
         new_window_takes_over_fullscreen = 1;
+        exit_window_retains_fullscreen = true;
       };
       animations = {
         animation = "global,0";

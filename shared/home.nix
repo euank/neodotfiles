@@ -134,6 +134,7 @@ in
     railway
 
     # misc
+    xorg.xeyes
     efibootmgr
     efitools
     sbsigntool

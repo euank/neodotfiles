@@ -57,6 +57,30 @@
               }
             );
           })
+          (final: prev: {
+            pazi = with pkgs; rustPlatform.buildRustPackage rec {
+              pname = "pazi";
+              version = "0.5.0-pre";
+
+              src = fetchFromGitHub {
+                owner = "euank";
+                repo = pname;
+                rev = "396dd2545d7501c1896e255a24b590c8bfa44973";
+                sha256 = "sha256-cmKIVaDaev/e20+n0BuTpsW9Sk1Oh4Q1WX5024FmoPM=";
+              };
+
+              buildInputs = lib.optionals stdenv.isDarwin [ darwin.apple_sdk.frameworks.Security ];
+
+              cargoHash = "sha256-A2dITZMl2LjL2qFexDOqoQDeUlJWZu6uLizAiHDEHaM=";
+
+              meta = with lib; {
+                description = "Autojump \"zap to directory\" helper";
+                homepage = "https://github.com/euank/pazi";
+                license = licenses.gpl3;
+                mainProgram = "pazi";
+              };
+            };
+          })
         ];
         config = {
           allowUnfree = true;

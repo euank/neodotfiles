@@ -59,6 +59,7 @@ in
     nitrogen
     nix-index
     nix-tree
+    nixfmt
     nixos-install-tools
     nixpkgs-fmt
     nmap

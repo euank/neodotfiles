@@ -130,18 +130,18 @@
       },
       "locked": {
         "dir": "nix",
-        "lastModified": 1723785749,
-        "narHash": "sha256-7HEkOupil6gY0tzO5lHXlJpm+IRIj2m76LHqUzV9Xcg=",
-        "ref": "refs/heads/euan/cgroups-update",
-        "rev": "fdc22a2a01e35446f6b390b0e526c4327a3bf1d4",
-        "revCount": 67389,
+        "lastModified": 1722895231,
+        "narHash": "sha256-yC3hIN9brpBy0QwItzC/qLEcckCcZj6otmEDy4JHRRQ=",
+        "ref": "refs/heads/main",
+        "rev": "d38c6d35e4fd2f3ff1ff99de30cd649e65289bcb",
+        "revCount": 66918,
         "type": "git",
-        "url": "file:/home/esk/dev/ngrok?dir=nix"
+        "url": "file:/home/esk/dev/ngrok"
       },
       "original": {
         "dir": "nix",
         "type": "git",
-        "url": "file:/home/esk/dev/ngrok?dir=nix"
+        "url": "file:/home/esk/dev/ngrok"
       }
     },
     "ngrok-dev2": {
@@ -450,10 +450,7 @@
         "nixek": "nixek",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs_8",
-        "secrets": "secrets",
-        "vim-ddc": "vim-ddc",
-        "vim-pum": "vim-pum",
-        "vim-skkeleton": "vim-skkeleton"
+        "secrets": "secrets"
       }
     },
     "rust-analyzer-src": {
@@ -533,54 +530,6 @@
       "original": {
         "owner": "numtide",
         "repo": "flake-utils",
-        "type": "github"
-      }
-    },
-    "vim-ddc": {
-      "locked": {
-        "lastModified": 1724341775,
-        "narHash": "sha256-JaGLSjwOQd+rSRXQLPt3VgPpRbh8xfSvOBFJTk+O9o8=",
-        "owner": "euank",
-        "repo": "nixpkgs",
-        "rev": "033e026747fd7d2501c7e987ea552db49f77e511",
-        "type": "github"
-      },
-      "original": {
-        "owner": "euank",
-        "ref": "vim-plugins-ddc-2024-08-23",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
-    "vim-pum": {
-      "locked": {
-        "lastModified": 1724342498,
-        "narHash": "sha256-6rgwPnpINcfKWzqryYvCtzWCvj0rYbRXUq8OT8xXplY=",
-        "owner": "euank",
-        "repo": "nixpkgs",
-        "rev": "77474b38c9d81e05d1a64261a57403b4e7f3ad63",
-        "type": "github"
-      },
-      "original": {
-        "owner": "euank",
-        "ref": "vim-plugin-pum-2024-08-23",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
-    "vim-skkeleton": {
-      "locked": {
-        "lastModified": 1708599414,
-        "narHash": "sha256-Luim4gU/oJlnBJ0CHQWXUN77ITxxODeWiOX4y5XXito=",
-        "owner": "euank",
-        "repo": "nixpkgs",
-        "rev": "6210e6250922e95d32ba30d411c054f281c8a109",
-        "type": "github"
-      },
-      "original": {
-        "owner": "euank",
-        "ref": "vim-plugin-skkeleton-2024-02-22",
-        "repo": "nixpkgs",
         "type": "github"
       }
     }

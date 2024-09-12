@@ -55,13 +55,6 @@ in
       vim-sleuth
       denops-vim
       ({
-        plugin = skkeleton;
-        config = ''
-          imap <C-j> <Plug>(skkeleton-toggle)
-          cmap <C-j> <Plug>(skkeleton-toggle)
-        '';
-      })
-      ({
         plugin = pum-vim;
         config = ''
           inoremap <C-n>   <Cmd>call pum#map#insert_relative(+1)<CR>

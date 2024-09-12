@@ -33,29 +33,6 @@ in
       vim-sleuth
       denops-vim
       ({
-        plugin = skkeleton;
-        config =
-          ''
-            imap <C-j> <Plug>(skkeleton-toggle)
-            cmap <C-j> <Plug>(skkeleton-toggle)
-            tmap <C-j> <Plug>(skkeleton-toggle)
-
-            function! s:skkeleton_init() abort
-            call skkeleton#config({
-              \ 'eggLikeNewline': v:true,
-              \ 'globalDictionaries': ["''
-          + "${skkDict}"
-          + ''
-            "],
-                        \ })
-                      endfunction
-                      augroup skkeleton-initialize-pre
-                        autocmd!
-                        autocmd User skkeleton-initialize-pre call s:skkeleton_init()
-                      augroup END
-          '';
-      })
-      ({
         plugin = pum-vim;
         config = ''
           inoremap <C-n>   <Cmd>call pum#map#insert_relative(+1)<CR>
@@ -78,7 +55,7 @@ in
           set completeopt=menuone,noinsert,noselect
           set shortmess+=c
           call ddc#custom#patch_global('ui', 'pum')
-          call ddc#custom#patch_global('sources', ['lsp', 'skkeleton'])
+          call ddc#custom#patch_global('sources', ['lsp'])
           call ddc#custom#patch_global('sourceOptions', #{
             \   _: #{
             \     matchers: ['matcher_head'],
@@ -86,13 +63,6 @@ in
             \   lsp: #{
             \     mark: 'lsp',
             \     forceCompletionPattern: '\.\w*|:\w*|->\w*',
-            \   },
-            \   skkeleton: #{
-            \     mark: 'skk',
-            \     matchers: [],
-            \     sorters: [],
-            \     isVolatile: v:true,
-            \     minAutoCompleteLength: 1,
             \   },
             \ })
 

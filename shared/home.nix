@@ -23,7 +23,8 @@ in
     binutils
     borgbackup
     cfssl
-    colmena
+    # temporary due to nix issues
+    # colmena
     cntr
     cowsay
     diskonaut

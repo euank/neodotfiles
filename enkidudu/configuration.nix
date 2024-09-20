@@ -17,6 +17,7 @@ in
 
   programs.steam = {
     enable = true;
+    protontricks.enable = true;
   };
 
   # boot.kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;

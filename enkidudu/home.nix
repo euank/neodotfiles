@@ -19,7 +19,6 @@ in
   ];
 
   home.packages = with pkgs; [
-    freecad
     youki
     wal-g
     stdenv.cc.cc.lib

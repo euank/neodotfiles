@@ -32,6 +32,8 @@
     extraConfig = "AllowUsers esk";
   };
 
+  systemd.services.NetworkManager-wait-online.enable = pkgs.lib.mkForce false;
+
   programs.nix-ld.enable = true;
   programs.zsh.enable = true;
 

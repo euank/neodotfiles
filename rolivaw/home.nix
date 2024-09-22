@@ -126,7 +126,6 @@ in
           }
 
           configs.rust_analyzer.setup({})
-          configs.tsserver.setup{}
           configs.nickel_ls.setup{}
 
           local opts = {

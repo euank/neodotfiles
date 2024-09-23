@@ -90,7 +90,6 @@ in
     wasm-pack
     wireguard-tools
     wireshark
-    wl-clipboard
     yt-dlp
     # temporarily disabled
     # wezterm
@@ -98,6 +97,10 @@ in
     zed-editor
     zip
     zsh-powerlevel10k
+    python3Packages.manga-ocr
+
+    sway-contrib.grimshot
+    wl-clipboard
 
     (hiPrio clang_16)
     awscli2

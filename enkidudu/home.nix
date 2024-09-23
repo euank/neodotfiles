@@ -101,7 +101,9 @@ in
           "$mod, f, fullscreen,1"
           "$mod, t, togglefloating"
           "$mod_SHIFT, f, fullscreen"
-          ", Print, exec, grimblast copy area"
+          ", Print, exec, grimshot copy area"
+          "SHIFT, Print, exec, grimshot copy active"
+          "$mod, Print, exec, grimshot copy screen"
         ]
         ++ (
           # workspaces

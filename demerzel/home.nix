@@ -1,11 +1,5 @@
 { config, pkgs, ... }:
 
-let
-  sessionVariables = {
-    EDITOR = "nvim";
-    NGROK_HOME = "/home/esk/dev/ngrok";
-  };
-in
 {
   imports = [
     ../shared/desktop-home.nix
@@ -37,7 +31,10 @@ in
 
   home.file.".aspell.conf".text = "data-dir ${pkgs.aspell}/lib/aspell";
 
-  home.sessionVariables = sessionVariables;
+  programs.zsh.initExtra = ''
+    export NGROK_HOME="/home/esk/dev/ngrok"
+    source "/home/esk/dev/ngrok/.cache/ngrok-host-shellhook"
+  '';
 
   wayland.windowManager.hyprland = {
     enable = true;

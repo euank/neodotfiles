@@ -1,10 +1,5 @@
 { config, pkgs, ... }:
 
-let
-  sessionVariables = {
-    EDITOR = "nvim";
-  };
-in
 {
   imports = [ ../shared/desktop-home.nix ];
   home.packages = with pkgs; [
@@ -29,8 +24,6 @@ in
   ];
 
   home.file.".aspell.conf".text = "data-dir ${pkgs.aspell}/lib/aspell";
-
-  home.sessionVariables = sessionVariables;
 
   programs.neovim = {
     enable = true;

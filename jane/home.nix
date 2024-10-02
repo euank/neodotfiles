@@ -2,7 +2,6 @@
 
 let
   sessionVariables = {
-    EDITOR = "nvim";
     COWPATH = "${pkgs.cowsay}/share/cows:${pkgs.tewisay}/share/tewisay/cows";
   };
 in

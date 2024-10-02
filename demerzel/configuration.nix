@@ -48,6 +48,7 @@ in
     LC_TIME = "ja_JP.UTF-8";
   };
   networking.networkmanager.enable = true;
+  networking.networkmanager.wifi.backend = "iwd";
   networking.networkmanager.unmanaged = [
     "wg0"
     "docker0"

@@ -145,6 +145,10 @@ in
     sbsigntool
     i3lock
     inotify-tools
+    lld
+    wal-g
+    mkvtoolnix
+    gnupg
   ];
 
   home.sessionVariables = sessionVariables;

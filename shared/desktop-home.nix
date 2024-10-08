@@ -22,6 +22,7 @@ in
     networkmanagerapplet
     anki
     arandr
+    dmenu
     bemenu
     blueman
     calibre
@@ -33,6 +34,8 @@ in
     firefox
     gimp
     gmrun
+    gnome-icon-theme
+    gnome-session
     cheese
     google-chrome
     gptfdisk
@@ -56,7 +59,10 @@ in
     xsel
     xorg.xkill
     xorg.xwininfo
+    yacreader
   ];
+
+  home.file.".aspell.conf".text = "data-dir ${pkgs.aspell}/lib/aspell";
 
   home.sessionVariables = sessionVariables;
 
@@ -92,55 +98,9 @@ in
     };
   };
 
-  services.dunst.enable = true;
+  services.status-notifier-watcher.enable = true;
 
-  xdg.configFile."hypr/hyprpaper.conf".text = ''
-    exec-once=hyprctl setcursor graphite-light 12
-    splash = false
-  '';
-  xdg.configFile."anyrun/config.ron".text = ''
-    Config(
-      show_results_immediately: true,
-    )
-  '';
-  services.mako = {
-    enable = true;
-  };
-  systemd.user.services.mako = {
-    Unit = {
-      Description = "mako notifications";
-      After = [ "graphical-session-pre.target" ];
-      PartOf = [ "graphical-session.target" ];
-    };
-    Install = {
-      WantedBy = [ "graphical-session.target" ];
-    };
-    Service = {
-      ExecStart = "${pkgs.mako}/bin/mako";
-      Restart = "on-failure";
-      Nice = 10;
-    };
-  };
-  programs.waybar = {
-    enable = true;
-    settings.mainBar = builtins.fromJSON (builtins.readFile ./waybar/config);
-    style = ./waybar/style.css;
-  };
-  systemd.user.services.waybar = {
-    Unit = {
-      Description = "waybar";
-      After = [ "graphical-session-pre.target" ];
-      PartOf = [ "graphical-session.target" ];
-    };
-    Install = {
-      WantedBy = [ "graphical-session.target" ];
-    };
-    Service = {
-      ExecStart = "${pkgs.waybar}/bin/waybar";
-      Restart = "on-failure";
-      Nice = 10;
-    };
-  };
+  services.dunst.enable = true;
 
   systemd.user.services.maestral = {
     Unit = {

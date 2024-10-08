@@ -6,28 +6,17 @@
 
 {
   imports = [ ./base.nix ];
-
-  programs.hyprland.enable = true;
-
-  services.greetd = {
+  services.xserver = {
     enable = true;
-    settings = {
-      default_session = {
-        command = ''
-          ${pkgs.greetd.tuigreet}/bin/tuigreet \
-            --time \
-            --asterisks \
-            --user-menu \
-            --cmd Hyprland
-        '';
-      };
-    };
+    xkb.layout = "us";
+    displayManager.session = [
+      {
+        name = "dummy";
+        manage = "window";
+        start = "";
+      }
+    ];
   };
-  environment.etc."greetd/environments".text = ''
-    Hyprland
-    zsh
-  '';
-
   services.avahi = {
     enable = true;
     nssmdns4 = true;
@@ -88,7 +77,6 @@
     enable = true;
     type = "fcitx5";
     fcitx5 = {
-      waylandFrontend = true;
       addons = with pkgs; [
         fcitx5-gtk
         fcitx5-mozc
@@ -138,6 +126,7 @@
   services.pcscd.enable = true;
   services.udev.packages = [ pkgs.yubikey-personalization ];
 
+  programs.dconf.enable = true;
   programs.ssh.startAgent = false;
   programs.gnupg.agent = {
     enable = true;
@@ -154,6 +143,5 @@
     meslo-lg
     pcsclite
     gparted
-    wofi
   ];
 }

@@ -7,7 +7,11 @@
 {
   imports = [ ./base.nix ];
 
-  programs.hyprland.enable = true;
+  programs.sway = {
+    enable = true;
+    wrapperFeatures.gtk = true;
+  };
+  security.polkit.enable = true;
 
   services.greetd = {
     enable = true;
@@ -18,13 +22,13 @@
             --time \
             --asterisks \
             --user-menu \
-            --cmd Hyprland
+            --cmd sway
         '';
       };
     };
   };
   environment.etc."greetd/environments".text = ''
-    Hyprland
+    sway
     zsh
   '';
 

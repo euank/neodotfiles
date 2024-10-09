@@ -38,7 +38,6 @@ in
     file
     fish
     flamegraph
-    hyprshot
     flyctl
     font-manager
     fx_cast_bridge

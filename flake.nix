@@ -101,14 +101,6 @@
           modules = [ ./pascal/configuration.nix ];
         };
 
-        rolivaw = nixpkgs.lib.nixosSystem {
-          inherit pkgs system;
-          specialArgs = {
-            inherit inputs;
-          };
-          modules = [ ./rolivaw/configuration.nix ];
-        };
-
         demerzel = nixpkgs.lib.nixosSystem {
           inherit pkgs system;
           specialArgs = {

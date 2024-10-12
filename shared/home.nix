@@ -24,7 +24,7 @@ in
     borgbackup
     cfssl
     # temporary due to nix issues
-    # colmena
+    colmena
     cntr
     cowsay
     diskonaut

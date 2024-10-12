@@ -39,9 +39,6 @@
             mvn2nix = mvn2nix.defaultPackage.x86_64-linux;
             # gradle2nix = gradle2nix.defaultPackage.x86_64-linux;
             # nickel = inputs.nickel.packages.x86_64-linux.default;
-            # 2_24 is vulnerable, and colmena, when installed, iterates through all nix versions I think?
-            # do this to avoid colmena erroring out
-            nix = prev.pkgs.nixVersions.nix_2_23;
           })
           (final: prev: {
             pazi = with pkgs; rustPlatform.buildRustPackage rec {

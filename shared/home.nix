@@ -137,6 +137,7 @@ in
     boringtun
     onetun
     railway
+    xclip
 
     # misc
     xorg.xeyes

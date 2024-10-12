@@ -152,7 +152,7 @@ in
     enableOnBoot = false;
   };
 
-  virtualisation.virtualbox.host.enable = true;
+  virtualisation.virtualbox.host.enable = false;
   virtualisation.virtualbox.host.enableExtensionPack = true;
   virtualisation.libvirtd.enable = false;
 

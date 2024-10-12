@@ -93,6 +93,7 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
     -- launch gmrun
     , ((modMask .|. shiftMask, xK_p     ), spawn "gmrun")
 
+
     -- close focused window
     , ((modMask .|. shiftMask, xK_c     ), kill)
 
@@ -179,6 +180,7 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
     -- Brightness
     , ((0,               xF86XK_MonBrightnessUp), spawn "xbacklight -inc 5 &")
     , ((0,               xF86XK_MonBrightnessDown), spawn "xbacklight -dec 5 &")
+    , ((0,               xK_Print), spawn "escrotum -s -C &")
     ]
     ++
 

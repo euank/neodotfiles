@@ -60,7 +60,7 @@ in
     nitrogen
     nix-index
     nix-tree
-    nixfmt
+    nixfmt-rfc-style
     nixos-install-tools
     nixpkgs-fmt
     nmap
@@ -70,6 +70,7 @@ in
     openssl
     p7zip
     pass
+    pciutils
     pavucontrol
     pwgen
     redis

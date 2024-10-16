@@ -15,6 +15,8 @@ in
     ../shared/desktop.nix
   ];
 
+  hardware.enableAllFirmware = true;
+
   programs.steam = {
     enable = true;
     protontricks.enable = true;

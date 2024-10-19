@@ -25,7 +25,7 @@ in
     dmenu
     bemenu
     blueman
-    calibre
+    # calibre
     deluge
     discord
     escrotum

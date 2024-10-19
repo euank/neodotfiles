@@ -149,7 +149,8 @@ in
     inotify-tools
     lld
     wal-g
-    mkvtoolnix
+    # pending https://github.com/NixOS/nixpkgs/pull/349297
+    # mkvtoolnix
     gnupg
   ];
 

@@ -40,30 +40,6 @@
             # gradle2nix = gradle2nix.defaultPackage.x86_64-linux;
             # nickel = inputs.nickel.packages.x86_64-linux.default;
           })
-          (final: prev: {
-            pazi = with pkgs; rustPlatform.buildRustPackage rec {
-              pname = "pazi";
-              version = "0.5.0-pre";
-
-              src = fetchFromGitHub {
-                owner = "euank";
-                repo = pname;
-                rev = "v0.5.0";
-                sha256 = "sha256-PDgk6VQ/J9vkFJ0N+BH9LqHOXRYM+a+WhRz8QeLZGiM=";
-              };
-
-              buildInputs = lib.optionals stdenv.isDarwin [ darwin.apple_sdk.frameworks.Security ];
-
-              cargoHash = "sha256-A2dITZMl2LjL2qFexDOqoQDeUlJWZu6uLizAiHDEHaM=";
-
-              meta = with lib; {
-                description = "Autojump \"zap to directory\" helper";
-                homepage = "https://github.com/euank/pazi";
-                license = licenses.gpl3;
-                mainProgram = "pazi";
-              };
-            };
-          })
         ];
         config = {
           allowUnfree = true;

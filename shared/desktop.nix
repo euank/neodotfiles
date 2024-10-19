@@ -123,7 +123,10 @@
 
   time.timeZone = "Asia/Tokyo";
 
-  services.pcscd.enable = true;
+  services.pcscd = {
+    enable = true;
+    plugins = with pkgs; [ yubikey-personalization ];
+  };
   services.udev.packages = [ pkgs.yubikey-personalization ];
 
   programs.dconf.enable = true;

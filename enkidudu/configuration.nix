@@ -85,6 +85,17 @@ in
 
   networking.networkmanager.enable = true;
   networking.networkmanager.wifi.backend = "iwd";
+  # Thank you to https://discourse.nixos.org/t/networkd-iwd-upgrades-knock-machines-offline/38300/2
+  networking.wireless.iwd = {
+    enable = true;
+    settings = {
+      General = {
+        # systemd-networkd renames ain interface for us
+        UseDefaultInterface = true;
+      };
+    };
+  };
+
   # networking.networkmanager.dhcp = "dhcpcd";
   networking.nameservers = [
     "8.8.8.8"

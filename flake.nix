@@ -2,10 +2,10 @@
   description = "euank nix dotfile flakes";
 
   inputs = {
-    # Swap back to nixos-unstable after https://nixpk.gs/pr-tracker.html?pr=348697
-    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
-    home-manager.url = "github:nix-community/home-manager";
+    # temporary for https://github.com/nix-community/home-manager/pull/5976
+    home-manager.url = "github:euank/home-manager/neovim-2024-10-21";
     ekverlay.url = "github:euank/nixek-overlay";
     nixek.url = "github:nixek-systems/pkgs";
     mvn2nix.url = "github:fzakaria/mvn2nix";

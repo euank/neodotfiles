@@ -19,6 +19,8 @@ in
   ];
 
   home.packages = with pkgs; [
+    calibre
+
     youki
     stdenv.cc.cc.lib
     ipmitool

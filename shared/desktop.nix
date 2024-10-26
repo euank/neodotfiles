@@ -66,7 +66,7 @@
       meslolgs-nf
       migu
       noto-fonts
-      noto-fonts-cjk
+      noto-fonts-cjk-sans
       noto-fonts-emoji
       ubuntu_font_family
     ];

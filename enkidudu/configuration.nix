@@ -91,8 +91,10 @@ in
     enable = true;
     settings = {
       General = {
-        # systemd-networkd renames ain interface for us
+        # systemd-networkd renames interfaces for us
         UseDefaultInterface = true;
+        # Needed for some reason
+        ControlPortOverNL80211 = false;
       };
     };
   };

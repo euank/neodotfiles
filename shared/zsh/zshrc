@@ -122,4 +122,12 @@ missing_label() {
     jq '[.html_url, .title] | join("    -    ")' -cr
 }
 
+TIMEFMT="%J   %U  user %S system %P cpu %*E total
+avg shared (code):         %X KB
+avg unshared (data/stack): %D KB
+total (sum):               %K KB
+max memory:                %M MB
+page faults from disk:     %F
+other page faults:         %R"
+
 [ -e ~/.zshrc.custom ] && source ~/.zshrc.custom

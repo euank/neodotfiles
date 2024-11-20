@@ -49,7 +49,6 @@ in
     shotcut
     openshot-qt
     signal-desktop
-    syncplay
     tint2
     tree
     tig

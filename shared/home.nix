@@ -19,7 +19,6 @@ in
     amazon-ecr-credential-helper
     atuin
     # ast-grep
-    bazel_5
     binutils
     borgbackup
     cfssl

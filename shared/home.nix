@@ -27,6 +27,7 @@ in
     colmena
     cntr
     iotop
+    smartmontools
     cowsay
     diskonaut
     dua

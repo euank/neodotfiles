@@ -26,6 +26,7 @@ in
     # temporary due to nix issues
     colmena
     cntr
+    iotop
     cowsay
     diskonaut
     dua

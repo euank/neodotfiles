@@ -41,9 +41,9 @@ in
       enable = true;
       udhcpc.enable = false;
       postCommands = ''
-        ip address add 192.168.2.2/24 brd + dev enp8s0
-        ip route add 192.168.2.1 dev enp8s0
-        ip route add default via 192.168.6.1 dev enp8s0
+        ip address add 192.168.2.2/24 brd + dev enp10s0
+        ip route add 192.168.2.1 dev enp10s0
+        ip route add default via 192.168.6.1 dev enp10s0
         ip a
 
         echo 'cryptsetup-askpass' >> /root/.profile
@@ -163,7 +163,7 @@ in
   boot.kernel.sysctl."net.ipv4.ip_forward" = 1;
 
   networking.useDHCP = false;
-  networking.interfaces.enp8s0.useDHCP = true;
+  networking.interfaces.enp10s0.useDHCP = true;
   networking.firewall.enable = false;
 
   services.xserver.videoDrivers = [ "amdgpu" ];

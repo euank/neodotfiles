@@ -22,6 +22,12 @@ in
     protontricks.enable = true;
   };
 
+  services.usbmuxd.enable = true;
+  environment.systemPackages = with pkgs; [
+    libimobiledevice
+    ifuse
+  ];
+
   # boot.kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
   # boot.kernelPackages = pkgs.linuxPackages;
   boot.kernelPackages = pkgs.linuxPackages_testing;

@@ -16,6 +16,9 @@ in
   ];
 
   hardware.enableAllFirmware = true;
+  boot.extraModprobeConfig = ''
+    options cfg80211 ieee80211_regdom="JP"
+  '';
 
   programs.steam = {
     enable = true;

@@ -45,8 +45,7 @@ in
     heaptrack
     htop
     iptables
-    postgresql
-    obsidian
+    iw
     jmtpfs
     jq
     jujutsu
@@ -67,8 +66,10 @@ in
     nmap
     nwg-look
     moreutils
+    obsidian
     onetun
     openssl
+    postgresql
     p7zip
     pass
     pciutils

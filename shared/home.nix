@@ -69,6 +69,7 @@ in
     obsidian
     onetun
     openssl
+    nixd
     postgresql
     p7zip
     pass

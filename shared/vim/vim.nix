@@ -130,6 +130,16 @@ in
           configs.ts_ls.setup{}
           configs.nickel_ls.setup{}
 
+          configs.nixd.setup({
+            settings = {
+              nixd = {
+                formatting = {
+                    command = { "nixfmt" },
+                },
+              },
+            },
+          })
+
           local opts = {
             tools = {},
             server = {

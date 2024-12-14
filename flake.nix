@@ -41,6 +41,12 @@
             mvn2nix = mvn2nix.defaultPackage.x86_64-linux;
             # gradle2nix = gradle2nix.defaultPackage.x86_64-linux;
             # nickel = inputs.nickel.packages.x86_64-linux.default;
+            vlc = prev.vlc.override {
+              libbluray = prev.libbluray.override {
+                withAACS = true;
+                withBDplus = true;
+              };
+            };
           })
         ];
         config = {

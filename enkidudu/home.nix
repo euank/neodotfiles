@@ -21,6 +21,8 @@ in
   home.packages = with pkgs; [
     calibre
 
+    vlc
+
     youki
     stdenv.cc.cc.lib
     ipmitool

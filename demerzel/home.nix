@@ -9,7 +9,7 @@
   home.packages = with pkgs; [
     # jetbrains.idea-community
     zoom-us
-    obs-studio
+    # obs-studio
     shotcut
     yubikey-personalization-gui
     dia

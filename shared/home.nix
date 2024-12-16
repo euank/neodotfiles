@@ -91,6 +91,7 @@ in
     tree
     unzip
     wasm-pack
+    wavemon
     wireguard-tools
     wireshark
     yt-dlp

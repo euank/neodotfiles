@@ -144,14 +144,15 @@ in
     xclip
 
     # misc
-    xorg.xeyes
     efibootmgr
     efitools
-    sbsigntool
     i3lock
     inotify-tools
     lld
+    lshw
+    sbsigntool
     wal-g
+    xorg.xeyes
     # pending https://github.com/NixOS/nixpkgs/pull/349297
     # mkvtoolnix
     gnupg

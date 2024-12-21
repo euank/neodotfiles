@@ -21,6 +21,7 @@ in
   home.packages = with pkgs; [
     calibre
     darktable
+    exiftool
 
     vlc
 

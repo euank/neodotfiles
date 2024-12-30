@@ -100,6 +100,8 @@ in
 
   services.dunst.enable = true;
 
+  services.flameshot.enable = true;
+
   systemd.user.services.maestral = {
     Unit = {
       Description = "Maestral daemon";

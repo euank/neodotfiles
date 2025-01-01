@@ -46,10 +46,10 @@ in
     okular
     pavucontrol
     pulseaudioFull
-    shotcut
+    # Temporary: https://github.com/NixOS/nixpkgs/issues/367870
+    # shotcut
     openshot-qt
     signal-desktop
-    tint2
     tree
     tig
     unzip

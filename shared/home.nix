@@ -101,7 +101,7 @@ in
     zed-editor
     zip
     zsh-powerlevel10k
-    python3Packages.manga-ocr
+    manga-ocr
 
     sway-contrib.grimshot
     wl-clipboard
@@ -145,7 +145,8 @@ in
 
     # misc
     efibootmgr
-    efitools
+    # pending https://nixpk.gs/pr-tracker.html?pr=369551
+    # efitools
     i3lock
     inotify-tools
     lld

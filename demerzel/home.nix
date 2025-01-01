@@ -10,7 +10,6 @@
     # jetbrains.idea-community
     zoom-us
     # obs-studio
-    shotcut
     yubikey-personalization-gui
     dia
     hicolor-icon-theme

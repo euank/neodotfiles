@@ -13,6 +13,7 @@
     # gradle2nix.url = "github:tadfisher/gradle2nix";
     # dwarffs.url = "github:edolstra/dwarffs";
     # nickel.url = "github:tweag/nickel";
+    manga-ocr.url = "github:euank/nixpkgs/manga-ocr-2025-01-01";
 
     # Magic unimportable things
     ngrok-dev.url = "git+file:/home/esk/dev/ngrok?dir=nix";
@@ -47,6 +48,7 @@
                 withBDplus = true;
               };
             };
+            manga-ocr = inputs.manga-ocr.legacyPackages."${system}".python3Packages.manga-ocr;
           })
         ];
         config = {

@@ -334,7 +334,6 @@ defaults = ewmh $ docks $ def {
 main = do
   -- xmproc <- spawnPipe "/usr/bin/xmobar ~/.xmonad/xmobar"
   -- xmproc <- spawnPipe "nitrogen --restore"
-  -- xmproc <- spawnPipe "tint2"
   -- xmproc <- spawnPipe "nm-applet"
   xmonad defaults
     { startupHook = setWMName "LG3D" }

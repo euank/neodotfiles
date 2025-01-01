@@ -30,7 +30,7 @@ in
     ipmitool
     aegisub
     yarn
-    desmume
+    # desmume
     # jetbrains.idea-community
     melonDS
     # minecraft

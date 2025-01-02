@@ -121,6 +121,7 @@ in
     gh
     gnumake
     go_1_23
+    goconvey
     gopls
     gofumpt
     gradle

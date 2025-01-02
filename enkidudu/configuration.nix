@@ -1,13 +1,9 @@
 {
   pkgs,
-  inputs,
   config,
   ...
 }:
 
-let
-  inherit (inputs) home-manager;
-in
 {
   # disabledModules = [ "virtualisation/libvirtd.nix" ];
   imports = [

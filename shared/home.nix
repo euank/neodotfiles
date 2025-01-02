@@ -50,6 +50,7 @@ in
     jq
     jujutsu
     k3s
+    krita
     (hiPrio kubectl)
     kubernetes-helm
     libreoffice
@@ -92,6 +93,7 @@ in
     unzip
     wasm-pack
     wavemon
+    wirelesstools
     wireguard-tools
     wireshark
     yt-dlp
@@ -147,7 +149,7 @@ in
     # misc
     efibootmgr
     # pending https://nixpk.gs/pr-tracker.html?pr=369551
-    # efitools
+    efitools
     i3lock
     inotify-tools
     lld

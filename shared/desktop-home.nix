@@ -52,7 +52,10 @@ in
     tree
     tig
     unzip
+
     screenshot-area
+    llm-ocr-area
+
     tmux
     xsel
     xorg.xkill

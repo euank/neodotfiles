@@ -53,6 +53,7 @@ in
     (hiPrio kubectl)
     kubernetes-helm
     libreoffice
+    llm
     lsof
     ngrok
     nickel

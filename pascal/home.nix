@@ -7,7 +7,6 @@
     gnome.gnome-session
     xsel
     gptfdisk
-    escrotum
     brightnessctl
     file
     git

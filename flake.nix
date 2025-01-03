@@ -49,7 +49,7 @@
               };
             };
             manga-ocr = inputs.manga-ocr.legacyPackages."${system}".python3Packages.manga-ocr;
-          })
+          } // (import ./pkgs/scripts.nix { pkgs = final; }))
         ];
         config = {
           allowUnfree = true;

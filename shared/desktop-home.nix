@@ -27,7 +27,6 @@ in
     blueman
     deluge
     discord
-    escrotum
     evince
     feh
     firefox
@@ -53,6 +52,7 @@ in
     tree
     tig
     unzip
+    screenshot-area
     tmux
     xsel
     xorg.xkill
@@ -99,8 +99,6 @@ in
   services.status-notifier-watcher.enable = true;
 
   services.dunst.enable = true;
-
-  services.flameshot.enable = true;
 
   systemd.user.services.maestral = {
     Unit = {

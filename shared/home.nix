@@ -30,7 +30,6 @@ in
     cowsay
     diskonaut
     dua
-    escrotum
     maestral
     multitail
     eza

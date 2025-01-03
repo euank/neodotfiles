@@ -180,7 +180,7 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
     -- Brightness
     , ((0,               xF86XK_MonBrightnessUp), spawn "xbacklight -inc 5 &")
     , ((0,               xF86XK_MonBrightnessDown), spawn "xbacklight -dec 5 &")
-    , ((0,               xK_Print), spawn "escrotum -s -C &")
+    , ((0,               xK_Print), spawn "screenshot-area &")
     ]
     ++
 

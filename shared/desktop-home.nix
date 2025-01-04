@@ -67,35 +67,15 @@ in
 
   home.sessionVariables = sessionVariables;
 
-  programs.alacritty = {
+  programs.ghostty = {
     enable = true;
+    enableZshIntegration = true;
     settings = {
-      env = {
-        # TERM = "xterm-256color";
-      };
-      font = {
-        normal = {
-          family = "MesloLGS NF";
-        };
-      };
-      colors = {
-        primary = {
-          background = "#000000";
-          foreground = "#eaeaea";
-          dim_foreground = "#9a9a9a";
-          bright_foreground = "#ffffff";
-        };
-        normal = {
-          black = "#000000";
-          red = "#d54e53";
-          green = "#b9ca4a";
-          yellow = "#e6c547";
-          blue = "#7aa6da";
-          magenta = "#c397d8";
-          cyan = "#70c0ba";
-          white = "#eaeaea";
-        };
-      };
+      window-decoration = false;
+      window-theme = "system";
+      gtk-titlebar = false;
+      gtk-wide-tabs = false;
+      gtk-adwaita = false;
     };
   };
 

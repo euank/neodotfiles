@@ -158,7 +158,6 @@
   programs.gnome-disks.enable = true;
 
   environment.systemPackages = with pkgs; [
-    ghostty
     blueman
     dmenu
     gnupg

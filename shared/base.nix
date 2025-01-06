@@ -19,6 +19,8 @@
     linuxPackages.perf
     neovim
     openssl
+    # for terminfo
+    ghostty
     pinentry-curses
     pkg-config
     vim

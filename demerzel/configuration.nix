@@ -30,8 +30,10 @@ in
   };
 
   # Enable swap on luks
-  boot.initrd.luks.devices."luks-531f03cf-7cf4-41ae-9238-aab6e6268d8b".device = "/dev/disk/by-uuid/531f03cf-7cf4-41ae-9238-aab6e6268d8b";
-  boot.initrd.luks.devices."luks-531f03cf-7cf4-41ae-9238-aab6e6268d8b".keyFile = "/crypto_keyfile.bin";
+  boot.initrd.luks.devices."luks-531f03cf-7cf4-41ae-9238-aab6e6268d8b".device =
+    "/dev/disk/by-uuid/531f03cf-7cf4-41ae-9238-aab6e6268d8b";
+  boot.initrd.luks.devices."luks-531f03cf-7cf4-41ae-9238-aab6e6268d8b".keyFile =
+    "/crypto_keyfile.bin";
 
   networking.hostName = "demerzel"; # Eto
   networking.hostId = "473650f2";

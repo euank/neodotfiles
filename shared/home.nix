@@ -97,8 +97,7 @@ in
     wireguard-tools
     wireshark
     yt-dlp
-    # temporarily disabled
-    # wezterm
+    xdg-utils
     xsv
     zed-editor
     zip
@@ -145,6 +144,7 @@ in
     onetun
     railway
     xclip
+    xdg-desktop-portal-gtk
 
     # misc
     efibootmgr
@@ -212,7 +212,7 @@ in
       enable = true;
       xdgOpenUsePortal = true;
       extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
-      config.common.default = [ "gtk" ];
+      config.common.default = [ "*" ];
     };
 
     userDirs = {

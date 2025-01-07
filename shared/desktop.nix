@@ -22,6 +22,11 @@
     nssmdns4 = true;
   };
 
+  xdg.portal = {
+    enable = true;
+    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+  };
+
   hardware.graphics = {
     enable = true;
     enable32Bit = true;
@@ -30,6 +35,8 @@
   programs.zsh.enable = true;
   qt.enable = true;
   qt.platformTheme = "lxqt";
+
+  services.gnome.gnome-keyring.enable = true;
 
   services.pipewire = {
     enable = true;
@@ -88,11 +95,21 @@
           EnumerateWithTriggerKeys = "True";
           EnumerateSkipFirst = "False";
         };
-        "Hotkey/TriggerKeys" = { "0" = "Control+grave"; };
-        "Hotkey/PrevPage" = { "0" = "Up"; };
-        "Hotkey/NextPage" = { "0" = "Down"; };
-        "Hotkey/PrevCandidate" = { "0" = "Shift+Tab"; };
-        "Hotkey/NextCandidate" = { "0" = "Tab"; };
+        "Hotkey/TriggerKeys" = {
+          "0" = "Control+grave";
+        };
+        "Hotkey/PrevPage" = {
+          "0" = "Up";
+        };
+        "Hotkey/NextPage" = {
+          "0" = "Down";
+        };
+        "Hotkey/PrevCandidate" = {
+          "0" = "Shift+Tab";
+        };
+        "Hotkey/NextCandidate" = {
+          "0" = "Tab";
+        };
         Behavior = {
           PreeditEnabledByDefault = "True";
           ShowInputMethodInformation = "True";
@@ -104,9 +121,9 @@
       };
       settings.inputMethod = {
         "Groups/0" = {
-        "Name" = "Default";
-        "Default Layout" = "us";
-        "DefaultIM" = "mozc";
+          "Name" = "Default";
+          "Default Layout" = "us";
+          "DefaultIM" = "mozc";
         };
         "Groups/0/Items/0" = {
           "Name" = "keyboard-us";
@@ -116,7 +133,9 @@
           "Name" = "mozc";
           "Layout" = null;
         };
-        "GroupOrder" = { "0" = "Default"; };
+        "GroupOrder" = {
+          "0" = "Default";
+        };
       };
     };
   };

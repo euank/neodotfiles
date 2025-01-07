@@ -36,20 +36,24 @@
         overlays = [
           ekverlay.overlays.default
           nixek.overlay
-          (final: prev: {
-            gopls = prev.gopls.override { buildGoModule = final.buildGo123Module; };
-            # temporarily for https://github.com/NixOS/nixpkgs/pull/334858
-            mvn2nix = mvn2nix.defaultPackage.x86_64-linux;
-            # gradle2nix = gradle2nix.defaultPackage.x86_64-linux;
-            # nickel = inputs.nickel.packages.x86_64-linux.default;
-            vlc = prev.vlc.override {
-              libbluray = prev.libbluray.override {
-                withAACS = true;
-                withBDplus = true;
+          (
+            final: prev:
+            {
+              gopls = prev.gopls.override { buildGoModule = final.buildGo123Module; };
+              # temporarily for https://github.com/NixOS/nixpkgs/pull/334858
+              mvn2nix = mvn2nix.defaultPackage.x86_64-linux;
+              # gradle2nix = gradle2nix.defaultPackage.x86_64-linux;
+              # nickel = inputs.nickel.packages.x86_64-linux.default;
+              vlc = prev.vlc.override {
+                libbluray = prev.libbluray.override {
+                  withAACS = true;
+                  withBDplus = true;
+                };
               };
-            };
-            manga-ocr = inputs.manga-ocr.legacyPackages."${system}".python3Packages.manga-ocr;
-          } // (import ./pkgs/scripts.nix { pkgs = final; }))
+              manga-ocr = inputs.manga-ocr.legacyPackages."${system}".python3Packages.manga-ocr;
+            }
+            // (import ./pkgs/scripts.nix { pkgs = final; })
+          )
         ];
         config = {
           allowUnfree = true;

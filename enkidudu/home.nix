@@ -22,6 +22,7 @@ in
     calibre
     darktable
     exiftool
+    handbrake
 
     vlc
 

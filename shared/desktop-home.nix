@@ -41,6 +41,8 @@ in
     keepassxc
     # logseq # temp
     mpv
+    nemo
+    yazi
     nitrogen
     okular
     pavucontrol

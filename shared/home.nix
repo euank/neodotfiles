@@ -148,7 +148,6 @@ in
 
     # misc
     efibootmgr
-    # pending https://nixpk.gs/pr-tracker.html?pr=369551
     efitools
     i3lock
     inotify-tools
@@ -157,8 +156,7 @@ in
     sbsigntool
     wal-g
     xorg.xeyes
-    # pending https://github.com/NixOS/nixpkgs/pull/349297
-    # mkvtoolnix
+    mkvtoolnix
     gnupg
   ];
 

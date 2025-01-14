@@ -10,6 +10,8 @@
   boot.kernel.sysctl."fs.inotify.max_user_watches" = 99999;
   boot.kernel.sysctl."fs.inotify.max_user_instances" = 8192;
 
+  boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
+
   environment.systemPackages = with pkgs; [
     curl
     git

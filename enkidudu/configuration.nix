@@ -16,15 +16,19 @@
     options cfg80211 ieee80211_regdom="JP"
   '';
 
-  boot.kernelPatches = [
-    {
-      name = "WCN7850 patch";
-      patch = pkgs.fetchurl {
-        url = "https://raw.githubusercontent.com/openwrt/openwrt/refs/heads/main/package/kernel/mac80211/patches/ath12k/001-wifi-ath12k-add-11d-scan-offload-support-and-handle-country-code-for-WCN7850.patch";
-        hash = "sha256-6hfsUMj2/+21mz+2JoJanyePtVsuls6BPeIOgNFoelY=";
-      };
-    }
-  ];
+  boot.kernelPackages = pkgs.linuxPackages_latest;
+  # boot.kernelPackages = pkgs.linuxPackagesFor (pkgs.linux_6_13.override {
+  #   argsOverride = {
+  #     src = pkgs.fetchFromGitHub {
+  #       owner = "euank";
+  #       repo = "linux";
+  #       rev = "fa399c054fa99c579c7c367c2da8f6de8377c8ea"; # 6.13-ath
+  #       sha256 = "sha256-pI0P3DglPXEGh4oLIA+4iDhfCNBxCP4NnljXCZqVu5Q=";
+  #     };
+  #     version = "6.13";
+  #     modDirVersion = "6.13.0-wt-ath";
+  #   };
+  # });
 
   programs.steam = {
     enable = true;
@@ -37,7 +41,6 @@
     ifuse
   ];
 
-  boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 

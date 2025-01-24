@@ -24,7 +24,7 @@ in
     exiftool
     handbrake
 
-    vlc
+    # vlc
 
     youki
     stdenv.cc.cc.lib

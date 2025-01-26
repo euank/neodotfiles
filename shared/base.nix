@@ -19,6 +19,7 @@
     htop
     iptables
     linuxPackages.perf
+    nfs-utils
     neovim
     openssl
     # for terminfo

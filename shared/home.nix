@@ -79,6 +79,7 @@ in
     redis
     ripgrep
     semgrep
+    shotgun
     sqlite
     sqlite.dev
     sshfs
@@ -98,6 +99,7 @@ in
     yt-dlp
     xdg-utils
     xan
+    slop
     zed-editor
     zip
     zsh-powerlevel10k

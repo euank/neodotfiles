@@ -97,7 +97,7 @@ in
     wireshark
     yt-dlp
     xdg-utils
-    xsv
+    xan
     zed-editor
     zip
     zsh-powerlevel10k

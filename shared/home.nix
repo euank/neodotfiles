@@ -28,7 +28,6 @@ in
     iotop
     smartmontools
     cowsay
-    diskonaut
     dua
     maestral
     multitail

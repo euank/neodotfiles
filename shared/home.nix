@@ -22,6 +22,7 @@ in
     binutils
     borgbackup
     cfssl
+    darktable
     # temporary due to nix issues
     colmena
     cntr

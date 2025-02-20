@@ -42,6 +42,7 @@ in
     flyctl
     font-manager
     fx_cast_bridge
+    git-spice
     heaptrack
     htop
     iptables

@@ -8,6 +8,7 @@ import XMonad
 import XMonad.Hooks.EwmhDesktops
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
+import XMonad.Hooks.ManageHelpers
 import XMonad.Hooks.SetWMName
 import XMonad.Layout.NoBorders
 import XMonad.Layout.Spiral
@@ -272,7 +273,9 @@ myLayout = mkToggle(single MIRROR) $
 --
 myManageHook = composeAll
     [ resource  =? "desktop_window" --> doIgnore
-    , resource  =? "kdesktop"       --> doIgnore ]
+    , resource  =? "kdesktop"       --> doIgnore
+    , className =? "Gimp"           --> doFloat
+    , isDialog                      --> doFloat ]
 
 -- Whether focus follows the mouse pointer.
 myFocusFollowsMouse :: Bool

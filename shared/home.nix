@@ -180,6 +180,7 @@ in
       source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme
       source "${../shared/zsh/p10k.zsh}"
       source "${../shared/zsh/zshrc}"
+      command -v ngrok &>/dev/null && source <(ngrok completion)
     '';
   };
 

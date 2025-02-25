@@ -57,6 +57,7 @@ in
     llm
     lsof
     w3m
+    elinks
     ngrok
     nickel
     nil

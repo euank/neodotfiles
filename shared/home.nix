@@ -50,6 +50,7 @@ in
     jujutsu
     k3s
     krita
+    asciinema_3
     (hiPrio kubectl)
     kubernetes-helm
     libreoffice

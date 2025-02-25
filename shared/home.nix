@@ -56,6 +56,7 @@ in
     libreoffice
     llm
     lsof
+    w3m
     ngrok
     nickel
     nil

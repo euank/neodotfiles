@@ -59,6 +59,7 @@ in
     w3m
     elinks
     ngrok
+    xdotool
     nickel
     nil
     nitrogen

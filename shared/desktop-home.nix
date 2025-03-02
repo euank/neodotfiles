@@ -44,7 +44,7 @@ in
     nemo
     yazi
     nitrogen
-    okular
+    # kdePackages.okular
     pavucontrol
     pulseaudioFull
     # Temporary: https://github.com/NixOS/nixpkgs/issues/367870

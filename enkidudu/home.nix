@@ -31,6 +31,7 @@ in
     ipmitool
     aegisub
     yarn
+    terraform
     # desmume
     # jetbrains.idea-community
     melonDS

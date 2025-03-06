@@ -22,8 +22,7 @@
     nfs-utils
     neovim
     openssl
-    # for terminfo
-    ghostty
+    alacritty
     pinentry-curses
     pkg-config
     vim

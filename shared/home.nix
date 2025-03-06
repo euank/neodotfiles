@@ -108,7 +108,6 @@ in
     zed-editor
     zip
     zsh-powerlevel10k
-    manga-ocr
 
     sway-contrib.grimshot
     wl-clipboard

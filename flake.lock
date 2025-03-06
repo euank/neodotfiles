@@ -95,22 +95,6 @@
         "type": "github"
       }
     },
-    "manga-ocr": {
-      "locked": {
-        "lastModified": 1735733458,
-        "narHash": "sha256-V0yxi6947Vc86rkZ7boDbHEnsvTWV6v6bUSLePX/puY=",
-        "owner": "euank",
-        "repo": "nixpkgs",
-        "rev": "3bdf9dd812b5d8d2e2b14a98dd4b5d964eeeda2b",
-        "type": "github"
-      },
-      "original": {
-        "owner": "euank",
-        "ref": "manga-ocr-2025-01-01",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
     "mvn2nix": {
       "inputs": {
         "nixpkgs": "nixpkgs_3",
@@ -460,7 +444,6 @@
       "inputs": {
         "ekverlay": "ekverlay",
         "home-manager": "home-manager",
-        "manga-ocr": "manga-ocr",
         "mvn2nix": "mvn2nix",
         "ngrok-dev": "ngrok-dev",
         "ngrok-dev2": "ngrok-dev2",

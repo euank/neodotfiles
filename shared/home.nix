@@ -159,6 +159,7 @@ in
     inotify-tools
     lld
     lshw
+    usbutils
     sbsigntool
     wal-g
     xorg.xeyes

@@ -37,7 +37,8 @@ in
     melonDS
     # minecraft
     muttoauth2
-    neomutt
+    # temporary: https://github.com/NixOS/nixpkgs/pull/386738
+    # neomutt
     prismlauncher
     thedesk
     ninja

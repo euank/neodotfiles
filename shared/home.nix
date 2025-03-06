@@ -16,6 +16,7 @@ let
 in
 {
   home.packages = with pkgs; [
+    autorandr
     amazon-ecr-credential-helper
     atuin
     # ast-grep
@@ -166,6 +167,8 @@ in
   ];
 
   home.sessionVariables = sessionVariables;
+
+  programs.autorandr.enable = true;
 
   programs.atuin.enable = true;
   programs.home-manager.enable = true;

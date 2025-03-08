@@ -38,7 +38,7 @@
           (
             final: prev:
             {
-              gopls = prev.gopls.override { buildGoModule = final.buildGo123Module; };
+              gopls = prev.gopls.override { buildGoModule = final.buildGo124Module; };
               # temporarily for https://github.com/NixOS/nixpkgs/pull/334858
               mvn2nix = mvn2nix.defaultPackage.x86_64-linux;
               # gradle2nix = gradle2nix.defaultPackage.x86_64-linux;

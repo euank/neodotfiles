@@ -55,6 +55,22 @@
         "type": "github"
       }
     },
+    "gitspice": {
+      "locked": {
+        "lastModified": 1741307144,
+        "narHash": "sha256-CYKBgNxOYpFEjldavJgKUiP18S2x7wtnEFi6I/hbw/k=",
+        "owner": "euank",
+        "repo": "nixpkgs",
+        "rev": "b5634dac85ebdf8742d9be605e309a51dfdb9f4c",
+        "type": "github"
+      },
+      "original": {
+        "owner": "euank",
+        "ref": "git-spice-0_12_0",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "home-manager": {
       "inputs": {
         "nixpkgs": "nixpkgs_2"
@@ -443,6 +459,7 @@
     "root": {
       "inputs": {
         "ekverlay": "ekverlay",
+        "gitspice": "gitspice",
         "home-manager": "home-manager",
         "mvn2nix": "mvn2nix",
         "ngrok-dev": "ngrok-dev",

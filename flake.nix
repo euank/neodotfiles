@@ -13,6 +13,7 @@
     # gradle2nix.url = "github:tadfisher/gradle2nix";
     # dwarffs.url = "github:edolstra/dwarffs";
     # nickel.url = "github:tweag/nickel";
+    gitspice.url = "github:euank/nixpkgs/git-spice-0_12_0";
 
     # Magic unimportable things
     ngrok-dev.url = "git+file:/home/esk/dev/ngrok?dir=nix";
@@ -38,6 +39,7 @@
           (
             final: prev:
             {
+              git-spice = inputs.gitspice.legacyPackages."${system}".git-spice;
               gopls = prev.gopls.override { buildGoModule = final.buildGo124Module; };
               # temporarily for https://github.com/NixOS/nixpkgs/pull/334858
               mvn2nix = mvn2nix.defaultPackage.x86_64-linux;

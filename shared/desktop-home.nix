@@ -58,6 +58,8 @@ in
     tig
     unzip
 
+    slurp
+    grim
     screenshot-area
     llm-ocr-area
     sway-contrib.grimshot
@@ -134,9 +136,10 @@ in
           action.spawn = str;
         })
         {
-          "Mod+T" = "alacritty";
-          "Mod+D" = "fuzzel";
+          "Mod+T"       = "alacritty";
+          "Mod+D"       = "fuzzel";
           "Super+Alt+L" = "swaylock";
+          "Mod+Print"  = "llm-ocr-area";
         }
       )
       // (pkgs.lib.mapAttrs (_: str: { action."${str}" = [ ]; }) {

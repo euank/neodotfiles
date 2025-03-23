@@ -1,13 +1,16 @@
 { pkgs }:
+let
+  inherit (pkgs) grim slurp llm wl-clipboard;
+in
 {
   screenshot-area = pkgs.writeShellScriptBin "screenshot-area" ''
-    selection="$(${pkgs.slop}/bin/slop -f "-i %i -g %g")"
-    ${pkgs.shotgun}/bin/shotgun $selection - | ${pkgs.xclip}/bin/xclip -t 'image/png' -selection clipboard
+    selection="$(${slurp}/bin/slurp)"
+    ${grim}/bin/grim -g "$selection" - | ${wl-clipboard}/bin/wl-copy -t "image/png"
   '';
 
   llm-ocr-area = pkgs.writeShellScriptBin "llm-ocr-area" ''
-    selection="$(${pkgs.slop}/bin/slop -f "-i %i -g %g")"
-    ${pkgs.shotgun}/bin/shotgun $selection - | ${pkgs.llm}/bin/llm -m "gpt-4o" -a - "Please output your best guess at the Japanese characters in this image. Do not output any other text." | ${pkgs.xclip}/bin/xclip -selection clipboard
+    selection="$(${slurp}/bin/slurp)"
+    ${grim}/bin/grim -g "$selection" - | ${llm}/bin/llm -m "gpt-4o" -a - "Please output your best guess at the Japanese characters in this image. Do not output any other text." | ${pkgs.wl-clipboard}/bin/wl-copy
   '';
 
 }

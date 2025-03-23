@@ -100,7 +100,6 @@ in
 
   programs.niri.settings = {
     input = {
-      warp-mouse-to-focus = true;
       focus-follows-mouse = {
         enable            = true;
         max-scroll-amount = "0%";

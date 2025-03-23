@@ -59,6 +59,10 @@ in
 
     screenshot-area
     llm-ocr-area
+    sway-contrib.grimshot
+    wl-clipboard
+    wayout
+    wlay
 
     tmux
     xsel
@@ -70,6 +74,34 @@ in
   home.file.".aspell.conf".text = "data-dir ${pkgs.aspell}/lib/aspell";
 
   home.sessionVariables = sessionVariables;
+
+  programs.niri.settings = {
+    outputs."DP-3" = {
+      mode = {
+        width = 2560;
+        height = 1440;
+        refresh = 75.0;
+      };
+      position = {
+        x = 1440;
+        y = 550;
+      };
+    };
+    outputs."HDMI-A-1" = {
+      position = {
+        x = 0;
+        y = 0;
+      };
+      mode = {
+        width = 2560;
+        height = 1440;
+        refresh = 75.0;
+      };
+      transform = {
+        rotation = 90;
+      };
+    };
+  };
 
   programs.alacritty = {
     enable = true;

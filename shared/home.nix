@@ -111,9 +111,6 @@ in
     zip
     zsh-powerlevel10k
 
-    sway-contrib.grimshot
-    wl-clipboard
-
     (hiPrio clang_16)
     awscli2
     bc

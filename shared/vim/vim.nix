@@ -26,6 +26,13 @@ in
           let g:airline#extensions#tabline#buffer_idx_mode = 1
         '';
       })
+      {
+        plugin = vim-easy-align;
+        config = ''
+          xmap ga <Plug>(EasyAlign)
+          nmap ga <Plug>(EasyAlign)
+        '';
+      }
       vim-surround
       vim-repeat
       vim-dispatch

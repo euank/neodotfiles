@@ -103,6 +103,10 @@ in
     };
   };
 
+  programs.waybar = {
+    enable = true;
+  };
+
   programs.alacritty = {
     enable = true;
     settings = {

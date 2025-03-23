@@ -58,6 +58,8 @@ in
     tig
     unzip
 
+    libnotify
+    swaynotificationcenter
     slurp
     grim
     screenshot-area
@@ -211,14 +213,14 @@ in
     enable = true;
     settings =
       let
-        niri = pkgs.niri;
+        niri = "${pkgs.niri}/bin/niri";
+        swaync-client = "${pkgs.swaynotificationcenter}/bin/swaync-client";
       in
       {
         mainBar = {
           layer = "top";
           position = "top";
           modules-left = [
-            "custom/start"
             "custom/right-arrow-dark"
             "niri/workspaces"
             # "niri/window"
@@ -239,16 +241,10 @@ in
             "disk"
             "custom/left-arrow-light"
             "network"
-            "niri/language"
+            "custom/notifications"
             "custom/left-arrow-dark"
             "tray"
           ];
-
-          "niri/language" = {
-            format = "{shortDescription}";
-            on-click = "${niri} msg action switch-layout next";
-            on-click-right = "${niri} msg action switch-layout prev";
-          };
 
           "niri/workspaces" = {
             all-outputs = false;
@@ -293,6 +289,25 @@ in
           "custom/right-arrow-light" = {
             format = "";
             tooltip = false;
+          };
+          "custom/notifications" = {
+            format = "{icon}";
+            tooltip = false;
+            format-icons = {
+              notification = "<span foreground='red'><sup></sup></span>";
+              none = "";
+              dnd-notification = "<span foreground='red'><sup></sup></span>";
+              dnd-none = "";
+              inhibited-notification = "<span foreground='red'><sup></sup></span>";
+              inhibited-none = "";
+              dnd-inhibited-notification = "<span foreground='red'><sup></sup></span>";
+              dnd-inhibited-none = "";
+            };
+            return-type    = "json";
+            exec           = "${swaync-client} -swb";
+            on-click       = "${swaync-client} -t -sw";
+            on-click-right = "${swaync-client} -d -sw";
+            escape         = true;
           };
 
           mpris = {
@@ -429,7 +444,20 @@ in
 
   services.status-notifier-watcher.enable = true;
 
-  services.dunst.enable = true;
+  systemd.user.services.swaync = {
+    Unit = {
+      Description = "notifications";
+      After = [ "graphical-session-pre.target" ];
+      PartOf = [ "graphical-session.target" ];
+    };
+    Install = {
+      WantedBy = [ "graphical-session.target" ];
+    };
+    Service = {
+      ExecStart = "${pkgs.swaynotificationcenter}/bin/swaync";
+      Restart = "on-failure";
+    };
+  };
 
   systemd.user.services.maestral = {
     Unit = {

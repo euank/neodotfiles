@@ -15,6 +15,13 @@
     # nickel.url = "github:tweag/nickel";
     gitspice.url = "github:euank/nixpkgs/git-spice-0_12_0";
 
+    niri = {
+      url = "github:sodiboo/niri-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+
+
     # Magic unimportable things
     ngrok-dev.url = "git+file:/home/esk/dev/ngrok?dir=nix";
     ngrok-dev2.url = "path:/home/esk/nix-ngrok-dev";
@@ -36,6 +43,7 @@
         overlays = [
           ekverlay.overlays.default
           nixek.overlay
+          inputs.niri.overlays.niri
           (
             final: prev:
             {
@@ -71,29 +79,39 @@
           specialArgs = {
             inherit inputs;
           };
-          modules = [ ./enkidudu/configuration.nix ];
+          modules = [
+            inputs.niri.nixosModules.niri
+            ./enkidudu/configuration.nix
+          ];
         };
         jane = nixpkgs.lib.nixosSystem {
           inherit pkgs system;
           specialArgs = {
             inherit inputs;
           };
-          modules = [ ./jane/configuration.nix ];
+          modules = [
+            ./jane/configuration.nix
+          ];
         };
         pascal = nixpkgs.lib.nixosSystem {
           inherit pkgs system;
           specialArgs = {
             inherit inputs;
           };
-          modules = [ ./pascal/configuration.nix ];
+          modules = [
+            inputs.niri.nixosModules.niri
+            ./pascal/configuration.nix
+          ];
         };
-
         demerzel = nixpkgs.lib.nixosSystem {
           inherit pkgs system;
           specialArgs = {
             inherit inputs;
           };
-          modules = [ ./demerzel/configuration.nix ];
+          modules = [
+            inputs.niri.nixosModules.niri
+            ./demerzel/configuration.nix
+          ];
         };
       };
 

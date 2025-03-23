@@ -10,7 +10,9 @@ let
   };
 in
 {
-  imports = [ ./home.nix ];
+  imports = [
+    ./home.nix
+  ];
 
   home.packages = with pkgs; [
     # chromium

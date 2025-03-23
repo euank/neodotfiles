@@ -59,7 +59,7 @@ in
   services.blueman-applet.enable = true;
 
   xsession = {
-    enable = true;
+    enable = false;
     preferStatusNotifierItems = true;
     windowManager.xmonad = {
       enable = true;
@@ -69,32 +69,16 @@ in
   };
 
   services.screen-locker = {
-    enable = true;
+    enable = false;
     lockCmd = "${pkgs.i3lock}/bin/i3lock";
   };
 
   services.taffybar = {
-    enable = true;
+    enable = false;
   };
 
   services.pasystray = {
     enable = true;
-  };
-
-  systemd.user.services.nitrogen = {
-    Unit = {
-      Description = "Nitrogen";
-      After = [ "graphical-session-pre.target" ];
-      PartOf = [ "graphical-session.target" ];
-    };
-
-    Service = {
-      Type = "oneshot";
-      ExecStart = "${pkgs.nitrogen}/bin/nitrogen --random --head=-1 --set-tiled /home/esk/Images/wallpaper";
-    };
-    Install = {
-      WantedBy = [ "graphical-session.target" ];
-    };
   };
 
   xdg = {

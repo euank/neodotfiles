@@ -1,4 +1,4 @@
-{ pkgs, inputs, ... }:
+{ pkgs, ... }:
 
 # desktop.nix contains shared configuration for a machine which runs a desktop
 # environment. The desktop environment is x11, and the actual window manager is
@@ -8,15 +8,13 @@
   imports = [ ./base.nix ];
   services.xserver = {
     enable = true;
+    displayManager.gdm = {
+      enable = true;
+      wayland = true;
+    };
     xkb.layout = "us";
-    displayManager.session = [
-      {
-        name = "dummy";
-        manage = "window";
-        start = "";
-      }
-    ];
   };
+  programs.niri.enable = true;
   services.avahi = {
     enable = true;
     nssmdns4 = true;
@@ -81,6 +79,7 @@
         fcitx5-tokyonight
       ];
       ignoreUserConfig = true;
+      waylandFrontend = true;
       settings.globalOptions = {
         Hotkey = {
           EnumerateWithTriggerKeys = "True";
@@ -150,10 +149,12 @@
   environment.systemPackages = with pkgs; [
     blueman
     dmenu
+    fuzzel
     gnupg
+    gparted
     helvum
     meslo-lg
+    niri
     pcsclite
-    gparted
   ];
 }

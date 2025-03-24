@@ -42,8 +42,6 @@
     pinentryPackage = pkgs.pinentry-gtk2;
   };
 
-  services.picom.enable = true;
-
   xsession = {
     enable = true;
     preferStatusNotifierItems = true;

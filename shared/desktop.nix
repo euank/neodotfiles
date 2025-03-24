@@ -153,6 +153,7 @@
   environment.systemPackages = with pkgs; [
     blueman
     dmenu
+    rmenu
     fuzzel
     gnupg
     gparted

@@ -71,6 +71,8 @@ in
     xwayland-run
     xwayland-satellite
 
+    wldash
+    rmenu
     tmux
     xsel
     xorg.xkill
@@ -138,9 +140,11 @@ in
         })
         {
           "Mod+T"       = "alacritty";
-          "Mod+D"       = "fuzzel";
+          "Mod+Return"  = "alacritty";
+          "Mod+D"       = ["rmenu" "-r" "drun"];
+          "Mod+Shift+D" = "wldash";
           "Super+Alt+L" = "swaylock";
-          "Mod+Print"  = "llm-ocr-area";
+          "Mod+Print"   = "llm-ocr-area";
         }
       )
       // (pkgs.lib.mapAttrs (_: str: { action."${str}" = [ ]; }) {
@@ -340,7 +344,7 @@ in
             tooltip-format-ethernet = "{ifname} {ipaddr}/{cidr}";
             tooltip-format-disconnected = "Disconnected";
             max-length = 50;
-            on-click = "${pkgs.rmenu} -r network";
+            on-click = "${pkgs.rmenu}/bin/rmenu -r network";
           };
           clock = {
             format = "{:%H:%M}";

@@ -189,6 +189,7 @@ in
 
   programs.waybar = {
     enable = true;
+    systemd.enable = true;
     settings =
       let
         niri = "${pkgs.niri}/bin/niri";

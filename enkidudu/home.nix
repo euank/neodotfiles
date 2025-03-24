@@ -81,6 +81,35 @@ in
     enable = true;
   };
 
+  programs.niri.settings = {
+    outputs."DP-3" = {
+      mode = {
+        width = 2560;
+        height = 1440;
+        refresh = 75.0;
+      };
+      position = {
+        x = 1440;
+        y = 550;
+      };
+    };
+    outputs."HDMI-A-1" = {
+      position = {
+        x = 0;
+        y = 0;
+      };
+      mode = {
+        width = 2560;
+        height = 1440;
+        refresh = 75.0;
+      };
+      transform = {
+        rotation = 90;
+      };
+    };
+  };
+
+
   xdg = {
     desktopEntries = {
       # firefox-def = {

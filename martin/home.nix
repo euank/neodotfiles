@@ -49,7 +49,14 @@ in
     pinentryPackage = pkgs.pinentry-gtk2;
   };
 
-  services.picom.enable = true;
+  programs.niri.settings.outputs."eDP-1" = {
+    mode = {
+      width = 2560;
+      height = 1440;
+      refresh = 60.0;
+    };
+    scale = 1.0;
+  };
 
   xsession = {
     enable = true;

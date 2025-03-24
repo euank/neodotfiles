@@ -101,38 +101,13 @@ in
   };
 
   programs.niri.settings = {
+    prefer-no-csd = true;
     input = {
       focus-follows-mouse = {
         enable            = true;
         max-scroll-amount = "0%";
       };
     };
-    outputs."DP-3" = {
-      mode = {
-        width = 2560;
-        height = 1440;
-        refresh = 75.0;
-      };
-      position = {
-        x = 1440;
-        y = 550;
-      };
-    };
-    outputs."HDMI-A-1" = {
-      position = {
-        x = 0;
-        y = 0;
-      };
-      mode = {
-        width = 2560;
-        height = 1440;
-        refresh = 75.0;
-      };
-      transform = {
-        rotation = 90;
-      };
-    };
-
     binds =
       (pkgs.lib.mapAttrs
         (_: str: {
@@ -143,7 +118,7 @@ in
           "Mod+Return"  = "alacritty";
           "Mod+D"       = ["rmenu" "-r" "drun"];
           "Mod+Shift+D" = "wldash";
-          "Super+Alt+L" = "swaylock";
+          "Super+L"     = "swaylock";
           "Mod+Print"   = "llm-ocr-area";
         }
       )

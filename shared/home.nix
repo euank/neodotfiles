@@ -145,12 +145,15 @@ in
     python3
     ruby
     rustup
+    d-spy
     # terraform
     boringtun
     onetun
     railway
     xclip
     xdg-desktop-portal-gtk
+    xdg-desktop-portal-gnome
+    xdg-desktop-portal-wlr
 
     # misc
     efibootmgr
@@ -216,13 +219,6 @@ in
 
   xdg = {
     enable = true;
-
-    portal = {
-      enable = true;
-      xdgOpenUsePortal = true;
-      extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
-      config.common.default = [ "*" ];
-    };
 
     userDirs = {
       enable = true;

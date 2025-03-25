@@ -28,7 +28,12 @@
     extraPortals = [
       pkgs.xdg-desktop-portal-gtk
       pkgs.xdg-desktop-portal-gnome
+      pkgs.xdg-desktop-portal-wlr
     ];
+    config.niri = {
+      # gnome has a working window-picker, wlr doesn't, use gnome.
+      "org.freedesktop.impl.portal.ScreenCast" = "gnome";
+    };
     config.common.default = [ "*" ];
   };
 
@@ -43,14 +48,14 @@
 
   services.gnome.gnome-keyring.enable = true;
 
-  hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
     alsa.enable = true;
     alsa.support32Bit = true;
-    pulse.enable = true;
     jack.enable = true;
+    pulse.enable = true;
+    wireplumber.enable = true;
   };
   hardware.bluetooth.enable = true;
   services.blueman.enable = true;

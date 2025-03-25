@@ -12,6 +12,8 @@ let
 
     COWPATH = "${pkgs.cowsay}/share/cows:${pkgs.tewisay}/share/tewisay/cows";
     NIXOS_OZONE_WL = "1";
+    # TODO: remove this workaround
+    __HM_SESS_VARS_SOURCED = "";
   };
 in
 {
@@ -166,6 +168,7 @@ in
   ];
 
   home.sessionVariables = sessionVariables;
+  systemd.user.sessionVariables = config.home.sessionVariables;
 
   programs.autorandr.enable = true;
 
@@ -176,7 +179,6 @@ in
     history = {
       save = 1000000;
     };
-    sessionVariables = sessionVariables;
     shellAliases = {
       ls = "ls --color=auto";
       k = "kubectl";

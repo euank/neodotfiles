@@ -1,6 +1,11 @@
 { pkgs }:
 let
-  inherit (pkgs) grim slurp llm wl-clipboard;
+  inherit (pkgs)
+    grim
+    slurp
+    llm
+    wl-clipboard
+    ;
 in
 {
   screenshot-area = pkgs.writeShellScriptBin "screenshot-area" ''

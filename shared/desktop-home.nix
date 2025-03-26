@@ -2,14 +2,6 @@
 
 { pkgs, ... }:
 
-let
-  sessionVariables = {
-    EDITOR = "nvim";
-    GLFW_SO_PATH = "${pkgs.glfw3}/lib/libglfw.so";
-    OPENAL_SO_PATH = "${pkgs.openal}/lib/libopenal.so";
-    DISPLAY = ":0"; # xwayland
-  };
-in
 {
   imports = [
     ./home.nix
@@ -82,19 +74,18 @@ in
 
   home.file.".aspell.conf".text = "data-dir ${pkgs.aspell}/lib/aspell";
 
-  home.sessionVariables = sessionVariables;
   systemd.user.services.xwayland-satellite = {
     Unit = {
       Description = "Xwayland outside your Wayland";
-      BindsTo     = "graphical-session.target";
-      PartOf      = "graphical-session.target";
-      After       = "graphical-session.target";
-      Requisite   = "graphical-session.target";
+      BindsTo = "graphical-session.target";
+      PartOf = "graphical-session.target";
+      After = "graphical-session.target";
+      Requisite = "graphical-session.target";
     };
     Service = {
-      Type           = "notify";
-      NotifyAccess   = "all";
-      ExecStart      = "${pkgs.xwayland-satellite}/bin/xwayland-satellite";
+      Type = "notify";
+      NotifyAccess = "all";
+      ExecStart = "${pkgs.xwayland-satellite}/bin/xwayland-satellite";
       StandardOutput = "journal";
     };
     Install.WantedBy = [ "graphical-session.target" ];
@@ -104,7 +95,7 @@ in
     prefer-no-csd = true;
     input = {
       focus-follows-mouse = {
-        enable            = true;
+        enable = true;
         max-scroll-amount = "0%";
       };
     };
@@ -114,12 +105,16 @@ in
           action.spawn = str;
         })
         {
-          "Mod+T"       = "alacritty";
-          "Mod+Return"  = "alacritty";
-          "Mod+D"       = ["rmenu" "-r" "drun"];
+          "Mod+T" = "alacritty";
+          "Mod+Return" = "alacritty";
+          "Mod+D" = [
+            "rmenu"
+            "-r"
+            "drun"
+          ];
           "Mod+Shift+D" = "wldash";
-          "Super+L"     = "swaylock";
-          "Mod+Print"   = "llm-ocr-area";
+          "Super+L" = "swaylock";
+          "Mod+Print" = "llm-ocr-area";
         }
       )
       // (pkgs.lib.mapAttrs (_: str: { action."${str}" = [ ]; }) {
@@ -185,6 +180,16 @@ in
           ]) 10
         )
       ));
+
+    spawn-at-startup = [
+      {
+        command = [
+          "sh"
+          "-c"
+          "${pkgs.dbus}/bin/dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
+        ];
+      }
+    ];
   };
 
   programs.waybar = {
@@ -282,11 +287,11 @@ in
               dnd-inhibited-notification = "<span foreground='red'><sup></sup></span>";
               dnd-inhibited-none = "";
             };
-            return-type    = "json";
-            exec           = "${swaync-client} -swb";
-            on-click       = "${swaync-client} -t -sw";
+            return-type = "json";
+            exec = "${swaync-client} -swb";
+            on-click = "${swaync-client} -t -sw";
             on-click-right = "${swaync-client} -d -sw";
-            escape         = true;
+            escape = true;
           };
 
           mpris = {

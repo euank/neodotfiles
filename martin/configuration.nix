@@ -12,7 +12,11 @@ in
     ../shared/desktop.nix
   ];
 
-  fileSystems."/".options = ["noatime" "nodiratime" "discard" ];
+  fileSystems."/".options = [
+    "noatime"
+    "nodiratime"
+    "discard"
+  ];
 
   hardware.enableRedistributableFirmware = true;
   boot.loader.systemd-boot.enable = true;
@@ -30,10 +34,17 @@ in
   networking.hostName = "martin";
   networking.hostId = "473650f9";
   networking.networkmanager.enable = true;
-  networking.networkmanager.unmanaged = [ "wg0" "docker0" "br*" ];
+  networking.networkmanager.unmanaged = [
+    "wg0"
+    "docker0"
+    "br*"
+  ];
   systemd.services.NetworkManager-wait-online.enable = false;
   networking.networkmanager.dhcp = "dhcpcd";
-  networking.nameservers = [ "8.8.8.8" "2001:4860:4860::8888" ];
+  networking.nameservers = [
+    "8.8.8.8"
+    "2001:4860:4860::8888"
+  ];
   networking.dhcpcd.enable = false;
 
   boot.kernel.sysctl."net.ipv4.ip_forward" = 1;
@@ -47,7 +58,7 @@ in
   virtualisation.docker.enable = true;
   # virtualisation.libvirtd.enable = true;
   virtualisation.virtualbox.host.enable = false;
-  virtualisation.virtualbox.host.enableExtensionPack  = true;
+  virtualisation.virtualbox.host.enableExtensionPack = true;
 
   services.bind.extraOptions = ''
     dnssec-validation no;

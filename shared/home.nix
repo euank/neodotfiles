@@ -10,6 +10,10 @@ let
     NIX_DEBUG_INFO_DIRS = "/run/dwarffs";
     PROTOC = "${pkgs.protobuf}/bin/protoc";
 
+    GLFW_SO_PATH = "${pkgs.glfw3}/lib/libglfw.so";
+    OPENAL_SO_PATH = "${pkgs.openal}/lib/libopenal.so";
+    DISPLAY = ":0"; # xwayland
+
     COWPATH = "${pkgs.cowsay}/share/cows:${pkgs.tewisay}/share/tewisay/cows";
     NIXOS_OZONE_WL = "1";
     # TODO: remove this workaround

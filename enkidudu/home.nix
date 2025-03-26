@@ -109,7 +109,6 @@ in
     };
   };
 
-
   xdg = {
     desktopEntries = {
       # firefox-def = {

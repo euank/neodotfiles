@@ -11,7 +11,6 @@
     # chromium
     # obs-studio
     anyrun
-    swaylock
 
     (aspellWithDicts (ps: with ps; [ en ]))
     networkmanagerapplet
@@ -91,6 +90,19 @@
     Install.WantedBy = [ "graphical-session.target" ];
   };
 
+  programs.swaylock = {
+    enable = true;
+    package = pkgs.swaylock-effects;
+    settings = {
+      clock = true;
+      indicator = true;
+      fade-in = "1";
+      timestr = "%H:%M";
+      datestr = "%Y年%m月%d日";
+      font = "Takao Pゴシック";
+    };
+  };
+
   programs.niri.settings = {
     prefer-no-csd = true;
     environment = {
@@ -116,7 +128,7 @@
             "drun"
           ];
           "Mod+Shift+D" = "wldash";
-          "Mod+L" = "swaylock";
+          "Mod+Ctrl+L" = "swaylock";
           "Mod+Print" = "llm-ocr-area";
         }
       )
@@ -129,24 +141,22 @@
         "Mod+J" = "focus-window-down";
         "Mod+K" = "focus-window-up";
         "Mod+L" = "focus-column-right";
-        "Mod+Ctrl+Left" = "move-column-left";
-        "Mod+Ctrl+Down" = "move-window-down";
-        "Mod+Ctrl+Up" = "move-window-up";
-        "Mod+Ctrl+Right" = "move-column-right";
-        "Mod+Ctrl+H" = "move-column-left";
-        "Mod+Ctrl+J" = "move-window-down";
-        "Mod+Ctrl+K" = "move-window-up";
-        "Mod+Ctrl+L" = "move-column-right";
+        "Mod+Shift+Left" = "move-column-left";
+        "Mod+Shift+Down" = "move-window-down";
+        "Mod+Shift+Up" = "move-window-up";
+        "Mod+Shift+Right" = "move-column-right";
+        "Mod+Shift+H" = "move-column-left";
+        "Mod+Shift+J" = "move-window-down";
+        "Mod+Shift+K" = "move-window-up";
+        "Mod+Shift+L" = "move-column-right";
         "Mod+Home" = "focus-column-first";
         "Mod+End" = "focus-column-last";
-        "Mod+Shift+Left" = "focus-monitor-left";
-        "Mod+Shift+Right" = "focus-monitor-right";
-        "Mod+Shift+H" = "focus-monitor-left";
-        "Mod+Shift+L" = "focus-monitor-right";
-        "Mod+Shift+Ctrl+Left" = "move-column-to-monitor-left";
-        "Mod+Shift+Ctrl+Right" = "move-column-to-monitor-right";
-        "Mod+Shift+Ctrl+H" = "move-column-to-monitor-left";
-        "Mod+Shift+Ctrl+L" = "move-column-to-monitor-right";
+        "Mod+W" = "focus-monitor-left";
+        "Mod+E" = "focus-monitor-right";
+        "Mod+Shift+W" = "move-window-to-monitor-left";
+        "Mod+Shift+E" = "move-window-to-monitor-right";
+        "Mod+Shift+Ctrl+W" = "move-column-to-monitor-left";
+        "Mod+Shift+Ctrl+E" = "move-column-to-monitor-right";
 
         "Mod+Ctrl+Home" = "move-column-to-first";
         "Mod+Ctrl+End" = "move-column-to-last";
@@ -159,7 +169,7 @@
         "Mod+R" = "switch-preset-column-width";
         "Mod+F" = "maximize-column";
         "Mod+Shift+F" = "fullscreen-window";
-        "Mod+Shift+K" = "quit";
+        "Mod+Shift+Q" = "quit";
 
         "Print" = "screenshot";
         "Ctrl+Print" = "screenshot-screen";

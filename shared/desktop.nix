@@ -78,6 +78,7 @@
       noto-fonts-cjk-sans
       noto-fonts-emoji
       ubuntu_font_family
+      takao
     ];
   };
 

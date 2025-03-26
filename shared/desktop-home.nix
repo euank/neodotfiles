@@ -116,7 +116,7 @@
             "drun"
           ];
           "Mod+Shift+D" = "wldash";
-          "Super+L" = "swaylock";
+          "Mod+L" = "swaylock";
           "Mod+Print" = "llm-ocr-area";
         }
       )

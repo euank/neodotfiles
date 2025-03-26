@@ -392,6 +392,7 @@
           };
           tray = {
             icon-size = 20;
+            show-passive-items = true;
           };
         };
       };

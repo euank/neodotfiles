@@ -93,6 +93,9 @@
 
   programs.niri.settings = {
     prefer-no-csd = true;
+    environment = {
+      DISPLAY = ":0";
+    };
     input = {
       focus-follows-mouse = {
         enable = true;

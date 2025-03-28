@@ -23,6 +23,7 @@ in
     darktable
     exiftool
     handbrake
+    claude-code
 
     # vlc
 

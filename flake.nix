@@ -69,7 +69,7 @@
     {
       inherit pkgs;
 
-      formatter.x86_64-linux = pkgs.nixfmt-rfc-style;
+      formatter.x86_64-linux = pkgs.nixfmt-tree;
 
       nixosConfigurations = {
         Enkidudu = nixpkgs.lib.nixosSystem {

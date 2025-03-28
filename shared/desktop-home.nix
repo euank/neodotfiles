@@ -105,6 +105,7 @@
 
   programs.niri.settings = {
     prefer-no-csd = true;
+    animations.slowdown = 0.5;
     environment = {
       DISPLAY = ":0";
     };

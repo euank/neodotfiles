@@ -57,10 +57,6 @@
     lockCmd = "${pkgs.i3lock}/bin/i3lock";
   };
 
-  services.taffybar = {
-    enable = true;
-  };
-
   services.pasystray = {
     enable = true;
   };

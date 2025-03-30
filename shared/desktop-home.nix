@@ -213,6 +213,7 @@
             title = ''^notificationtoasts_\d+_desktop$'';
           }
         ];
+        open-focused = false;
         default-floating-position = {
           x = -10;
           y = -10;

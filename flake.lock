@@ -1,5 +1,21 @@
 {
   "nodes": {
+    "anki": {
+      "locked": {
+        "lastModified": 1743430731,
+        "narHash": "sha256-97jiGi9ogL82y/Eh0HPAtdDjqEXh1UG+7VwVEOS1XZY=",
+        "owner": "euank",
+        "repo": "nixpkgs",
+        "rev": "865c7d2a81be8b463cffc3daca5570ff33f86642",
+        "type": "github"
+      },
+      "original": {
+        "owner": "euank",
+        "ref": "anki-2025-03-31",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "ekverlay": {
       "inputs": {
         "nixpkgs": "nixpkgs"
@@ -52,22 +68,6 @@
       "original": {
         "owner": "numtide",
         "repo": "flake-utils",
-        "type": "github"
-      }
-    },
-    "gitspice": {
-      "locked": {
-        "lastModified": 1741307144,
-        "narHash": "sha256-CYKBgNxOYpFEjldavJgKUiP18S2x7wtnEFi6I/hbw/k=",
-        "owner": "euank",
-        "repo": "nixpkgs",
-        "rev": "b5634dac85ebdf8742d9be605e309a51dfdb9f4c",
-        "type": "github"
-      },
-      "original": {
-        "owner": "euank",
-        "ref": "git-spice-0_12_0",
-        "repo": "nixpkgs",
         "type": "github"
       }
     },
@@ -502,16 +502,16 @@
     },
     "nixpkgs_8": {
       "locked": {
-        "lastModified": 1743259260,
-        "narHash": "sha256-ArWLUgRm1tKHiqlhnymyVqi5kLNCK5ghvm06mfCl4QY=",
+        "lastModified": 1743315132,
+        "narHash": "sha256-6hl6L/tRnwubHcA4pfUUtk542wn2Om+D4UnDhlDW9BE=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "eb0e0f21f15c559d2ac7633dc81d079d1caf5f5f",
+        "rev": "52faf482a3889b7619003c0daec593a1912fddc1",
         "type": "github"
       },
       "original": {
         "owner": "NixOS",
-        "ref": "nixpkgs-unstable",
+        "ref": "nixos-unstable",
         "repo": "nixpkgs",
         "type": "github"
       }
@@ -532,8 +532,8 @@
     },
     "root": {
       "inputs": {
+        "anki": "anki",
         "ekverlay": "ekverlay",
-        "gitspice": "gitspice",
         "home-manager": "home-manager",
         "mvn2nix": "mvn2nix",
         "ngrok-dev": "ngrok-dev",

@@ -2,9 +2,7 @@
   description = "euank nix dotfile flakes";
 
   inputs = {
-    # temporarily nixpkgs-unstable for https://nixpk.gs/pr-tracker.html?pr=356590
-    # switch back to nixos later
-    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     home-manager.url = "github:nix-community/home-manager";
     ekverlay.url = "github:euank/nixek-overlay";
@@ -13,7 +11,9 @@
     # gradle2nix.url = "github:tadfisher/gradle2nix";
     # dwarffs.url = "github:edolstra/dwarffs";
     # nickel.url = "github:tweag/nickel";
-    gitspice.url = "github:euank/nixpkgs/git-spice-0_12_0";
+
+    # https://github.com/NixOS/nixpkgs/pull/392737
+    anki.url = "github:euank/nixpkgs/anki-2025-03-31";
 
     niri = {
       url = "github:sodiboo/niri-flake";
@@ -45,7 +45,7 @@
           (
             final: prev:
             {
-              git-spice = inputs.gitspice.legacyPackages."${system}".git-spice;
+              inherit (inputs.anki.legacyPackages."${system}") anki;
               gopls = prev.gopls.override { buildGoModule = final.buildGo124Module; };
               # temporarily for https://github.com/NixOS/nixpkgs/pull/334858
               mvn2nix = mvn2nix.defaultPackage.x86_64-linux;

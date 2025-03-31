@@ -91,7 +91,6 @@ in
     pwgen
     redis
     ripgrep
-    semgrep
     shotgun
     sqlite
     sqlite.dev

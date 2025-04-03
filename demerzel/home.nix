@@ -42,8 +42,17 @@
     pinentryPackage = pkgs.pinentry-gtk2;
   };
 
+  programs.niri.settings.outputs."eDP-1" = {
+    mode = {
+      width = 2160;
+      height = 1350;
+      refresh = 60.0;
+    };
+    scale = 1.0;
+  };
+
   xsession = {
-    enable = true;
+    enable = false;
     preferStatusNotifierItems = true;
     windowManager.xmonad = {
       enable = true;
@@ -52,29 +61,8 @@
     };
   };
 
-  services.screen-locker = {
-    enable = true;
-    lockCmd = "${pkgs.i3lock}/bin/i3lock";
-  };
-
   services.pasystray = {
     enable = true;
-  };
-
-  systemd.user.services.nitrogen = {
-    Unit = {
-      Description = "Nitrogen";
-      After = [ "graphical-session-pre.target" ];
-      PartOf = [ "graphical-session.target" ];
-    };
-
-    Service = {
-      Type = "oneshot";
-      ExecStart = "${pkgs.nitrogen}/bin/nitrogen --random --head=-1 --set-tiled /home/esk/Images/wallpaper";
-    };
-    Install = {
-      WantedBy = [ "graphical-session.target" ];
-    };
   };
 
   xdg = {

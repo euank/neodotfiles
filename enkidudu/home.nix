@@ -69,11 +69,6 @@ in
     };
   };
 
-  services.screen-locker = {
-    enable = false;
-    lockCmd = "${pkgs.i3lock}/bin/i3lock";
-  };
-
   services.pasystray = {
     enable = true;
   };

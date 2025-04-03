@@ -14,7 +14,7 @@
 
     (aspellWithDicts (ps: with ps; [ en ]))
     networkmanagerapplet
-    anki
+    # anki
     arandr
     dmenu
     bemenu

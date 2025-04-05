@@ -30,6 +30,7 @@ in
     borgbackup
     cfssl
     darktable
+    exiftool
     # temporary due to nix issues
     colmena
     cntr

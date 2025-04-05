@@ -21,7 +21,6 @@ in
   home.packages = with pkgs; [
     calibre
     darktable
-    exiftool
     handbrake
     claude-code
 

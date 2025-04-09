@@ -11,6 +11,7 @@
     # chromium
     # obs-studio
     anyrun
+    cherry-studio
 
     (aspellWithDicts (ps: with ps; [ en ]))
     networkmanagerapplet

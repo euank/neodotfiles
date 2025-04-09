@@ -22,7 +22,6 @@ in
     calibre
     darktable
     handbrake
-    claude-code
 
     # vlc
 

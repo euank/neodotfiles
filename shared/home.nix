@@ -25,6 +25,7 @@ in
     autorandr
     amazon-ecr-credential-helper
     atuin
+    claude-code
     # ast-grep
     binutils
     borgbackup

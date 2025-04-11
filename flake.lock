@@ -2,16 +2,16 @@
   "nodes": {
     "anki": {
       "locked": {
-        "lastModified": 1743432230,
-        "narHash": "sha256-5nXj3snAJWduLNOswHBDW/jJQlsAYAvmLO6MLOxQnV8=",
+        "lastModified": 1744389039,
+        "narHash": "sha256-4saYsP+vknzjYO3Ei8NSWqHytevvj0Twx4DnYPoteoM=",
         "owner": "euank",
         "repo": "nixpkgs",
-        "rev": "3b3f7a0920328854bf8a17b727586d93bc6ca34f",
+        "rev": "a37dbb7e44afe0aa26edd23cab200852a3c91b8b",
         "type": "github"
       },
       "original": {
         "owner": "euank",
-        "ref": "anki-2025-03-31-2",
+        "ref": "anki-2025-04-12",
         "repo": "nixpkgs",
         "type": "github"
       }

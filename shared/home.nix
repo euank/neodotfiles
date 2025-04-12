@@ -114,6 +114,7 @@ in
     xdg-utils
     xan
     slop
+    voicevox
     zed-editor
     zip
     zsh-powerlevel10k

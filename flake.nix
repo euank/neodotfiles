@@ -10,7 +10,7 @@
     mvn2nix.url = "github:fzakaria/mvn2nix";
     # gradle2nix.url = "github:tadfisher/gradle2nix";
     # dwarffs.url = "github:edolstra/dwarffs";
-    # nickel.url = "github:tweag/nickel";
+    nickel.url = "github:tweag/nickel";
 
     # https://github.com/NixOS/nixpkgs/pull/392737
     anki.url = "github:euank/nixpkgs/anki-2025-04-12";
@@ -50,7 +50,7 @@
               # temporarily for https://github.com/NixOS/nixpkgs/pull/334858
               mvn2nix = mvn2nix.defaultPackage.x86_64-linux;
               # gradle2nix = gradle2nix.defaultPackage.x86_64-linux;
-              # nickel = inputs.nickel.packages.x86_64-linux.default;
+              nickel = inputs.nickel.packages.x86_64-linux.default;
               vlc = prev.vlc.override {
                 libbluray = prev.libbluray.override {
                   withAACS = true;

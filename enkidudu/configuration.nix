@@ -21,8 +21,7 @@
     SUBSYSTEM=="usb", ATTRS{idVendor}=="0489", ATTRS{idProduct}=="e10a", ATTR{authorized}="0"
   '';
 
-  boot.kernelPackages = pkgs.linuxPackages_testing;
-  # boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelPackages = pkgs.linuxPackages_latest;
   # boot.kernelPackages = pkgs.linuxPackagesFor (pkgs.linux_6_13.override {
   #   argsOverride = {
   #     src = pkgs.fetchFromGitHub {

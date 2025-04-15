@@ -85,6 +85,7 @@ in
     onetun
     openssl
     nixd
+    parted
     postgresql
     p7zip
     pass

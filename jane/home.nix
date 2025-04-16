@@ -1,10 +1,5 @@
 { config, pkgs, ... }:
 
-let
-  sessionVariables = {
-    COWPATH = "${pkgs.cowsay}/share/cows:${pkgs.tewisay}/share/tewisay/cows";
-  };
-in
 {
 
   imports = [
@@ -14,19 +9,15 @@ in
 
   home.packages = with pkgs; [ ];
 
-  home.sessionVariables = sessionVariables;
-
   programs.alacritty = {
     enable = true;
   };
 
-  programs.home-manager.enable = true;
   programs.zsh = {
     enable = true;
     history = {
       save = 1000000;
     };
-    sessionVariables = sessionVariables;
     shellAliases = {
       ls = "ls --color=auto";
       k = "kubectl";

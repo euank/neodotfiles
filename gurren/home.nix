@@ -20,6 +20,25 @@
     enableSshSupport = true;
   };
 
+  programs.zsh = {
+    enable = true;
+    history = {
+      save = 1000000;
+    };
+    shellAliases = {
+      ls = "ls --color=auto";
+      k = "kubectl";
+    };
+    initExtra = ''
+      source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme
+      source "${../shared/zsh/p10k.zsh}"
+      source "${../shared/zsh/zshrc}"
+
+      export NGROK_HOME=/home/esk/dev/ngrok
+      source "/home/esk/dev/ngrok/.cache/ngrok-host-shellhook"
+    '';
+  };
+
   programs.niri.settings = {
     outputs."DP-3" = {
       mode = {

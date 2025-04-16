@@ -1,9 +1,13 @@
 {
   pkgs,
   config,
+  inputs,
   ...
 }:
 
+let
+  secrets = inputs.secrets.gurren;
+in
 {
   imports = [
     ./hardware-configuration.nix
@@ -19,35 +23,35 @@
       node = {
         create = false;
         name = "wg0";
-        ipv4 = "10.104.20.3";
+        ipv4 = "10.104.21.3";
       };
       dataplanes = {
         us = {
           mux = {
             create = false;
             name = "wg0";
-            ipv4 = "10.104.20.4";
-            ipv6 = "fe80::10:104:1:2";
+            ipv4 = "10.104.21.4";
+            ipv6 = "fe80::10:104:11:2";
           };
           tunnel = {
             create = false;
             name = "wg0";
-            ipv4 = "10.104.20.10";
-            ipv6 = "fe80::10:104:2:2";
+            ipv4 = "10.104.21.10";
+            ipv6 = "fe80::10:104:21:2";
           };
         };
         l2 = {
           mux = {
             create = false;
             name = "wg0";
-            ipv4 = "10.104.20.5";
-            ipv6 = "fe80::10:104:1:3";
+            ipv4 = "10.104.21.5";
+            ipv6 = "fe80::10:104:11:3";
           };
           tunnel = {
             create = false;
             name = "wg0";
-            ipv4 = "10.104.20.11";
-            ipv6 = "fe80::10:104:2:3";
+            ipv4 = "10.104.21.11";
+            ipv6 = "fe80::10:104:21:3";
           };
         };
       };
@@ -147,7 +151,6 @@
   boot.kernel.sysctl."net.ipv4.ip_forward" = 1;
 
   networking.useDHCP = false;
-  networking.firewall.enable = false;
 
   services.xserver.videoDrivers = [ "amdgpu" ];
   fonts.fontDir.enable = true;

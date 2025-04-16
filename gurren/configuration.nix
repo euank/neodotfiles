@@ -8,7 +8,79 @@
   imports = [
     ./hardware-configuration.nix
     ../shared/desktop.nix
+    inputs.ngrok-dev.nixosModules.default
   ];
+  services.ngrok-devenv = {
+    enable = true;
+    useNixBinaryCache = true;
+    userHome = "/home/esk";
+    repoRoot = "/home/esk/dev/ngrok";
+    interfaces = {
+      node = {
+        create = false;
+        name = "wg0";
+        ipv4 = "10.104.20.3";
+      };
+      dataplanes = {
+        us = {
+          mux = {
+            create = false;
+            name = "wg0";
+            ipv4 = "10.104.20.4";
+            ipv6 = "fe80::10:104:1:2";
+          };
+          tunnel = {
+            create = false;
+            name = "wg0";
+            ipv4 = "10.104.20.10";
+            ipv6 = "fe80::10:104:2:2";
+          };
+        };
+        l2 = {
+          mux = {
+            create = false;
+            name = "wg0";
+            ipv4 = "10.104.20.5";
+            ipv6 = "fe80::10:104:1:3";
+          };
+          tunnel = {
+            create = false;
+            name = "wg0";
+            ipv4 = "10.104.20.11";
+            ipv6 = "fe80::10:104:2:3";
+          };
+        };
+      };
+    };
+  };
+
+  services.bind = {
+    forwarders = [
+      "8.8.8.8"
+      "8.8.4.4"
+    ];
+  };
+
+  networking.wireguard = {
+    enable = true;
+    interfaces = {
+      wg0 = {
+        # ipip tunnel + wg
+        mtu = 1380;
+        ips = [ "10.104.20.0/25" ];
+        privateKey = secrets.wireguard.privateKey;
+        peers = [
+          {
+            allowedIPs = [ "10.104.0.0/16" ];
+            # Security by obscurity I guess, avoid publishing the endpoint too.
+            endpoint = secrets.wireguard.endpoint;
+            publicKey = "+pLrsgXAn4rH4e+gQWR03n02o2vDNiL1sDOXEYSrmGg=";
+            persistentKeepalive = 25;
+          }
+        ];
+      };
+    };
+  };
 
   hardware.enableAllFirmware = true;
   boot.extraModprobeConfig = ''
@@ -88,6 +160,26 @@
   virtualisation.virtualbox.host.enable = false;
   virtualisation.virtualbox.host.enableExtensionPack = true;
   virtualisation.libvirtd.enable = false;
+
+  environment.systemPackages = with pkgs; [
+    keybase
+    alacritty
+  ];
+  services.openssh.ports = [ 222 ];
+
+  networking.firewall.enable = false;
+  networking.firewall.allowedTCPPorts = [
+    22
+    222
+    80
+    443
+    6443
+    8080
+    9090
+  ];
+  networking.firewall.extraCommands = ''
+    iptables -A INPUT -i wg0 -j ACCEPT
+  '';
 
   home-manager.users.esk = import ./home.nix;
 

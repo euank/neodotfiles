@@ -65,17 +65,6 @@ in
     ];
   };
 
-  services.postgresql = {
-    enable = true;
-    package = pkgs.postgresql;
-    extraPlugins = with pkgs.postgresqlPackages; [ wal2json ];
-    settings = {
-      wal_level = "logical";
-      max_replication_slots = 10;
-      max_wal_senders = 10;
-    };
-  };
-
   networking.networkmanager.enable = true;
   systemd.services.NetworkManager-wait-online.enable = false;
   networking.networkmanager.dhcp = "dhcpcd";
@@ -161,8 +150,6 @@ in
 
   # Enable the OpenSSH daemon.
   services.openssh.ports = [ 222 ];
-  services.keybase.enable = true;
-  services.kbfs.enable = true;
 
   networking.firewall.enable = false;
   networking.firewall.allowedTCPPorts = [

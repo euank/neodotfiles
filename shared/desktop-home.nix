@@ -11,8 +11,7 @@
     # chromium
     # obs-studio
     anyrun
-    cherry-studio
-
+    aichat
     (aspellWithDicts (ps: with ps; [ en ]))
     networkmanagerapplet
     anki

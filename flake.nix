@@ -145,16 +145,11 @@
             "ngrok-dev2"
             "secrets"
           ] (lib.attrNames inputs);
-          updateInputFlags = lib.strings.concatMapStringsSep " " (s: "--update-input ${s}") pubInputs;
         in
         pkgs.writeShellScriptBin "nix-flake-update" ''
           export PATH=$PATH:${pkgs.nix}/bin
           set -x
-          if [[ "$(nix --version)" = *Lix* ]]; then
-            nix flake update ${lib.strings.concatStringsSep " " pubInputs}
-          else
-            nix flake lock ${updateInputFlags}
-          fi
+          nix flake update ${lib.strings.concatStringsSep " " pubInputs}
           set +x
         '';
     };

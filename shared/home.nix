@@ -71,7 +71,6 @@ in
     elinks
     ngrok
     xdotool
-    nickel
     nil
     nitrogen
     nix-index

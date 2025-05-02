@@ -22,6 +22,7 @@ in
     calibre
     darktable
     handbrake
+    nickel
 
     # vlc
 

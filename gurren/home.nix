@@ -29,7 +29,7 @@
       ls = "ls --color=auto";
       k = "kubectl";
     };
-    initExtra = ''
+    initContent = ''
       source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme
       source "${../shared/zsh/p10k.zsh}"
       source "${../shared/zsh/zshrc}"

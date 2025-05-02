@@ -37,7 +37,7 @@ in
 
   home.file.".aspell.conf".text = "data-dir ${pkgs.aspell}/lib/aspell";
 
-  programs.zsh.initExtraFirst = ''
+  programs.zsh.initContent = pkgs.lib.mkBefore ''
     export NGROK_HOME="/home/esk/dev/ngrok"
     source "/home/esk/dev/ngrok/.cache/ngrok-host-shellhook"
   '';
@@ -46,7 +46,7 @@ in
     enable = true;
     enableScDaemon = true;
     enableSshSupport = true;
-    pinentryPackage = pkgs.pinentry-gtk2;
+    pinentry.package = pkgs.pinentry-gtk2;
   };
 
   programs.niri.settings.outputs."eDP-1" = {

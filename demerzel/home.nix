@@ -30,7 +30,7 @@
 
   services.blueman-applet.enable = true;
 
-  programs.zsh.initExtraFirst = ''
+  programs.zsh.initContent = pkgs.lib.mkBefore ''
     export NGROK_HOME="/home/esk/dev/ngrok"
     source "/home/esk/dev/ngrok/.cache/ngrok-host-shellhook"
   '';
@@ -39,7 +39,7 @@
     enable = true;
     enableScDaemon = true;
     enableSshSupport = true;
-    pinentryPackage = pkgs.pinentry-gtk2;
+    pinentry.package = pkgs.pinentry-gtk2;
   };
 
   programs.niri.settings.outputs."eDP-1" = {

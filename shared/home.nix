@@ -27,6 +27,7 @@ in
     amazon-ecr-credential-helper
     atuin
     claude-code
+    devenv
     # ast-grep
     binutils
     borgbackup

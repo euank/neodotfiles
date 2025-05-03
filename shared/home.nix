@@ -55,7 +55,9 @@ in
     git-spice
     heaptrack
     htop
+    iperf3
     iptables
+    iputils
     iw
     jmtpfs
     jq
@@ -120,6 +122,7 @@ in
     zed-editor
     zip
     zsh-powerlevel10k
+    treefmt
 
     (hiPrio clang_16)
     awscli2

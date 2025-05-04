@@ -159,8 +159,8 @@
         "Mod+Shift+Ctrl+W" = "move-column-to-monitor-left";
         "Mod+Shift+Ctrl+E" = "move-column-to-monitor-right";
 
-        "Mod+Ctrl+Home" = "move-column-to-first";
-        "Mod+Ctrl+End" = "move-column-to-last";
+        "Mod+Shift+Home" = "move-column-to-first";
+        "Mod+Shift+End" = "move-column-to-last";
         "Mod+Shift+Slash" = "show-hotkey-overlay";
         "Mod+Q" = "close-window";
         "Mod+Comma" = "consume-window-into-column";
@@ -186,7 +186,7 @@
               };
             }
             {
-              name = "Mod+Ctrl+${toString i}";
+              name = "Mod+Shift+${toString i}";
               value = {
                 action."move-column-to-workspace" = i;
               };

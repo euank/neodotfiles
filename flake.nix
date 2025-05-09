@@ -9,6 +9,7 @@
     ekverlay.url = "github:euank/nixek-overlay";
     nixek.url = "github:nixek-systems/pkgs";
     mvn2nix.url = "github:fzakaria/mvn2nix";
+    zeditor.url = "github:HPsaucii/zed-editor-flake";
     # gradle2nix.url = "github:tadfisher/gradle2nix";
     # dwarffs.url = "github:edolstra/dwarffs";
     nickel.url = "github:tweag/nickel";
@@ -59,6 +60,8 @@
                   withBDplus = true;
                 };
               };
+
+              zed-editor = inputs.zeditor.packages.${system}.zed-editor;
             }
             // (import ./pkgs/scripts.nix { pkgs = final; })
           )

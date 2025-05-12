@@ -127,9 +127,8 @@ in
   networking.wireless.iwd = {
     enable = true;
     settings = {
+      DriverQuirks.UseDefaultInterface = true;
       General = {
-        # systemd-networkd renames interfaces for us
-        UseDefaultInterface = true;
         # Needed for some reason
         ControlPortOverNL80211 = false;
       };

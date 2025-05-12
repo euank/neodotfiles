@@ -54,12 +54,6 @@ in
   # Thank you to https://discourse.nixos.org/t/networkd-iwd-upgrades-knock-machines-offline/38300/2
   networking.wireless.iwd = {
     enable = true;
-    settings = {
-      General = {
-        # systemd-networkd renames ain interface for us
-        UseDefaultInterface = true;
-      };
-    };
   };
 
   networking.networkmanager.unmanaged = [

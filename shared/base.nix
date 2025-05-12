@@ -90,6 +90,7 @@
 
   nix = {
     settings = {
+      connect-timeout = 5;
       trusted-users = [
         "root"
         "esk"

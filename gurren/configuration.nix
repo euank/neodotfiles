@@ -96,25 +96,9 @@ in
     SUBSYSTEM=="usb", ATTRS{idVendor}=="0489", ATTRS{idProduct}=="e10a", ATTR{authorized}="0"
   '';
 
+  # work around a wifi regression by holding back firmware for a sec here.
+  hardware.firmware = [ pkgs.older-linux-firmware ];
   boot.kernelPackages = pkgs.linuxPackages_latest;
-  # boot.kernelPackages = pkgs.linuxPackagesFor (pkgs.linux_testing.override {
-  #   argsOverride = {
-  #     src = pkgs.fetchFromGitHub {
-  #       owner = "euank";
-  #       repo = "linux";
-  #       rev = "15ecf4de9dc36e2dd798335c929094ddbcf034cb"; # 6.15-rc2-ath12k
-  #       sha256 = "sha256-LoH3mVqhMQU+PYo/Wn138BoQhKyitekbYZi3q5W4RQ0=";
-  #     };
-  #     ignoreConfigErrors = true;
-  #     version = "6.15.0-rc2";
-  #     modDirVersion = "6.15.0-rc2";
-  #     extraConfig = ''
-  #       CONFIG_EXPERT y
-  #       CONFIG_CFG80211_CERTIFICATION_ONUS y
-  #       CONFIG_ATH_REG_DYNAMIC_USER_REG_HINTS y
-  #     '';
-  #   };
-  # });
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;

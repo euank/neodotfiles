@@ -3,6 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs-old-firmware.url = "github:NixOS/nixpkgs/dda3dcd3fe03e991015e9a74b22d35950f264a54";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     home-manager.url = "github:nix-community/home-manager";
     ekverlay.url = "github:euank/nixek-overlay";
@@ -46,6 +47,7 @@
             final: prev:
             {
               inherit (inputs.anki.legacyPackages."${system}") anki;
+              older-linux-firmware = inputs.nixpkgs-old-firmware.legacyPackages."${system}".linux-firmware;
               gopls = prev.gopls.override { buildGoModule = final.buildGo124Module; };
               # temporarily for https://github.com/NixOS/nixpkgs/pull/334858
               mvn2nix = mvn2nix.defaultPackage.x86_64-linux;

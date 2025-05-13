@@ -21,19 +21,9 @@
     SUBSYSTEM=="usb", ATTRS{idVendor}=="0489", ATTRS{idProduct}=="e10a", ATTR{authorized}="0"
   '';
 
+  # work around a wifi regression by holding back firmware for a sec here.
+  hardware.firmware = [ pkgs.older-linux-firmware ];
   boot.kernelPackages = pkgs.linuxPackages_latest;
-  # boot.kernelPackages = pkgs.linuxPackagesFor (pkgs.linux_6_13.override {
-  #   argsOverride = {
-  #     src = pkgs.fetchFromGitHub {
-  #       owner = "euank";
-  #       repo = "linux";
-  #       rev = "fa399c054fa99c579c7c367c2da8f6de8377c8ea"; # 6.13-ath
-  #       sha256 = "sha256-pI0P3DglPXEGh4oLIA+4iDhfCNBxCP4NnljXCZqVu5Q=";
-  #     };
-  #     version = "6.13";
-  #     modDirVersion = "6.13.0-wt-ath";
-  #   };
-  # });
 
   programs.steam = {
     enable = true;

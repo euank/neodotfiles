@@ -15,7 +15,7 @@
     nickel.url = "github:tweag/nickel";
 
     # https://github.com/NixOS/nixpkgs/pull/392737
-    anki.url = "github:euank/nixpkgs/anki-2025-04-12";
+    anki.url = "github:euank/nixpkgs/anki-2025-05-20";
 
     niri = {
       url = "github:sodiboo/niri-flake";

@@ -6,57 +6,57 @@
 }:
 
 let
-  secrets = inputs.secrets.gurren;
+  # secrets = inputs.secrets.sibyl;
 in
 {
   imports = [
     ./hardware-configuration.nix
     ../shared/desktop.nix
-    inputs.ngrok-dev.nixosModules.default
+    # inputs.ngrok-dev.nixosModules.default
   ];
-  services.ngrok-devenv = {
-    enable = true;
-    useNixBinaryCache = true;
-    userHome = "/home/esk";
-    repoRoot = "/home/esk/dev/ngrok";
-    interfaces = {
-      node = {
-        create = false;
-        name = "wg0";
-        ipv4 = "10.104.21.3";
-      };
-      dataplanes = {
-        us = {
-          mux = {
-            create = false;
-            name = "wg0";
-            ipv4 = "10.104.21.4";
-            ipv6 = "fe80::10:104:11:2";
-          };
-          tunnel = {
-            create = false;
-            name = "wg0";
-            ipv4 = "10.104.21.10";
-            ipv6 = "fe80::10:104:21:2";
-          };
-        };
-        l2 = {
-          mux = {
-            create = false;
-            name = "wg0";
-            ipv4 = "10.104.21.5";
-            ipv6 = "fe80::10:104:11:3";
-          };
-          tunnel = {
-            create = false;
-            name = "wg0";
-            ipv4 = "10.104.21.11";
-            ipv6 = "fe80::10:104:21:3";
-          };
-        };
-      };
-    };
-  };
+  # services.ngrok-devenv = {
+  #   enable = true;
+  #   useNixBinaryCache = true;
+  #   userHome = "/home/esk";
+  #   repoRoot = "/home/esk/dev/ngrok";
+  #   interfaces = {
+  #     node = {
+  #       create = false;
+  #       name = "wg0";
+  #       ipv4 = "10.104.21.3";
+  #     };
+  #     dataplanes = {
+  #       us = {
+  #         mux = {
+  #           create = false;
+  #           name = "wg0";
+  #           ipv4 = "10.104.21.4";
+  #           ipv6 = "fe80::10:104:11:2";
+  #         };
+  #         tunnel = {
+  #           create = false;
+  #           name = "wg0";
+  #           ipv4 = "10.104.21.10";
+  #           ipv6 = "fe80::10:104:21:2";
+  #         };
+  #       };
+  #       l2 = {
+  #         mux = {
+  #           create = false;
+  #           name = "wg0";
+  #           ipv4 = "10.104.21.5";
+  #           ipv6 = "fe80::10:104:11:3";
+  #         };
+  #         tunnel = {
+  #           create = false;
+  #           name = "wg0";
+  #           ipv4 = "10.104.21.11";
+  #           ipv6 = "fe80::10:104:21:3";
+  #         };
+  #       };
+  #     };
+  #   };
+  # };
 
   services.bind = {
     forwarders = [
@@ -65,39 +65,32 @@ in
     ];
   };
 
-  networking.wireguard = {
-    enable = true;
-    interfaces = {
-      wg0 = {
-        # ipip tunnel + wg
-        mtu = 1380;
-        ips = [ "10.104.20.0/25" ];
-        privateKey = secrets.wireguard.privateKey;
-        peers = [
-          {
-            allowedIPs = [ "10.104.0.0/16" ];
-            # Security by obscurity I guess, avoid publishing the endpoint too.
-            endpoint = secrets.wireguard.endpoint;
-            publicKey = "+pLrsgXAn4rH4e+gQWR03n02o2vDNiL1sDOXEYSrmGg=";
-            persistentKeepalive = 25;
-          }
-        ];
-      };
-    };
-  };
+  # networking.wireguard = {
+  #   enable = true;
+  #   interfaces = {
+  #     wg0 = {
+  #       # ipip tunnel + wg
+  #       mtu = 1380;
+  #       ips = [ "10.104.20.0/25" ];
+  #       privateKey = secrets.wireguard.privateKey;
+  #       peers = [
+  #         {
+  #           allowedIPs = [ "10.104.0.0/16" ];
+  #           # Security by obscurity I guess, avoid publishing the endpoint too.
+  #           endpoint = secrets.wireguard.endpoint;
+  #           publicKey = "+pLrsgXAn4rH4e+gQWR03n02o2vDNiL1sDOXEYSrmGg=";
+  #           persistentKeepalive = 25;
+  #         }
+  #       ];
+  #     };
+  #   };
+  # };
 
   hardware.enableAllFirmware = true;
   boot.extraModprobeConfig = ''
     options cfg80211 ieee80211_regdom="JP"
   '';
-  # drop internal bluetooth, use a usb dongle. The internal one doesn't work w/
-  # my headset.
-  services.udev.extraRules = ''
-    SUBSYSTEM=="usb", ATTRS{idVendor}=="0489", ATTRS{idProduct}=="e10a", ATTR{authorized}="0"
-  '';
 
-  # work around a wifi regression by holding back firmware for a sec here.
-  hardware.firmware = [ pkgs.older-linux-firmware ];
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
   boot.loader.systemd-boot.enable = true;
@@ -110,13 +103,19 @@ in
   # Thank you to https://discourse.nixos.org/t/networkd-iwd-upgrades-knock-machines-offline/38300/2
   networking.wireless.iwd = {
     enable = true;
-    settings = {
-      DriverQuirks.UseDefaultInterface = true;
-      General = {
-        # Needed for some reason
-        ControlPortOverNL80211 = false;
-      };
-    };
+  };
+
+  i18n.defaultLocale = "en_US.UTF-8";
+  i18n.extraLocaleSettings = {
+    LC_ADDRESS = "ja_JP.UTF-8";
+    LC_IDENTIFICATION = "ja_JP.UTF-8";
+    LC_MEASUREMENT = "ja_JP.UTF-8";
+    LC_MONETARY = "ja_JP.UTF-8";
+    LC_NAME = "ja_JP.UTF-8";
+    LC_NUMERIC = "ja_JP.UTF-8";
+    LC_PAPER = "ja_JP.UTF-8";
+    LC_TELEPHONE = "ja_JP.UTF-8";
+    LC_TIME = "ja_JP.UTF-8";
   };
 
   # networking.networkmanager.dhcp = "dhcpcd";
@@ -128,8 +127,8 @@ in
   networking.dhcpcd.enable = false;
 
   # As in the the ttgl mecha
-  networking.hostName = "gurren";
-  networking.hostId = "356950f1";
+  networking.hostName = "sibyl";
+  networking.hostId = "356950f2";
 
   boot.kernel.sysctl."net.ipv4.ip_forward" = 1;
 

@@ -87,14 +87,14 @@
             ./enkidudu/configuration.nix
           ];
         };
-        gurren = nixpkgs.lib.nixosSystem {
+        sibyl = nixpkgs.lib.nixosSystem {
           inherit pkgs system;
           specialArgs = {
             inherit inputs;
           };
           modules = [
             inputs.niri.nixosModules.niri
-            ./gurren/configuration.nix
+            ./sibyl/configuration.nix
           ];
         };
         jane = nixpkgs.lib.nixosSystem {

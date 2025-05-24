@@ -90,6 +90,23 @@ in
   boot.extraModprobeConfig = ''
     options cfg80211 ieee80211_regdom="JP"
   '';
+  boot.extraModulePackages = with config.boot.kernelPackages; [
+    r8125
+  ];
+  boot.initrd.kernelModules = [ "r8125" ];
+
+  boot.initrd.network = {
+    enable = true;
+    ssh = {
+      enable = true;
+      authorizedKeys = config.users.users.esk.openssh.authorizedKeys.keys;
+      port = 222;
+      hostKeys = [ /etc/ssh/ssh_host_ed25519_key ];
+    };
+    postCommands = ''
+      echo 'cryptsetup-askpass' >> /root/.profile
+    '';
+  };
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
@@ -142,9 +159,6 @@ in
     enableOnBoot = false;
   };
 
-  virtualisation.virtualbox.host.enable = false;
-  virtualisation.virtualbox.host.enableExtensionPack = true;
-  virtualisation.libvirtd.enable = false;
 
   environment.systemPackages = with pkgs; [
     keybase

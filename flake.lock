@@ -237,8 +237,8 @@
         "nixpkgs": "nixpkgs_5"
       },
       "locked": {
-        "lastModified": 1746203813,
-        "narHash": "sha256-S+i2PygkEUAWi6fXup3grHpDg634r6qWDsNvhekSRy0=",
+        "lastModified": 1746411035,
+        "narHash": "sha256-/Bn8DT/um06NQakGNfjzRawSwpVYAE4j5GRo7hbtBpY=",
         "path": "/home/esk/nix-ngrok-dev",
         "type": "path"
       },

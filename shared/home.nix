@@ -98,6 +98,7 @@ in
     redis
     ripgrep
     shotgun
+    sops
     sqlite
     sqlite.dev
     sshfs

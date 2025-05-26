@@ -65,24 +65,6 @@
         "type": "github"
       }
     },
-    "flake-parts": {
-      "inputs": {
-        "nixpkgs-lib": "nixpkgs-lib"
-      },
-      "locked": {
-        "lastModified": 1743550720,
-        "narHash": "sha256-hIshGgKZCgWh6AYJpJmRgFdR3WUbkY04o82X05xqQiY=",
-        "owner": "hercules-ci",
-        "repo": "flake-parts",
-        "rev": "c621e8422220273271f52058f618c94e405bb0f5",
-        "type": "github"
-      },
-      "original": {
-        "owner": "hercules-ci",
-        "repo": "flake-parts",
-        "type": "github"
-      }
-    },
     "flake-utils": {
       "inputs": {
         "systems": "systems_2"
@@ -488,21 +470,6 @@
         "type": "github"
       }
     },
-    "nixpkgs-lib": {
-      "locked": {
-        "lastModified": 1743296961,
-        "narHash": "sha256-b1EdN3cULCqtorQ4QeWgLMrd5ZGOjLSLemfa00heasc=",
-        "owner": "nix-community",
-        "repo": "nixpkgs.lib",
-        "rev": "e4822aea2a6d1cdd36653c134cacfd64c97ff4fa",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nix-community",
-        "repo": "nixpkgs.lib",
-        "type": "github"
-      }
-    },
     "nixpkgs-old-firmware": {
       "locked": {
         "lastModified": 1746663147,
@@ -579,21 +546,6 @@
       "original": {
         "owner": "NixOS",
         "ref": "nixpkgs-unstable",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
-    "nixpkgs_10": {
-      "locked": {
-        "lastModified": 1747465501,
-        "narHash": "sha256-5/WJLIFSKclLmZzdae4Lma7n8madz9+aIT6xEi7CYs4=",
-        "owner": "nixos",
-        "repo": "nixpkgs",
-        "rev": "b619ba1d80f15f41a8edae1c9e861e9a0ec3f8e4",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nixos",
         "repo": "nixpkgs",
         "type": "github"
       }
@@ -716,22 +668,6 @@
         "type": "indirect"
       }
     },
-    "patched-nixpkgs": {
-      "locked": {
-        "lastModified": 1746961062,
-        "narHash": "sha256-7krN5Ii+jFQTIQL/KDQgjU7qRpbs9Ndgd0POccM+nb0=",
-        "owner": "TomaSajt",
-        "repo": "nixpkgs",
-        "rev": "40f15db812bdec49cd4e64ba46fc355b7e2af358",
-        "type": "github"
-      },
-      "original": {
-        "owner": "TomaSajt",
-        "ref": "fetch-cargo-vendor-dup",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
     "pre-commit-hooks": {
       "inputs": {
         "flake-compat": "flake-compat",
@@ -769,8 +705,7 @@
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs_8",
         "nixpkgs-old-firmware": "nixpkgs-old-firmware",
-        "secrets": "secrets",
-        "zeditor": "zeditor"
+        "secrets": "secrets"
       }
     },
     "rust-overlay": {
@@ -902,26 +837,6 @@
       "original": {
         "owner": "Supreeeme",
         "repo": "xwayland-satellite",
-        "type": "github"
-      }
-    },
-    "zeditor": {
-      "inputs": {
-        "flake-parts": "flake-parts",
-        "nixpkgs": "nixpkgs_10",
-        "patched-nixpkgs": "patched-nixpkgs"
-      },
-      "locked": {
-        "lastModified": 1747467107,
-        "narHash": "sha256-IIewGkpjoV6zSJNgxsL7p+wij/Q7RpDAlf0OVggK/ME=",
-        "owner": "HPsaucii",
-        "repo": "zed-editor-flake",
-        "rev": "50b08c64d1abed4318b8289ec3f62b64b4f34231",
-        "type": "github"
-      },
-      "original": {
-        "owner": "HPsaucii",
-        "repo": "zed-editor-flake",
         "type": "github"
       }
     }

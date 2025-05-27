@@ -67,7 +67,6 @@ in
     asciinema_3
     (hiPrio kubectl)
     kubernetes-helm
-    libreoffice
     llm
     lsof
     w3m

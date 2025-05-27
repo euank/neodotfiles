@@ -32,6 +32,7 @@
     google-chrome
     gptfdisk
     inkscape
+    libreoffice
     keepassxc
     # logseq # temp
     mpv

@@ -6,57 +6,57 @@
 }:
 
 let
-  # secrets = inputs.secrets.sibyl;
+  secrets = inputs.secrets.gurren;
 in
 {
   imports = [
     ./hardware-configuration.nix
-    ../shared/desktop.nix
-    # inputs.ngrok-dev.nixosModules.default
+    ../shared/base.nix
+    inputs.ngrok-dev.nixosModules.default
   ];
-  # services.ngrok-devenv = {
-  #   enable = true;
-  #   useNixBinaryCache = true;
-  #   userHome = "/home/esk";
-  #   repoRoot = "/home/esk/dev/ngrok";
-  #   interfaces = {
-  #     node = {
-  #       create = false;
-  #       name = "wg0";
-  #       ipv4 = "10.104.21.3";
-  #     };
-  #     dataplanes = {
-  #       us = {
-  #         mux = {
-  #           create = false;
-  #           name = "wg0";
-  #           ipv4 = "10.104.21.4";
-  #           ipv6 = "fe80::10:104:11:2";
-  #         };
-  #         tunnel = {
-  #           create = false;
-  #           name = "wg0";
-  #           ipv4 = "10.104.21.10";
-  #           ipv6 = "fe80::10:104:21:2";
-  #         };
-  #       };
-  #       l2 = {
-  #         mux = {
-  #           create = false;
-  #           name = "wg0";
-  #           ipv4 = "10.104.21.5";
-  #           ipv6 = "fe80::10:104:11:3";
-  #         };
-  #         tunnel = {
-  #           create = false;
-  #           name = "wg0";
-  #           ipv4 = "10.104.21.11";
-  #           ipv6 = "fe80::10:104:21:3";
-  #         };
-  #       };
-  #     };
-  #   };
-  # };
+  services.ngrok-devenv = {
+    enable = true;
+    useNixBinaryCache = true;
+    userHome = "/home/esk";
+    repoRoot = "/home/esk/dev/ngrok";
+    interfaces = {
+      node = {
+        create = false;
+        name = "wg0";
+        ipv4 = "10.104.21.3";
+      };
+      dataplanes = {
+        us = {
+          mux = {
+            create = false;
+            name = "wg0";
+            ipv4 = "10.104.21.4";
+            ipv6 = "fe80::10:104:11:2";
+          };
+          tunnel = {
+            create = false;
+            name = "wg0";
+            ipv4 = "10.104.21.10";
+            ipv6 = "fe80::10:104:21:2";
+          };
+        };
+        l2 = {
+          mux = {
+            create = false;
+            name = "wg0";
+            ipv4 = "10.104.21.5";
+            ipv6 = "fe80::10:104:11:3";
+          };
+          tunnel = {
+            create = false;
+            name = "wg0";
+            ipv4 = "10.104.21.11";
+            ipv6 = "fe80::10:104:21:3";
+          };
+        };
+      };
+    };
+  };
 
   services.bind = {
     forwarders = [
@@ -65,26 +65,26 @@ in
     ];
   };
 
-  # networking.wireguard = {
-  #   enable = true;
-  #   interfaces = {
-  #     wg0 = {
-  #       # ipip tunnel + wg
-  #       mtu = 1380;
-  #       ips = [ "10.104.20.0/25" ];
-  #       privateKey = secrets.wireguard.privateKey;
-  #       peers = [
-  #         {
-  #           allowedIPs = [ "10.104.0.0/16" ];
-  #           # Security by obscurity I guess, avoid publishing the endpoint too.
-  #           endpoint = secrets.wireguard.endpoint;
-  #           publicKey = "+pLrsgXAn4rH4e+gQWR03n02o2vDNiL1sDOXEYSrmGg=";
-  #           persistentKeepalive = 25;
-  #         }
-  #       ];
-  #     };
-  #   };
-  # };
+  networking.wireguard = {
+    enable = true;
+    interfaces = {
+      wg0 = {
+        # ipip tunnel + wg
+        mtu = 1380;
+        ips = [ "10.104.20.0/25" ];
+        privateKey = secrets.wireguard.privateKey;
+        peers = [
+          {
+            allowedIPs = [ "10.104.0.0/16" ];
+            # Security by obscurity I guess, avoid publishing the endpoint too.
+            endpoint = secrets.wireguard.endpoint;
+            publicKey = "+pLrsgXAn4rH4e+gQWR03n02o2vDNiL1sDOXEYSrmGg=";
+            persistentKeepalive = 25;
+          }
+        ];
+      };
+    };
+  };
 
   hardware.enableAllFirmware = true;
   boot.extraModprobeConfig = ''

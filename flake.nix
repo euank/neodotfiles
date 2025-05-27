@@ -90,7 +90,6 @@
             inherit inputs;
           };
           modules = [
-            inputs.niri.nixosModules.niri
             ./sibyl/configuration.nix
           ];
         };

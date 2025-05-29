@@ -184,7 +184,6 @@ in
         plugin = vim-go;
         config = ''
           filetype plugin indent on
-          let g:go_gopls_gofumpt = 1
           let g:go_imports_autosave = 1
           let g:go_highlight_functions = 1
           let g:go_highlight_methods = 1

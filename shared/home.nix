@@ -22,6 +22,7 @@ let
 in
 {
   home.packages = with pkgs; [
+    amp-cli
     aider-chat
     autorandr
     amazon-ecr-credential-helper

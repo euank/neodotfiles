@@ -74,11 +74,14 @@
       meslo-lg
       meslolgs-nf
       migu
+      twitter-color-emoji
       noto-fonts
       noto-fonts-cjk-sans
       noto-fonts-emoji
+      noto-fonts-emoji-blob-bin
       ubuntu_font_family
       takao
+      hachimarupop
     ];
   };
 

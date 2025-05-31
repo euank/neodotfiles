@@ -23,7 +23,9 @@
 
   # work around a wifi regression by holding back firmware for a sec here.
   hardware.firmware = [ pkgs.newer-linux-firmware ];
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  # hold back linux from 6.15 my wifi card is fixed until
+  # https://lore.kernel.org/ath12k/CAG0V13S+c14OD7MCMYaSFzWS2ZnPz2BnPfMo1MY-YZmmHX6qRw@mail.gmail.com/
+  boot.kernelPackages = pkgs.linuxPackages_6_14;
 
   programs.steam = {
     enable = true;

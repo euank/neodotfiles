@@ -22,7 +22,7 @@
   '';
 
   # work around a wifi regression by holding back firmware for a sec here.
-  hardware.firmware = [ pkgs.older-linux-firmware ];
+  hardware.firmware = [ pkgs.newer-linux-firmware ];
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
   programs.steam = {

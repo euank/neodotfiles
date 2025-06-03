@@ -736,8 +736,8 @@
         "nixpkgs": "nixpkgs_9"
       },
       "locked": {
-        "lastModified": 1748953441,
-        "narHash": "sha256-K/8KJQhq26hSUYDixvjgxZVxkqgdH9EzRVYBbo859Cc=",
+        "lastModified": 1748954121,
+        "narHash": "sha256-P9fd+6VQVum2aLC28YokUsbFcCbeFq8ewGih1bfOISk=",
         "path": "/home/esk/dev/nix-secrets",
         "type": "path"
       },

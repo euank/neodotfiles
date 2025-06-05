@@ -40,7 +40,7 @@ in
     # temporary: https://github.com/NixOS/nixpkgs/pull/386738
     # neomutt
     prismlauncher
-    thedesk
+    # tic-80
     ninja
     restic
     tor-browser-bundle-bin

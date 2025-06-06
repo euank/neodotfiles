@@ -26,6 +26,7 @@ in
 
     # vlc
 
+    tic-80
     youki
     stdenv.cc.cc.lib
     ipmitool

@@ -11,6 +11,7 @@
     # gradle2nix.url = "github:tadfisher/gradle2nix";
     # dwarffs.url = "github:edolstra/dwarffs";
     nickel.url = "github:tweag/nickel";
+    nixpkgs-tic80.url = "github:euank/nixpkgs/tic80-2025-06-07";
 
     # https://github.com/NixOS/nixpkgs/pull/392737
     anki.url = "github:euank/nixpkgs/anki-2025-05-20";
@@ -46,6 +47,7 @@
             final: prev:
             {
               inherit (inputs.anki.legacyPackages."${system}") anki;
+              inherit (inputs.nixpkgs-tic80.legacyPackages.${system}) tic-80;
               newer-linux-firmware = final.linux-firmware.overrideAttrs (old: {
                 version = "f2e9c60ae3";
                 src = final.fetchgit {
@@ -56,6 +58,7 @@
                 };
               });
               gopls = prev.gopls.override { buildGoModule = final.buildGo124Module; };
+
               # temporarily for https://github.com/NixOS/nixpkgs/pull/334858
               mvn2nix = mvn2nix.defaultPackage.x86_64-linux;
               # gradle2nix = gradle2nix.defaultPackage.x86_64-linux;

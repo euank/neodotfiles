@@ -518,6 +518,22 @@
         "type": "github"
       }
     },
+    "nixpkgs-tic80": {
+      "locked": {
+        "lastModified": 1749140736,
+        "narHash": "sha256-SjgU8GBjSFrQtr12J6/3Gja3/6kwNsi2QXED2Rvqk5U=",
+        "owner": "euank",
+        "repo": "nixpkgs",
+        "rev": "9d47c0b5f038b700895905f1c7000f111b05bb18",
+        "type": "github"
+      },
+      "original": {
+        "owner": "euank",
+        "ref": "tic80-2025-06-07",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "nixpkgs-unstable": {
       "locked": {
         "lastModified": 1744442362,
@@ -688,6 +704,7 @@
         "nixek": "nixek",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs_8",
+        "nixpkgs-tic80": "nixpkgs-tic80",
         "secrets": "secrets"
       }
     },

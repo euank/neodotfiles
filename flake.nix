@@ -57,7 +57,6 @@
                   hash = "sha256-ZK9vgginLnD93r2KY9sveqbXsCKIwoFwvQ4berUpz+8=";
                 };
               });
-              gopls = prev.gopls.override { buildGoModule = final.buildGo124Module; };
 
               # temporarily for https://github.com/NixOS/nixpkgs/pull/334858
               mvn2nix = mvn2nix.defaultPackage.x86_64-linux;

@@ -44,6 +44,7 @@ in
     dua
     maestral
     multitail
+    ethtool
     eza
     ffmpeg-full
     figlet

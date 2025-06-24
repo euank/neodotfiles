@@ -65,6 +65,7 @@ in
     jq
     jujutsu
     k3s
+    kind
     krita
     asciinema_3
     (hiPrio kubectl)

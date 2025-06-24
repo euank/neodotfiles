@@ -67,6 +67,10 @@ in
 
   networking.interfaces.eno1.wakeOnLan.enable = true;
 
+  swapDevices = [
+    { device = "/swapfile"; size = 64 * 1024; }
+  ];
+
   networking.wireguard = {
     enable = true;
     interfaces = {

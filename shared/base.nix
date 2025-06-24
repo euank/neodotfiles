@@ -83,11 +83,6 @@
   ];
   security.pam.services.swaylock = { };
 
-  system.switch = {
-    enable = false;
-    enableNg = true;
-  };
-
   nix = {
     settings = {
       connect-timeout = 5;

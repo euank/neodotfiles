@@ -122,7 +122,7 @@ in
     xdg-utils
     xan
     slop
-    voicevox
+    # voicevox
     zed-editor
     zip
     zsh-powerlevel10k

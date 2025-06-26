@@ -15,7 +15,6 @@ in
   ];
   home.packages = with pkgs; [
     zoom-us
-    yubikey-personalization-gui
     dia
     hicolor-icon-theme
     brightnessctl

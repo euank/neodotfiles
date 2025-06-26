@@ -10,7 +10,6 @@
     # jetbrains.idea-community
     zoom-us
     # obs-studio
-    yubikey-personalization-gui
     dia
     hicolor-icon-theme
     brightnessctl

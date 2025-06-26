@@ -115,6 +115,7 @@ in
     unzip
     wasm-pack
     wavemon
+    waypipe
     wirelesstools
     wireguard-tools
     wireshark

@@ -106,6 +106,7 @@ in
     tcpdump
     tewisay
     tig
+    tokei
     tmate
     tmux
     toilet

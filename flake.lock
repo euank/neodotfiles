@@ -128,15 +128,16 @@
         "nixpkgs": "nixpkgs_2"
       },
       "locked": {
-        "lastModified": 1751513147,
-        "narHash": "sha256-idSXM3Y0KNf/WDDqGfthiOSQMwZYwis1JZhTkdWrr6A=",
-        "owner": "nix-community",
+        "lastModified": 1751394962,
+        "narHash": "sha256-9E2tT7hYrT0mnqQouvfghCfsMh/vvf03MQ57rTleRIU=",
+        "owner": "euank",
         "repo": "home-manager",
-        "rev": "426b405d979d893832549b95f23c13537c65d244",
+        "rev": "14e97790481cf4749ddcf5cf880bac14e2fc4de9",
         "type": "github"
       },
       "original": {
-        "owner": "nix-community",
+        "owner": "euank",
+        "ref": "ssh-agent-change",
         "repo": "home-manager",
         "type": "github"
       }

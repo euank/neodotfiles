@@ -46,15 +46,6 @@
             final: prev:
             {
               inherit (inputs.anki.legacyPackages."${system}") anki;
-              newer-linux-firmware = final.linux-firmware.overrideAttrs (old: {
-                version = "f2e9c60ae3";
-                src = final.fetchgit {
-                  name = "linux-firmware";
-                  url = "https://gitlab.com/kernel-firmware/linux-firmware.git";
-                  rev = "f2e9c60ae3116e82c12d2ee675a24fef5e3f1a45";
-                  hash = "sha256-ZK9vgginLnD93r2KY9sveqbXsCKIwoFwvQ4berUpz+8=";
-                };
-              });
 
               # temporarily for https://github.com/NixOS/nixpkgs/pull/334858
               mvn2nix = mvn2nix.defaultPackage.x86_64-linux;

@@ -4,7 +4,7 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
-    home-manager.url = "github:euank/home-manager/ssh-agent-change";
+    home-manager.url = "github:nix-community/home-manager";
     ekverlay.url = "github:euank/nixek-overlay";
     nixek.url = "github:nixek-systems/pkgs";
     mvn2nix.url = "github:fzakaria/mvn2nix";
@@ -46,7 +46,6 @@
             final: prev:
             {
               inherit (inputs.anki.legacyPackages."${system}") anki;
-
               # temporarily for https://github.com/NixOS/nixpkgs/pull/334858
               mvn2nix = mvn2nix.defaultPackage.x86_64-linux;
               # gradle2nix = gradle2nix.defaultPackage.x86_64-linux;

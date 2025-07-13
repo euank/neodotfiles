@@ -120,6 +120,7 @@ in
     wireshark
     yt-dlp
     xdg-utils
+    xdg-user-dirs
     xan
     slop
     # voicevox

@@ -17,6 +17,12 @@
   programs.niri.enable = true;
   programs.xwayland.enable = true;
 
+  services.syncthing = {
+    enable = true;
+    openDefaultPorts = true;
+    user = "esk";
+  };
+
   services.avahi = {
     enable = true;
     nssmdns4 = true;

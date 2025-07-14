@@ -143,7 +143,20 @@
     };
   };
 
-  #networking.wireguard.interfaces = {
+  networking.wireguard.interfaces = {
+    ygg0 = {
+      ips = [ "10.104.6.1" ];
+      privateKeyFile = "/etc/wg/key";
+      peers = [
+        {
+          allowedIPs = [ "10.104.0.0/16" ];
+          endpoint = "home.euank.com:64512";
+          publicKey = "+pLrsgXAn4rH4e+gQWR03n02o2vDNiL1sDOXEYSrmGg=";
+          persistentKeepalive = 25;
+        }
+      ];
+    };
+  };
   #  wgfly0 = {
   #    ips = [ "fdaa:0:2e37:a7b:907b:0:a:2/120" ];
   #    privateKeyFile = "/etc/wg/fly-wg";

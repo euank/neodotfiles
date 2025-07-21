@@ -4,6 +4,7 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     nixpkgs-claude.url = "github:euank/nixpkgs/claude-squad";
+    nixpkgs-amp.url = "github:euank/nixpkgs/amp-cli-writeShellApplication";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     home-manager.url = "github:nix-community/home-manager";
     ekverlay.url = "github:euank/nixek-overlay";
@@ -36,6 +37,7 @@
     }@inputs:
     let
       system = "x86_64-linux";
+      ampcode = (import inputs.nixpkgs-amp { inherit system; config.allowUnfree = true; }).ampcode;
       pkgs = import nixpkgs {
         inherit system;
         overlays = [
@@ -47,6 +49,7 @@
             {
               inherit (inputs.anki.legacyPackages."${system}") anki;
               inherit (inputs.nixpkgs-claude.legacyPackages."${system}") claude-squad;
+              inherit ampcode;
               mvn2nix = mvn2nix.defaultPackage.x86_64-linux;
               vlc = prev.vlc.override {
                 libbluray = prev.libbluray.override {

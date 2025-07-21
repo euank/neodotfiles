@@ -281,6 +281,22 @@
         "type": "github"
       }
     },
+    "nixpkgs-amp": {
+      "locked": {
+        "lastModified": 1751876520,
+        "narHash": "sha256-jEznx9dZYwmzKE/cOFEbUKLT/M9LvChkoMsT6osemc0=",
+        "owner": "euank",
+        "repo": "nixpkgs",
+        "rev": "0f6709ce2763a2ebd30b04534d20f995e7058c1b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "euank",
+        "ref": "amp-cli-writeShellApplication",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "nixpkgs-bazel-pinned": {
       "locked": {
         "lastModified": 1724256798,
@@ -573,6 +589,7 @@
         "nixek": "nixek",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs_7",
+        "nixpkgs-amp": "nixpkgs-amp",
         "nixpkgs-claude": "nixpkgs-claude",
         "secrets": "secrets"
       }

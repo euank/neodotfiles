@@ -32,9 +32,8 @@ in
     binutils
     borgbackup
     cfssl
-    darktable
+    # darktable
     exiftool
-    # temporary due to nix issues
     colmena
     cntr
     iotop

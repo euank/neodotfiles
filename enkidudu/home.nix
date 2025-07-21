@@ -20,7 +20,6 @@ in
 
   home.packages = with pkgs; [
     calibre
-    darktable
     handbrake
     nickel
 

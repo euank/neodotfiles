@@ -4,6 +4,7 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     nixpkgs-claude.url = "github:euank/nixpkgs/claude-squad";
+    nixpkgs-git-spice.url = "github:euank/nixpkgs/git-spice-0.15.1-to-0.15.2";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     home-manager.url = "github:nix-community/home-manager";
     ekverlay.url = "github:euank/nixek-overlay";
@@ -47,6 +48,7 @@
             {
               inherit (inputs.anki.legacyPackages."${system}") anki;
               inherit (inputs.nixpkgs-claude.legacyPackages."${system}") claude-squad;
+              inherit (inputs.nixpkgs-git-spice.legacyPackages."${system}") git-spice;
               mvn2nix = mvn2nix.defaultPackage.x86_64-linux;
               vlc = prev.vlc.override {
                 libbluray = prev.libbluray.override {

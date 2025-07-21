@@ -26,6 +26,7 @@ in
     amazon-ecr-credential-helper
     atuin
     claude-code
+    claude-squad
     devenv
     # ast-grep
     binutils

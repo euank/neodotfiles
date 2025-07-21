@@ -3,6 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+    nixpkgs-claude.url = "github:euank/nixpkgs/claude-squad";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     home-manager.url = "github:nix-community/home-manager";
     ekverlay.url = "github:euank/nixek-overlay";
@@ -10,7 +11,6 @@
     mvn2nix.url = "github:fzakaria/mvn2nix";
     # gradle2nix.url = "github:tadfisher/gradle2nix";
     # dwarffs.url = "github:edolstra/dwarffs";
-    nickel.url = "github:tweag/nickel";
 
     # https://github.com/NixOS/nixpkgs/pull/392737
     anki.url = "github:euank/nixpkgs/anki-2025-05-20";
@@ -46,10 +46,8 @@
             final: prev:
             {
               inherit (inputs.anki.legacyPackages."${system}") anki;
-              # temporarily for https://github.com/NixOS/nixpkgs/pull/334858
+              inherit (inputs.nixpkgs-claude.legacyPackages."${system}") claude-squad;
               mvn2nix = mvn2nix.defaultPackage.x86_64-linux;
-              # gradle2nix = gradle2nix.defaultPackage.x86_64-linux;
-              nickel = inputs.nickel.packages.x86_64-linux.default;
               vlc = prev.vlc.override {
                 libbluray = prev.libbluray.override {
                   withAACS = true;

@@ -15,11 +15,6 @@
   boot.extraModprobeConfig = ''
     options cfg80211 ieee80211_regdom="JP"
   '';
-  # drop internal bluetooth, use a usb dongle. The internal one doesn't work w/
-  # my headset.
-  services.udev.extraRules = ''
-    SUBSYSTEM=="usb", ATTRS{idVendor}=="0489", ATTRS{idProduct}=="e10a", ATTR{authorized}="0"
-  '';
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
 

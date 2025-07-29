@@ -21,8 +21,7 @@
     SUBSYSTEM=="usb", ATTRS{idVendor}=="0489", ATTRS{idProduct}=="e10a", ATTR{authorized}="0"
   '';
 
-  # temporarily on testing until 6.16 stable for wifi-card fixes
-  boot.kernelPackages = pkgs.linuxPackages_testing;
+  boot.kernelPackages = pkgs.linuxPackages_latest;
 
   programs.steam = {
     enable = true;

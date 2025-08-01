@@ -25,6 +25,7 @@
     alacritty
     pinentry-curses
     pkg-config
+    shpool
     vim
     wget
     zsh

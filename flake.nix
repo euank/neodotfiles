@@ -63,6 +63,10 @@
         ];
         config = {
           allowUnfree = true;
+          permittedInsecurePackages = [
+            # temporarily, https://github.com/NixOS/nixpkgs/issues/429268
+            "libsoup-2.74.3"
+          ];
         };
       };
     in

@@ -32,7 +32,7 @@ in
     binutils
     borgbackup
     cfssl
-    # darktable
+    darktable
     exiftool
     colmena
     cntr

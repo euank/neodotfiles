@@ -6,14 +6,13 @@
 
 {
   imports = [ ./base.nix ];
-  services.xserver = {
+
+  services.displayManager.gdm = {
     enable = true;
-    displayManager.gdm = {
-      enable = true;
-      wayland = true;
-    };
-    xkb.layout = "us";
+    wayland = true;
   };
+
+  services.xserver.xkb.layout = "us";
   programs.niri.enable = true;
   programs.xwayland.enable = true;
 

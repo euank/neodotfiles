@@ -21,7 +21,6 @@ in
   hardware.enableRedistributableFirmware = true;
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.supportedFilesystems = [ "zfs" ];
 
   boot.initrd.luks.devices = {
     root = {
@@ -50,7 +49,6 @@ in
   boot.kernel.sysctl."net.ipv4.ip_forward" = 1;
 
   environment.systemPackages = with pkgs; [
-    zfs
     keybase
     btrfs-progs
   ];

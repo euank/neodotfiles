@@ -13,9 +13,6 @@
     # gradle2nix.url = "github:tadfisher/gradle2nix";
     # dwarffs.url = "github:edolstra/dwarffs";
 
-    # https://github.com/NixOS/nixpkgs/pull/392737
-    anki.url = "github:euank/nixpkgs/anki-2025-05-20";
-
     niri = {
       url = "github:sodiboo/niri-flake";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -47,7 +44,6 @@
           (
             final: prev:
             {
-              inherit (inputs.anki.legacyPackages."${system}") anki;
               inherit (inputs.nixpkgs-claude.legacyPackages."${system}") claude-squad;
               inherit ampcode;
               mvn2nix = mvn2nix.defaultPackage.x86_64-linux;

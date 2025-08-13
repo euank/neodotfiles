@@ -87,6 +87,8 @@
       ubuntu_font_family
       takao
       hachimarupop
+      nerd-fonts.fira-code
+      nerd-fonts.droid-sans-mono
     ];
   };
 

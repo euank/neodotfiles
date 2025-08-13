@@ -235,6 +235,12 @@
       {
         mainBar = {
           layer = "top";
+          style = ''
+            * {
+              font-size: 20px;
+              font-family: "FiraCode Nerd Font";
+            }
+          '';
           position = "top";
           modules-left = [
             "custom/right-arrow-dark"

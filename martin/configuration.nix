@@ -22,6 +22,8 @@ in
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  services.syncthing.enable = pkgs.lib.mkForce false;
+
   boot.initrd.luks.devices = {
     root = {
       device = "/dev/disk/by-uuid/e5624a65-5c32-4761-847a-8deda806714c";

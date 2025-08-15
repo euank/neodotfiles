@@ -28,11 +28,6 @@
 
   home.file.".aspell.conf".text = "data-dir ${pkgs.aspell}/lib/aspell";
 
-  programs.zsh.initContent = pkgs.lib.mkBefore ''
-    export NGROK_HOME="/home/esk/dev/ngrok"
-    source "/home/esk/dev/ngrok/.cache/ngrok-host-shellhook"
-  '';
-
   services.gpg-agent = {
     enable = true;
     enableScDaemon = true;

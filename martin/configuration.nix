@@ -18,6 +18,8 @@ in
     "discard"
   ];
 
+  # time.timeZone = pkgs.lib.mkForce "America/Los_Angeles";
+
   hardware.enableRedistributableFirmware = true;
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;

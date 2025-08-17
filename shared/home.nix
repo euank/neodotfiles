@@ -258,6 +258,9 @@ in
 
       defaultApplications = {
         "application/pdf" = [ "org.gnome.Evince.desktop" ];
+        "x-scheme-handler/http" = [ "firefox.desktop" ];
+        "x-scheme-handler/https" = [ "firefox.desktop" ];
+        "text/html" = [ "firefox.desktop" ];
       };
     };
   };

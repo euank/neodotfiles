@@ -161,7 +161,6 @@ in
     enableOnBoot = false;
   };
 
-
   environment.systemPackages = with pkgs; [
     keybase
     alacritty

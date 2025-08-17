@@ -34,7 +34,11 @@
     }@inputs:
     let
       system = "x86_64-linux";
-      ampcode = (import inputs.nixpkgs-amp { inherit system; config.allowUnfree = true; }).ampcode;
+      ampcode =
+        (import inputs.nixpkgs-amp {
+          inherit system;
+          config.allowUnfree = true;
+        }).ampcode;
       pkgs = import nixpkgs {
         inherit system;
         overlays = [

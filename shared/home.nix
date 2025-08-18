@@ -16,6 +16,12 @@ let
 
     COWPATH = "${pkgs.cowsay}/share/cows:${pkgs.tewisay}/share/tewisay/cows";
     NIXOS_OZONE_WL = "1";
+
+    NIX_LD_LIBRARY_PATH = pkgs.lib.makeLibraryPath [
+      pkgs.stdenv.cc.cc
+      pkgs.openssl
+    ];
+    NIX_LD = pkgs.lib.fileContents "${pkgs.stdenv.cc}/nix-support/dynamic-linker";
   };
 in
 {

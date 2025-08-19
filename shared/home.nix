@@ -172,6 +172,7 @@ in
     boringtun
     onetun
     railway
+    vscode
     xclip
     xdg-desktop-portal-gtk
     xdg-desktop-portal-gnome

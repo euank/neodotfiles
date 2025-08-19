@@ -26,6 +26,7 @@
     pinentry-curses
     pkg-config
     shpool
+    tio
     vim
     wget
     zsh

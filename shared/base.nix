@@ -12,6 +12,11 @@
 
   boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
 
+  services.envfs = {
+    enable = false;
+    extraFallbackPathCommands = "ln -s ${pkgs.bash}/bin/bash $out/bash";
+  };
+
   environment.systemPackages = with pkgs; [
     curl
     git

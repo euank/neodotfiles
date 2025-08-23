@@ -14,7 +14,7 @@
     # dwarffs.url = "github:edolstra/dwarffs";
 
     niri = {
-      url = "github:sodiboo/niri-flake";
+      url = "github:euank/niri-flake/newer-polkit";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 

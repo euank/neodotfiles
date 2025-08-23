@@ -70,7 +70,7 @@ in
     jujutsu
     k3s
     kind
-    krita
+    # krita
     asciinema_3
     (hiPrio kubectl)
     kubernetes-helm

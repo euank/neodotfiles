@@ -44,7 +44,6 @@
     pulseaudioFull
     # Temporary: https://github.com/NixOS/nixpkgs/issues/367870
     # shotcut
-    openshot-qt
     signal-desktop
     tree
     tig

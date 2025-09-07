@@ -124,6 +124,7 @@ in
     wirelesstools
     wireguard-tools
     wireshark
+    wlr-randr
     yt-dlp
     xdg-utils
     xdg-user-dirs
@@ -177,6 +178,7 @@ in
     xdg-desktop-portal-gtk
     xdg-desktop-portal-gnome
     xdg-desktop-portal-wlr
+    yaml2nix
 
     # misc
     efibootmgr

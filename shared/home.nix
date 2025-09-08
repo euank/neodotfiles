@@ -1,7 +1,7 @@
 # home-manager configuration for a machine without a desktop, i.e. a headless server,
 # but still with my dev setup
 
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 
 let
   sessionVariables = {
@@ -25,6 +25,9 @@ let
   };
 in
 {
+  imports = [
+    ./vim/vim.nix
+  ];
   home.packages = with pkgs; [
     ampcode
     aider-chat
@@ -196,7 +199,7 @@ in
   ];
 
   home.sessionVariables = sessionVariables;
-  systemd.user.sessionVariables = config.home.sessionVariables;
+  systemd.user.sessionVariables = sessionVariables;
 
   programs.autorandr.enable = true;
 
@@ -215,7 +218,7 @@ in
       source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme
       source "${../shared/zsh/p10k.zsh}"
       source "${../shared/zsh/zshrc}"
-      export PATH=$HOME/bin:$PATH
+      export PATH=$HOME/bin:$HOME/.nix-profile/bin:$PATH
       command -v ngrok &>/dev/null && source <(ngrok completion)
     '';
   };

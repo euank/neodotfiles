@@ -26,6 +26,7 @@
 
   outputs =
     {
+      self,
       nixpkgs,
       mvn2nix,
       nixek,
@@ -33,6 +34,7 @@
       ...
     }@inputs:
     let
+      inherit (self) outputs;
       system = "x86_64-linux";
       ampcode =
         (import inputs.nixpkgs-amp {
@@ -132,6 +134,23 @@
           modules = [
             inputs.niri.nixosModules.niri
             ./demerzel/configuration.nix
+          ];
+        };
+      };
+
+      homeConfigurations = {
+        euan = inputs.home-manager.lib.homeManagerConfiguration {
+          inherit pkgs;
+          extraSpecialArgs = { inherit inputs pkgs; };
+          modules = [
+            (
+              { ... }:
+              {
+                home.username = "euan";
+                home.homeDirectory = "/home/euan";
+              }
+            )
+            ./shared/home.nix
           ];
         };
       };

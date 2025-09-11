@@ -154,7 +154,6 @@ in
     gh
     gnumake
     go_1_24
-    goconvey
     gopls
     gofumpt
     gradle

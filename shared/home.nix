@@ -139,7 +139,6 @@ in
     zsh-powerlevel10k
     treefmt
 
-    (hiPrio clang_16)
     awscli2
     bc
     bind
@@ -161,7 +160,6 @@ in
     # ipmiview
     nixpkgs-review
     nodejs
-    linuxPackages.perf
     mvn2nix
     ncurses
     nodePackages.typescript-language-server

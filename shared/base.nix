@@ -23,7 +23,7 @@
     gnupg
     htop
     iptables
-    linuxPackages.perf
+    perf
     nfs-utils
     neovim
     openssl

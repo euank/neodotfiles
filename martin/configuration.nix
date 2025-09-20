@@ -26,13 +26,8 @@ in
 
   services.syncthing.enable = pkgs.lib.mkForce false;
 
-  boot.initrd.luks.devices = {
-    root = {
-      device = "/dev/disk/by-uuid/e5624a65-5c32-4761-847a-8deda806714c";
-      preLVM = true;
-      allowDiscards = true;
-    };
-  };
+  boot.initrd.luks.devices."luks-5d45f68a-8eff-4078-a32e-948ef808f7ff".device = "/dev/disk/by-uuid/5d45f68a-8eff-4078-a32e-948ef808f7ff";
+
 
   networking.hostName = "martin";
   networking.hostId = "473650f9";

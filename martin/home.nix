@@ -43,16 +43,6 @@
     scale = 1.0;
   };
 
-  xsession = {
-    enable = true;
-    preferStatusNotifierItems = true;
-    windowManager.xmonad = {
-      enable = true;
-      enableContribAndExtras = true;
-      config = ../shared/xmonad/xmonad.hs;
-    };
-  };
-
   services.pasystray = {
     enable = true;
   };

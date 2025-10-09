@@ -119,25 +119,32 @@ in
           lua << EOF
           vim.lsp.inlay_hint.enable()
 
-          local configs = require'lspconfig'
-
           local capabilities = require("ddc_source_lsp").make_client_capabilities()
-          configs.denols.setup({
+
+          vim.lsp.enable('denols')
+          vim.lsp.config('denols', {
             capabilities = capabilities,
           })
 
-          configs.gopls.setup{
+          vim.lsp.enable('gopls')
+          vim.lsp.config('gopls', {
             cmd = {'gopls', '-remote=auto'},
             init_options = {
               staticcheck = false,
             },
-          }
+          })
 
-          configs.rust_analyzer.setup({})
-          configs.ts_ls.setup{}
-          configs.nickel_ls.setup{}
+          vim.lsp.enable('rust_analyzer')
+          vim.lsp.config('rust_analyzer', {})
 
-          configs.nixd.setup({
+          vim.lsp.enable('ts_ls')
+          vim.lsp.config('ts_ls', {})
+
+          vim.lsp.enable('nickel_ls')
+          vim.lsp.config('nickel_ls', {})
+
+          vim.lsp.enable('nixd')
+          vim.lsp.config('nixd', {
             settings = {
               nixd = {
                 formatting = {
@@ -160,7 +167,6 @@ in
             },
           }
 
-          require('rust-tools').setup(opts)
           EOF
         '';
       })

@@ -144,7 +144,6 @@ in
     bind
     binutils
     bison
-    cmake
     deno
     elfutils
     flex

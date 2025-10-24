@@ -2,9 +2,10 @@
   description = "euank nix dotfile flakes";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     nixpkgs-claude.url = "github:euank/nixpkgs/claude-squad";
     nixpkgs-amp.url = "github:euank/nixpkgs/amp-cli-writeShellApplication";
+    nixpkgs-maestral.url = "github:euank/nixpkgs/maestral-updates-2025-10-24";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     home-manager.url = "github:nix-community/home-manager";
     ekverlay.url = "github:euank/nixek-overlay";
@@ -51,14 +52,9 @@
             final: prev:
             {
               inherit (inputs.nixpkgs-claude.legacyPackages."${system}") claude-squad;
+              inherit (inputs.nixpkgs-maestral.legacyPackages."${system}") maestral;
               inherit ampcode;
               mvn2nix = mvn2nix.defaultPackage.x86_64-linux;
-              vlc = prev.vlc.override {
-                libbluray = prev.libbluray.override {
-                  withAACS = true;
-                  withBDplus = true;
-                };
-              };
             }
             // (import ./pkgs/scripts.nix { pkgs = final; })
           )

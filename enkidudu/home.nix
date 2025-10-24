@@ -25,7 +25,7 @@ in
 
     # vlc
 
-    tic-80
+    # tic-80
     youki
     stdenv.cc.cc.lib
     ipmitool
@@ -34,7 +34,7 @@ in
     terraform
     # desmume
     # jetbrains.idea-community
-    melonDS
+    # melonDS
     # minecraft
     muttoauth2
     # temporary: https://github.com/NixOS/nixpkgs/pull/386738
@@ -57,16 +57,6 @@ in
   };
 
   services.blueman-applet.enable = true;
-
-  xsession = {
-    enable = false;
-    preferStatusNotifierItems = true;
-    windowManager.xmonad = {
-      enable = true;
-      enableContribAndExtras = true;
-      config = ../shared/xmonad/xmonad.hs;
-    };
-  };
 
   services.pasystray = {
     enable = true;

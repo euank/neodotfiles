@@ -32,6 +32,7 @@
     google-chrome
     gptfdisk
     inkscape
+
     libreoffice
     keepassxc
     # logseq # temp
@@ -39,7 +40,10 @@
     nemo
     yazi
     nitrogen
-    # kdePackages.okular
+    kdePackages.okular
+    kdePackages.kio-fuse
+    kdePackages.kio-extras
+    kdePackages.dolphin
     pavucontrol
     pulseaudioFull
     # Temporary: https://github.com/NixOS/nixpkgs/issues/367870

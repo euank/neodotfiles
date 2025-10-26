@@ -15,8 +15,10 @@
   boot.extraModprobeConfig = ''
     options cfg80211 ieee80211_regdom="JP"
   '';
+  boot.supportedFilesystems = [ "ntfs" ];
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
+  programs.fuse.userAllowOther = true;
 
   programs.steam = {
     enable = true;

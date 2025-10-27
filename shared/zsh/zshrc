@@ -81,6 +81,12 @@ genpass() {
 mcd () {
   mkdir -p "$@" && cd "$@"
 }
+compdefas () {
+  if (($+_comps[$1])); then
+    compdef $_comps[$1] ${^@[2,-1]}=$1
+  fi
+}
+compdefas mkdir mcd
 
 alias ←="pushd -q -1"
 alias →="pushd -q +1"

@@ -149,6 +149,20 @@
             ./shared/home.nix
           ];
         };
+        esk = inputs.home-manager.lib.homeManagerConfiguration {
+          inherit pkgs;
+          extraSpecialArgs = { inherit inputs pkgs; };
+          modules = [
+            (
+              { ... }:
+              {
+                home.username = "esk";
+                home.homeDirectory = "/home/esk";
+              }
+            )
+            ./shared/home.nix
+          ];
+        };
       };
 
       # nix-flake-update is an update script for updating the subset of flake

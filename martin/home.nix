@@ -7,7 +7,6 @@
   ];
   home.packages = with pkgs; [
     zoom-us
-    dia
     hicolor-icon-theme
     brightnessctl
     remmina

@@ -14,6 +14,7 @@
 
   services.xserver.xkb.layout = "us";
   programs.niri.enable = true;
+  programs.niri.package = pkgs.niri-unstable;
   programs.xwayland.enable = true;
 
   services.syncthing = {
@@ -82,9 +83,9 @@
       twitter-color-emoji
       noto-fonts
       noto-fonts-cjk-sans
-      noto-fonts-emoji
+      noto-fonts-color-emoji
       noto-fonts-emoji-blob-bin
-      ubuntu_font_family
+      ubuntu-classic
       takao
       hachimarupop
       nerd-fonts.fira-code

@@ -2,7 +2,7 @@
   description = "euank nix dotfile flakes";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixpkgs-claude.url = "github:euank/nixpkgs/claude-squad";
     nixpkgs-amp.url = "github:euank/nixpkgs/amp-cli-writeShellApplication";
     nixpkgs-maestral.url = "github:euank/nixpkgs/maestral-updates-2025-10-24";
@@ -15,7 +15,7 @@
     # dwarffs.url = "github:edolstra/dwarffs";
 
     niri = {
-      url = "github:euank/niri-flake/newer-polkit";
+      url = "github:sodiboo/niri-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 

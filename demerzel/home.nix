@@ -10,7 +10,6 @@
     # jetbrains.idea-community
     zoom-us
     # obs-studio
-    dia
     hicolor-icon-theme
     brightnessctl
     remmina

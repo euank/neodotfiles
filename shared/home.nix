@@ -60,7 +60,7 @@ in
     flamegraph
     flyctl
     font-manager
-    fx_cast_bridge
+    fx-cast-bridge
     git-spice
     heaptrack
     htop

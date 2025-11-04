@@ -43,7 +43,7 @@ in
     # tic-80
     ninja
     restic
-    tor-browser-bundle-bin
+    tor-browser
     zoom-us
   ];
 

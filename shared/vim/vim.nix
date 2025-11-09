@@ -112,7 +112,7 @@ in
         '';
       })
       # Used in nvim-lspconfig below
-      rust-tools-nvim
+      # rust-tools-nvim
       ({
         plugin = nvim-lspconfig;
         config = ''

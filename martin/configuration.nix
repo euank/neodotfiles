@@ -24,8 +24,6 @@ in
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  services.syncthing.enable = pkgs.lib.mkForce false;
-
   boot.initrd.luks.devices."luks-5d45f68a-8eff-4078-a32e-948ef808f7ff".device = "/dev/disk/by-uuid/5d45f68a-8eff-4078-a32e-948ef808f7ff";
 
 

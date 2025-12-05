@@ -7,7 +7,7 @@ in
   imports = [
     ./hardware-configuration.nix
     home-manager.nixosModules.home-manager
-    inputs.nixos-hardware.nixosModules.lenovo-thinkpad-x1-6th-gen
+    inputs.nixos-hardware.nixosModules.lenovo-thinkpad-p14s-amd-gen5
     ../shared/base.nix
     ../shared/desktop.nix
   ];
@@ -18,8 +18,7 @@ in
     "discard"
   ];
 
-  # time.timeZone = pkgs.lib.mkForce "America/Los_Angeles";
-
+  boot.kernelPackages = pkgs.linuxPackages_latest;
   hardware.enableRedistributableFirmware = true;
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;

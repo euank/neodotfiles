@@ -116,9 +116,10 @@ in
     tcpdump
     tewisay
     tig
-    tokei
     tmate
     tmux
+    tokei
+    tweag-credential-helper
     toilet
     tree
     unzip

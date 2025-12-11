@@ -8,8 +8,10 @@
 
   home.packages = with pkgs; [
     stdenv.cc.cc.lib
+
     ninja
     restic
+    tweag-credential-helper
   ];
 
   services.gpg-agent = {

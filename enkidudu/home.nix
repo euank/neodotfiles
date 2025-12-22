@@ -45,6 +45,7 @@ in
     restic
     tor-browser
     wine
+    winetricks
     zoom-us
   ];
 

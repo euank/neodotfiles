@@ -44,6 +44,7 @@ in
     ninja
     restic
     tor-browser
+    wine
     zoom-us
   ];
 

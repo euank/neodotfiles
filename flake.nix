@@ -53,6 +53,7 @@
               inherit (inputs.nixpkgs-claude.legacyPackages."${system}") claude-squad;
               inherit ampcode;
               mvn2nix = mvn2nix.defaultPackage.x86_64-linux;
+              rf = import ./pkgs/rf.nix { pkgs = final; };
             }
             // (import ./pkgs/scripts.nix { pkgs = final; })
           )

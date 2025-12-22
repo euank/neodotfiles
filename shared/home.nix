@@ -106,6 +106,7 @@ in
     pavucontrol
     pwgen
     redis
+    rf
     ripgrep
     shotgun
     sops

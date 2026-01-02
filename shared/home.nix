@@ -183,7 +183,7 @@ in
 
     # misc
     efibootmgr
-    efitools
+    # efitools
     i3lock
     inotify-tools
     lld

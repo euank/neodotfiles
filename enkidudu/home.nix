@@ -61,7 +61,8 @@ in
   services.blueman-applet.enable = true;
 
   services.pasystray = {
-    enable = true;
+    # tmp
+    # enable = true;
   };
 
   programs.niri.settings = {

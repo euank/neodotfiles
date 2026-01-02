@@ -54,6 +54,9 @@
               inherit ampcode;
               mvn2nix = mvn2nix.defaultPackage.x86_64-linux;
               rf = import ./pkgs/rf.nix { pkgs = final; };
+              llm = prev.python3Packages.llm.overridePythonAttrs (_: {
+                doCheck = false;
+              });
             }
             // (import ./pkgs/scripts.nix { pkgs = final; })
           )

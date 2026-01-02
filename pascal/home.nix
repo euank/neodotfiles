@@ -26,7 +26,6 @@
     zsh-powerlevel10k
     # boot
     sbsigntool
-    efitools
   ];
 
   home.file.".aspell.conf".text = "data-dir ${pkgs.aspell}/lib/aspell";

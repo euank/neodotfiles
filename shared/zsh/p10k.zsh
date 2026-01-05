@@ -37,6 +37,7 @@
   typeset -g POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(
     dir                     # current directory
     vcs                     # git status
+    jj_status               # jj
     prompt_char             # prompt symbol
   )
 

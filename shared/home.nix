@@ -222,8 +222,8 @@ in
     };
     initContent = ''
       source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme
-      source ${zsh-p10k-jj}/p10k-jj-status.plugin.zsh
       source "${../shared/zsh/p10k.zsh}"
+      source ${zsh-p10k-jj}/p10k-jj-status.plugin.zsh
       source "${../shared/zsh/zshrc}"
       export PATH=$HOME/bin:$HOME/.nix-profile/bin:$PATH
       command -v ngrok &>/dev/null && source <(ngrok completion)

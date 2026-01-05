@@ -23,6 +23,14 @@ let
     ];
     NIX_LD = pkgs.lib.fileContents "${pkgs.stdenv.cc}/nix-support/dynamic-linker";
   };
+
+  zsh-p10k-jj = pkgs.fetchFromGitHub {
+    owner = "xs5871";
+    repo = "p10k-jj-status";
+    rev = "a98672e1cd23f1010875bf6fb376a33b1740a484";
+    hash = "sha256-hTKzE7hNgKwASC4RbyCW8S9F7KaTqqyLBKtkTM7Sz/w=";
+  };
+
 in
 {
   imports = [
@@ -214,6 +222,7 @@ in
     };
     initContent = ''
       source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme
+      source ${zsh-p10k-jj}/p10k-jj-status.plugin.zsh
       source "${../shared/zsh/p10k.zsh}"
       source "${../shared/zsh/zshrc}"
       export PATH=$HOME/bin:$HOME/.nix-profile/bin:$PATH

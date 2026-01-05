@@ -50,7 +50,7 @@
   };
 
   services.pasystray = {
-    enable = true;
+    enable = false;
   };
 
   xdg = {

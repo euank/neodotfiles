@@ -79,6 +79,8 @@ in
     jmtpfs
     jq
     jujutsu
+    lazyjj
+    jjui
     k3s
     kind
     # krita

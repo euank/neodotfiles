@@ -3,6 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs-zed.url = "github:nixos/nixpkgs/5912c17"; # https://github.com/NixOS/nixpkgs/issues/478546
     nixpkgs-claude.url = "github:euank/nixpkgs/claude-squad";
     nixpkgs-amp.url = "github:euank/nixpkgs/amp-cli-writeShellApplication";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
@@ -51,6 +52,7 @@
             final: prev:
             {
               inherit (inputs.nixpkgs-claude.legacyPackages."${system}") claude-squad;
+              inherit (inputs.nixpkgs-zed.legacyPackages."${system}") zed-editor;
               inherit ampcode;
               mvn2nix = mvn2nix.defaultPackage.x86_64-linux;
               rf = import ./pkgs/rf.nix { pkgs = final; };

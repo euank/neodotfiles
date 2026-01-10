@@ -22,6 +22,7 @@ in
     calibre
     handbrake
     nickel
+    android-tools
 
     # vlc
 

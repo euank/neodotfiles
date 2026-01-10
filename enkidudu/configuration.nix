@@ -171,7 +171,6 @@
   networking.hostName = "Enkidudu";
   networking.hostId = "373650f1";
 
-  programs.adb.enable = true;
   boot.kernel.sysctl."net.ipv4.ip_forward" = 1;
 
   networking.useDHCP = false;

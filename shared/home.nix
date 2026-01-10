@@ -1,7 +1,7 @@
 # home-manager configuration for a machine without a desktop, i.e. a headless server,
 # but still with my dev setup
 
-{ pkgs, ... }:
+{ pkgs, lib, config, ... }:
 
 let
   sessionVariables = {
@@ -85,7 +85,7 @@ in
     kind
     # krita
     asciinema_3
-    (hiPrio kubectl)
+    (lib.hiPrio kubectl)
     kubernetes-helm
     llm
     lsof
@@ -98,7 +98,7 @@ in
     nitrogen
     nix-index
     nix-tree
-    nixfmt-rfc-style
+    nixfmt
     nixos-install-tools
     nixpkgs-fmt
     nmap
@@ -215,6 +215,7 @@ in
   programs.home-manager.enable = true;
   programs.zsh = {
     enable = true;
+    dotDir = "${config.xdg.configHome}/zsh";
     history = {
       save = 1000000;
     };
@@ -234,13 +235,15 @@ in
 
   programs.git = {
     enable = true;
-    userName = "Euan Kemp";
-    userEmail = "euank@" + "euan" + "k.com";
-    aliases = {
-      co = "checkout";
-      s = "status";
-    };
-    extraConfig = {
+    settings = {
+      user = {
+        name = "Euan Kemp";
+        email = "euank@" + "euan" + "k.com";
+      };
+      alias = {
+        co = "checkout";
+        s = "status";
+      };
       merge.tool = "vimdiff";
       "mergetool \"vimdiff\"".cmd = "nvim -d $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'";
     };

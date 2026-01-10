@@ -10,7 +10,7 @@
     hicolor-icon-theme
     brightnessctl
     remmina
-    (hiPrio bundler)
+    (pkgs.lib.hiPrio bundler)
     slack
 
     # dev stuff

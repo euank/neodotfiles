@@ -1,7 +1,12 @@
 # home-manager configuration for a machine without a desktop, i.e. a headless server,
 # but still with my dev setup
 
-{ pkgs, lib, config, ... }:
+{
+  pkgs,
+  lib,
+  config,
+  ...
+}:
 
 let
   sessionVariables = {

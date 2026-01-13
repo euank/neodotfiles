@@ -18,6 +18,10 @@
       url = "github:sodiboo/niri-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    noctalia = {
+      url = "github:noctalia-dev/noctalia-shell";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     # Magic unimportable things
     ngrok-dev.url = "git+file:/home/esk/dev/ngrok?dir=nix";
@@ -53,6 +57,7 @@
             {
               inherit (inputs.nixpkgs-claude.legacyPackages."${system}") claude-squad;
               inherit (inputs.nixpkgs-zed.legacyPackages."${system}") zed-editor;
+              inherit (inputs.noctalia.legacyPackages."${system}") noctalia;
               inherit ampcode;
               mvn2nix = mvn2nix.defaultPackage.x86_64-linux;
               rf = import ./pkgs/rf.nix { pkgs = final; };

@@ -53,6 +53,7 @@
   qt.platformTheme = "lxqt";
 
   services.gnome.gnome-keyring.enable = true;
+  services.tuned.enable = true;
 
   security.rtkit.enable = true;
   services.pipewire = {

@@ -1,10 +1,11 @@
 # home-manager configuration for a machine with a desktop (i.e. a display attached)
 
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 
 {
   imports = [
     ./home.nix
+    inputs.noctalia.homeModules.default
   ];
 
   home.packages = with pkgs; [
@@ -74,6 +75,430 @@
     xorg.xwininfo
     yacreader
   ];
+
+  programs.noctalia-shell = {
+    enable = true;
+    systemd.enable = true;
+    settings = {
+      settingsVersion = 0;
+      bar = {
+        position = "top";
+        monitors = [ ];
+        density = "default";
+        showOutline = false;
+        showCapsule = true;
+        capsuleOpacity = 1;
+        backgroundOpacity = 0.93;
+        useSeparateOpacity = false;
+        floating = false;
+        marginVertical = 4;
+        marginHorizontal = 4;
+        outerCorners = true;
+        exclusive = true;
+        widgets = {
+          left = [
+            {
+              id = "Launcher";
+            }
+          ];
+          center = [
+            {
+              id = "Clock";
+            }
+            {
+              id = "Workspace";
+            }
+          ];
+          right = [
+            {
+              id = "SystemMonitor";
+            }
+            {
+              id = "ActiveWindow";
+            }
+            {
+              id = "MediaMini";
+            }
+            {
+              id = "Battery";
+            }
+            {
+              id = "Volume";
+            }
+            {
+              id = "Brightness";
+            }
+            {
+              id = "ControlCenter";
+            }
+            {
+              id = "Tray";
+            }
+            {
+              id = "NotificationHistory";
+            }
+          ];
+        };
+      };
+      general = {
+        avatarImage = "";
+        dimmerOpacity = 0.2;
+        showScreenCorners = false;
+        forceBlackScreenCorners = false;
+        scaleRatio = 1;
+        radiusRatio = 1;
+        iRadiusRatio = 1;
+        boxRadiusRatio = 1;
+        screenRadiusRatio = 1;
+        animationSpeed = 1;
+        animationDisabled = false;
+        compactLockScreen = false;
+        lockOnSuspend = true;
+        showSessionButtonsOnLockScreen = true;
+        showHibernateOnLockScreen = false;
+        enableShadows = true;
+        shadowDirection = "bottom_right";
+        shadowOffsetX = 2;
+        shadowOffsetY = 3;
+        language = "";
+        allowPanelsOnScreenWithoutBar = true;
+        showChangelogOnStartup = true;
+        telemetryEnabled = true;
+      };
+      ui = {
+        fontDefault = "";
+        fontFixed = "";
+        fontDefaultScale = 1;
+        fontFixedScale = 1;
+        tooltipsEnabled = true;
+        panelBackgroundOpacity = 0.93;
+        panelsAttachedToBar = true;
+        settingsPanelMode = "attached";
+        wifiDetailsViewMode = "grid";
+        bluetoothDetailsViewMode = "grid";
+        networkPanelView = "wifi";
+        bluetoothHideUnnamedDevices = false;
+        boxBorderEnabled = false;
+      };
+      location = {
+        name = "Tokyo";
+        weatherEnabled = true;
+        weatherShowEffects = true;
+        useFahrenheit = false;
+        use12hourFormat = false;
+        showWeekNumberInCalendar = false;
+        showCalendarEvents = true;
+        showCalendarWeather = true;
+        analogClockInCalendar = false;
+        firstDayOfWeek = -1;
+        hideWeatherTimezone = false;
+        hideWeatherCityName = false;
+      };
+      wallpaper = {
+        enabled = true;
+        overviewEnabled = false;
+        directory = "";
+        monitorDirectories = [ ];
+        enableMultiMonitorDirectories = false;
+        recursiveSearch = false;
+        setWallpaperOnAllMonitors = true;
+        fillMode = "crop";
+        fillColor = "#000000";
+        useSolidColor = false;
+        solidColor = "#1a1a2e";
+        randomEnabled = false;
+        wallpaperChangeMode = "random";
+        randomIntervalSec = 300;
+        transitionDuration = 1500;
+        transitionType = "random";
+        transitionEdgeSmoothness = 0.05;
+        panelPosition = "follow_bar";
+        hideWallpaperFilenames = false;
+        useWallhaven = false;
+        wallhavenQuery = "";
+        wallhavenSorting = "relevance";
+        wallhavenOrder = "desc";
+        wallhavenCategories = "111";
+        wallhavenPurity = "100";
+        wallhavenRatios = "";
+        wallhavenApiKey = "";
+        wallhavenResolutionMode = "atleast";
+        wallhavenResolutionWidth = "";
+        wallhavenResolutionHeight = "";
+      };
+      appLauncher = {
+        enableClipboardHistory = false;
+        autoPasteClipboard = false;
+        enableClipPreview = true;
+        clipboardWrapText = true;
+        position = "center";
+        pinnedApps = [ ];
+        useApp2Unit = false;
+        sortByMostUsed = true;
+        terminalCommand = "xterm -e";
+        customLaunchPrefixEnabled = false;
+        customLaunchPrefix = "";
+        viewMode = "list";
+        showCategories = true;
+        iconMode = "tabler";
+        showIconBackground = false;
+        ignoreMouseInput = false;
+        screenshotAnnotationTool = "";
+      };
+      controlCenter = {
+        position = "close_to_bar_button";
+        diskPath = "/";
+        shortcuts = {
+          left = [
+            {
+              id = "Network";
+            }
+            {
+              id = "Bluetooth";
+            }
+            {
+              id = "WallpaperSelector";
+            }
+          ];
+          right = [
+            {
+              id = "Notifications";
+            }
+            {
+              id = "PowerProfile";
+            }
+            {
+              id = "KeepAwake";
+            }
+            {
+              id = "NightLight";
+            }
+          ];
+        };
+        cards = [
+          {
+            enabled = true;
+            id = "profile-card";
+          }
+          {
+            enabled = true;
+            id = "shortcuts-card";
+          }
+          {
+            enabled = true;
+            id = "audio-card";
+          }
+          {
+            enabled = false;
+            id = "brightness-card";
+          }
+          {
+            enabled = true;
+            id = "weather-card";
+          }
+          {
+            enabled = true;
+            id = "media-sysmon-card";
+          }
+        ];
+      };
+      systemMonitor = {
+        cpuWarningThreshold = 80;
+        cpuCriticalThreshold = 90;
+        tempWarningThreshold = 80;
+        tempCriticalThreshold = 90;
+        gpuWarningThreshold = 80;
+        gpuCriticalThreshold = 90;
+        memWarningThreshold = 80;
+        memCriticalThreshold = 90;
+        diskWarningThreshold = 80;
+        diskCriticalThreshold = 90;
+        cpuPollingInterval = 3000;
+        tempPollingInterval = 3000;
+        gpuPollingInterval = 3000;
+        enableDgpuMonitoring = false;
+        memPollingInterval = 3000;
+        diskPollingInterval = 3000;
+        networkPollingInterval = 3000;
+        loadAvgPollingInterval = 3000;
+        useCustomColors = false;
+        warningColor = "";
+        criticalColor = "";
+        externalMonitor = "resources || missioncenter || jdsystemmonitor || corestats || system-monitoring-center || gnome-system-monitor || plasma-systemmonitor || mate-system-monitor || ukui-system-monitor || deepin-system-monitor || pantheon-system-monitor";
+      };
+      dock = {
+        enabled = true;
+        position = "bottom";
+        displayMode = "auto_hide";
+        backgroundOpacity = 1;
+        floatingRatio = 1;
+        size = 1;
+        onlySameOutput = true;
+        monitors = [ ];
+        pinnedApps = [ ];
+        colorizeIcons = false;
+        pinnedStatic = false;
+        inactiveIndicators = false;
+        deadOpacity = 0.6;
+        animationSpeed = 1;
+      };
+      network = {
+        wifiEnabled = true;
+        bluetoothRssiPollingEnabled = false;
+        bluetoothRssiPollIntervalMs = 10000;
+        wifiDetailsViewMode = "grid";
+        bluetoothDetailsViewMode = "grid";
+        bluetoothHideUnnamedDevices = false;
+      };
+      sessionMenu = {
+        enableCountdown = true;
+        countdownDuration = 10000;
+        position = "center";
+        showHeader = true;
+        largeButtonsStyle = false;
+        largeButtonsLayout = "grid";
+        showNumberLabels = true;
+        powerOptions = [
+          {
+            action = "lock";
+            enabled = true;
+          }
+          {
+            action = "suspend";
+            enabled = true;
+          }
+          {
+            action = "hibernate";
+            enabled = true;
+          }
+          {
+            action = "reboot";
+            enabled = true;
+          }
+          {
+            action = "logout";
+            enabled = true;
+          }
+          {
+            action = "shutdown";
+            enabled = true;
+          }
+        ];
+      };
+      notifications = {
+        enabled = true;
+        monitors = [ ];
+        location = "top_right";
+        overlayLayer = true;
+        backgroundOpacity = 1;
+        respectExpireTimeout = false;
+        lowUrgencyDuration = 3;
+        normalUrgencyDuration = 8;
+        criticalUrgencyDuration = 15;
+        enableKeyboardLayoutToast = true;
+        saveToHistory = {
+          low = true;
+          normal = true;
+          critical = true;
+        };
+        sounds = {
+          enabled = false;
+          volume = 0.5;
+          separateSounds = false;
+          criticalSoundFile = "";
+          normalSoundFile = "";
+          lowSoundFile = "";
+          excludedApps = "discord,firefox,chrome,chromium,edge";
+        };
+      };
+      osd = {
+        enabled = true;
+        location = "top_right";
+        autoHideMs = 2000;
+        overlayLayer = true;
+        backgroundOpacity = 1;
+        enabledTypes = [
+          0
+          1
+          2
+        ];
+        monitors = [ ];
+      };
+      audio = {
+        volumeStep = 5;
+        volumeOverdrive = false;
+        cavaFrameRate = 30;
+        visualizerType = "linear";
+        mprisBlacklist = [ ];
+        preferredPlayer = "";
+      };
+      brightness = {
+        brightnessStep = 5;
+        enforceMinimum = true;
+        enableDdcSupport = false;
+      };
+      colorSchemes = {
+        useWallpaperColors = false;
+        predefinedScheme = "Noctalia (default)";
+        darkMode = true;
+        schedulingMode = "off";
+        manualSunrise = "06:30";
+        manualSunset = "18:30";
+        matugenSchemeType = "scheme-fruit-salad";
+      };
+      templates = {
+        gtk = false;
+        qt = false;
+        kcolorscheme = false;
+        alacritty = false;
+        kitty = false;
+        ghostty = false;
+        foot = false;
+        wezterm = false;
+        fuzzel = false;
+        discord = false;
+        pywalfox = false;
+        vicinae = false;
+        walker = false;
+        code = false;
+        spicetify = false;
+        telegram = false;
+        cava = false;
+        yazi = false;
+        emacs = false;
+        niri = false;
+        hyprland = false;
+        mango = false;
+        zed = false;
+        helix = false;
+        zenBrowser = false;
+        enableUserTemplates = false;
+      };
+      nightLight = {
+        enabled = false;
+        forced = false;
+        autoSchedule = true;
+        nightTemp = "4000";
+        dayTemp = "6500";
+        manualSunrise = "06:30";
+        manualSunset = "18:30";
+      };
+      hooks = {
+        enabled = false;
+        wallpaperChange = "";
+        darkModeChange = "";
+        screenLock = "";
+        screenUnlock = "";
+        performanceModeEnabled = "";
+        performanceModeDisabled = "";
+      };
+      desktopWidgets = {
+        enabled = false;
+        gridSnap = false;
+        monitorWidgets = [ ];
+      };
+    };
+  };
 
   home.file.".aspell.conf".text = "data-dir ${pkgs.aspell}/lib/aspell";
 
@@ -225,215 +650,6 @@
         };
       }
     ];
-  };
-
-  programs.waybar = {
-    enable = true;
-    systemd.enable = true;
-    settings =
-      let
-        niri = "${pkgs.niri}/bin/niri";
-        swaync-client = "${pkgs.swaynotificationcenter}/bin/swaync-client";
-      in
-      {
-        mainBar = {
-          layer = "top";
-          style = ''
-            * {
-              font-size: 20px;
-              font-family: "FiraCode Nerd Font";
-            }
-          '';
-          position = "top";
-          modules-left = [
-            "custom/right-arrow-dark"
-            "niri/workspaces"
-            # "niri/window"
-            "mpris"
-          ];
-          modules-center = [
-            "custom/left-arrow-dark"
-            "clock"
-            "custom/right-arrow-dark"
-          ];
-          modules-right = [
-            "custom/left-arrow-dark"
-            "pulseaudio"
-            "bluetooth"
-            "memory"
-            "cpu"
-            "battery"
-            "disk"
-            "custom/left-arrow-light"
-            "network"
-            "custom/notifications"
-            "custom/left-arrow-dark"
-            "tray"
-          ];
-
-          "niri/workspaces" = {
-            all-outputs = false;
-            format = "{icon}";
-            # show workspace numbers as formal Japanese numerals
-            format-icons = {
-              "1" = "一";
-              "2" = "二";
-              "3" = "三";
-              "4" = "四";
-              "5" = "五";
-              "6" = "六";
-              "7" = "七";
-              "8" = "八";
-              "9" = "九";
-              "10" = "十";
-              default = "";
-            };
-            on-scroll-up = "${niri} msg action focus-workspace-up";
-            on-scroll-down = "${niri} msg action focus-workspace-down";
-          };
-
-          "niri/window" = {
-            separate-outputs = true;
-            icon = true;
-            format = "";
-            rewrite = { };
-          };
-
-          "custom/left-arrow-dark" = {
-            format = "";
-            tooltip = false;
-          };
-          "custom/left-arrow-light" = {
-            format = "";
-            tooltip = false;
-          };
-          "custom/right-arrow-dark" = {
-            format = "";
-            tooltip = false;
-          };
-          "custom/right-arrow-light" = {
-            format = "";
-            tooltip = false;
-          };
-          "custom/notifications" = {
-            format = "{icon}";
-            tooltip = false;
-            format-icons = {
-              notification = "<span foreground='red'><sup></sup></span>";
-              none = "";
-              dnd-notification = "<span foreground='red'><sup></sup></span>";
-              dnd-none = "";
-              inhibited-notification = "<span foreground='red'><sup></sup></span>";
-              inhibited-none = "";
-              dnd-inhibited-notification = "<span foreground='red'><sup></sup></span>";
-              dnd-inhibited-none = "";
-            };
-            return-type = "json";
-            exec = "${swaync-client} -swb";
-            on-click = "${swaync-client} -t -sw";
-            on-click-right = "${swaync-client} -d -sw";
-            escape = true;
-          };
-
-          mpris = {
-            format = "{player_icon} {status_icon} {dynamic}";
-            format-playing = "{player_icon} {status_icon} {dynamic}";
-            format-paused = "{player_icon} {status_icon} <i>{dynamic}</i>";
-            format-stopped = "{player_icon} {status_icon} <i>{dynamic}</i>";
-            dynamic-len = 30;
-            player-icons = {
-              default = "";
-              mpv = "󰝚";
-              firefox = "";
-            };
-            status-icons = {
-              playing = "󰐊";
-              paused = "󰏤";
-              stopped = "󰓛";
-            };
-            on-scroll-down = "${pkgs.playerctl} next";
-            on-scroll-up = "${pkgs.playerctl} previous";
-          };
-          network = {
-            interface = "wlan0";
-            format = "{ifname}";
-            format-wifi = " ";
-            format-ethernet = "󰈀 ";
-            format-linked = "󱘖 ";
-            format-disconnected = "󰣽 ";
-            tooltip-format = "{ifname} via {gwaddr}";
-            tooltip-format-wifi = "{essid} ({signalStrength}%)";
-            tooltip-format-ethernet = "{ifname} {ipaddr}/{cidr}";
-            tooltip-format-disconnected = "Disconnected";
-            max-length = 50;
-            on-click = "${pkgs.rmenu}/bin/rmenu -r network";
-          };
-          clock = {
-            format = "{:%H:%M}";
-            tooltip-format = "<tt><small>{calendar}</small></tt>";
-            calendar = {
-              mode = "year";
-              mode-mon-col = 3;
-              weeks-pos = "right";
-              on-scroll = 1;
-              on-click-right = "mode";
-              format = {
-                months = "<span color='#ffead3'><b>{}</b></span>";
-                days = "<span color='#ecc6d9'><b>{}</b></span>";
-                weeks = "<span color='#99ffdd'><b>W{}</b></span>";
-                weekdays = "<span color='#ffcc66'><b>{}</b></span>";
-                today = "<span color='#ff6699'><b><u>{}</u></b></span>";
-              };
-            };
-            actions = {
-              on-click-right = "mode";
-              on-click-forward = "tz_up";
-              on-click-backward = "tz_down";
-              on-scroll-up = "shift_down";
-              on-scroll-down = "shift_up";
-            };
-          };
-          bluetooth = {
-            format = " {num_connections}";
-            tooltip-format = "{device_alias}: {status}";
-          };
-          pulseaudio = {
-            format = "{icon}   {volume:2}%";
-            format-bluetooth = "{icon}   {volume}%";
-            format-muted = "󰝟";
-            format-icons = {
-              headphones = "";
-              default = [
-                ""
-                ""
-              ];
-            };
-            scroll-step = 5;
-            max-volume = 250;
-            on-click = "${pkgs.pamixer} -t";
-            on-click-right = pkgs.pavucontrol;
-            on-scroll-down = "${pkgs.wireplumber} set-volume -l 2.0 @DEFAULT_AUDIO_SINK@ 5%-";
-            on-scroll-up = "${pkgs.wireplumber} set-volume -l 2.0 @DEFAULT_AUDIO_SINK@ 5%+";
-          };
-          memory = {
-            interval = 5;
-            format = "  {}%";
-          };
-          cpu = {
-            interval = 5;
-            format = "󱛟  {usage:2}%";
-          };
-          disk = {
-            interval = 5;
-            format = "󱛟  {percentage_used:2}%";
-            path = "/";
-          };
-          tray = {
-            icon-size = 20;
-            show-passive-items = true;
-          };
-        };
-      };
   };
 
   programs.alacritty = {

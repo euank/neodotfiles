@@ -57,6 +57,7 @@
 
   home-manager.useUserPackages = true;
   home-manager.useGlobalPkgs = true;
+  home-manager.extraSpecialArgs = { inherit inputs; };
 
   users.users.esk = {
     isNormalUser = true;

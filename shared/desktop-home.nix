@@ -15,7 +15,6 @@
     aichat
     (aspellWithDicts (ps: with ps; [ en ]))
     networkmanagerapplet
-    anki
     arandr
     dmenu
     bemenu
@@ -75,6 +74,14 @@
     xorg.xwininfo
     yacreader
   ];
+
+  programs.anki = {
+    enable = true;
+    addons = with pkgs.ankiAddons; [
+      anki-draw
+      # colorful-tags
+    ];
+  };
 
   programs.noctalia-shell = {
     enable = true;

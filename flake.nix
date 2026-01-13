@@ -6,6 +6,7 @@
     nixpkgs-zed.url = "github:nixos/nixpkgs/5912c17"; # https://github.com/NixOS/nixpkgs/issues/478546
     nixpkgs-claude.url = "github:euank/nixpkgs/claude-squad";
     nixpkgs-amp.url = "github:euank/nixpkgs/amp-cli-writeShellApplication";
+    nixpkgs-anki-draw.url = "github:euank/nixpkgs/anki-draw-2026-01-14";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     home-manager.url = "github:nix-community/home-manager";
     ekverlay.url = "github:euank/nixek-overlay";
@@ -64,6 +65,10 @@
               llm = prev.python3Packages.llm.overridePythonAttrs (_: {
                 doCheck = false;
               });
+
+              ankiAddons = prev.ankiAddons // {
+                inherit (inputs.nixpkgs-anki-draw.legacyPackages."${system}".ankiAddons) anki-draw;
+              };
             }
             // (import ./pkgs/scripts.nix { pkgs = final; })
           )

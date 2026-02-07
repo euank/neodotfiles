@@ -59,6 +59,7 @@ in
     colmena
     cntr
     iotop
+    _1password-cli
     smartmontools
     cowsay
     dua

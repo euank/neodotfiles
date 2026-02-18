@@ -93,6 +93,7 @@ in
     asciinema_3
     (lib.hiPrio kubectl)
     kubernetes-helm
+    linear-cli
     llm
     lsof
     w3m

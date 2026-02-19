@@ -3,7 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    nixpkgs-zed.url = "github:nixos/nixpkgs/5912c17"; # https://github.com/NixOS/nixpkgs/issues/478546
+    nixpkgs-lxqt-config.url = "github:euank/nixpkgs/lxqt-config-2026-02-20"; # https://github.com/NixOS/nixpkgs/pull/491911
     nixpkgs-claude.url = "github:euank/nixpkgs/claude-squad";
     nixpkgs-amp.url = "github:euank/nixpkgs/amp-cli-writeShellApplication";
     nixpkgs-anki-draw.url = "github:euank/nixpkgs/anki-draw-2026-01-14";
@@ -57,7 +57,7 @@
             final: prev:
             {
               inherit (inputs.nixpkgs-claude.legacyPackages."${system}") claude-squad;
-              inherit (inputs.nixpkgs-zed.legacyPackages."${system}") zed-editor;
+              inherit (inputs.nixpkgs-lxqt-config.legacyPackages."${system}") lxqt;
               inherit (inputs.noctalia.legacyPackages."${system}") noctalia;
               inherit ampcode;
               mvn2nix = mvn2nix.defaultPackage.x86_64-linux;

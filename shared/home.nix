@@ -170,7 +170,7 @@ in
     gdb
     gh
     gnumake
-    go_1_24
+    go_1_26
     gopls
     gofumpt
     gradle

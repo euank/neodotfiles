@@ -70,8 +70,8 @@
     rmenu
     tmux
     xsel
-    xorg.xkill
-    xorg.xwininfo
+    xkill
+    xwininfo
     yacreader
   ];
 

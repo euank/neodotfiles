@@ -175,7 +175,7 @@
     fuzzel
     gnupg
     gparted
-    helvum
+    crosspipe
     meslo-lg
     niri
     pcsclite

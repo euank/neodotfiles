@@ -29,6 +29,8 @@ in
     "/crypto_keyfile.bin" = null;
   };
 
+  time.timeZone = pkgs.lib.mkForce "America/Los_Angeles";
+
   # Enable swap on luks
   boot.initrd.luks.devices."luks-531f03cf-7cf4-41ae-9238-aab6e6268d8b".device =
     "/dev/disk/by-uuid/531f03cf-7cf4-41ae-9238-aab6e6268d8b";

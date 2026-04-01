@@ -176,6 +176,7 @@
               }
             )
             ./shared/home.nix
+            ./esk/home.nix
           ];
         };
       };

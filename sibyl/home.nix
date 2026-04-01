@@ -32,6 +32,10 @@
     initContent = ''
       source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme
       source "${../shared/zsh/p10k.zsh}"
+      function prompt_bwrap() {
+        [[ -n $BWRAP_SESSION ]] && p10k segment -f 208 -t '(nwrap)'
+      }
+      POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(bwrap "''${POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS[@]}")
       source "${../shared/zsh/zshrc}"
 
       export NGROK_HOME=/home/esk/dev/ngrok

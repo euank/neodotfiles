@@ -60,6 +60,8 @@ in
     cntr
     iotop
     _1password-cli
+    reptyr
+    shpool
     smartmontools
     cowsay
     dua
@@ -215,6 +217,30 @@ in
 
   home.sessionVariables = sessionVariables;
   systemd.user.sessionVariables = sessionVariables;
+
+  systemd.user.sockets.shpool = {
+    Unit.Description = "Shpool Shell Session Pooler";
+    Socket = {
+      ListenStream = "%t/shpool/shpool.socket";
+      SocketMode = "0600";
+    };
+    Install.WantedBy = [ "sockets.target" ];
+  };
+
+  systemd.user.services.shpool = {
+    Unit = {
+      Description = "Shpool - Shell Session Pool";
+      Requires = [ "shpool.socket" ];
+    };
+    Service = {
+      Type = "simple";
+      ExecStart = "${pkgs.shpool}/bin/shpool daemon";
+      KillMode = "mixed";
+      TimeoutStopSec = "2s";
+      SendSIGHUP = true;
+    };
+    Install.WantedBy = [ "default.target" ];
+  };
 
   programs.autorandr.enable = true;
 

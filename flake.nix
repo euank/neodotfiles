@@ -15,6 +15,8 @@
     # gradle2nix.url = "github:tadfisher/gradle2nix";
     # dwarffs.url = "github:edolstra/dwarffs";
 
+    claude-desktop.url = "github:patrickjaja/claude-desktop-bin";
+
     niri = {
       url = "github:sodiboo/niri-flake";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -60,6 +62,7 @@
               inherit (inputs.nixpkgs-lxqt-config.legacyPackages."${system}") lxqt;
               inherit (inputs.noctalia.legacyPackages."${system}") noctalia;
               inherit ampcode;
+              claude-desktop = inputs.claude-desktop.packages."${system}".default;
               mvn2nix = mvn2nix.defaultPackage.x86_64-linux;
               rf = import ./pkgs/rf.nix { pkgs = final; };
               linear-cli = import ./pkgs/linear-cli.nix { pkgs = final; };

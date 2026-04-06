@@ -182,7 +182,7 @@ in
     nodejs
     mvn2nix
     ncurses
-    nodePackages.typescript-language-server
+    typescript-language-server
     perf-tools
     pkg-config
     python3

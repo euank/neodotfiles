@@ -2,8 +2,8 @@
   description = "euank nix dotfile flakes";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    nixpkgs-lxqt-config.url = "github:euank/nixpkgs/lxqt-config-2026-02-20"; # https://github.com/NixOS/nixpkgs/pull/491911
+    # until https://nixpk.gs/pr-tracker.html?pr=505561, after that back to nixos-unstable
+    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     nixpkgs-claude.url = "github:euank/nixpkgs/claude-squad";
     nixpkgs-amp.url = "github:euank/nixpkgs/amp-cli-writeShellApplication";
     nixpkgs-anki-draw.url = "github:euank/nixpkgs/anki-draw-2026-01-14";
@@ -59,7 +59,6 @@
             final: prev:
             {
               inherit (inputs.nixpkgs-claude.legacyPackages."${system}") claude-squad;
-              inherit (inputs.nixpkgs-lxqt-config.legacyPackages."${system}") lxqt;
               inherit (inputs.noctalia.legacyPackages."${system}") noctalia;
               inherit ampcode;
               claude-desktop = inputs.claude-desktop.packages."${system}".default;

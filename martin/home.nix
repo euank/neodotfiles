@@ -16,7 +16,6 @@
     # dev stuff
     docker
     docker-compose
-    nodePackages.typescript-language-server
   ];
 
   services.network-manager-applet = {

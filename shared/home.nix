@@ -96,7 +96,17 @@ in
     (lib.hiPrio kubectl)
     kubernetes-helm
     linear-cli
-    llm
+    (llm.withPlugins {
+      llm-anthropic = true;
+      llm-gemini = true;
+
+      llm-cmd = true;
+      llm-docs = true;
+      llm-fragments-github = true;
+      llm-hacker-news = true;
+      llm-jq = true;
+      llm-tools-sqlite = true;
+    })
     lsof
     w3m
     multipath-tools

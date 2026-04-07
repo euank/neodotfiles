@@ -278,6 +278,7 @@ in
 
   programs.git = {
     enable = true;
+    signing.format = null;
     settings = {
       user = {
         name = "Euan Kemp";
@@ -305,6 +306,7 @@ in
 
     userDirs = {
       enable = true;
+      setSessionVariables = true;
       desktop = "$HOME/Desktop";
       download = "$HOME/Downloads";
       documents = "$HOME/Documents";

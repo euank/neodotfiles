@@ -1,6 +1,6 @@
 # home-manager configuration for a machine with a desktop (i.e. a display attached)
 
-{ pkgs, inputs, ... }:
+{ pkgs, config, inputs, ... }:
 
 {
   imports = [
@@ -732,6 +732,7 @@
       package = pkgs.graphite-gtk-theme;
       name = "Graphite-Light";
     };
+    gtk4.theme = config.gtk.theme;
   };
 
   home.pointerCursor = {

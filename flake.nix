@@ -101,15 +101,6 @@
             ./enkidudu/configuration.nix
           ];
         };
-        sibyl = nixpkgs.lib.nixosSystem {
-          inherit pkgs system;
-          specialArgs = {
-            inherit inputs;
-          };
-          modules = [
-            ./sibyl/configuration.nix
-          ];
-        };
         jane = nixpkgs.lib.nixosSystem {
           inherit pkgs system;
           specialArgs = {

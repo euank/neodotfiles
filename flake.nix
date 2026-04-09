@@ -27,8 +27,7 @@
     };
 
     # Magic unimportable things
-    ngrok-dev.url = "git+file:/home/esk/dev/ngrok?dir=nix";
-    ngrok-dev2.url = "path:/home/esk/nix-ngrok-dev";
+    ngrok-dev.url = "path:/home/esk/nix-ngrok-dev";
     secrets.url = "path:/home/esk/dev/nix-secrets";
   };
 
@@ -99,15 +98,6 @@
           modules = [
             inputs.niri.nixosModules.niri
             ./enkidudu/configuration.nix
-          ];
-        };
-        jane = nixpkgs.lib.nixosSystem {
-          inherit pkgs system;
-          specialArgs = {
-            inherit inputs;
-          };
-          modules = [
-            ./jane/configuration.nix
           ];
         };
         pascal = nixpkgs.lib.nixosSystem {

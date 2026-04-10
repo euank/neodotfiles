@@ -49,6 +49,7 @@ in
     atuin
     claude-code
     claude-squad
+    codex
     devenv
     # ast-grep
     binutils

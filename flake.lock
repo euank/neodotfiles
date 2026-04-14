@@ -247,18 +247,18 @@
         "type": "github"
       }
     },
-    "nixpkgs-claude": {
+    "nixpkgs-codex": {
       "locked": {
-        "lastModified": 1753070144,
-        "narHash": "sha256-i/x6uCZh+H243jsOh7OrrvmaXEzPE6wjfQQb9PehLQk=",
+        "lastModified": 1776118558,
+        "narHash": "sha256-LFGxgNTVEPzxFGqbsHQWyVVu7OVBBMMOWeSbE8tXi7I=",
         "owner": "euank",
         "repo": "nixpkgs",
-        "rev": "a8423a0a303a81b06a5c669e02b854543fd0bdd5",
+        "rev": "5c20d0bb8c397de548971dd7252a7bafe32c1e97",
         "type": "github"
       },
       "original": {
         "owner": "euank",
-        "ref": "claude-squad",
+        "ref": "codex-0.120.0",
         "repo": "nixpkgs",
         "type": "github"
       }
@@ -440,7 +440,7 @@
         "nixpkgs": "nixpkgs_7",
         "nixpkgs-amp": "nixpkgs-amp",
         "nixpkgs-anki-draw": "nixpkgs-anki-draw",
-        "nixpkgs-claude": "nixpkgs-claude",
+        "nixpkgs-codex": "nixpkgs-codex",
         "noctalia": "noctalia",
         "secrets": "secrets"
       }

@@ -4,7 +4,7 @@
   inputs = {
     # until https://nixpk.gs/pr-tracker.html?pr=505561, after that back to nixos-unstable
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
-    nixpkgs-claude.url = "github:euank/nixpkgs/claude-squad";
+    nixpkgs-codex.url = "github:euank/nixpkgs/codex-0.120.0";
     nixpkgs-amp.url = "github:euank/nixpkgs/amp-cli-writeShellApplication";
     nixpkgs-anki-draw.url = "github:euank/nixpkgs/anki-draw-2026-01-14";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
@@ -57,7 +57,7 @@
           (
             final: prev:
             {
-              inherit (inputs.nixpkgs-claude.legacyPackages."${system}") claude-squad;
+              inherit (inputs.nixpkgs-codex.legacyPackages."${system}") codex;
               inherit (inputs.noctalia.legacyPackages."${system}") noctalia;
               inherit ampcode;
               claude-desktop = inputs.claude-desktop.packages."${system}".default;

@@ -48,7 +48,6 @@ in
     amazon-ecr-credential-helper
     atuin
     claude-code
-    claude-squad
     codex
     devenv
     # ast-grep

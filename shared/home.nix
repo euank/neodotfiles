@@ -271,7 +271,7 @@ in
       source "${../shared/zsh/p10k.zsh}"
       source ${zsh-p10k-jj}/p10k-jj-status.plugin.zsh
       source "${../shared/zsh/zshrc}"
-      export PATH=$HOME/bin:$HOME/.nix-profile/bin:$PATH
+      export PATH=$HOME/.local/bin:$HOME/bin:$HOME/.nix-profile/bin:$PATH
       command -v ngrok &>/dev/null && source <(ngrok completion)
     '';
   };

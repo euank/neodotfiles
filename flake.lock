@@ -249,16 +249,16 @@
     },
     "nixpkgs-codex": {
       "locked": {
-        "lastModified": 1776118558,
-        "narHash": "sha256-LFGxgNTVEPzxFGqbsHQWyVVu7OVBBMMOWeSbE8tXi7I=",
+        "lastModified": 1776318688,
+        "narHash": "sha256-JLfgzkJyidBRNcoWbAx01lc3WQQTX3AmxcxhW+BI79A=",
         "owner": "euank",
         "repo": "nixpkgs",
-        "rev": "5c20d0bb8c397de548971dd7252a7bafe32c1e97",
+        "rev": "25433dd55cb5da74688ef8896e1be0295a3a8b12",
         "type": "github"
       },
       "original": {
         "owner": "euank",
-        "ref": "codex-0.120.0",
+        "ref": "codex-0.121",
         "repo": "nixpkgs",
         "type": "github"
       }

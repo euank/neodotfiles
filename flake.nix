@@ -4,7 +4,7 @@
   inputs = {
     # until https://nixpk.gs/pr-tracker.html?pr=505561, after that back to nixos-unstable
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
-    nixpkgs-codex.url = "github:euank/nixpkgs/codex-0.120.0";
+    nixpkgs-codex.url = "github:euank/nixpkgs/codex-0.121";
     nixpkgs-amp.url = "github:euank/nixpkgs/amp-cli-writeShellApplication";
     nixpkgs-anki-draw.url = "github:euank/nixpkgs/anki-draw-2026-01-14";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";

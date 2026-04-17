@@ -28,9 +28,19 @@
       port = 222;
       hostKeys = [ /etc/ssh/ssh_host_ed25519_key ];
     };
-    postCommands = ''
-      echo 'cryptsetup-askpass' >> /root/.profile
-    '';
+  };
+  boot.initrd.systemd = {
+    storePaths = [ "${config.boot.initrd.systemd.package}/bin/systemd-tty-ask-password-agent" ];
+    services.initrd-ssh-unlock-profile = {
+      description = "Set initrd SSH login profile for disk unlock";
+      wantedBy = [ "initrd.target" ];
+      before = [ "sshd.service" ];
+      unitConfig.DefaultDependencies = false;
+      serviceConfig.Type = "oneshot";
+      script = ''
+        echo '${config.boot.initrd.systemd.package}/bin/systemd-tty-ask-password-agent --watch' >> /root/.profile
+      '';
+    };
   };
   boot.kernelPackages = pkgs.linuxPackages_latest;
   fileSystems."/".options = [

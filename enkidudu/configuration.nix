@@ -1,6 +1,7 @@
 {
   pkgs,
   config,
+  lib,
   ...
 }:
 
@@ -39,19 +40,41 @@
     network = {
       enable = true;
       udhcpc.enable = false;
-      postCommands = ''
-        ip address add 192.168.2.2/24 brd + dev enp10s0
-        ip route add 192.168.2.1 dev enp10s0
-        ip route add default via 192.168.6.1 dev enp10s0
-        ip a
-
-        echo 'cryptsetup-askpass' >> /root/.profile
-      '';
       ssh = {
         enable = true;
         authorizedKeys = config.users.users.esk.openssh.authorizedKeys.keys;
         port = 222;
         hostKeys = [ "/etc/ssh/ssh_host_ed25519_key" ];
+      };
+    };
+    systemd = {
+      network = {
+        enable = true;
+        networks."10-enp10s0" = {
+          matchConfig.Name = "enp10s0";
+          address = [ "192.168.2.2/24" ];
+          routes = [
+            {
+              Destination = "192.168.2.1/32";
+              Scope = "link";
+            }
+            {
+              Gateway = "192.168.6.1";
+              GatewayOnLink = true;
+            }
+          ];
+        };
+      };
+      storePaths = [ (lib.getExe' config.boot.initrd.systemd.package "systemd-tty-ask-password-agent") ];
+      services.initrd-ssh-unlock-profile = {
+        description = "Set initrd SSH login profile for disk unlock";
+        wantedBy = [ "initrd.target" ];
+        before = [ "sshd.service" ];
+        unitConfig.DefaultDependencies = false;
+        serviceConfig.Type = "oneshot";
+        script = ''
+          echo '${lib.getExe' config.boot.initrd.systemd.package "systemd-tty-ask-password-agent"} --watch' >> /root/.profile
+        '';
       };
     };
   };

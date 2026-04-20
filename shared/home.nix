@@ -265,12 +265,17 @@ in
     shellAliases = {
       ls = "ls --color=auto";
       k = "kubectl";
+      d = "shpool detach";
+      a = "shpool attach";
+      # no trains here
+      sl = "shpool list";
     };
     initContent = ''
       source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme
       source "${../shared/zsh/p10k.zsh}"
       source ${zsh-p10k-jj}/p10k-jj-status.plugin.zsh
       source "${../shared/zsh/zshrc}"
+      source "${../shared/zsh/shpool-completions}"
       export PATH=$HOME/.local/bin:$HOME/bin:$HOME/.nix-profile/bin:$PATH
       command -v ngrok &>/dev/null && source <(ngrok completion)
     '';

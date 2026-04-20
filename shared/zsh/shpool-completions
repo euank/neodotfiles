@@ -1,0 +1,28 @@
+_shpool() {
+  local -a commands
+  commands=(
+    'attach:attach to a session'
+    'detach:detach from a session'
+    'kill:kill a session'
+    'list:list sessions'
+    'version:show version'
+    'help:show help'
+  )
+
+  if (( CURRENT == 2 )); then
+    _describe 'shpool command' commands
+    return
+  fi
+
+  if (( CURRENT == 3 )); then
+    case "${words[2]}" in
+      attach|detach|kill)
+        local -a sessions
+        sessions=(${(f)"$(shpool list 2>/dev/null | tail -n +2 | awk '{print $1}')"})
+        _describe 'session' sessions
+        ;;
+    esac
+  fi
+}
+
+compdef _shpool shpool

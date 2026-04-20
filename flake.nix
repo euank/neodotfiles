@@ -58,9 +58,16 @@
               mvn2nix = mvn2nix.defaultPackage.x86_64-linux;
               rf = import ./pkgs/rf.nix { pkgs = final; };
               linear-cli = import ./pkgs/linear-cli.nix { pkgs = final; };
-              llm = prev.python3Packages.llm.overridePythonAttrs (_: {
-                doCheck = false;
-              });
+              python3 = prev.python3.override {
+                packageOverrides = import ./pkgs/python-package-overrides.nix {
+                  inherit final inputs;
+                };
+              };
+              python3Packages = final.python3.pkgs;
+              llm = import ./pkgs/llm.nix {
+                llmBase = final.python3.pkgs.llm;
+                pkgs = final;
+              };
 
               ankiAddons = prev.ankiAddons // {
                 inherit (inputs.nixpkgs-anki-draw.legacyPackages."${system}".ankiAddons) anki-draw;

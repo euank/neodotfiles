@@ -7,6 +7,36 @@
 {
   imports = [ ./base.nix ];
 
+  programs.nix-ld.libraries = with pkgs; [
+    alsa-lib
+    at-spi2-atk
+    at-spi2-core
+    atk
+    cairo
+    cups
+    dbus
+    expat
+    fontconfig
+    gdk-pixbuf
+    glib
+    gtk3
+    libdrm
+    libgbm
+    libxkbcommon
+    nspr
+    nss
+    pango
+    stdenv.cc.cc
+    udev
+    libx11
+    libxcomposite
+    libxdamage
+    libxext
+    libxfixes
+    libxrandr
+    libxcb
+  ];
+
   services.displayManager.gdm = {
     enable = true;
     wayland = true;

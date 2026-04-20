@@ -2,10 +2,10 @@
   description = "euank nix dotfile flakes";
 
   inputs = {
-    # until https://nixpk.gs/pr-tracker.html?pr=505561, after that back to nixos-unstable
-    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    # until https://nixpk.gs/pr-tracker.html?pr=509068
     nixpkgs-codex.url = "github:euank/nixpkgs/codex-0.121";
-    nixpkgs-amp.url = "github:euank/nixpkgs/amp-cli-writeShellApplication";
+    # https://github.com/NixOS/nixpkgs/pull/479716
     nixpkgs-anki-draw.url = "github:euank/nixpkgs/anki-draw-2026-01-14";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     home-manager.url = "github:nix-community/home-manager";
@@ -43,11 +43,6 @@
     let
       inherit (self) outputs;
       system = "x86_64-linux";
-      ampcode =
-        (import inputs.nixpkgs-amp {
-          inherit system;
-          config.allowUnfree = true;
-        }).ampcode;
       pkgs = import nixpkgs {
         inherit system;
         overlays = [
@@ -59,7 +54,6 @@
             {
               inherit (inputs.nixpkgs-codex.legacyPackages."${system}") codex;
               inherit (inputs.noctalia.legacyPackages."${system}") noctalia;
-              inherit ampcode;
               claude-desktop = inputs.claude-desktop.packages."${system}".default;
               mvn2nix = mvn2nix.defaultPackage.x86_64-linux;
               rf = import ./pkgs/rf.nix { pkgs = final; };

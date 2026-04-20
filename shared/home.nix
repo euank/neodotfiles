@@ -42,7 +42,6 @@ in
     ./vim/vim.nix
   ];
   home.packages = with pkgs; [
-    ampcode
     aider-chat
     autorandr
     amazon-ecr-credential-helper

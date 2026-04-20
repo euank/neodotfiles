@@ -59,6 +59,15 @@
           white = "#eaeaea";
         };
       };
+      keyboard = {
+        bindings = [
+          {
+            key = "Return";
+            mods = "Shift";
+            chars = "\n";
+          }
+        ];
+      };
     };
   };
 

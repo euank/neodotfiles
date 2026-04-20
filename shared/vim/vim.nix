@@ -12,10 +12,12 @@ in
     enable = true;
     withPython3 = true;
     withNodeJs = true;
+    withRuby = false;
     package = pkgs.neovim-unwrapped;
     plugins = with pkgs.vimPlugins; [
       ({
         plugin = vim-airline;
+        type = "viml";
         # Put extra config here so it's earlier than other plugin config
         config = ''
           source ${./vimrc}
@@ -28,6 +30,7 @@ in
       })
       {
         plugin = vim-easy-align;
+        type = "viml";
         config = ''
           xmap ga <Plug>(EasyAlign)
           nmap ga <Plug>(EasyAlign)
@@ -41,6 +44,7 @@ in
       denops-vim
       ({
         plugin = pum-vim;
+        type = "viml";
         config = ''
           inoremap <C-n>   <Cmd>call pum#map#insert_relative(+1)<CR>
           inoremap <C-p>   <Cmd>call pum#map#insert_relative(-1)<CR>
@@ -57,6 +61,7 @@ in
       ddc-ui-pum
       ({
         plugin = ddc-vim;
+        type = "viml";
         # TODO
         config = ''
           set completeopt=menuone,noinsert,noselect
@@ -105,6 +110,7 @@ in
       vim-nix
       ({
         plugin = vim-colorschemes;
+        type = "viml";
         config = ''
           colorscheme inkpot
           " fixes my colors for some reason, ideally we shouldn't need this
@@ -115,6 +121,7 @@ in
       # rust-tools-nvim
       ({
         plugin = nvim-lspconfig;
+        type = "viml";
         config = ''
           lua << EOF
           vim.lsp.inlay_hint.enable()
@@ -172,6 +179,7 @@ in
       })
       ({
         plugin = vim-fugitive;
+        type = "viml";
         config = ''
           nnoremap <silent> <leader>gs :Gstatus<CR>
           nnoremap <silent> <leader>gd :Gdiff<CR>
@@ -188,6 +196,7 @@ in
       # vim-ripgrep
       ({
         plugin = vim-go;
+        type = "viml";
         config = ''
           filetype plugin indent on
           let g:go_imports_autosave = 1
@@ -205,6 +214,7 @@ in
       })
       ({
         plugin = ale;
+        type = "viml";
         config = ''
           let g:ale_go_golangci_lint_package = 1
           let g:ale_rust_cargo_check_all_targets = 1

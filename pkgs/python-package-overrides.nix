@@ -3,9 +3,12 @@
   inputs,
 }:
 pyFinal: pyPrev: {
-  llm = (pyFinal.callPackage "${inputs.nixpkgs}/pkgs/development/python-modules/llm/default.nix" { }).overridePythonAttrs (_: {
-    doCheck = false;
-  });
+  llm =
+    (pyFinal.callPackage "${inputs.nixpkgs}/pkgs/development/python-modules/llm/default.nix" { })
+    .overridePythonAttrs
+      (_: {
+        doCheck = false;
+      });
 
   anthropic = pyPrev.anthropic.overridePythonAttrs (_: {
     version = "0.96.0";

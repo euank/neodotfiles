@@ -1,6 +1,11 @@
 # home-manager configuration for a machine with a desktop (i.e. a display attached)
 
-{ pkgs, config, inputs, ... }:
+{
+  pkgs,
+  config,
+  inputs,
+  ...
+}:
 
 {
   imports = [

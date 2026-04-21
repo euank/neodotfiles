@@ -268,6 +268,7 @@ in
       a = "shpool attach";
       # no trains here
       sl = "shpool list";
+      gs = "git-spice";
     };
     initContent = ''
       source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme

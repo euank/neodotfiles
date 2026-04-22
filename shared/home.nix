@@ -21,6 +21,8 @@ let
 
     COWPATH = "${pkgs.cowsay}/share/cows:${pkgs.tewisay}/share/tewisay/cows";
     NIXOS_OZONE_WL = "1";
+    GH_TELEMETRY = "false";
+    DO_NOT_TRACK = "true";
 
     NIX_LD_LIBRARY_PATH = pkgs.lib.makeLibraryPath [
       pkgs.stdenv.cc.cc

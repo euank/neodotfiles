@@ -23,6 +23,7 @@
     gnupg
     htop
     iptables
+    mosh
     perf
     nfs-utils
     neovim

@@ -3,8 +3,6 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    # until https://nixpk.gs/pr-tracker.html?pr=509068
-    nixpkgs-codex.url = "github:euank/nixpkgs/codex-0.121";
     # https://github.com/NixOS/nixpkgs/pull/479716
     nixpkgs-anki-draw.url = "github:euank/nixpkgs/anki-draw-2026-01-14";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
@@ -52,7 +50,6 @@
           (
             final: prev:
             {
-              inherit (inputs.nixpkgs-codex.legacyPackages."${system}") codex;
               inherit (inputs.noctalia.legacyPackages."${system}") noctalia;
               claude-desktop = inputs.claude-desktop.packages."${system}".default;
               mvn2nix = mvn2nix.defaultPackage.x86_64-linux;

@@ -111,7 +111,6 @@ in
     lsof
     w3m
     multipath-tools
-    elinks
     ngrok
     xdotool
     nil

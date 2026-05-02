@@ -4,7 +4,8 @@
   imports = [ ../shared/desktop-home.nix ];
   home.packages = with pkgs; [
     (aspellWithDicts (ps: with ps; [ en ]))
-    gnome.gnome-session
+    steam-run
+    gnome-session
     xsel
     gptfdisk
     brightnessctl
@@ -83,13 +84,6 @@
   programs.pazi = {
     enable = true;
     enableZshIntegration = true;
-  };
-
-  xsession.enable = true;
-  xsession.windowManager.xmonad = {
-    enable = true;
-    enableContribAndExtras = true;
-    config = ../shared/xmonad/xmonad.hs;
   };
 
   services.screen-locker = {

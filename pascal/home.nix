@@ -31,6 +31,8 @@
 
   home.file.".aspell.conf".text = "data-dir ${pkgs.aspell}/lib/aspell";
 
+  programs.anki.enable = pkgs.lib.mkForce false;
+
   programs.alacritty = {
     enable = true;
     settings = {

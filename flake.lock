@@ -178,22 +178,6 @@
         "type": "github"
       }
     },
-    "nixpkgs-anki-draw": {
-      "locked": {
-        "lastModified": 1768316474,
-        "narHash": "sha256-BpVfBbd/yszlmqJ2vk11IF4qcX0QuwuZkKIGDtePoKM=",
-        "owner": "euank",
-        "repo": "nixpkgs",
-        "rev": "6a36103e5b8b7d8fad3fd7ab31f974f99ff50e9d",
-        "type": "github"
-      },
-      "original": {
-        "owner": "euank",
-        "ref": "anki-draw-2026-01-14",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
     "nixpkgs-stable": {
       "locked": {
         "lastModified": 1777077449,
@@ -352,7 +336,6 @@
         "nixek": "nixek",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs_6",
-        "nixpkgs-anki-draw": "nixpkgs-anki-draw",
         "noctalia": "noctalia",
         "secrets": "secrets"
       }

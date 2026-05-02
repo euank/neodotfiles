@@ -4,7 +4,6 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     # https://github.com/NixOS/nixpkgs/pull/479716
-    nixpkgs-anki-draw.url = "github:euank/nixpkgs/anki-draw-2026-01-14";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     home-manager.url = "github:nix-community/home-manager";
     ekverlay.url = "github:euank/nixek-overlay";
@@ -50,10 +49,18 @@
             {
               inherit (inputs.noctalia.legacyPackages."${system}") noctalia;
 
-              libbluray = prev.libbluray.override {
-                withAACS = true;
-                withBDplus = true;
+              mpv-unwrapped = prev.mpv-unwrapped.override {
+                libbluray = prev.libbluray.override {
+                  withAACS = true;
+                  withBDplus = true;
+                };
               };
+
+              mpv = prev.mpv.override {
+                mpv-unwrapped = final.mpv-unwrapped;
+                youtubeSupport = false;
+              };
+
               mvn2nix = mvn2nix.defaultPackage.x86_64-linux;
               rf = import ./pkgs/rf.nix { pkgs = final; };
               linear-cli = import ./pkgs/linear-cli.nix { pkgs = final; };
@@ -66,10 +73,6 @@
               llm = import ./pkgs/llm.nix {
                 llmBase = final.python3.pkgs.llm;
                 pkgs = final;
-              };
-
-              ankiAddons = prev.ankiAddons // {
-                inherit (inputs.nixpkgs-anki-draw.legacyPackages."${system}".ankiAddons) anki-draw;
               };
             }
             // (import ./pkgs/scripts.nix { pkgs = final; })

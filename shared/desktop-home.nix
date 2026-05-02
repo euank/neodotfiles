@@ -41,7 +41,8 @@
     libreoffice
     keepassxc
     # logseq # temp
-    mpv
+    mpv-unwrapped
+    vlc
     nemo
     yazi
     nitrogen
@@ -82,10 +83,6 @@
 
   programs.anki = {
     enable = true;
-    addons = with pkgs.ankiAddons; [
-      anki-draw
-      # colorful-tags
-    ];
   };
 
   programs.noctalia-shell = {

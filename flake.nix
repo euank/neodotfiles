@@ -49,17 +49,14 @@
             {
               inherit (inputs.noctalia.legacyPackages."${system}") noctalia;
 
-              mpv-unwrapped = prev.mpv-unwrapped.override {
-                libbluray = prev.libbluray.override {
+              vlc = prev.vlc.override {
+                libbluray-full = prev.libbluray.override {
                   withAACS = true;
                   withBDplus = true;
+                  withJava = true;
                 };
               };
 
-              mpv = prev.mpv.override {
-                mpv-unwrapped = final.mpv-unwrapped;
-                youtubeSupport = false;
-              };
 
               mvn2nix = mvn2nix.defaultPackage.x86_64-linux;
               rf = import ./pkgs/rf.nix { pkgs = final; };

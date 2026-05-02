@@ -17,7 +17,6 @@
     # chromium
     # obs-studio
     anyrun
-    aichat
     (aspellWithDicts (ps: with ps; [ en ]))
     networkmanagerapplet
     arandr
@@ -41,7 +40,6 @@
     libreoffice
     keepassxc
     # logseq # temp
-    mpv-unwrapped
     vlc
     nemo
     yazi

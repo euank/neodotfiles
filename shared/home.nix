@@ -158,7 +158,6 @@ in
     wireguard-tools
     wireshark
     wlr-randr
-    yt-dlp
     xdg-utils
     xdg-user-dirs
     xan

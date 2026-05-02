@@ -18,7 +18,6 @@
     # obs-studio
     anyrun
     aichat
-    claude-desktop
     (aspellWithDicts (ps: with ps; [ en ]))
     networkmanagerapplet
     arandr

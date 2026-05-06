@@ -22,8 +22,6 @@
     enable = true;
   };
 
-  services.blueman-applet.enable = true;
-
   home.file.".aspell.conf".text = "data-dir ${pkgs.aspell}/lib/aspell";
 
   services.gpg-agent = {

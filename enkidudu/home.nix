@@ -64,8 +64,6 @@ in
     enableSshSupport = true;
   };
 
-  services.blueman-applet.enable = true;
-
   services.pasystray = {
     # tmp
     # enable = true;

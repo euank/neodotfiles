@@ -25,8 +25,6 @@
     enable = true;
   };
 
-  services.blueman-applet.enable = true;
-
   programs.zsh.initContent = pkgs.lib.mkBefore ''
     export NGROK_HOME="/home/esk/dev/ngrok"
     source "/home/esk/dev/ngrok/.cache/ngrok-host-shellhook"

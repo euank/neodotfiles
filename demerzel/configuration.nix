@@ -61,8 +61,7 @@ in
     "docker0"
     "br*"
   ];
-  systemd.services.NetworkManager-wait-online.enable = false;
-  networking.networkmanager.dhcp = "dhcpcd";
+  networking.networkmanager.dhcp = "internal";
   networking.nameservers = [
     "8.8.8.8"
     "2001:4860:4860::8888"

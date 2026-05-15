@@ -92,6 +92,7 @@ in
     k3s
     kind
     # krita
+    ollama
     asciinema_3
     (lib.hiPrio kubectl)
     kubernetes-helm

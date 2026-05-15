@@ -171,6 +171,7 @@ in
     treefmt
 
     awscli2
+    bandwhich
     bc
     bind
     binutils

@@ -44,7 +44,6 @@ in
     ./vim/vim.nix
   ];
   home.packages = with pkgs; [
-    aider-chat
     autorandr
     amazon-ecr-credential-helper
     atuin

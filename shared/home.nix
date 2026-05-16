@@ -241,6 +241,7 @@ in
     Unit = {
       Description = "Shpool - Shell Session Pool";
       Requires = [ "shpool.socket" ];
+      X-SwitchMethod = "keep-old";
     };
     Service = {
       Type = "simple";

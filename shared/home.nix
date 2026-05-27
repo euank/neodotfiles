@@ -293,6 +293,7 @@ in
       };
       alias = {
         co = "checkout";
+        lba = "branch --sort=-committerdate --format='%(committerdate:relative)%09%(refname:short)'";
         s = "status";
       };
       merge.tool = "vimdiff";

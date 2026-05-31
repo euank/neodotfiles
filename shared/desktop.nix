@@ -39,7 +39,6 @@
 
   services.displayManager.gdm = {
     enable = true;
-    wayland = true;
   };
 
   services.xserver.xkb.layout = "us";

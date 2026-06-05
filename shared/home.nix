@@ -200,7 +200,6 @@ in
     ruby
     rustup
     d-spy
-    # terraform
     boringtun
     onetun
     railway

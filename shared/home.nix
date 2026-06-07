@@ -78,6 +78,7 @@ in
     font-manager
     fx-cast-bridge
     git-spice
+    happy-coder
     heaptrack
     htop
     iperf3

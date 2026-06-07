@@ -3,6 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    llm-agents.url = "github:numtide/llm-agents.nix";
     # https://github.com/NixOS/nixpkgs/pull/479716
     nixpkgs-anki-draw.url = "github:euank/nixpkgs/anki-draw-2026-01-14";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
@@ -20,13 +21,18 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     noctalia = {
-      url = "github:noctalia-dev/noctalia-shell";
+      url = "github:noctalia-dev/noctalia";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
     # Magic unimportable things
     ngrok-dev.url = "path:/home/esk/nix-ngrok-dev";
     secrets.url = "path:/home/esk/dev/nix-secrets";
+  };
+
+  nixConfig = {
+    extra-substituters = [ "https://cache.numtide.com" ];
+    extra-trusted-public-keys = [ "niks3.numtide.com-1:DTx8wZduET09hRmMtKdQDxNNthLQETkc/yaX7M4qK0g=" ];
   };
 
   outputs =
@@ -51,6 +57,9 @@
             final: prev:
             {
               inherit (inputs.noctalia.legacyPackages."${system}") noctalia;
+
+              inherit (inputs.llm-agents.packages."${system}") claude-code codex happy-coder;
+
               claude-desktop = inputs.claude-desktop.packages."${system}".default;
               mvn2nix = mvn2nix.defaultPackage.x86_64-linux;
               rf = import ./pkgs/rf.nix { pkgs = final; };
@@ -65,6 +74,7 @@
                 llmBase = final.python3.pkgs.llm;
                 pkgs = final;
               };
+
 
               ankiAddons = prev.ankiAddons // {
                 inherit (inputs.nixpkgs-anki-draw.legacyPackages."${system}".ankiAddons) anki-draw;

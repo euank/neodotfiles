@@ -89,7 +89,7 @@
     ];
   };
 
-  programs.noctalia-shell = {
+  programs.noctalia = {
     enable = true;
     settings = {
       settingsVersion = 0;
@@ -645,7 +645,7 @@
         ];
       }
       {
-        command = [ (pkgs.lib.getExe config.programs.noctalia-shell.package) ];
+        command = [ (pkgs.lib.getExe config.programs.noctalia.package) ];
       }
     ];
 

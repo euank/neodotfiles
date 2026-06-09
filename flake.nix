@@ -56,7 +56,7 @@
           (
             final: prev:
             {
-              inherit (inputs.noctalia.legacyPackages."${system}") noctalia;
+              noctalia = inputs.noctalia.packages."${system}".default;
 
               inherit (inputs.llm-agents.packages."${system}") claude-code codex happy-coder;
 

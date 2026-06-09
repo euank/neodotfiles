@@ -94,63 +94,38 @@
     settings = {
       settingsVersion = 0;
       bar = {
-        position = "top";
-        monitors = [ ];
-        density = "default";
-        showOutline = false;
-        showCapsule = true;
-        capsuleOpacity = 1;
-        backgroundOpacity = 0.93;
-        useSeparateOpacity = false;
-        floating = false;
-        marginVertical = 4;
-        marginHorizontal = 4;
-        outerCorners = true;
-        exclusive = true;
-        widgets = {
-          left = [
-            {
-              id = "Launcher";
-            }
+        main = {
+          position = "top";
+          background_opacity = 0.93;
+          margin_v = 4;
+          margin_h = 4;
+          reserve_space = true;
+          start = [
+            "launcher"
+            "workspaces"
+            "taskbar"
           ];
-          center = [
-            {
-              id = "Clock";
-            }
-            {
-              id = "Workspace";
-            }
-          ];
-          right = [
-            {
-              id = "SystemMonitor";
-            }
-            {
-              id = "ActiveWindow";
-            }
-            {
-              id = "MediaMini";
-            }
-            {
-              id = "Battery";
-            }
-            {
-              id = "Volume";
-            }
-            {
-              id = "Brightness";
-            }
-            {
-              id = "ControlCenter";
-            }
-            {
-              id = "Tray";
-            }
-            {
-              id = "NotificationHistory";
-            }
+          center = [ "clock" ];
+          end = [
+            "cpu"
+            "active_window"
+            "media"
+            "battery"
+            "output_volume"
+            "brightness"
+            "control-center"
+            "tray"
+            "notifications"
           ];
         };
+      };
+      widget.taskbar = {
+        type = "taskbar";
+        show_window_title = false;
+        only_active_workspace = false;
+        show_all_outputs = false;
+        show_active_indicator = true;
+        taskbar_max_width = 520;
       };
       general = {
         avatarImage = "";
@@ -339,7 +314,7 @@
         externalMonitor = "resources || missioncenter || jdsystemmonitor || corestats || system-monitoring-center || gnome-system-monitor || plasma-systemmonitor || mate-system-monitor || ukui-system-monitor || deepin-system-monitor || pantheon-system-monitor";
       };
       dock = {
-        enabled = true;
+        enabled = false;
         position = "bottom";
         displayMode = "auto_hide";
         backgroundOpacity = 1;

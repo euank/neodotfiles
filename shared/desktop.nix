@@ -43,6 +43,7 @@
   ];
 
   services.displayManager.gdm.enable = true;
+  services.displayManager.defaultSession = "niri";
   systemd.services.display-manager.wantedBy = [ "graphical.target" ];
 
   systemd.services.NetworkManager =

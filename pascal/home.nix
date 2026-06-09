@@ -4,7 +4,7 @@
   imports = [ ../shared/desktop-home.nix ];
   home.packages = with pkgs; [
     (aspellWithDicts (ps: with ps; [ en ]))
-    gnome.gnome-session
+    gnome-session
     xsel
     gptfdisk
     brightnessctl

@@ -1,4 +1,9 @@
-{ pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 # desktop.nix contains shared configuration for a machine which runs a desktop
 # environment. The desktop environment is x11, and the actual window manager is
@@ -37,9 +42,16 @@
     libxcb
   ];
 
-  services.displayManager.gdm = {
-    enable = true;
-  };
+  services.displayManager.gdm.enable = true;
+  systemd.services.display-manager.wantedBy = [ "graphical.target" ];
+
+  systemd.services.NetworkManager =
+    lib.mkIf
+      (config.networking.networkmanager.enable && config.networking.networkmanager.wifi.backend == "iwd")
+      {
+        after = [ "iwd.service" ];
+        wants = [ "iwd.service" ];
+      };
 
   services.xserver.xkb.layout = "us";
   programs.niri.enable = true;

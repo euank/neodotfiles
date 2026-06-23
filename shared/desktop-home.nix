@@ -65,6 +65,7 @@
     grim
     screenshot-area
     llm-ocr-area
+    ssh-sibyl
     sway-contrib.grimshot
     wl-clipboard
     wayout
@@ -539,6 +540,11 @@
         {
           "Mod+T" = "alacritty";
           "Mod+Return" = "alacritty";
+          "Mod+Shift+Return" = [
+            "alacritty"
+            "-e"
+            "ssh-sibyl"
+          ];
           "Mod+D" = [
             "rmenu"
             "-r"

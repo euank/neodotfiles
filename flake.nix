@@ -75,7 +75,6 @@
                 pkgs = final;
               };
 
-
               ankiAddons = prev.ankiAddons // {
                 inherit (inputs.nixpkgs-anki-draw.legacyPackages."${system}".ankiAddons) anki-draw;
               };

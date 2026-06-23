@@ -44,6 +44,7 @@
 
   services.displayManager.gdm.enable = true;
   services.displayManager.defaultSession = "niri";
+  environment.sessionVariables.XDG_CURRENT_DESKTOP = "niri";
   systemd.services.display-manager.wantedBy = [ "graphical.target" ];
 
   systemd.services.NetworkManager =
@@ -59,6 +60,14 @@
   programs.niri.package = pkgs.niri-unstable;
   programs.xwayland.enable = true;
 
+  programs.obs-studio = {
+    enable = true;
+    plugins = with pkgs.obs-studio-plugins; [
+      wlrobs
+      obs-pipewire-audio-capture
+    ];
+  };
+
   services.syncthing = {
     enable = true;
     openDefaultPorts = true;
@@ -72,15 +81,18 @@
 
   xdg.portal = {
     enable = true;
-    wlr.enable = true;
     extraPortals = [
       pkgs.xdg-desktop-portal-gtk
       pkgs.xdg-desktop-portal-gnome
-      pkgs.xdg-desktop-portal-wlr
     ];
     config.niri = {
+      default = [
+        "gnome"
+        "gtk"
+      ];
       # gnome has a working window-picker, wlr doesn't, use gnome.
-      "org.freedesktop.impl.portal.ScreenCast" = "gnome";
+      "org.freedesktop.impl.portal.ScreenCast" = [ "gnome" ];
+      "org.freedesktop.impl.portal.RemoteDesktop" = [ "gnome" ];
     };
     config.common.default = [ "*" ];
   };

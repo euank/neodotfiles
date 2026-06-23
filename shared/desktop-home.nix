@@ -15,7 +15,7 @@
 
   home.packages = with pkgs; [
     # chromium
-    # obs-studio
+    obs-studio
     anyrun
     aichat
     claude-desktop

@@ -128,6 +128,18 @@
         show_active_indicator = true;
         taskbar_max_width = 520;
       };
+      widget.clock = {
+        type = "clock";
+        format = "{:%Y年%m月%d日 %H:%M}";
+        tooltip_format = "{:%A, %Y年%m月%d日 %H:%M:%S}";
+      };
+      widget.tray = {
+        type = "tray";
+        drawer = false;
+        hidden = [ ];
+        pinned = [ ];
+        match_adjacent_spacing = true;
+      };
       general = {
         avatarImage = "";
         dimmerOpacity = 0.2;
@@ -688,8 +700,6 @@
       };
     };
   };
-
-  services.status-notifier-watcher.enable = true;
 
   systemd.user.services.swaync = {
     Unit = {

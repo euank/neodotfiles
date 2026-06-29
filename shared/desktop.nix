@@ -90,6 +90,7 @@
         "gnome"
         "gtk"
       ];
+      "org.freedesktop.impl.portal.FileChooser" = [ "gtk" ];
       # gnome has a working window-picker, wlr doesn't, use gnome.
       "org.freedesktop.impl.portal.ScreenCast" = [ "gnome" ];
       "org.freedesktop.impl.portal.RemoteDesktop" = [ "gnome" ];

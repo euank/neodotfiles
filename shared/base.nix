@@ -16,6 +16,7 @@
 
   environment.systemPackages = with pkgs; [
     curl
+    fuse3
     git
     gnupg
     htop
@@ -51,6 +52,7 @@
   systemd.services.NetworkManager-wait-online.enable = pkgs.lib.mkForce false;
 
   programs.nix-ld.enable = true;
+  programs.fuse.userAllowOther = true;
   programs.zsh.enable = true;
 
   home-manager.useUserPackages = true;

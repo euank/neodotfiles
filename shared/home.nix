@@ -330,11 +330,11 @@ in
       associations.added = {
         "image/png" = "feh.desktop";
         "image/jpeg" = "feh.desktop";
-        "application/pdf" = "org.gnome.Evince.desktop";
+        "application/pdf" = [ "org.gnome.Evince.desktop" ];
       };
 
       defaultApplications = {
-        "application/pdf" = [ "org.gnome.Evince.desktop" ];
+        "application/pdf" = lib.mkForce [ "org.gnome.Evince.desktop" ];
         "x-scheme-handler/http" = [ "firefox.desktop" ];
         "x-scheme-handler/https" = [ "firefox.desktop" ];
         "text/html" = [ "firefox.desktop" ];

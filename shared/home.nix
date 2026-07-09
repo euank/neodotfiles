@@ -331,10 +331,16 @@ in
         "image/png" = "feh.desktop";
         "image/jpeg" = "feh.desktop";
         "application/pdf" = [ "org.gnome.Evince.desktop" ];
+        "inode/directory" = [ "nemo.desktop" ];
+      };
+
+      associations.removed = {
+        "inode/directory" = [ "YACReader.desktop" ];
       };
 
       defaultApplications = {
         "application/pdf" = lib.mkForce [ "org.gnome.Evince.desktop" ];
+        "inode/directory" = lib.mkForce [ "nemo.desktop" ];
         "x-scheme-handler/http" = [ "firefox.desktop" ];
         "x-scheme-handler/https" = [ "firefox.desktop" ];
         "text/html" = [ "firefox.desktop" ];

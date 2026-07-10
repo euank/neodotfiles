@@ -21,7 +21,6 @@
     claude-desktop
     (aspellWithDicts (ps: with ps; [ en ]))
     networkmanagerapplet
-    arandr
     dmenu
     bemenu
     blueman

@@ -25,7 +25,6 @@ in
 
   home.packages = with pkgs; [
     calibre
-    handbrake
     nickel
     android-tools
 

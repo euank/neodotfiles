@@ -6,28 +6,42 @@ pyFinal: pyPrev: {
   llm =
     (pyFinal.callPackage "${inputs.nixpkgs}/pkgs/development/python-modules/llm/default.nix" { })
     .overridePythonAttrs
-      (_: {
+      (old: {
+        version = "0.31.1";
+        src = final.fetchFromGitHub {
+          owner = "simonw";
+          repo = "llm";
+          tag = "0.31.1";
+          hash = "sha256-XxQ6IQyuO1rxQtiyb4VGrM7uGoffuNN5BhyI4YDxnZg=";
+        };
         doCheck = false;
+        meta = old.meta // {
+          changelog = "https://github.com/simonw/llm/releases/tag/0.31.1";
+        };
       });
 
-  anthropic = pyPrev.anthropic.overridePythonAttrs (_: {
-    version = "0.96.0";
-    src = final.fetchurl {
-      url = "https://files.pythonhosted.org/packages/b9/7e/672f533dee813028d2c699bfd2a7f52c9118d7353680d9aa44b9e23f717f/anthropic-0.96.0.tar.gz";
-      hash = "sha256-nelHtzfzlFL2iqUg8cIjnUQRnJtzsPttTmyoDwAnnuY=";
+  anthropic = pyPrev.anthropic.overridePythonAttrs (old: {
+    version = "0.116.0";
+    src = final.fetchFromGitHub {
+      owner = "anthropics";
+      repo = "anthropic-sdk-python";
+      tag = "v0.116.0";
+      hash = "sha256-HwPsGvzCeFhWNSecF2Mugj7KWIausMacrnxDLTGExaI=";
+    };
+    meta = old.meta // {
+      changelog = "https://github.com/anthropics/anthropic-sdk-python/releases/tag/v0.116.0";
     };
   });
 
   llm-anthropic = pyPrev.llm-anthropic.overridePythonAttrs (_: {
-    version = "0.25";
+    version = "0.25.1";
     doCheck = false;
     src = final.fetchurl {
-      url = "https://files.pythonhosted.org/packages/74/02/574edce070d934caf8016c616ce44b90a45047331ca1470287b3c31436d2/llm_anthropic-0.25.tar.gz";
-      hash = "sha256-clPBxatE08FautXDV8ALaECrwBoSboJFGFEz1WVld44=";
+      url = "https://files.pythonhosted.org/packages/source/l/llm-anthropic/llm_anthropic-0.25.1.tar.gz";
+      hash = "sha256-end39zNBj6qRr3KHe0P12qY+6SZ9PvHb1X2/4MOxi64=";
     };
     dependencies = with pyFinal; [
       anthropic
-      json-schema-to-pydantic
       llm
     ];
   });

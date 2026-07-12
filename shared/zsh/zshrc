@@ -106,6 +106,9 @@ fi
 
 # type kubectl &>/dev/null && source <(kubectl completion zsh)
 
+command -v zmx &>/dev/null && source <(zmx completions zsh)
+
+
 type guix &>/dev/null && export GUIX_LOCPATH=$HOME/.guix-profile/lib/locale
 
 export ALAMI_OWNER=137112412989

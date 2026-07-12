@@ -267,10 +267,10 @@ in
     shellAliases = {
       ls = "ls --color=auto";
       k = "kubectl";
-      d = "shpool detach";
-      a = "shpool attach";
+      d = "zmx detach";
+      a = "zmx attach";
       # no trains here
-      sl = "shpool list";
+      sl = "zmx list";
     };
     initContent = ''
       source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme

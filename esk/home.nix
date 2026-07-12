@@ -5,9 +5,9 @@
     function prompt_bwrap() {
       [[ -n $BWRAP_SESSION ]] && p10k segment -f 208 -t '(nwrap)'
     }
-    function prompt_shpool() {
-      [[ -n $SHPOOL_SESSION_NAME ]] && p10k segment -f 033 -t "$SHPOOL_SESSION_NAME"
+    function prompt_zmx() {
+      [[ -n $ZMX_SESSION ]] && p10k segment -f 033 -t "$ZMX_SESSION"
     }
-    POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(bwrap shpool "''${POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS[@]}")
+    POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(bwrap zmx "''${POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS[@]}")
   '';
 }

@@ -170,6 +170,7 @@ in
     zip
     zsh-powerlevel10k
     treefmt
+    zmx
 
     awscli2
     bandwhich

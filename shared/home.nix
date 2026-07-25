@@ -85,7 +85,6 @@ in
     iptables
     iputils
     iw
-    jmtpfs
     jq
     jujutsu
     lazyjj

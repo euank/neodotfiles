@@ -75,8 +75,6 @@ in
 
   boot.kernel.sysctl."net.ipv4.ip_forward" = 1;
 
-  time.timeZone = pkgs.lib.mkForce "America/Los_Angeles";
-
   environment.systemPackages = with pkgs; [
     zfs
     keybase

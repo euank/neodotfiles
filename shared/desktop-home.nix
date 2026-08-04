@@ -30,7 +30,6 @@
     firefox
     gimp
     gmrun
-    gnome-icon-theme
     gnome-session
     cheese
     google-chrome
@@ -71,6 +70,7 @@
     xwayland-run
     xwayland-satellite
 
+    nwg-look
     wldash
     rmenu
     tmux
@@ -734,17 +734,10 @@
   gtk = {
     enable = true;
     theme = {
-      package = pkgs.graphite-gtk-theme;
-      name = "Graphite-Light";
+      package = pkgs.adw-gtk3;
+      name = "adw-gtk3";
     };
-    gtk4.theme = config.gtk.theme;
-  };
-
-  home.pointerCursor = {
-    gtk.enable = true;
-    package = pkgs.graphite-cursors;
-    name = "graphite-light";
-    size = 12;
+    gtk4.theme = null;
   };
 
   i18n.inputMethod = {

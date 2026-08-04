@@ -3,6 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs-nixos-unstable-small.url = "github:NixOS/nixpkgs/nixos-unstable-small";
     llm-agents.url = "github:numtide/llm-agents.nix";
     # https://github.com/NixOS/nixpkgs/pull/479716
     nixpkgs-anki-draw.url = "github:euank/nixpkgs/anki-draw-2026-01-14";
@@ -57,6 +58,8 @@
               noctalia = inputs.noctalia.packages."${system}".default;
 
               inherit (inputs.llm-agents.packages."${system}") claude-code codex happy-coder;
+
+              inherit (inputs.nixpkgs-nixos-unstable-small.legacyPackages."${system}") anki;
 
               mvn2nix = mvn2nix.defaultPackage.x86_64-linux;
               rf = import ./pkgs/rf.nix { pkgs = final; };

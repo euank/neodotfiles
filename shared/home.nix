@@ -61,6 +61,8 @@ in
     iotop
     _1password-cli
     reptyr
+    sendme
+    dumbpipe
     shpool
     smartmontools
     cowsay

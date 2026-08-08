@@ -57,7 +57,7 @@
 
   services.xserver.xkb.layout = "us";
   programs.niri.enable = true;
-  programs.niri.package = pkgs.niri-unstable;
+  programs.niri.package = pkgs.niri;
   programs.xwayland.enable = true;
 
   programs.obs-studio = {

@@ -20,7 +20,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     noctalia = {
-      url = "github:noctalia-dev/noctalia";
+      url = "github:euank/noctalia/fix/lockscreen-duplicate-output";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 

@@ -429,15 +429,16 @@
         ]
       },
       "locked": {
-        "lastModified": 1786115669,
-        "narHash": "sha256-+UpdMASvCJgEejw4SZbhefk/9oboIDR2s8gezsYjulg=",
-        "owner": "noctalia-dev",
+        "lastModified": 1786591633,
+        "narHash": "sha256-fNw0JcZOdpmmX1Z0VOfsc1nhPCkJVUAJ/HvsGvScBUg=",
+        "owner": "euank",
         "repo": "noctalia",
-        "rev": "e9230c81beb2513e4a4b09884f37e4f22fc246de",
+        "rev": "02504bf6f026986bcd94d7eefe05e0daff6f506b",
         "type": "github"
       },
       "original": {
-        "owner": "noctalia-dev",
+        "owner": "euank",
+        "ref": "fix/lockscreen-duplicate-output",
         "repo": "noctalia",
         "type": "github"
       }

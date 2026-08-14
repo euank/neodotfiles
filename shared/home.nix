@@ -157,7 +157,8 @@ in
     unzip
     wasm-pack
     wavemon
-    waypipe
+    # Temporarily disabled
+    # waypipe
     wirelesstools
     wireguard-tools
     wireshark

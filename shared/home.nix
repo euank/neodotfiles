@@ -49,6 +49,7 @@ in
     atuin
     claude-code
     codex
+    chatgpt
     devenv
     # ast-grep
     binutils

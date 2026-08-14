@@ -99,15 +99,16 @@
         "treefmt-nix": "treefmt-nix"
       },
       "locked": {
-        "lastModified": 1786166533,
-        "narHash": "sha256-cDbBQvFQJcu3RNO7duTSrA2MMXm9JTPJ+T1sGt1cx8g=",
-        "owner": "numtide",
+        "lastModified": 1786630210,
+        "narHash": "sha256-2+K9QtkFJJ5D3sFDrYmP9jDNexyLIu5EpKNLG9Pc2aA=",
+        "owner": "euank",
         "repo": "llm-agents.nix",
-        "rev": "df0664e9fdc0f06099ffeb1fe4878fcf58e13905",
+        "rev": "bca414c37bbe728fea056ae76a5d734352603be5",
         "type": "github"
       },
       "original": {
-        "owner": "numtide",
+        "owner": "euank",
+        "ref": "agent/chatgpt-init",
         "repo": "llm-agents.nix",
         "type": "github"
       }
@@ -323,11 +324,11 @@
     },
     "nixpkgs_3": {
       "locked": {
-        "lastModified": 1785975029,
-        "narHash": "sha256-X44cn5rzytELc3NNoQsh0aLkjWA/QzPfc6HPQmsG3sU=",
+        "lastModified": 1786227899,
+        "narHash": "sha256-OhQlRgshGOrfGwtq15FR3CuIwNzsJt0ejbpWOPDVYfY=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "70ce234312134a463ba7728e94da2486a1d237ac",
+        "rev": "fe6deff5fad4a42d0e08d2bab3f2d6c7c88f3fe5",
         "type": "github"
       },
       "original": {

@@ -68,6 +68,18 @@ in
     # enable = true;
   };
 
+  systemd.user.services.bgutil-ytdlp-pot-provider = {
+    Unit = {
+      Description = "BgUtils POT provider for yt-dlp";
+      After = [ "network-online.target" ];
+    };
+    Service = {
+      ExecStart = "${config.home.profileDirectory}/bin/bgutil-ytdlp-pot-provider";
+      Restart = "on-failure";
+    };
+    Install.WantedBy = [ "default.target" ];
+  };
+
   programs.niri.settings = {
     outputs."DP-3" = {
       mode = {

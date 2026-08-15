@@ -430,16 +430,16 @@
         ]
       },
       "locked": {
-        "lastModified": 1786591633,
-        "narHash": "sha256-fNw0JcZOdpmmX1Z0VOfsc1nhPCkJVUAJ/HvsGvScBUg=",
+        "lastModified": 1786025667,
+        "narHash": "sha256-8FaO/OojBgyJ3ioiiYxkNW243tcYaX+QKuXctCjOxS0=",
         "owner": "euank",
         "repo": "noctalia",
-        "rev": "02504bf6f026986bcd94d7eefe05e0daff6f506b",
+        "rev": "82b943b7cb9c5ccbd554bc4ff4cb50ff3107dd01",
         "type": "github"
       },
       "original": {
         "owner": "euank",
-        "ref": "fix/lockscreen-duplicate-output",
+        "ref": "tb/headless-locking",
         "repo": "noctalia",
         "type": "github"
       }

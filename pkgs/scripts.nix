@@ -23,10 +23,19 @@ in
     lladdr="$(ip -j neigh get "10.57.25.254" dev wlan0 2>/dev/null | jq -cr '.[0].lladdr' 2>/dev/null || echo "")"
     if [[ "$lladdr" == "00:0d:b9:4c:24:25" ]]; then
       # home router
-      ssh sibyl "$@"
+      exec ssh sibyl "$@"
     else
-      ssh sibyl-home "$@"
+      exec ssh sibyl-home "$@"
     fi
   '';
 
+  ssh-enk = pkgs.writeShellScriptBin "ssh-enk" ''
+    lladdr="$(ip -j neigh get "10.57.25.254" dev wlan0 2>/dev/null | jq -cr '.[0].lladdr' 2>/dev/null || echo "")"
+    if [[ "$lladdr" == "00:0d:b9:4c:24:25" ]]; then
+      # home router
+      exec ssh enkidudu-local "$@"
+    else
+      exec ssh home-enk "$@"
+    fi
+  '';
 }

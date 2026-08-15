@@ -63,6 +63,7 @@
     screenshot-area
     llm-ocr-area
     ssh-sibyl
+    ssh-enk
     sway-contrib.grimshot
     wl-clipboard
     wayout
@@ -554,6 +555,11 @@
             "alacritty"
             "-e"
             "ssh-sibyl"
+          ];
+          "Mod+Ctrl+Return" = [
+            "alacritty"
+            "-e"
+            "ssh-enk"
           ];
           "Mod+D" = [
             "rmenu"

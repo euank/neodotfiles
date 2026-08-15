@@ -12,7 +12,6 @@
     # obs-studio
     hicolor-icon-theme
     brightnessctl
-    remmina
     (pkgs.lib.hiPrio bundler)
     slack
 

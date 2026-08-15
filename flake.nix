@@ -59,7 +59,7 @@
 
               inherit (inputs.llm-agents.packages."${system}") claude-code codex happy-coder chatgpt;
 
-              inherit (inputs.nixpkgs-nixos-unstable-small.legacyPackages."${system}") anki;
+              inherit (inputs.nixpkgs-nixos-unstable-small.legacyPackages."${system}") anki waypipe;
 
               mvn2nix = mvn2nix.defaultPackage.x86_64-linux;
               rf = import ./pkgs/rf.nix { pkgs = final; };

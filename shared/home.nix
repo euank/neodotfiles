@@ -158,7 +158,7 @@ in
     wasm-pack
     wavemon
     # Temporarily disabled
-    # waypipe
+    waypipe
     wirelesstools
     wireguard-tools
     wireshark

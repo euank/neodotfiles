@@ -430,16 +430,15 @@
         ]
       },
       "locked": {
-        "lastModified": 1786025667,
-        "narHash": "sha256-8FaO/OojBgyJ3ioiiYxkNW243tcYaX+QKuXctCjOxS0=",
-        "owner": "euank",
+        "lastModified": 1786933769,
+        "narHash": "sha256-WGcpfJDmCT+mTYW7L9g0rXVpd/CECCadg68SGlyRmJw=",
+        "owner": "noctalia-dev",
         "repo": "noctalia",
-        "rev": "82b943b7cb9c5ccbd554bc4ff4cb50ff3107dd01",
+        "rev": "b46cdc1f2236fa2a81b36dc669bbda8a176f2148",
         "type": "github"
       },
       "original": {
-        "owner": "euank",
-        "ref": "tb/headless-locking",
+        "owner": "noctalia-dev",
         "repo": "noctalia",
         "type": "github"
       }

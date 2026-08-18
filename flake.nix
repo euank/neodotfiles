@@ -57,7 +57,7 @@
             {
               noctalia = inputs.noctalia.packages."${system}".default;
 
-              inherit (inputs.llm-agents.packages."${system}") claude-code codex happy-coder chatgpt;
+              inherit (inputs.llm-agents.packages."${system}") claude-code codex happy-coder chatgpt herdr;
 
               inherit (inputs.nixpkgs-nixos-unstable-small.legacyPackages."${system}") anki waypipe;
 

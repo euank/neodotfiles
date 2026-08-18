@@ -65,6 +65,7 @@ in
     claude-code
     codex
     chatgpt
+    herdr
     devenv
     # ast-grep
     binutils

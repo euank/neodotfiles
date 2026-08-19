@@ -223,6 +223,7 @@
   programs.gnome-disks.enable = true;
 
   environment.systemPackages = with pkgs; [
+    appimage-run
     blueman
     dmenu
     rmenu

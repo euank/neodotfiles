@@ -27,7 +27,6 @@
     enable = true;
     enableScDaemon = true;
     enableSshSupport = true;
-    pinentry.package = pkgs.pinentry-gtk2;
   };
 
   programs.niri.settings.outputs."eDP-1" = {

@@ -118,15 +118,6 @@
           ];
         };
 
-        martin = nixpkgs.lib.nixosSystem {
-          inherit pkgs system;
-          specialArgs = { inherit inputs; };
-          modules = [
-            inputs.niri.nixosModules.niri
-            ./martin/configuration.nix
-          ];
-        };
-
         demerzel = nixpkgs.lib.nixosSystem {
           inherit pkgs system;
           specialArgs = {

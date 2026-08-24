@@ -43,22 +43,6 @@
     enable = true;
   };
 
-  systemd.user.services.nitrogen = {
-    Unit = {
-      Description = "Nitrogen";
-      After = [ "graphical-session-pre.target" ];
-      PartOf = [ "graphical-session.target" ];
-    };
-
-    Service = {
-      Type = "oneshot";
-      ExecStart = "${pkgs.nitrogen}/bin/nitrogen --random --head=-1 --set-tiled /home/esk/Images/wallpaper";
-    };
-    Install = {
-      WantedBy = [ "graphical-session.target" ];
-    };
-  };
-
   xdg = {
 
     mimeApps = {

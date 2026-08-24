@@ -8,6 +8,8 @@
 }:
 
 {
+  disabledModules = [ "programs/noctalia.nix" ];
+
   imports = [
     ./home.nix
     inputs.noctalia.homeModules.default
@@ -42,7 +44,6 @@
     mpv
     nemo
     yazi
-    nitrogen
     kdePackages.okular
     kdePackages.kio-fuse
     kdePackages.kio-extras

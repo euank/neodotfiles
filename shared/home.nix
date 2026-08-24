@@ -133,7 +133,6 @@ in
     ngrok
     xdotool
     nil
-    nitrogen
     nix-index
     nix-tree
     nixfmt

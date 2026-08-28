@@ -91,6 +91,7 @@
     }
   ];
   security.pam.services.swaylock = { };
+  security.sudo.wheelNeedsPassword = false;
 
   nix = {
     settings = {

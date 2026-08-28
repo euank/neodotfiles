@@ -1,6 +1,6 @@
 {
+  lib,
   pkgs,
-  inputs,
   config,
   ...
 }:
@@ -26,11 +26,11 @@
       enable = true;
       authorizedKeys = config.users.users.esk.openssh.authorizedKeys.keys;
       port = 222;
-      hostKeys = [ /etc/ssh/ssh_host_ed25519_key ];
+      hostKeys = [ "/etc/ssh/ssh_host_ed25519_key" ];
     };
   };
   boot.initrd.systemd = {
-    storePaths = [ "${config.boot.initrd.systemd.package}/bin/systemd-tty-ask-password-agent" ];
+    storePaths = [ (lib.getExe' config.boot.initrd.systemd.package "systemd-tty-ask-password-agent") ];
     services.initrd-ssh-unlock-profile = {
       description = "Set initrd SSH login profile for disk unlock";
       wantedBy = [ "initrd.target" ];
@@ -38,7 +38,7 @@
       unitConfig.DefaultDependencies = false;
       serviceConfig.Type = "oneshot";
       script = ''
-        echo '${config.boot.initrd.systemd.package}/bin/systemd-tty-ask-password-agent --watch' >> /root/.profile
+        echo '${lib.getExe' config.boot.initrd.systemd.package "systemd-tty-ask-password-agent"} --watch' >> /root/.profile
       '';
     };
   };
@@ -52,11 +52,6 @@
 
   networking.useDHCP = false;
   networking.interfaces.enp2s0f0.useDHCP = true;
-
-  environment.systemPackages = with pkgs; [
-    vim
-    alacritty
-  ];
 
   hardware.enableAllFirmware = true;
 

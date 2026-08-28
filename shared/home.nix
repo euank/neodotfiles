@@ -112,7 +112,7 @@ in
     kind
     # krita
     ollama
-    asciinema_3
+    asciinema
     (lib.hiPrio kubectl)
     kubernetes-helm
     linear-cli

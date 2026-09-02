@@ -103,6 +103,7 @@ in
     iperf3
     iptables
     iputils
+    iroh-ssh
     iw
     jq
     jujutsu

@@ -62,6 +62,7 @@ in
     autorandr
     amazon-ecr-credential-helper
     atuin
+    anthropic-cli
     claude-code
     codex
     chatgpt

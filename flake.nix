@@ -62,6 +62,7 @@
               inherit (inputs.nixpkgs-nixos-unstable-small.legacyPackages."${system}") anki waypipe;
 
               mvn2nix = mvn2nix.defaultPackage.x86_64-linux;
+              anthropic-cli = import ./pkgs/anthropic-cli.nix { pkgs = final; };
               rf = import ./pkgs/rf.nix { pkgs = final; };
               linear-cli = import ./pkgs/linear-cli.nix { pkgs = final; };
               python3 = prev.python3.override {

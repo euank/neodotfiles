@@ -100,7 +100,7 @@
         "root"
         "esk"
       ];
-      experimental-features = "nix-command flakes recursive-nix dynamic-derivations ca-derivations";
+      experimental-features = [ "nix-command" "flakes" "recursive-nix" "dynamic-derivations" "ca-derivations" ];
     };
   };
 }

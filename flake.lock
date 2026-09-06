@@ -113,6 +113,42 @@
         "type": "github"
       }
     },
+    "llm-agents-upstream": {
+      "inputs": {
+        "bun2nix": [
+          "llm-agents",
+          "bun2nix"
+        ],
+        "flake-parts": [
+          "llm-agents",
+          "flake-parts"
+        ],
+        "nixpkgs": [
+          "nixpkgs"
+        ],
+        "systems": [
+          "llm-agents",
+          "systems"
+        ],
+        "treefmt-nix": [
+          "llm-agents",
+          "treefmt-nix"
+        ]
+      },
+      "locked": {
+        "lastModified": 1788607843,
+        "narHash": "sha256-J8TPHUiEY/EmxBTKD4KGX9nunyD8dXq83//p/9QPNaM=",
+        "owner": "numtide",
+        "repo": "llm-agents.nix",
+        "rev": "896d09ccef580902e01e716e6f4646421087c252",
+        "type": "github"
+      },
+      "original": {
+        "owner": "numtide",
+        "repo": "llm-agents.nix",
+        "type": "github"
+      }
+    },
     "mvn2nix": {
       "inputs": {
         "nixpkgs": "nixpkgs_4",
@@ -448,6 +484,7 @@
         "ekverlay": "ekverlay",
         "home-manager": "home-manager",
         "llm-agents": "llm-agents",
+        "llm-agents-upstream": "llm-agents-upstream",
         "mvn2nix": "mvn2nix",
         "ngrok-dev": "ngrok-dev",
         "niri": "niri",

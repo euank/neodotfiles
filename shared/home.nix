@@ -68,6 +68,7 @@ in
     opencode
     chatgpt
     herdr
+    orca
     devenv
     # ast-grep
     binutils

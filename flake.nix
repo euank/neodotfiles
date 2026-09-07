@@ -4,14 +4,9 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixpkgs-nixos-unstable-small.url = "github:NixOS/nixpkgs/nixos-unstable-small";
-    llm-agents.url = "github:euank/llm-agents.nix/agent/chatgpt-init";
-    llm-agents-upstream = {
+    llm-agents = {
       url = "github:numtide/llm-agents.nix";
-      inputs.bun2nix.follows = "llm-agents/bun2nix";
-      inputs.flake-parts.follows = "llm-agents/flake-parts";
       inputs.nixpkgs.follows = "nixpkgs";
-      inputs.systems.follows = "llm-agents/systems";
-      inputs.treefmt-nix.follows = "llm-agents/treefmt-nix";
     };
     # https://github.com/NixOS/nixpkgs/pull/479716
     nixpkgs-anki-draw.url = "github:euank/nixpkgs/anki-draw-2026-01-14";
@@ -71,8 +66,8 @@
                 happy-coder
                 chatgpt
                 herdr
+                orca
                 ;
-              inherit (inputs.llm-agents-upstream.packages."${system}") orca;
 
               inherit (inputs.nixpkgs-nixos-unstable-small.legacyPackages."${system}") anki waypipe;
 

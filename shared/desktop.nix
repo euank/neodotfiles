@@ -209,8 +209,8 @@
     };
   };
 
-  # time.timeZone = "Asia/Tokyo";
-  time.timeZone = "America/Los_Angeles";
+  time.timeZone = "Asia/Tokyo";
+  # time.timeZone = "America/Los_Angeles";
 
   services.udev.packages = [ pkgs.yubikey-personalization ];
 

@@ -66,7 +66,6 @@
                 happy-coder
                 chatgpt
                 herdr
-                orca
                 ;
 
               inherit (inputs.nixpkgs-nixos-unstable-small.legacyPackages."${system}") anki waypipe;

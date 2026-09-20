@@ -278,6 +278,11 @@ in
 
   programs.atuin.enable = true;
   programs.home-manager.enable = true;
+
+  home.activation.codexPersonalHome = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+    run mkdir -p -m 700 ${lib.escapeShellArg "${config.home.homeDirectory}/.codex-personal"}
+  '';
+
   programs.zsh = {
     enable = true;
     dotDir = "${config.xdg.configHome}/zsh";
@@ -285,6 +290,7 @@ in
       save = 1000000;
     };
     shellAliases = {
+      codex-personal = "CODEX_HOME=\"$HOME/.codex-personal\" codex -c 'cli_auth_credentials_store=\"file\"'";
       ls = "ls --color=auto";
       k = "kubectl";
       d = "zmx detach";

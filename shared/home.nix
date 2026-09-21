@@ -304,7 +304,13 @@ in
       source ${zsh-p10k-jj}/p10k-jj-status.plugin.zsh
       source "${../shared/zsh/zshrc}"
       source "${../shared/zsh/shpool-completions}"
-      export PATH=$HOME/.local/bin:$HOME/bin:$HOME/.nix-profile/bin:$PATH
+      # Keep existing PATH entries in place; prepend only missing directories.
+      for path_dir in "$HOME/.nix-profile/bin" "$HOME/bin" "$HOME/.local/bin"; do
+        if [[ ":$PATH:" != *":$path_dir:"* ]]; then
+          export PATH="$path_dir:$PATH"
+        fi
+      done
+      unset path_dir
       command -v ngrok &>/dev/null && source <(ngrok completion)
     '';
   };

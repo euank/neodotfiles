@@ -38,21 +38,6 @@ let
     hash = "sha256-hTKzE7hNgKwASC4RbyCW8S9F7KaTqqyLBKtkTM7Sz/w=";
   };
 
-  potProvider = pkgs.python3Packages.bgutil-ytdlp-pot-provider.overridePythonAttrs (previous: {
-    # Version 1.3.x listens on every interface and has no listen-address option.
-    # Keep the local provider private until upstream defaults to localhost.
-    postPatch = (previous.postPatch or "") + ''
-      substituteInPlace server/src/main.ts \
-        --replace-fail 'host: "::"' 'host: "127.0.0.1"' \
-        --replace-fail 'host: "0.0.0.0"' 'host: "127.0.0.1"'
-    '';
-  });
-
-  ytDlpWithPot = pkgs.python3.withPackages (pythonPackages: [
-    pythonPackages.yt-dlp
-    potProvider
-  ]);
-
 in
 {
   imports = [
@@ -181,7 +166,7 @@ in
     wireguard-tools
     wireshark
     wlr-randr
-    ytDlpWithPot
+    yt-dlp
     xdg-utils
     xdg-user-dirs
     xan

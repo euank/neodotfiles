@@ -568,7 +568,7 @@
             "drun"
           ];
           "Mod+Shift+D" = "wldash";
-          "Mod+Ctrl+L" = "swaylock";
+          "Mod+Ctrl+L" = [ "noctalia" "msg" "session" "lock" ];
           "Mod+Print" = "llm-ocr-area";
         }
       )

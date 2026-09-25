@@ -20,8 +20,8 @@ in
   '';
 
   ssh-sibyl = pkgs.writeShellScriptBin "ssh-sibyl" ''
-    lladdr="$(ip -j neigh get "10.57.25.254" dev wlan0 2>/dev/null | jq -cr '.[0].lladdr' 2>/dev/null || echo "")"
-    if [[ "$lladdr" == "00:0d:b9:4c:24:25" ]]; then
+    lladdr="$(ip -j neigh get "10.57.26.254" dev wlan0 2>/dev/null | jq -cr '.[0].lladdr' 2>/dev/null || echo "")"
+    if [[ "$lladdr" == "02:82:5b:c4:4c:a6" ]]; then
       # home router
       exec ssh sibyl "$@"
     else
@@ -30,8 +30,8 @@ in
   '';
 
   ssh-enk = pkgs.writeShellScriptBin "ssh-enk" ''
-    lladdr="$(ip -j neigh get "10.57.25.254" dev wlan0 2>/dev/null | jq -cr '.[0].lladdr' 2>/dev/null || echo "")"
-    if [[ "$lladdr" == "00:0d:b9:4c:24:25" ]]; then
+    lladdr="$(ip -j neigh get "10.57.26.254" dev wlan0 2>/dev/null | jq -cr '.[0].lladdr' 2>/dev/null || echo "")"
+    if [[ "$lladdr" == "02:82:5b:c4:4c:a6" ]]; then
       # home router
       exec ssh enkidudu-local "$@"
     else

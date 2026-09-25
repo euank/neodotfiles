@@ -151,7 +151,6 @@ in
     tcpdump
     tewisay
     tig
-    tmate
     tmux
     tokei
     tweag-credential-helper

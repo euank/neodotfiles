@@ -69,19 +69,20 @@ in
 
   programs.niri.settings = {
     outputs."DP-3" = {
+      focus-at-startup = true;
       mode = {
         width = 2560;
         height = 1440;
         refresh = 75.0;
       };
       position = {
-        x = 1440;
+        x = 0;
         y = 550;
       };
     };
     outputs."HDMI-A-1" = {
       position = {
-        x = 0;
+        x = 2560;
         y = 0;
       };
       mode = {

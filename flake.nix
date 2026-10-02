@@ -65,8 +65,16 @@
                 codex
                 happy-coder
                 chatgpt
-                herdr
                 ;
+
+              # ld.bfd (binutils 2.46) rejects the zig-built libghostty-vt with
+              # ".eh_frame_hdr refers to overlapping FDEs"; lld accepts it.
+              herdr = inputs.llm-agents.packages."${system}".herdr.overrideAttrs (old: {
+                nativeBuildInputs = old.nativeBuildInputs ++ [ final.lld ];
+                env = (old.env or { }) // {
+                  RUSTFLAGS = "-C link-arg=-fuse-ld=lld";
+                };
+              });
 
               inherit (inputs.nixpkgs-nixos-unstable-small.legacyPackages."${system}") anki waypipe;
 

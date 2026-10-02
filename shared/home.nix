@@ -153,6 +153,7 @@ in
     tig
     tmux
     tokei
+    tor-browser
     tweag-credential-helper
     toilet
     tree

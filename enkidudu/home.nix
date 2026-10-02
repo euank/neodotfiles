@@ -47,7 +47,6 @@ in
     # tic-80
     ninja
     restic
-    tor-browser
     wine
     winetricks
     zoom-us

@@ -8,7 +8,7 @@
 }:
 
 {
-  disabledModules = [ "programs/noctalia.nix" ];
+  disabledModules = [ "programs/noctalia" ];
 
   imports = [
     ./home.nix

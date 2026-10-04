@@ -64,7 +64,6 @@
                 claude-code
                 codex
                 happy-coder
-                chatgpt
                 ;
 
               # ld.bfd (binutils 2.46) rejects the zig-built libghostty-vt with

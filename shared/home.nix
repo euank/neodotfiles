@@ -51,7 +51,6 @@ in
     claude-code
     codex
     opencode
-    chatgpt
     herdr
     devenv
     # ast-grep

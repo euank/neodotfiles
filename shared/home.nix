@@ -67,7 +67,6 @@ in
     reptyr
     sendme
     dumbpipe
-    shpool
     smartmontools
     cowsay
     dua
@@ -234,31 +233,6 @@ in
   home.sessionVariables = sessionVariables;
   systemd.user.sessionVariables = sessionVariables;
 
-  systemd.user.sockets.shpool = {
-    Unit.Description = "Shpool Shell Session Pooler";
-    Socket = {
-      ListenStream = "%t/shpool/shpool.socket";
-      SocketMode = "0600";
-    };
-    Install.WantedBy = [ "sockets.target" ];
-  };
-
-  systemd.user.services.shpool = {
-    Unit = {
-      Description = "Shpool - Shell Session Pool";
-      Requires = [ "shpool.socket" ];
-      X-SwitchMethod = "keep-old";
-    };
-    Service = {
-      Type = "simple";
-      ExecStart = "${pkgs.shpool}/bin/shpool daemon";
-      KillMode = "mixed";
-      TimeoutStopSec = "2s";
-      SendSIGHUP = true;
-    };
-    Install.WantedBy = [ "default.target" ];
-  };
-
   programs.autorandr.enable = true;
 
   programs.atuin.enable = true;
@@ -288,7 +262,6 @@ in
       source "${../shared/zsh/p10k.zsh}"
       source ${zsh-p10k-jj}/p10k-jj-status.plugin.zsh
       source "${../shared/zsh/zshrc}"
-      source "${../shared/zsh/shpool-completions}"
       # Keep existing PATH entries in place; prepend only missing directories.
       for path_dir in "$HOME/.nix-profile/bin" "$HOME/bin" "$HOME/.local/bin"; do
         if [[ ":$PATH:" != *":$path_dir:"* ]]; then

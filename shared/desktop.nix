@@ -104,7 +104,6 @@
   };
   programs.zsh.enable = true;
   qt.enable = true;
-  qt.platformTheme = "lxqt";
 
   services.gnome.gnome-keyring.enable = true;
 

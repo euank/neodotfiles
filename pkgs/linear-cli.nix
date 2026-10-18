@@ -3,11 +3,11 @@
 let
   linear-unwrapped = pkgs.stdenv.mkDerivation rec {
     pname = "linear-cli-unwrapped";
-    version = "1.10.0";
+    version = "3.0.0";
 
     src = pkgs.fetchurl {
       url = "https://github.com/schpet/linear-cli/releases/download/v${version}/linear-x86_64-unknown-linux-gnu.tar.xz";
-      hash = "sha256-UZUYUkcHmh/cCM2xAxAeJrG1sdBj1fTB2n7HknjTdVg=";
+      hash = "sha256-UGSmOn5qi1iTpVDhOMCnujc6rWXUJd3msrZrUKbBAok=";
     };
 
     sourceRoot = "linear-x86_64-unknown-linux-gnu";
@@ -27,7 +27,7 @@ let
 in
 pkgs.buildFHSEnv {
   name = "linear";
-  version = "1.10.0";
+  version = "3.0.0";
 
   targetPkgs = pkgs: [
     pkgs.stdenv.cc.cc.lib

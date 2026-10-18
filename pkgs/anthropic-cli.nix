@@ -2,16 +2,16 @@
 
 pkgs.buildGoModule rec {
   pname = "anthropic-cli";
-  version = "1.30.0";
+  version = "1.42.0";
 
   src = pkgs.fetchFromGitHub {
     owner = "anthropics";
     repo = "anthropic-cli";
     tag = "v${version}";
-    hash = "sha256-O3J6w8xaFloLa4wp9K6w+XAMuk7zdmFeaJsKgo4I3f4=";
+    hash = "sha256-WS6pub4Gc9QhNnRNNPD/ORYmaVrBEtKt4Hd5Iv4iI34=";
   };
 
-  vendorHash = "sha256-FJqJOIaUMjOOpsROz68e2paY+Vig/anW0HxwaxjUC7c=";
+  vendorHash = "sha256-PMN+BrUxURQKYKdHzOe/iLAoxZ9+RmoOkKsD4X8LmGc=";
 
   subPackages = [ "cmd/ant" ];
 

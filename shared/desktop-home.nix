@@ -543,6 +543,9 @@
         enable = true;
         max-scroll-amount = "0%";
       };
+      touchpad = {
+        accel-profile = "flat";
+      };
     };
     binds =
       (pkgs.lib.mapAttrs

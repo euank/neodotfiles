@@ -26,10 +26,15 @@
     protontricks.enable = true;
   };
 
+  # wayvr injects pointer/keyboard input via /dev/uinput
+  hardware.uinput.enable = true;
+  users.users.esk.extraGroups = [ "uinput" ];
+
   services.usbmuxd.enable = true;
   environment.systemPackages = with pkgs; [
     libimobiledevice
     ifuse
+    wayvr
   ];
 
   boot.loader.systemd-boot.enable = true;

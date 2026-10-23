@@ -75,7 +75,11 @@
                 };
               });
 
-              inherit (inputs.nixpkgs-nixos-unstable-small.legacyPackages."${system}") anki waypipe;
+              inherit (inputs.nixpkgs-nixos-unstable-small.legacyPackages."${system}")
+                anki
+                waypipe
+                fcitx5-mozc
+                ;
 
               mvn2nix = mvn2nix.defaultPackage.x86_64-linux;
               anthropic-cli = import ./pkgs/anthropic-cli.nix { pkgs = final; };

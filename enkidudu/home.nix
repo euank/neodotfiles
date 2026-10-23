@@ -23,7 +23,6 @@ in
   ];
 
   home.packages = with pkgs; [
-    calibre
     nickel
     android-tools
 

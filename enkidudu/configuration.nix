@@ -26,6 +26,32 @@
     protontricks.enable = true;
   };
 
+  fileSystems."/nfs/steam" = {
+    device = "10.57.26.47:/pgamma/data/steam";
+    fsType = "nfs";
+    options = [
+      "nfsvers=4.2"
+      "noauto"
+      "x-systemd.automount"
+      "x-systemd.idle-timeout=600"
+      "x-systemd.mount-timeout=10s"
+      "_netdev"
+    ];
+  };
+  # Don't let a dead NFS server stall shutdown: 'umount -f' aborts in-flight
+  # requests, and the timeout bounds the unmount itself.
+  systemd.mounts = [
+    {
+      what = "10.57.26.47:/pgamma/data/steam";
+      where = "/nfs/steam";
+      overrideStrategy = "asDropin";
+      mountConfig = {
+        ForceUnmount = true;
+        TimeoutSec = "10s";
+      };
+    }
+  ];
+
   # wayvr injects pointer/keyboard input via /dev/uinput
   hardware.uinput.enable = true;
   users.users.esk.extraGroups = [ "uinput" ];

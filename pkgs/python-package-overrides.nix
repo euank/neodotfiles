@@ -28,6 +28,15 @@ pyFinal: pyPrev:
     version = httpx2Version;
     src = httpx2Src;
     postPatch = old.postPatch + relaxUvDynamicVersioning;
+    # Timing-sensitive (anyio.move_on_after(0.01)); flaky on loaded builders.
+    # nixpkgs only disables these on riscv64.
+    disabledTests = final.lib.unique (
+      (old.disabledTests or [ ])
+      ++ [
+        "test_h2_timeout_during_request"
+        "test_h2_timeout_during_response"
+      ]
+    );
   });
 
   # Needed by openai 3.x

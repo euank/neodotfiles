@@ -6,6 +6,7 @@ in
 {
   imports = [
     ./hardware-configuration.nix
+    ./ngrok-agent.nix
     home-manager.nixosModules.home-manager
     nixos-hardware.nixosModules.lenovo-thinkpad-x1-10th-gen
     ../shared/base.nix
@@ -67,6 +68,14 @@ in
     "2001:4860:4860::8888"
   ];
   networking.dhcpcd.enable = false;
+
+  services.resolved = {
+    enable = true;
+    settings.Resolve = {
+      DNS = [ "127.0.0.1" ];
+      Domains = [ "~." ];
+    };
+  };
 
   #services.unifi = {
   #  enable = true;

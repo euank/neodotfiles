@@ -70,7 +70,6 @@
     kernelModules = [ "igb" ];
     network = {
       enable = true;
-      udhcpc.enable = false;
       ssh = {
         enable = true;
         authorizedKeys = config.users.users.esk.openssh.authorizedKeys.keys;

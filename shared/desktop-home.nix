@@ -799,18 +799,5 @@
     size = 24;
   };
 
-  i18n.inputMethod = {
-    type = "fcitx5";
-    enable = true;
-    fcitx5 = {
-      waylandFrontend = true;
-      addons = with pkgs; [
-        fcitx5-gtk
-        fcitx5-mozc
-        fcitx5-tokyonight
-      ];
-    };
-  };
-
   home.stateVersion = "20.03";
 }

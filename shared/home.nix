@@ -128,6 +128,7 @@ in
     nwg-look
     moreutils
     obsidian
+    (lib.hiPrio opener-client)
     onetun
     openssl
     nixd

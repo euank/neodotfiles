@@ -2,6 +2,7 @@
 
 {
   pkgs,
+  lib,
   config,
   inputs,
   ...
@@ -88,6 +89,46 @@
       anki-draw
       # colorful-tags
     ];
+  };
+
+  # opener receives URLs over Unix sockets forwarded for explicitly trusted
+  # hosts in ~/.ssh/config.
+  # xdg-open then selects this entry, keeping links in the Firefox profile
+  # used for ordinary browsing when other profiles run in parallel.
+  # Use a data file rather than xdg.desktopEntries: the Home Manager and
+  # nixpkgs revisions currently in this flake disagree about that option.
+  xdg.dataFile."applications/firefox-def.desktop".text = ''
+    [Desktop Entry]
+    Type=Application
+    Name=Firefox (default profile)
+    GenericName=Web Browser
+    Exec=${pkgs.firefox}/bin/firefox -P default %U
+    Terminal=false
+    Categories=Application;Network;WebBrowser;
+    MimeType=text/html;application/xhtml+xml;x-scheme-handler/http;x-scheme-handler/https;
+  '';
+
+  xdg.mimeApps.defaultApplications = {
+    "text/html" = lib.mkForce [ "firefox-def.desktop" ];
+    "x-scheme-handler/http" = lib.mkForce [ "firefox-def.desktop" ];
+    "x-scheme-handler/https" = lib.mkForce [ "firefox-def.desktop" ];
+  };
+
+  systemd.user.services.opener = {
+    Unit = {
+      Description = "Open SSH-remote URLs in the local browser";
+      After = [ "graphical-session-pre.target" ];
+      PartOf = [ "graphical-session.target" ];
+    };
+    Install.WantedBy = [ "graphical-session.target" ];
+    Service = {
+      ExecStart = "${pkgs.opener}/bin/opener";
+      # Keep the daemon on the real local xdg-open, not the SSH-aware wrapper.
+      Environment = [
+        "PATH=${pkgs.xdg-utils}/bin:${config.home.profileDirectory}/bin:/run/current-system/sw/bin"
+      ];
+      Restart = "on-failure";
+    };
   };
 
   programs.noctalia = {

@@ -37,7 +37,12 @@
   environment.pathsToLink = [ "/share/zsh" ];
   services.openssh = {
     enable = true;
-    settings.PasswordAuthentication = false;
+    settings = {
+      PasswordAuthentication = false;
+      # Let a new SSH connection replace an opener socket left behind by a
+      # disconnected session.
+      StreamLocalBindUnlink = true;
+    };
     extraConfig = "AllowUsers esk";
   };
 

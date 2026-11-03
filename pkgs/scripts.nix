@@ -6,8 +6,54 @@ let
     llm
     wl-clipboard
     ;
+
+  opener-open = pkgs.writeShellApplication {
+    name = "open";
+    text = ''
+      if (( $# == 0 )); then
+        url="$(cat)"
+      else
+        url="$*"
+      fi
+
+      if [[ -n "''${OPENER_SOCKET:-}" ]]; then
+        socket="$OPENER_SOCKET"
+      elif [[ -n "''${SSH_CONNECTION:-}" ]]; then
+        socket="/tmp/opener-$(${pkgs.coreutils}/bin/id -un).sock"
+      else
+        socket="$HOME/.opener.sock"
+      fi
+
+      if [[ ! -S "$socket" ]]; then
+        echo "open: opener socket does not exist: $socket" >&2
+        exit 1
+      fi
+
+      # -N half-closes the socket after stdin reaches EOF, allowing opener to
+      # finish reading the URL and close its side of the connection.
+      printf '%s\n' "$url" | ${pkgs.netcat-openbsd}/bin/nc -N -U "$socket"
+    '';
+  };
+
+  opener-xdg-open = pkgs.writeShellApplication {
+    name = "xdg-open";
+    text = ''
+      if [[ -n "''${SSH_CONNECTION:-}" ]]; then
+        exec ${opener-open}/bin/open "$@"
+      fi
+      exec ${pkgs.xdg-utils}/bin/xdg-open "$@"
+    '';
+  };
 in
 {
+  opener-client = pkgs.symlinkJoin {
+    name = "opener-client";
+    paths = [
+      opener-open
+      opener-xdg-open
+    ];
+  };
+
   screenshot-area = pkgs.writeShellScriptBin "screenshot-area" ''
     selection="$(${slurp}/bin/slurp)"
     ${grim}/bin/grim -g "$selection" - | ${wl-clipboard}/bin/wl-copy -t "image/png"

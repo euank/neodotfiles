@@ -37,6 +37,7 @@
     cheese
     google-chrome
     gptfdisk
+    herdr-app
     inkscape
 
     libreoffice

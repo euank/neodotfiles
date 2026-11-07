@@ -44,64 +44,169 @@ in
     ./vim/vim.nix
   ];
   home.packages = with pkgs; [
-    autorandr
-    amazon-ecr-credential-helper
-    atuin
-    anthropic-cli
-    claude-code
-    codex
-    opencode
-    herdr
-    devenv
-    # ast-grep
-    binutils
-    borgbackup
-    cfssl
-    darktable
-    exiftool
-    colmena
-    cntr
-    iotop
     _1password-cli
-    reptyr
-    sendme
-    dumbpipe
-    smartmontools
+    amazon-ecr-credential-helper
+    asciinema
+    atuin
+    autorandr
+    awscli2
+    bandwhich
+    bc
+    bind
+    binutils
+    binutils
+    bison
+    borgbackup
+    boringtun
+    cfssl
+    cntr
+    colmena
     cowsay
+    d-spy
+    darktable
+    deno
+    devenv
     dua
-    maestral
-    multitail
+    dumbpipe
+    efibootmgr
+    elfutils
     ethtool
+    exiftool
     eza
     ffmpeg-full
     figlet
     file
     fish
     flamegraph
+    flex
     flyctl
     font-manager
     fx-cast-bridge
+    gcc
+    gdb
+    gh
     git-spice
-    happy-coder
+    gnumake
+    gnupg
+    go_1_26
+    gofumpt
+    gopls
+    gradle
     heaptrack
     htop
+    hyperfine
+    inotify-tools
+    iotop
     iperf3
     iptables
     iputils
     iroh-ssh
     iw
+    jjui
     jq
     jujutsu
-    lazyjj
-    jjui
     k3s
     kind
-    # krita
-    ollama
-    asciinema
-    (lib.hiPrio kubectl)
     kubernetes-helm
+    (lib.hiPrio kubectl)
+    lazyjj
     linear-cli
+    lld
+    lshw
+    lsof
+    maestral
+    mkvtoolnix
+    moreutils
+    multipath-tools
+    multitail
+    mvn2nix
+    ncurses
+    ngrok
+    nil
+    nix-index
+    nix-tree
+    nixd
+    nixfmt
+    nixos-install-tools
+    nixpkgs-fmt
+    nixpkgs-review
+    nmap
+    nodejs
+    nwg-look
+    obsidian
+    onetun
+    openssl
+    (lib.hiPrio opener-client)
+    p7zip
+    parted
+    pass
+    pavucontrol
+    pciutils
+    perf-tools
+    pkg-config
+    postgresql
+    pwgen
+    railway
+    redis
+    reptyr
+    rf
+    ripgrep
+    ruby
+    rustup
+    sbsigntool
+    sendme
+    shotgun
+    slop
+    smartmontools
+    sops
+    sqlite
+    sqlite.dev
+    sshfs
+    tcpdump
+    tewisay
+    tig
+    tmux
+    toilet
+    tokei
+    tor-browser
+    tree
+    treefmt
+    tweag-credential-helper
+    typescript-language-server
+    unzip
+    usbutils
+    w3m
+    wal-g
+    wasm-pack
+    wavemon
+    waypipe
+    wireguard-tools
+    wirelesstools
+    wireshark
+    wlr-randr
+    xan
+    xclip
+    xdg-desktop-portal-gnome
+    xdg-desktop-portal-gtk
+    xdg-desktop-portal-wlr
+    xdg-user-dirs
+    xdg-utils
+    xdotool
+    xeyes
+    yaml2nix
+    yt-dlp
+    zed-editor
+    zip
+    zmx
+    zsh-powerlevel10k
+
+    anthropic-cli
+    claude-code
+    codex
+    happy-coder
+    herdr
+    herdr-core
+    ollama
     (llm.withPlugins {
       llm-anthropic = true;
       llm-gemini = true;
@@ -113,120 +218,21 @@ in
       llm-jq = true;
       llm-tools-sqlite = true;
     })
-    lsof
-    w3m
-    multipath-tools
-    ngrok
-    xdotool
-    nil
-    nix-index
-    nix-tree
-    nixfmt
-    nixos-install-tools
-    nixpkgs-fmt
-    nmap
-    nwg-look
-    moreutils
-    obsidian
-    (lib.hiPrio opener-client)
-    onetun
-    openssl
-    nixd
-    parted
-    postgresql
-    p7zip
-    pass
-    pciutils
-    pavucontrol
-    pwgen
-    redis
-    rf
-    ripgrep
-    shotgun
-    sops
-    sqlite
-    sqlite.dev
-    sshfs
-    tcpdump
-    tewisay
-    tig
-    tmux
-    tokei
-    tor-browser
-    tweag-credential-helper
-    toilet
-    tree
-    unzip
-    wasm-pack
-    wavemon
-    # Temporarily disabled
-    waypipe
-    wirelesstools
-    wireguard-tools
-    wireshark
-    wlr-randr
-    yt-dlp
-    xdg-utils
-    xdg-user-dirs
-    xan
-    slop
-    # voicevox
-    zed-editor
-    zip
-    zsh-powerlevel10k
-    treefmt
-    zmx
+    opencode
+    pi
 
-    awscli2
-    bandwhich
-    bc
-    bind
-    binutils
-    bison
-    deno
-    elfutils
-    flex
-    gcc
-    gdb
-    gh
-    gnumake
-    go_1_26
-    gopls
-    gofumpt
-    gradle
-    hyperfine
-    # ipmiview
-    nixpkgs-review
-    nodejs
-    mvn2nix
-    ncurses
-    typescript-language-server
-    perf-tools
-    pkg-config
-    ruby
-    rustup
-    d-spy
-    boringtun
-    onetun
-    railway
-    xclip
-    xdg-desktop-portal-gtk
-    xdg-desktop-portal-gnome
-    xdg-desktop-portal-wlr
-    yaml2nix
 
     # misc
     efibootmgr
     # efitools
-    i3lock
     inotify-tools
     lld
     lshw
     usbutils
     sbsigntool
     wal-g
-    xeyes
     mkvtoolnix
+    xeyes
     gnupg
   ];
 

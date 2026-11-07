@@ -123,17 +123,6 @@
             ./enkidudu/configuration.nix
           ];
         };
-        pascal = nixpkgs.lib.nixosSystem {
-          inherit pkgs system;
-          specialArgs = {
-            inherit inputs;
-          };
-          modules = [
-            inputs.niri.nixosModules.niri
-            ./pascal/configuration.nix
-          ];
-        };
-
         demerzel = nixpkgs.lib.nixosSystem {
           inherit pkgs system;
           specialArgs = {

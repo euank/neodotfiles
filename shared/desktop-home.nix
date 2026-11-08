@@ -51,6 +51,7 @@
     kdePackages.kio-extras
     kdePackages.dolphin
     pavucontrol
+    prospero
     pulseaudioFull
     # Temporary: https://github.com/NixOS/nixpkgs/issues/367870
     # shotcut

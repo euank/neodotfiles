@@ -80,6 +80,7 @@
               anthropic-cli = import ./pkgs/anthropic-cli.nix { pkgs = final; };
               rf = import ./pkgs/rf.nix { pkgs = final; };
               linear-cli = import ./pkgs/linear-cli.nix { pkgs = final; };
+              prospero = import ./pkgs/prospero.nix { pkgs = final; };
               python3 = prev.python3.override {
                 packageOverrides = import ./pkgs/python-package-overrides.nix {
                   inherit final inputs;

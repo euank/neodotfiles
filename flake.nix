@@ -22,11 +22,6 @@
       url = "github:sodiboo/niri-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    # Upstream base for the checked-in RemoteDesktop patch (niri PR #1966).
-    niri-remote-desktop = {
-      url = "github:niri-wm/niri/d0cd58ec5ac6b2d41d42478fb4f3cc7c0c687db9";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     noctalia = {
       url = "github:noctalia-dev/noctalia";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -60,21 +55,6 @@
           ekverlay.overlays.default
           nixek.overlay
           inputs.niri.overlays.niri
-          inputs.niri-remote-desktop.overlays.default
-          (final: prev: {
-            niri = prev.niri.overrideAttrs (finalAttrs: old: {
-              # Patch before cargo vendoring: the patch also changes Cargo.lock.
-              src = final.applyPatches {
-                name = "niri-remote-desktop-source";
-                src = inputs.niri-remote-desktop;
-                patches = [ ./pkgs/patches/niri-remote-desktop.patch ];
-              };
-              cargoDeps = final.rustPlatform.importCargoLock {
-                lockFile = "${finalAttrs.src}/Cargo.lock";
-                allowBuiltinFetchGit = true;
-              };
-            });
-          })
           (
             final: prev:
             {

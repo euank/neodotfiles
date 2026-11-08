@@ -26,6 +26,28 @@
     protontricks.enable = true;
   };
 
+  # Create this credentials file outside Nix, owned by root with mode 0600:
+  # username=esk
+  # password=<SMB password>
+  fileSystems."/smb/media" = {
+    device = "//10.57.26.47/media";
+    fsType = "cifs";
+    options = [
+      "credentials=/etc/samba/credentials/media"
+      "uid=esk"
+      "forceuid"
+      "file_mode=0600"
+      "dir_mode=0700"
+      "nounix"
+      "noauto"
+      "nofail"
+      "x-systemd.automount"
+      "x-systemd.idle-timeout=600"
+      "x-systemd.mount-timeout=10s"
+      "_netdev"
+    ];
+  };
+
   fileSystems."/nfs/steam" = {
     device = "10.57.26.47:/pgamma/data/steam";
     fsType = "nfs";

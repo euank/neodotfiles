@@ -48,6 +48,25 @@
     ];
   };
 
+  fileSystems."/smb/data" = {
+    device = "//10.57.26.47/data";
+    fsType = "cifs";
+    options = [
+      "credentials=/etc/samba/credentials/media"
+      "uid=esk"
+      "forceuid"
+      "file_mode=0600"
+      "dir_mode=0700"
+      "nounix"
+      "noauto"
+      "nofail"
+      "x-systemd.automount"
+      "x-systemd.idle-timeout=600"
+      "x-systemd.mount-timeout=10s"
+      "_netdev"
+    ];
+  };
+
   fileSystems."/nfs/steam" = {
     device = "10.57.26.47:/pgamma/data/steam";
     fsType = "nfs";

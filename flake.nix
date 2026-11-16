@@ -62,7 +62,7 @@
 
               inherit (inputs.llm-agents.packages."${system}")
                 claude-code
-                codex
+                # codex # temporary, waiting on https://github.com/numtide/llm-agents.nix/pull/12320
                 happy-coder
                 herdr
                 herdr-app

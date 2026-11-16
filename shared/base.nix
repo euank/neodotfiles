@@ -29,6 +29,7 @@
     alacritty
     pinentry-curses
     pkg-config
+    python3
     tio
     vim
     wget

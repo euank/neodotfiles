@@ -66,10 +66,12 @@ in
   '';
 
   ssh-sibyl = pkgs.writeShellScriptBin "ssh-sibyl" ''
+    exec ssh sibyl "$@"
+    # in case of emergency break glass I guess
     lladdr="$(ip -j neigh get "10.57.26.254" dev wlan0 2>/dev/null | jq -cr '.[0].lladdr' 2>/dev/null || echo "")"
     if [[ "$lladdr" == "02:82:5b:c4:4c:a6" ]]; then
       # home router
-      exec ssh sibyl "$@"
+      exec ssh sibyl-int "$@"
     else
       exec ssh sibyl-home "$@"
     fi
